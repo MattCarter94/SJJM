@@ -1,1 +1,1 @@
-oooooh i'm a readme test
+http://rogerdudler.github.io/git-guide/
