@@ -1,11 +1,13 @@
 package com.nbgardens.net_app;
 
 import java.util.Currency;
+import java.util.List;
 
 public class Basket {
 	private Integer basketID;
 	private Integer userID;
 	private Currency totalPrice;
+	private List<BasketProduct> basketProducts;
 	
 	
 	
@@ -27,5 +29,11 @@ public class Basket {
 	}
 	public void setTotalPrice(Currency totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+	public List<BasketProduct> getBasketProducts() {
+		return basketProducts;
+	}
+	public void setBasketProducts(List<BasketProduct> basketProducts) {
+		this.basketProducts = basketProducts;
 	}
 }

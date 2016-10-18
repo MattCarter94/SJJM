@@ -1,6 +1,7 @@
 package com.nbgardens.net_app;
 
 import java.util.Currency;
+import java.util.List;
 
 public class User {
 	
@@ -21,7 +22,8 @@ public class User {
 	private String town;
 	private String county;
 	private String postcode;
-	
+	private List<CustomerOrder> customerOrders;
+	private List<CardDetails> cardDetails;
 	
 	
 	
@@ -104,4 +106,17 @@ public class User {
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
+	public List<CustomerOrder> getCustomerOrders() {
+		return customerOrders;
+	}
+	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
+		this.customerOrders = customerOrders;
+	}
+	public List<CardDetails> getCardDetails() {
+		return cardDetails;
+	}
+	public void setCardDetails(List<CardDetails> cardDetails) {
+		this.cardDetails = cardDetails;
+	}
+	
 }

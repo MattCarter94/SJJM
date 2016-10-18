@@ -2,6 +2,7 @@ package com.nbgardens.net_app;
 
 import java.util.Currency;
 import java.util.Date;
+import java.util.List;
 
 public class StockOrder {
 	private Integer stockOrderID;
@@ -11,7 +12,7 @@ public class StockOrder {
 	private Currency totalPrice;
 	private Date stockOrderDate;
 	private Date stockRecievedDate;
-	
+	private List<Product> products;
 	
 	
 	
@@ -58,5 +59,11 @@ public class StockOrder {
 	}
 	public void setStockRecievedDate(Date stockRecievedDate) {
 		this.stockRecievedDate = stockRecievedDate;
+	}
+	public List<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 }

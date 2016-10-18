@@ -1,6 +1,7 @@
 package com.nbgardens.net_app;
 
 import java.util.Currency;
+import java.util.List;
 
 public class Product {
 	private enum Category{
@@ -19,6 +20,8 @@ public class Product {
 	private String[] tags;
 	private Integer stock;
 	private State state;
+	private List<BasketProduct> basketProducts;
+	private List<WishlistProduct> wishlistProducts;
 	
 	
 	
@@ -76,5 +79,17 @@ public class Product {
 	}
 	public void setState(State state) {
 		this.state = state;
+	}
+	public List<BasketProduct> getBasketProducts() {
+		return basketProducts;
+	}
+	public void setBasketProducts(List<BasketProduct> basketProducts) {
+		this.basketProducts = basketProducts;
+	}
+	public List<WishlistProduct> getWishlistProducts() {
+		return wishlistProducts;
+	}
+	public void setWishlistProducts(List<WishlistProduct> wishlistProducts) {
+		this.wishlistProducts = wishlistProducts;
 	}
 }

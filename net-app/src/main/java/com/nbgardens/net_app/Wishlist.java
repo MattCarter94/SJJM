@@ -1,10 +1,12 @@
 package com.nbgardens.net_app;
 
+import java.util.List;
+
 public class Wishlist {
 	private Integer wishlistID;
 	private Integer userID;
 	private Integer productID;
-	
+	private List<WishlistProduct> wishlistProducts;
 	
 	
 	
@@ -26,5 +28,11 @@ public class Wishlist {
 	}
 	public void setProductID(Integer productID) {
 		this.productID = productID;
+	}
+	public List<WishlistProduct> getWishlistProducts() {
+		return wishlistProducts;
+	}
+	public void setWishlistProducts(List<WishlistProduct> wishlistProducts) {
+		this.wishlistProducts = wishlistProducts;
 	}
 }
