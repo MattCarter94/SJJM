@@ -6,13 +6,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+@NamedQueries(  
+	    {  
+	        @NamedQuery(  
+	        name = "Author.findEmployeeByName",  
+	        query = "from Employee e where e.name = :name"  
+	        )  
+	    }  
+	)  
+
+
 @Entity
 @Table (name = "Wishlist_Product")
 public class WishlistProduct {
+	
 	
 	@Id //ID is for PK
 	@Column (name = "WishList_Product_ID")  

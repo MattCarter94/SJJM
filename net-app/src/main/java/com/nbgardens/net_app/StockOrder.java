@@ -35,8 +35,6 @@ import javax.validation.constraints.NotNull;
 
 
 
-
-
 @Entity
 @Table (name = "Stock_Order")
 public class StockOrder {
