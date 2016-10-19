@@ -1,29 +1,64 @@
 package com.nbgardens.net_app;
 
 import java.util.Currency;
-import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "User")
 public class User {
 	
 	private enum Permissions{
 		Customer, Admin, IMS
 	};
 	
+	@Id //ID is for PK
+	@Column (name = "User_ID")  
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer userID;
+	
+	@Column (name = "First_Name", length = 255)
 	private String firstName;
+	
+	@Column (name = "Surname", length = 255)
 	private String surname;
+	
+	@Column (name = "Credit")
 	private Currency credit;
+	
+	@Column (name = "Email", length = 255)
 	private String email;
-	private String phoneNo;
+	
+	@Column (name = "Phone_Number")
+	private String phoneNumber;
+	
+	@Column (name = "Password", length = 255)
 	private String password;
+	
+	@Column (name = "Permissions")
 	private Permissions permissions;
+	
+	@Column (name = "Address_1", length = 255)
 	private String address1;
+	
+	@Column (name = "Address_2", length = 255)
 	private String address2;
+	
+	@Column (name = "Town", length = 255)
 	private String town;
+	
+	@Column (name = "County", length = 255)
 	private String county;
+	
+	@Column (name = "Postcode", length = 255)
 	private String postcode;
-	private List<CustomerOrder> customerOrders;
-	private List<CardDetails> cardDetails;
+	
+	
 	
 	
 	
@@ -58,11 +93,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhoneNo() {
-		return phoneNo;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
+	public void setPhoneNo(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	public String getPassword() {
 		return password;
@@ -105,18 +140,6 @@ public class User {
 	}
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
-	}
-	public List<CustomerOrder> getCustomerOrders() {
-		return customerOrders;
-	}
-	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
-		this.customerOrders = customerOrders;
-	}
-	public List<CardDetails> getCardDetails() {
-		return cardDetails;
-	}
-	public void setCardDetails(List<CardDetails> cardDetails) {
-		this.cardDetails = cardDetails;
 	}
 	
 }
