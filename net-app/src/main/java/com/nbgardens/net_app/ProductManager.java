@@ -1,0 +1,15 @@
+package com.nbgardens.net_app;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public interface ProductManager {
+	public void persistProduct(Product p);
+	public void persistProducts(List<Product> p);
+	
+	public Product findProductById(Integer id);
+	public ArrayList<Product> getProducts();
+	
+	public void updateProduct (Product p);
+	public void removeProduct (Product p);
+}
