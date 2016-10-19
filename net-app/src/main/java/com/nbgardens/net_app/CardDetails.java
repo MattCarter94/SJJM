@@ -2,11 +2,36 @@ package com.nbgardens.net_app;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+@Entity
+@Table (name = "Card_Details")
 public class CardDetails {
+	
+	@Id //ID is for PK
+	@Column (name = "Card_ID")  
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer cardID;
-	private Integer userID;
+	
+	@OneToOne //For FK.
+	@JoinColumn(name="User_ID", nullable = false)
+	@NotNull
+	private User userID;
+	
+	@Column (name = "Card_No", length = 19)
+	@NotNull
 	private String cardNo;
+	
+	@Column (name = "Card_Expiry")
+	@NotNull
 	private Date cardExpiry;
 	
 	
@@ -20,10 +45,10 @@ public class CardDetails {
 	public void setCardID(Integer cardID) {
 		this.cardID = cardID;
 	}
-	public Integer getUserID() {
+	public User getUserID() {
 		return userID;
 	}
-	public void setUserID(Integer userID) {
+	public void setUserID(User userID) {
 		this.userID = userID;
 	}
 	public String getCardNo() {

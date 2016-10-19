@@ -20,17 +20,18 @@ public class BasketProduct {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer bpID;
 	
-	@OneToZeroToMany //For FK.
+	@OneToOne //For FK.
 	@JoinColumn(name="Basket_ID", nullable = false)
 	@NotNull
-	private Integer basketID;
+	private Basket basketID;
 	
-	@ZeroToManyToZeroToOne //For FK.
+	@OneToOne //For FK.
 	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
-	private Integer productID;
+	private Product productID;
 	
 	@Column (name = "Quantity")
+	@NotNull
 	private Integer quantity;
 	
 	
@@ -42,16 +43,16 @@ public class BasketProduct {
 	public void setBpID(Integer bpID) {
 		this.bpID = bpID;
 	}
-	public Integer getBasketID() {
+	public Basket getBasketID() {
 		return basketID;
 	}
-	public void setBasketID(Integer basketID) {
+	public void setBasketID(Basket basketID) {
 		this.basketID = basketID;
 	}
-	public Integer getProductID() {
+	public Product getProductID() {
 		return productID;
 	}
-	public void setProductID(Integer productID) {
+	public void setProductID(Product productID) {
 		this.productID = productID;
 	}
 	public Integer getQuantity() {
