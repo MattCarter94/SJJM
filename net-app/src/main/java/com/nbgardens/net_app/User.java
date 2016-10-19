@@ -58,6 +58,28 @@ public class User {
 	@Column (name = "Postcode", length = 255)
 	private String postcode;
 	
+	//End of variables
+	
+	//Constructors
+	public User() {};
+	public User(String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
+		this.firstName = name;
+		this.surname = surname;
+		//this.credit = new Currency(10000);
+		this.phoneNumber = phoneNo;
+		this.password = password;
+		//TODO FIX THIS: this.permissions = permissions;
+		this.address1 = add1;
+		this.address2 = add2;
+		this.town = town;
+		this.county = county;
+		this.postcode = postcode;
+
+	}
+	
+	
+	//End constructors
+	
 	
 	
 	
