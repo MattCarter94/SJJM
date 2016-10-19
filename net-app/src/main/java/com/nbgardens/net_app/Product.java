@@ -1,27 +1,72 @@
 package com.nbgardens.net_app;
 
 import java.util.Currency;
-import java.util.List;
+import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+
+
+
+//SQL table definition
+@Entity
+@Table (name = "Product")
 public class Product {
+	
+	@Id //ID is for PK
+	@Column (name = "Product_ID")  
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Integer productID;
+	
+	@Column (name = "Title", nullable = false, length = 255)
+	@NotNull
+	private String title;
+	
+	@Column (name = "Price", nullable = false)
+	@NotNull
+	private Currency price;
+	
+	@Column (name = "Description", nullable = false, length = 1000)
+	@NotNull
+	private String description;
+	
+	@Column (name = "Category", nullable = false, length = 255)
+	@NotNull
+	private Category category;
+	
+	@Column (name = "Image", nullable = false, length = 255)
+	@NotNull
+	private String image;
+	
+	@Column (name = "Tags", nullable = false, length = 255)
+	@NotNull
+	private String[] tags;
+
+	@Column (name = "Stock", nullable = false)
+	@NotNull
+	private Integer stock;
+	
+	@Column (name = "State", nullable = false, length = 255)
+	@NotNull
+	private State state;
+	
+	@Column (name = "Order_Date", nullable = false)
+	@NotNull
+	private Date orderDate;
+	//End of table definition
+	
 	private enum Category{
 		Gnome, GnomeAccessory, GardenEquipment
 	};
 	private enum State{
 		Active, Discontinued
 	};
-	
-	private Integer productID;
-	private String title;
-	private Currency price;
-	private String description;
-	private Category category;
-	private String image;
-	private String[] tags;
-	private Integer stock;
-	private State state;
-	private List<BasketProduct> basketProducts;
-	private List<WishlistProduct> wishlistProducts;
 	
 	
 	
@@ -79,17 +124,5 @@ public class Product {
 	}
 	public void setState(State state) {
 		this.state = state;
-	}
-	public List<BasketProduct> getBasketProducts() {
-		return basketProducts;
-	}
-	public void setBasketProducts(List<BasketProduct> basketProducts) {
-		this.basketProducts = basketProducts;
-	}
-	public List<WishlistProduct> getWishlistProducts() {
-		return wishlistProducts;
-	}
-	public void setWishlistProducts(List<WishlistProduct> wishlistProducts) {
-		this.wishlistProducts = wishlistProducts;
 	}
 }
