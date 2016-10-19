@@ -13,7 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-
 @Entity
 @Table (name = "Basket")
 public class Basket {
@@ -26,16 +25,16 @@ public class Basket {
 	@OneToOne //For FK.
 	@JoinColumn(name="User_ID", nullable = false)
 	@NotNull
-	private Integer userID;
+	private User userID;
 	
 	
 	@Column (name = "Total_Price")
 	private Currency totalPrice;
 	
+	
 	private List<BasketProduct> basketProducts;
 	
 	
-
 	//GETTERS AND SETTERS
 	public Integer getBasketID() {
 		return basketID;
@@ -43,10 +42,10 @@ public class Basket {
 	public void setBasketID(Integer basketID) {
 		this.basketID = basketID;
 	}
-	public Integer getUserID() {
+	public User getUserID() {
 		return userID;
 	}
-	public void setUserID(Integer userID) {
+	public void setUserID(User userID) {
 		this.userID = userID;
 	}
 	public Currency getTotalPrice() {
