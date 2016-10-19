@@ -1,9 +1,36 @@
 package com.nbgardens.net_app;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+
+@Entity
+@Table (name = "Basket_Product")
 public class BasketProduct {
+	
+	@Id //ID is for PK
+	@Column (name = "Basket_Product_ID")  
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer bpID;
+	
+	@OneToZeroToMany //For FK.
+	@JoinColumn(name="Basket_ID", nullable = false)
+	@NotNull
 	private Integer basketID;
+	
+	@ZeroToManyToZeroToOne //For FK.
+	@JoinColumn(name="Product_ID", nullable = false)
+	@NotNull
 	private Integer productID;
+	
+	@Column (name = "Quantity")
 	private Integer quantity;
 	
 	
