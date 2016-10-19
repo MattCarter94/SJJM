@@ -10,9 +10,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+
+
+@NamedQueries ({
+	//Update existing stock
+	@NamedQuery (
+		name = "updateProductById",
+		query = "INSERT INTO Product p where p.productID = :productID"
+	),
+	//Add new product
+	@NamedQuery (
+		name = "addProductById",
+		query = "INSERT INTO Product p VALUES p.title = :title, p.price = :price, p.descrpition = :description, p.category = :category, "
+				+ "p.image = :image, p.tags = :tags, p.stock = :stock, p.active = :active"
+	)
+})
+
+
+
+
+
 
 @Entity
 @Table (name = "Stock_Order")

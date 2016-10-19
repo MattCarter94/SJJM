@@ -8,10 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 
+@NamedQueries ({
+	@NamedQuery (
+		name = "findProductById",
+		query = "SELECT * FROM Product p where p.productID = :productID"
+	)
+})
 
 
 //SQL table definition
@@ -22,7 +30,7 @@ public class Product {
 	@Id //ID is for PK
 	@Column (name = "Product_ID")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer productID;
+	private Product productID;
 	
 	@Column (name = "Title", nullable = false, length = 255)
 	@NotNull
@@ -71,10 +79,10 @@ public class Product {
 	
 	
 	//GETTERS AND SETTERS
-	public Integer getProductID() {
+	public Product getProductID() {
 		return productID;
 	}
-	public void setProductID(Integer productID) {
+	public void setProductID(Product productID) {
 		this.productID = productID;
 	}
 	public String getTitle() {
