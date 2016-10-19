@@ -2,16 +2,55 @@ package com.nbgardens.net_app;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+//SQL table definition
+@Entity
+@Table (name = "Customer_Order")
 public class CustomerOrder {
+	
+	@Id //ID is for PK
+	@Column (name = "Customer_Order_ID")  
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Integer customerOrderID;
+	
+	
+	@OneToOne //For FK.
+	@JoinColumn(name="User_ID", nullable = false)
+	@NotNull
+	private User userID;
+	
+	@OneToOne //For FK.
+	@JoinColumn(name="Basket_ID", nullable = false)
+	@NotNull
+	private Integer basketID;
+	
+	@Column (name = "Order_Date", nullable = false)
+	@NotNull
+	private Date orderDate;
+	
+	@Column (name = "Order_Status", nullable = false, length = 255)
+	@NotNull
+	private OrderStatus status;
+	//End of table definition
+	
+	
 	private enum OrderStatus{
 		InProgress, Dispatched
 	};
 	
-	private Integer customerOrderID;
-	private Integer basketID;
-	private Integer userID;
-	private Date orderDate;
-	private OrderStatus status;
+
+
+
+
 	
 	
 	
@@ -30,10 +69,10 @@ public class CustomerOrder {
 	public void setBasketID(Integer basketID) {
 		this.basketID = basketID;
 	}
-	public Integer getUserID() {
+	public User getUserID() {
 		return userID;
 	}
-	public void setUserID(Integer userID) {
+	public void setUserID(User userID) {
 		this.userID = userID;
 	}
 	public Date getOrderDate() {
