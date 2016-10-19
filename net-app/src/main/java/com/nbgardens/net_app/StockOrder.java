@@ -4,15 +4,46 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table (name = "Stock_Order")
 public class StockOrder {
+	@Id //ID is for PK
+	@Column (name = "Stock_Order_ID")  
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer stockOrderID;
-	private Integer productID;
+	
+	@OneToMany //For FK.
+	@JoinColumn(name="Product_ID", nullable = false)
+	@NotNull
+	private List<Product> productID;
+	
+	@Column (name = "Supplier", length = 255)
 	private String supplier;
+	
+	@Column (name = "Quantity", length = 255)
 	private Integer quantity;
+	
+	@Column (name = "Total_Price")
 	private Currency totalPrice;
+	
+	@Column (name = "Stock_Order_Date")
 	private Date stockOrderDate;
+	
+	@Column (name = "Stock_Received_Date")
 	private Date stockRecievedDate;
-	private List<Product> products;
+	
+	
+	
 	
 	
 	
@@ -23,12 +54,6 @@ public class StockOrder {
 	}
 	public void setStockOrderID(Integer stockOrderID) {
 		this.stockOrderID = stockOrderID;
-	}
-	public Integer getProductID() {
-		return productID;
-	}
-	public void setProductID(Integer productID) {
-		this.productID = productID;
 	}
 	public String getSupplier() {
 		return supplier;
@@ -60,10 +85,11 @@ public class StockOrder {
 	public void setStockRecievedDate(Date stockRecievedDate) {
 		this.stockRecievedDate = stockRecievedDate;
 	}
-	public List<Product> getProducts() {
-		return products;
+	public List<Product> getProductID() {
+		return productID;
 	}
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setProductID(List<Product> productID) {
+		this.productID = productID;
 	}
+
 }
