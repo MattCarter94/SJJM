@@ -34,6 +34,15 @@ public class Wishlist {
 	@NotNull
 	private List<WishlistProduct> productID;
 	
+	//Constructors
+	public Wishlist(){}
+	public void WishList(User User_ID, List<WishlistProduct> Product_ID ){
+	
+		this.userID = User_ID;
+		this.productID = Product_ID;
+
+	}
+	
 	
 	//GETTERS AND SETTERS
 	public Integer getWishlistID() {

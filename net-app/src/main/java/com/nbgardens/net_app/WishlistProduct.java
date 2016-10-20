@@ -1,5 +1,7 @@
 package com.nbgardens.net_app;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,6 +45,16 @@ public class WishlistProduct {
 	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
 	private Product productID;
+	
+	//Constructors
+	public WishlistProduct(){}
+	public WishlistProduct(Wishlist WishListID, Product ProductID ){
+	
+		this.wishListID = WishListID;
+		this.productID = ProductID;
+
+	}
+	
 	
 	
 	//GETTERS AND SETTERS
