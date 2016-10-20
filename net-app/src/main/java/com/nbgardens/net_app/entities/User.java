@@ -40,11 +40,6 @@ public class User {
 	@NotNull
 	private Basket basket;
 	
-	@OneToOne //FK.
-	@JoinColumn(name="Customer_Order_ID", nullable = false)
-	@NotNull
-	private CustomerOrder customerOrder;
-	
 	@Column (name = "First_Name", length = 255)
 	private String firstName;
 	
@@ -85,12 +80,11 @@ public class User {
 	
 	//Constructors
 	public User() {};
-	public User(CardDetails card, Wishlist wishlist, Basket basket, CustomerOrder customerOrder, String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
+	public User(CardDetails card, Wishlist wishlist, Basket basket, String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
 		this.card = card;
 		this.wishlist = wishlist;
 		this.basket = basket;
-		this.customerOrder = customerOrder;
-		
+
 		this.firstName = name;
 		this.surname = surname;
 		this.credit = Currency.getInstance(Locale.UK);
@@ -210,12 +204,7 @@ public class User {
 	public void setBasket(Basket basket) {
 		this.basket = basket;
 	}
-	public CustomerOrder getCustomerOrder() {
-		return customerOrder;
-	}
-	public void setCustomerOrder(CustomerOrder customerOrder) {
-		this.customerOrder = customerOrder;
-	}
+	
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}

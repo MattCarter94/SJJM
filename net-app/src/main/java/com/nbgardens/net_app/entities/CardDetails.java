@@ -19,12 +19,12 @@ public class CardDetails {
 	
 	@Column (name = "Card_Expiry")
 	@NotNull
-	private Date cardExpiry;
+	private String cardExpiry;
 	
 	
 	//Constructor
 	public CardDetails(){};
-	public CardDetails(String cardNo, Date cardExpiry){
+	public CardDetails(String cardNo, String cardExpiry){
 		this.cardNo = cardNo;
 		this.cardExpiry = cardExpiry;
 	};
@@ -39,10 +39,10 @@ public class CardDetails {
 	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
 	}
-	public Date getCardExpiry() {
+	public String getCardExpiry() {
 		return cardExpiry;
 	}
-	public void setCardExpiry(Date cardExpiry) {
+	public void setCardExpiry(String cardExpiry) {
 		this.cardExpiry = cardExpiry;
 	}
 	

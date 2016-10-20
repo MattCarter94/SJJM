@@ -29,6 +29,11 @@ public class CustomerOrder {
 	@NotNull
 	private Basket basket;
 	
+	@OneToOne //For FK.
+	@JoinColumn(name="User_ID", nullable = false)
+	@NotNull
+	private User user;
+	
 	@Column (name = "Order_Date", nullable = false)
 	@NotNull
 	private Date orderDate;
@@ -39,7 +44,7 @@ public class CustomerOrder {
 	//End of table definition
 
 	public CustomerOrder() {}
-	public CustomerOrder(User userID, Basket basket, Date orderDate,
+	public CustomerOrder(Basket basket, User user, Date orderDate,
 			OrderStatus status) {
 		super();
 		this.basket = basket;

@@ -1,5 +1,7 @@
 package com.nbgardens.net_app.entities;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,15 +19,14 @@ public class Wishlist {
 	private Integer wishlistID;
 	
 	@Column (name = "Total_Price", length = 255)
-	private String totalPrice;
+	private BigDecimal totalPrice;
 	
 	//Constructors
 	public Wishlist(){}
-	public void WishList(String totalPrice){
+	public Wishlist(BigDecimal totalPrice) {
 		this.totalPrice = totalPrice;
-
 	}
-	
+
 	
 	//GETTERS AND SETTERS
 	public Integer getWishlistID() {
@@ -34,10 +35,10 @@ public class Wishlist {
 	public void setWishlistID(Integer wishlistID) {
 		this.wishlistID = wishlistID;
 	}
-	public String getTotalPrice() {
+	public BigDecimal getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(String totalPrice) {
+	public void setTotalPrice(BigDecimal totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	
