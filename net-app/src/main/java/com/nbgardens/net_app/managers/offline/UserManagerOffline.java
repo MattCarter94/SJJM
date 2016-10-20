@@ -15,8 +15,9 @@ public class UserManagerOffline implements UserManager{
 	
 	@Override
 	public void persistUser(User u) {
-		
+		initialData.addUser(u);
 	}
+	
 	@Override
 	public void persistUsers(List<User> u) {
 		
