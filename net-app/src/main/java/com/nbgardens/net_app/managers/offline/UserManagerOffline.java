@@ -1,6 +1,5 @@
 package com.nbgardens.net_app.managers.offline;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -24,8 +23,15 @@ public class UserManagerOffline implements UserManager{
 	}
 	
 	@Override
-	public User getUser(User u) {
-		return u; 
+	public User getUser(Integer id) {
+		List<User> us = initialData.getUsers();
+		for(int i=0; i<us.size(); i++){
+			if(us.get(i).getUserID().equals(id)){
+				return us.get(i);
+			}
+		}
+		return null;
+		
 	}
 	@Override
 	public List<User> getUsers() {
