@@ -1,6 +1,8 @@
-package com.nbgardens.net_app;
+package com.nbgardens.net_app.managers;
 
 import java.util.List;
+
+import com.nbgardens.net_app.entities.Basket;
 
 public interface BasketManager {
 	 public void persistBasket(Basket b);

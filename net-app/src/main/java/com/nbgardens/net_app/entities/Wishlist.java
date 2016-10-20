@@ -1,4 +1,4 @@
-package com.nbgardens.net_app;
+package com.nbgardens.net_app.entities;
 
 import java.util.List;
 

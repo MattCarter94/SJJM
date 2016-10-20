@@ -1,4 +1,4 @@
-package com.nbgardens.net_app;
+package com.nbgardens.net_app.entities;
 
 import java.util.Currency;
 import java.util.Date;
@@ -31,9 +31,6 @@ import javax.validation.constraints.NotNull;
 				+ "p.image = :image, p.tags = :tags, p.stock = :stock, p.active = :active"
 	)
 })
-
-
-
 
 @Entity
 @Table (name = "Stock_Order")
@@ -76,6 +73,10 @@ public class StockOrder {
 		this.stockRecievedDate = stockRecievedDate;
 		//TODO TOTALPRICE
 	}
+	
+	
+	
+	
 	//GETTERS AND SETTERS
 	public Integer getStockOrderID() {
 		return stockOrderID;

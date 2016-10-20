@@ -1,7 +1,9 @@
-package com.nbgardens.net_app;
+package com.nbgardens.net_app.managers;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.nbgardens.net_app.entities.Product;
 
 public interface ProductManager {
 	public void persistProduct(Product p);

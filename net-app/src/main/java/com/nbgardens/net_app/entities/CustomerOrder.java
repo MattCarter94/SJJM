@@ -1,4 +1,4 @@
-package com.nbgardens.net_app;
+package com.nbgardens.net_app.entities;
 
 import java.util.Date;
 
@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.nbgardens.net_app.entities.enums.OrderStatus;
 
 //SQL table definition
 @Entity
@@ -41,12 +43,6 @@ public class CustomerOrder {
 	@NotNull
 	private OrderStatus status;
 	//End of table definition
-	
-	
-	private enum OrderStatus{
-		InProgress, Dispatched
-	};
-	
 
 	public CustomerOrder() {}
 	public CustomerOrder(User userID, Integer basketID, Date orderDate,

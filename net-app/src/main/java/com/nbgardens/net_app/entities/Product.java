@@ -1,4 +1,4 @@
-package com.nbgardens.net_app;
+package com.nbgardens.net_app.entities;
 
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -13,6 +13,10 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.nbgardens.net_app.entities.enums.Category;
+import com.nbgardens.net_app.entities.enums.OrderStatus;
+import com.nbgardens.net_app.entities.enums.ProductStatus;
 
 
 @NamedQueries ({
@@ -63,24 +67,16 @@ public class Product {
 	
 	@Column (name = "State", nullable = false, length = 255)
 	@NotNull
-	private State state;
+	private ProductStatus state;
 	
 	@Column (name = "Order_Date", nullable = false)
 	@NotNull
 	private Date orderDate;
 	//End of table definition
 	
-	public enum Category{
-		Gnome, GnomeAccessory, GardenEquipment
-	};
-	public enum State{
-		Active, Discontinued
-	};
-	
-	
 	//Constructor
 	public Product(){};
-	public Product(String title, BigDecimal price, String description, Category category, String image, String tags, Integer stock, State state, Date orderDate){
+	public Product(String title, BigDecimal price, String description, Category category, String image, String tags, Integer stock, ProductStatus state, Date orderDate){
 		this.title = title;
 		this.price = price;
 		this.description = description;
@@ -118,12 +114,6 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Category getCategory() {
-		return category;
-	}
-	public void setCategory(Category category) {
-		this.category = category;
-	}
 	public String getImage() {
 		return image;
 	}
@@ -141,11 +131,5 @@ public class Product {
 	}
 	public void setStock(Integer stock) {
 		this.stock = stock;
-	}
-	public State getState() {
-		return state;
-	}
-	public void setState(State state) {
-		this.state = state;
 	}
 }

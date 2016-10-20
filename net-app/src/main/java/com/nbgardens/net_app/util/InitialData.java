@@ -1,4 +1,4 @@
-package com.nbgardens.net_app;
+package com.nbgardens.net_app.util;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -10,6 +10,14 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+
+import com.nbgardens.net_app.entities.Basket;
+import com.nbgardens.net_app.entities.Product;
+import com.nbgardens.net_app.entities.StockOrder;
+import com.nbgardens.net_app.entities.User;
+import com.nbgardens.net_app.entities.Wishlist;
+import com.nbgardens.net_app.entities.enums.Category;
+import com.nbgardens.net_app.entities.enums.ProductStatus;
 
 
 
@@ -32,9 +40,9 @@ public class InitialData {
 		addUser(new User("Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
 		
 		//Add products
-		addProduct(new Product("Green Gnome", new BigDecimal(20.05), "its a gnome", Product.Category.Gnome, "imgurl.png", "tag1, tag2, tag3", 5000, Product.State.Active, new Date()));
-		addProduct(new Product("Green Gnome", new BigDecimal(20.05), "its a gnome", Product.Category.Gnome, "imgurl.png", "tag1, tag2, tag3", 5000, Product.State.Active, new Date()));
-		addProduct(new Product("Green Gnome", new BigDecimal(20.05), "its a gnome", Product.Category.Gnome, "imgurl.png", "tag1, tag2, tag3", 5000, Product.State.Active, new Date()));
+		addProduct(new Product("Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product("Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product("Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 		
 		//Add wishlists
 		//addWishlist();

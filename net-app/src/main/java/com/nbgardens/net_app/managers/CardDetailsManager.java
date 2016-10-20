@@ -1,6 +1,8 @@
-package com.nbgardens.net_app;
+package com.nbgardens.net_app.managers;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.nbgardens.net_app.entities.CardDetails;
 
 
 public interface CardDetailsManager {

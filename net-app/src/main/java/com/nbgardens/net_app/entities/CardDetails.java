@@ -1,4 +1,4 @@
-package com.nbgardens.net_app;
+package com.nbgardens.net_app.entities;
 
 import java.util.Date;
 
@@ -24,7 +24,7 @@ public class CardDetails {
 	@OneToOne //For FK.
 	@JoinColumn(name="User_ID", nullable = false)
 	@NotNull
-	private User userID;
+	private User user;
 	
 	@Column (name = "Card_No", length = 19)
 	@NotNull
@@ -38,7 +38,7 @@ public class CardDetails {
 	//Constructor
 	public CardDetails(){};
 	public CardDetails(User userID, String cardNo, Date cardExpiry){
-		this.userID = userID;
+		this.user = userID;
 		this.cardNo = cardNo;
 		this.cardExpiry = cardExpiry;
 	};
@@ -53,10 +53,10 @@ public class CardDetails {
 		this.cardID = cardID;
 	}
 	public User getUserID() {
-		return userID;
+		return user;
 	}
 	public void setUserID(User userID) {
-		this.userID = userID;
+		this.user = userID;
 	}
 	public String getCardNo() {
 		return cardNo;
