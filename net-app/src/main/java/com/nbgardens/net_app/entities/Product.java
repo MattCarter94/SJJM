@@ -1,7 +1,6 @@
 package com.nbgardens.net_app.entities;
 
 import java.math.BigDecimal;
-import java.util.Currency;
 import java.util.Date;
 
 import javax.persistence.Column;
