@@ -1,7 +1,6 @@
 package com.nbgardens.net_app;
 
 import java.util.Currency;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
