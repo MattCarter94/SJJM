@@ -27,12 +27,18 @@ public class Basket {
 	@NotNull
 	private User userID;
 	
-	
 	@Column (name = "Total_Price")
 	private Currency totalPrice;
 	
 	
-	private List<BasketProduct> basketProducts;
+	
+	
+	public Basket(){};
+	public Basket(User userId, Currency totalPrice){
+		this.userID = userId;
+		this.totalPrice = totalPrice;
+	}
+	
 	
 	
 	//GETTERS AND SETTERS
@@ -53,11 +59,5 @@ public class Basket {
 	}
 	public void setTotalPrice(Currency totalPrice) {
 		this.totalPrice = totalPrice;
-	}
-	public List<BasketProduct> getBasketProducts() {
-		return basketProducts;
-	}
-	public void setBasketProducts(List<BasketProduct> basketProducts) {
-		this.basketProducts = basketProducts;
 	}
 }

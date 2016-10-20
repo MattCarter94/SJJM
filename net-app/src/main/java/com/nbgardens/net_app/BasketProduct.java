@@ -1,5 +1,7 @@
 package com.nbgardens.net_app;
 
+import java.util.Currency;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,6 +35,15 @@ public class BasketProduct {
 	@Column (name = "Quantity")
 	@NotNull
 	private Integer quantity;
+	
+	
+	public BasketProduct(){};
+	public BasketProduct(Basket basketID, Product productID, Integer quantity ){
+		this.basketID = basketID;
+		this.productID = productID;
+		this.quantity = quantity;
+	}
+	
 	
 	
 	
