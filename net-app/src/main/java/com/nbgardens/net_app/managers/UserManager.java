@@ -8,8 +8,7 @@ import com.nbgardens.net_app.entities.User;
 public interface UserManager {
 	public void persistUser(User u);
 	public void persistUsers(List<User> u);
-	
-	public User findById(Integer id);
+	public User getUser(User id);
 	public ArrayList<User> getUsers();
 	
 	public void updateUser(User u);
