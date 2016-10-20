@@ -11,7 +11,7 @@ public interface CustomerOrderManager {
 		
 		public void persistCustomerOrders(List<CustomerOrder> c);
 		
-		public CustomerOrder findById(Integer id);
+		public CustomerOrder findById(CustomerOrder co);
 		
 		public ArrayList<CustomerOrder> getCustomerOrders();
 		
