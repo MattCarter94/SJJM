@@ -10,7 +10,7 @@ public interface CardDetailsManager {
 	public void persistCardDetails (CardDetails a);
 	public void persistCardDetails(List<CardDetails> a);
 	
-	public CardDetails findById(String Card_Id);
+	public CardDetails findById(CardDetails Card_Id);
 	
 	public ArrayList<CardDetails> getCardDetails();
 	

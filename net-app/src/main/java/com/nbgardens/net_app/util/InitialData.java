@@ -62,10 +62,4 @@ public class InitialData {
 	public void addProduct(Product p) {
 		products.add(p);
 	}
-//	public void addWishlist(Wishlist w) {
-//		wishlists.add(w);
-//	}
-//	public void addStockOrders(StockOrder so) {
-//		stockOrders.add(so);
-//	}
 }
