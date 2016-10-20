@@ -77,6 +77,20 @@ public class Product {
 	};
 	
 	
+	//Constructor
+	public Product(){};
+	public Product(String title, Currency price, String description, Category category, String image, String[] tags, Integer stock, State state, Date orderDate){
+		this.title = title;
+		this.price = price;
+		this.description = description;
+		this.category = category;
+		this.image = image;
+		this.tags = tags;
+		this.stock = stock;
+		this.state = state;
+		this.orderDate = orderDate;
+	};
+	
 	
 	//GETTERS AND SETTERS
 	public Product getProductID() {
