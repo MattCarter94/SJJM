@@ -1,6 +1,7 @@
 package com.nbgardens.net_app;
 
 import java.util.Currency;
+import java.util.Locale;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -65,7 +66,8 @@ public class User {
 	public User(String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
 		this.firstName = name;
 		this.surname = surname;
-		//this.credit = new Currency(10000);
+		this.credit = Currency.getInstance(Locale.UK);
+		
 		this.phoneNumber = phoneNo;
 		this.password = password;
 		//TODO FIX THIS: this.permissions = permissions;

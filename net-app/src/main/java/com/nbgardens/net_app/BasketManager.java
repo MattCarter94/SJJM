@@ -6,7 +6,7 @@ public interface BasketManager {
 	 public void persistBasket(Basket b);
 	 public void persistBaskets (List<Basket> b);
 	
-	 public Basket findBasketById(Integer id);
+	 public Basket findBasketById(Basket id);
 	 
 	 public void addToBasket(Basket b);
 	 public void updateBasket(Basket b);

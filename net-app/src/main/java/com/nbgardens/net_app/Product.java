@@ -1,5 +1,6 @@
 package com.nbgardens.net_app;
 
+import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
 
@@ -38,7 +39,7 @@ public class Product {
 	
 	@Column (name = "Price", nullable = false)
 	@NotNull
-	private Currency price;
+	private BigDecimal price;
 	
 	@Column (name = "Description", nullable = false, length = 1000)
 	@NotNull
@@ -54,7 +55,7 @@ public class Product {
 	
 	@Column (name = "Tags", nullable = false, length = 255)
 	@NotNull
-	private String[] tags;
+	private String tags;
 
 	@Column (name = "Stock", nullable = false)
 	@NotNull
@@ -69,17 +70,17 @@ public class Product {
 	private Date orderDate;
 	//End of table definition
 	
-	private enum Category{
+	public enum Category{
 		Gnome, GnomeAccessory, GardenEquipment
 	};
-	private enum State{
+	public enum State{
 		Active, Discontinued
 	};
 	
 	
 	//Constructor
 	public Product(){};
-	public Product(String title, Currency price, String description, Category category, String image, String[] tags, Integer stock, State state, Date orderDate){
+	public Product(String title, BigDecimal price, String description, Category category, String image, String tags, Integer stock, State state, Date orderDate){
 		this.title = title;
 		this.price = price;
 		this.description = description;
@@ -105,10 +106,10 @@ public class Product {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Currency getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
-	public void setPrice(Currency price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 	public String getDescription() {
@@ -129,10 +130,10 @@ public class Product {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public String[] getTags() {
+	public String getTags() {
 		return tags;
 	}
-	public void setTags(String[] tags) {
+	public void setTags(String tags) {
 		this.tags = tags;
 	}
 	public Integer getStock() {
