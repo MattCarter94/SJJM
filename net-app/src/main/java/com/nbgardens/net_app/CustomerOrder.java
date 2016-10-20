@@ -48,14 +48,18 @@ public class CustomerOrder {
 	};
 	
 
+	public CustomerOrder() {}
+	public CustomerOrder(User userID, Integer basketID, Date orderDate,
+			OrderStatus status) {
+		super();
+		this.userID = userID;
+		this.basketID = basketID;
+		this.orderDate = orderDate;
+		this.status = status;
+	}
 
 
 
-	
-	
-	
-	
-	
 	//GETTERS AND SETTERS
 	public Integer getCustomerOrderID() {
 		return customerOrderID;

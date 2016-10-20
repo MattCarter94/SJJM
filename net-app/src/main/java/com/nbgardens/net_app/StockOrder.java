@@ -64,11 +64,18 @@ public class StockOrder {
 	private Date stockRecievedDate;
 	
 	
-	
-	
-	
-	
-	
+	public StockOrder() {}
+	public StockOrder(List<Product> productID,
+			String supplier, Integer quantity, Date stockOrderDate,
+			Date stockRecievedDate) {
+		super();
+		this.productID = productID;
+		this.supplier = supplier;
+		this.quantity = quantity;
+		this.stockOrderDate = stockOrderDate;
+		this.stockRecievedDate = stockRecievedDate;
+		//TODO TOTALPRICE
+	}
 	//GETTERS AND SETTERS
 	public Integer getStockOrderID() {
 		return stockOrderID;
