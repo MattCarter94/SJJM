@@ -14,7 +14,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.nbgardens.net_app.entities.enums.Category;
-import com.nbgardens.net_app.entities.enums.OrderStatus;
 import com.nbgardens.net_app.entities.enums.ProductStatus;
 
 

@@ -38,20 +38,20 @@ public class WishlistProduct {
 	@OneToOne //For FK.
 	@JoinColumn(name="WishList_ID", nullable = false)
 	@NotNull
-	private Wishlist wishListID;   
+	private Wishlist wishList;   
 	
 	
 	@OneToOne //For FK.
 	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
-	private Product productID;
+	private Product product;
 	
 	//Constructors
 	public WishlistProduct(){}
 	public WishlistProduct(Wishlist WishListID, Product ProductID ){
 	
-		this.wishListID = WishListID;
-		this.productID = ProductID;
+		this.wishList = WishListID;
+		this.product = ProductID;
 
 	}
 	
@@ -65,16 +65,16 @@ public class WishlistProduct {
 		this.wpID = wpID;
 	}
 	public Wishlist getwishListID() {
-		return wishListID;
+		return wishList;
 	}
 	public void setwishListID(Wishlist wishListID) {
-		this.wishListID = wishListID;
+		this.wishList = wishListID;
 	}
 	public Product getProductID() {
-		return productID;
+		return product;
 	}
 	public void setProductID(Product productID) {
-		this.productID = productID;
+		this.product = productID;
 	}
 	
 }

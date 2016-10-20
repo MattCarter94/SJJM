@@ -24,12 +24,12 @@ public class BasketProduct {
 	@OneToOne //For FK.
 	@JoinColumn(name="Basket_ID", nullable = false)
 	@NotNull
-	private Basket basketID;
+	private Basket basket;
 	
 	@OneToOne //For FK.
 	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
-	private Product productID;
+	private Product product;
 	
 	@Column (name = "Quantity")
 	@NotNull
@@ -38,8 +38,8 @@ public class BasketProduct {
 	
 	public BasketProduct(){};
 	public BasketProduct(Basket basketID, Product productID, Integer quantity ){
-		this.basketID = basketID;
-		this.productID = productID;
+		this.basket = basketID;
+		this.product = productID;
 		this.quantity = quantity;
 	}
 	
@@ -54,16 +54,16 @@ public class BasketProduct {
 		this.bpID = bpID;
 	}
 	public Basket getBasketID() {
-		return basketID;
+		return basket;
 	}
 	public void setBasketID(Basket basketID) {
-		this.basketID = basketID;
+		this.basket = basketID;
 	}
 	public Product getProductID() {
-		return productID;
+		return product;
 	}
 	public void setProductID(Product productID) {
-		this.productID = productID;
+		this.product = productID;
 	}
 	public Integer getQuantity() {
 		return quantity;

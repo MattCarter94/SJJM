@@ -1,16 +1,12 @@
 package com.nbgardens.net_app.entities;
 
-import java.util.Currency;
-
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "Basket")
@@ -20,21 +16,13 @@ public class Basket {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer basketID;
 	
-	
-	@OneToOne //For FK.
-	@JoinColumn(name="User_ID", nullable = false)
-	@NotNull
-	private User userID;
-	
 	@Column (name = "Total_Price")
-	private Currency totalPrice;
-	
+	private BigDecimal totalPrice;
 	
 	
 	
 	public Basket(){};
-	public Basket(User userId, Currency totalPrice){
-		this.userID = userId;
+	public Basket(BigDecimal totalPrice){
 		this.totalPrice = totalPrice;
 	}
 	
@@ -44,19 +32,16 @@ public class Basket {
 	public Integer getBasketID() {
 		return basketID;
 	}
+	
 	public void setBasketID(Integer basketID) {
 		this.basketID = basketID;
 	}
-	public User getUserID() {
-		return userID;
-	}
-	public void setUserID(User userID) {
-		this.userID = userID;
-	}
-	public Currency getTotalPrice() {
+	
+	public BigDecimal getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(Currency totalPrice) {
+	
+	public void setTotalPrice(BigDecimal totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 }
