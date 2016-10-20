@@ -35,6 +35,13 @@ public class CardDetails {
 	private Date cardExpiry;
 	
 	
+	//Constructor
+	public CardDetails(){};
+	public CardDetails(User userID, String cardNo, Date cardExpiry){
+		this.userID = userID;
+		this.cardNo = cardNo;
+		this.cardExpiry = cardExpiry;
+	};
 	
 	
 	
