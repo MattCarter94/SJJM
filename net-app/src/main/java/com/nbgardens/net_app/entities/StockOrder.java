@@ -43,7 +43,7 @@ public class StockOrder {
 	@OneToMany //For FK.
 	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
-	private List<Product> productID;
+	private List<Product> product;
 	
 	@Column (name = "Supplier", length = 255)
 	private String supplier;
@@ -66,7 +66,7 @@ public class StockOrder {
 			String supplier, Integer quantity, Date stockOrderDate,
 			Date stockRecievedDate) {
 		super();
-		this.productID = productID;
+		this.product = productID;
 		this.supplier = supplier;
 		this.quantity = quantity;
 		this.stockOrderDate = stockOrderDate;
@@ -115,10 +115,10 @@ public class StockOrder {
 		this.stockRecievedDate = stockRecievedDate;
 	}
 	public List<Product> getProductID() {
-		return productID;
+		return product;
 	}
 	public void setProductID(List<Product> productID) {
-		this.productID = productID;
+		this.product = productID;
 	}
 
 }

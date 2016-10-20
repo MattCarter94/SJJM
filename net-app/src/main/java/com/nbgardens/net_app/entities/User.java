@@ -8,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "User")
@@ -18,10 +21,29 @@ public class User {
 		Customer, Admin, IMS
 	};
 	
-	@Id //ID is for PK
+	@Id //PK
 	@Column (name = "User_ID")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer userID;
+	
+	@Id //PK / Composite key
+	@Column (name = "CardNo")  
+	private CardDetails card;
+	
+	@OneToOne //FK.
+	@JoinColumn(name="Wishlist_ID", nullable = false)
+	@NotNull
+	private Wishlist wishlist;
+	
+	@OneToOne //FK.
+	@JoinColumn(name="Basket_ID", nullable = false)
+	@NotNull
+	private Basket basket;
+	
+	@OneToOne //FK.
+	@JoinColumn(name="Customer_Order_ID", nullable = false)
+	@NotNull
+	private CustomerOrder customerOrder;
 	
 	@Column (name = "First_Name", length = 255)
 	private String firstName;
@@ -63,7 +85,12 @@ public class User {
 	
 	//Constructors
 	public User() {};
-	public User(String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
+	public User(CardDetails card, Wishlist wishlist, Basket basket, CustomerOrder customerOrder, String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
+		this.card = card;
+		this.wishlist = wishlist;
+		this.basket = basket;
+		this.customerOrder = customerOrder;
+		
 		this.firstName = name;
 		this.surname = surname;
 		this.credit = Currency.getInstance(Locale.UK);
@@ -165,5 +192,36 @@ public class User {
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
+	public CardDetails getCard() {
+		return card;
+	}
+	public void setCard(CardDetails card) {
+		this.card = card;
+	}
+	public Wishlist getWishlist() {
+		return wishlist;
+	}
+	public void setWishlist(Wishlist wishlist) {
+		this.wishlist = wishlist;
+	}
+	public Basket getBasket() {
+		return basket;
+	}
+	public void setBasket(Basket basket) {
+		this.basket = basket;
+	}
+	public CustomerOrder getCustomerOrder() {
+		return customerOrder;
+	}
+	public void setCustomerOrder(CustomerOrder customerOrder) {
+		this.customerOrder = customerOrder;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
+	
+	
+	
 	
 }

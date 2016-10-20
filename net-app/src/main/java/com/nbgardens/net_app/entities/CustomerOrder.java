@@ -24,16 +24,10 @@ public class CustomerOrder {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer customerOrderID;
 	
-	
-	@OneToOne //For FK.
-	@JoinColumn(name="User_ID", nullable = false)
-	@NotNull
-	private User userID;
-	
 	@OneToOne //For FK.
 	@JoinColumn(name="Basket_ID", nullable = false)
 	@NotNull
-	private Integer basketID;
+	private Basket basket;
 	
 	@Column (name = "Order_Date", nullable = false)
 	@NotNull
@@ -45,11 +39,10 @@ public class CustomerOrder {
 	//End of table definition
 
 	public CustomerOrder() {}
-	public CustomerOrder(User userID, Integer basketID, Date orderDate,
+	public CustomerOrder(User userID, Basket basket, Date orderDate,
 			OrderStatus status) {
 		super();
-		this.userID = userID;
-		this.basketID = basketID;
+		this.basket = basket;
 		this.orderDate = orderDate;
 		this.status = status;
 	}
@@ -63,18 +56,7 @@ public class CustomerOrder {
 	public void setCustomerOrderID(Integer customerOrderID) {
 		this.customerOrderID = customerOrderID;
 	}
-	public Integer getBasketID() {
-		return basketID;
-	}
-	public void setBasketID(Integer basketID) {
-		this.basketID = basketID;
-	}
-	public User getUserID() {
-		return userID;
-	}
-	public void setUserID(User userID) {
-		this.userID = userID;
-	}
+	
 	public Date getOrderDate() {
 		return orderDate;
 	}
@@ -86,6 +68,12 @@ public class CustomerOrder {
 	}
 	public void setStatus(OrderStatus status) {
 		this.status = status;
+	}
+	public Basket getBasket() {
+		return basket;
+	}
+	public void setBasket(Basket basket) {
+		this.basket = basket;
 	}
 	
 }
