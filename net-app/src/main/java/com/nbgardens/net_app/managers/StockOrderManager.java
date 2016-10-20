@@ -11,7 +11,7 @@ public interface StockOrderManager {
 	
 	public void persistStockOrders(List<StockOrder> s);
 	
-	public StockOrder findById(Integer id);
+	public StockOrder findById(StockOrder id);
 	
 	public ArrayList<StockOrder> getStockOrders();
 	

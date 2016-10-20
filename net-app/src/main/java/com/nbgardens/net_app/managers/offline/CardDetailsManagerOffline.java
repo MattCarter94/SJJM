@@ -8,7 +8,7 @@ import com.nbgardens.net_app.entities.CardDetails;
 import com.nbgardens.net_app.managers.CardDetailsManager;
 
 
-public class CardManagerOffline  implements CardDetailsManager {
+public class CardDetailsManagerOffline  implements CardDetailsManager {
 	
 	@Inject
 	
