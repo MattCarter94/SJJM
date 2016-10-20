@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -29,17 +28,11 @@ public class Wishlist {
 	private User userID;
 	
 	
-	@OneToMany //For FK.
-	@JoinColumn(name="Product_ID", nullable = false)
-	@NotNull
-	private List<WishlistProduct> productID;
-	
 	//Constructors
 	public Wishlist(){}
 	public void WishList(User User_ID, List<WishlistProduct> Product_ID ){
 	
 		this.userID = User_ID;
-		this.productID = Product_ID;
 
 	}
 	
@@ -56,12 +49,6 @@ public class Wishlist {
 	}
 	public void setUserID(User userID) {
 		this.userID = userID;
-	}
-	public List<WishlistProduct> getProductID() {
-		return productID;
-	}
-	public void setProductID(List<WishlistProduct> productID) {
-		this.productID = productID;
 	}
 
 }
