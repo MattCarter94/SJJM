@@ -22,11 +22,7 @@ public class InitialData {
 	
 	
 		users.add(
-			new User(),
-			new User(),
-			new User()
-			
-			
+			new User("Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB")
 			
 		);
 	}
