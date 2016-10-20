@@ -68,4 +68,11 @@ public class InitialData {
 	public void addToBasket(Basket b) {
 		//stub
 	}
+
+
+
+	public ArrayList<Product> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
