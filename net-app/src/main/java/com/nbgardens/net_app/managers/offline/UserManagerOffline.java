@@ -27,7 +27,7 @@ public class UserManagerOffline implements UserManager{
 		return u; 
 	}
 	@Override
-	public ArrayList<User> getUsers() {
+	public List<User> getUsers() {
 
 		return initialData.getUsers();
 	}

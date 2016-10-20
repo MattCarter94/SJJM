@@ -56,10 +56,16 @@ public class InitialData {
 //	public void addToBasket(Basket b) {
 //		baskets.add(b);
 //	}
+	public List<User> getUsers() {
+		return users;
+	}
 	public void addUser(User u) {
 		users.add(u);
 	}
 	public void addProduct(Product p) {
 		products.add(p);
+	}
+	public void addToBasket(Basket b) {
+		//stub
 	}
 }
