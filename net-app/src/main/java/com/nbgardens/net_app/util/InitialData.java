@@ -25,7 +25,7 @@ import com.nbgardens.net_app.entities.enums.ProductStatus;
 public class InitialData {
 	private List<User> users = new ArrayList<User>();
 	//private List<Basket> baskets = new ArrayList<Basket>();
-	//private List<Card> baskets = new ArrayList<Basket>();
+	private List<CardDetails> cards = new ArrayList<CardDetails>();
 	private List<Product> products = new ArrayList<Product>();
 	//private List<Wishlist> wishlists = new ArrayList<Wishlist>();
 	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();

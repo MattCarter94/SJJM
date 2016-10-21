@@ -7,14 +7,11 @@ import com.nbgardens.net_app.entities.CardDetails;
 
 public interface CardDetailsManager {
 	
-	public void persistCardDetails (CardDetails a);
-	public void persistCardDetails(List<CardDetails> a);
+	public void updateCardDetails (Integer UserId, String cardNo, String cardExpiry); //
 	
-	public CardDetails findById(CardDetails Card_Id);
+	public CardDetails findByCardNo(String Card_No);
 	
-	public ArrayList<CardDetails> getCardDetails();
+	public CardDetails findCardByUserId(Integer UserId);
 	
-	public void updateCardDetails (CardDetails a);
-	public void removeCardDetails (CardDetails a);
 
 }
