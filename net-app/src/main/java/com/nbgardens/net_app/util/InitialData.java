@@ -32,6 +32,7 @@ public class InitialData {
 	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 	private List<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
 	private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
+	private List<Basket> baskets = new ArrayList<Basket>();
 	
 	@PostConstruct
 	public void SetupData() {
@@ -86,5 +87,12 @@ public class InitialData {
 
 	public List<StockOrder> getStockOrders() {
 		return stockOrders;
+	}
+
+
+
+	public List<Basket> getBaskets() {
+		// TODO Auto-generated method stub
+		return baskets;
 	}
 }
