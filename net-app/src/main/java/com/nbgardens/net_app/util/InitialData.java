@@ -11,6 +11,7 @@ import javax.ejb.Startup;
 
 import com.nbgardens.net_app.entities.Basket;
 import com.nbgardens.net_app.entities.CardDetails;
+import com.nbgardens.net_app.entities.CustomerOrder;
 import com.nbgardens.net_app.entities.Product;
 import com.nbgardens.net_app.entities.StockOrder;
 import com.nbgardens.net_app.entities.User;
@@ -29,6 +30,9 @@ public class InitialData {
 	private List<Product> products = new ArrayList<Product>();
 	//private List<Wishlist> wishlists = new ArrayList<Wishlist>();
 	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
+	private List<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
+	private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
+	private List<Basket> baskets = new ArrayList<Basket>();
 	
 	@PostConstruct
 	public void SetupData() {
@@ -70,9 +74,25 @@ public class InitialData {
 	}
 
 
+	public List<CustomerOrder> getCustomerOrders() {
+		return customerOrders;
+	}
 
 	public ArrayList<Product> getProducts() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	public List<StockOrder> getStockOrders() {
+		return stockOrders;
+	}
+
+
+
+	public List<Basket> getBaskets() {
+		// TODO Auto-generated method stub
+		return baskets;
 	}
 }
