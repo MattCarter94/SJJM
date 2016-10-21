@@ -31,6 +31,7 @@ public class InitialData {
 	//private List<Wishlist> wishlists = new ArrayList<Wishlist>();
 	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 	private List<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
+	private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 	
 	@PostConstruct
 	public void SetupData() {
@@ -79,5 +80,11 @@ public class InitialData {
 	public ArrayList<Product> getProducts() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	public List<StockOrder> getStockOrders() {
+		return stockOrders;
 	}
 }

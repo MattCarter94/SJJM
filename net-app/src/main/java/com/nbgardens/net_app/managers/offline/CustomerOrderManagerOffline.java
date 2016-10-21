@@ -1,13 +1,11 @@
 package com.nbgardens.net_app.managers.offline;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import com.nbgardens.net_app.entities.CustomerOrder;
-import com.nbgardens.net_app.entities.User;
 import com.nbgardens.net_app.entities.enums.OrderStatus;
 import com.nbgardens.net_app.managers.CustomerOrderManager;
 import com.nbgardens.net_app.util.InitialData;
