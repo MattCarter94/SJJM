@@ -55,7 +55,7 @@ public class UserManagerOffline implements UserManager{
 		
 	}
 	
-	
+	@Override
 	public void updateUserPhoneNo(Integer id, String phoneNo) {
 		int count = 0;
 		List<User> us = initialData.getUsers();
@@ -72,7 +72,7 @@ public class UserManagerOffline implements UserManager{
 	}
 	
 	
-	
+	@Override
 	public void updateUserPassword(Integer id, String password) {
 		int count = 0;
 		List<User> us = initialData.getUsers();
