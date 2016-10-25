@@ -672,13 +672,10 @@ function zoomChart() {
 	<meta charset="ISO-8859-1">
     <title>NB Gardens: Sales Repersentations</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" media = "all" href="Live Stock Dropdown Filter Style.css">
     
-    <link rel="stylesheet" media = "all" href="imsstyling.css">
+    <link rel="stylesheet" media = "all" href="css/Live%20Stock%20Dropdown%20Filter%20Style.css">
     
-    <script src="Live Stock Dropdown Filter Functions.js"></script>  
-    
-    <script src="GraphScript.js"></script>  
+    <link rel="stylesheet" media = "all" href="css/imsstyling.css">
     
     <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
     
@@ -719,7 +716,7 @@ function zoomChart() {
     
     <div class="container">
         <div id="SearchDiv" class ="Search">
-            <input type="text" name="search" placeholder="Search...">
+            <input type="text" name="search" placeholder="Search for a Product...">
         </div>
     </div>
     
@@ -729,20 +726,19 @@ function zoomChart() {
 <div class="container">
     <div class="row">  
         
-        <div class="col-sm-10">
+        <div class="col-sm-12">
             <h3>Current Gnome: Annoyed Clive</h3>           
  
-            <br><br>
-            <!--PlaceHolder Image-->  
+            <br>
             
             <div id="chartdiv"></div>
         </div>
     </div>
            
     
-</div>
+
     <hr>
-    <div class="container"> 
+     <div class="col-sm-5">
             <FilterBox>
                 <FilterHide>
                 <h2>Filters</h2>
@@ -797,8 +793,7 @@ function zoomChart() {
 
                 <FilterHide>
                     <button class="CatalougeClass" id="hide">Hide Filters</button>
-
-                </FilterHide>
+                <br></FilterHide>
                 <br>
                 <div2>
                     <button class="CatalougeClass" id="show">Show Filters</button>
@@ -809,7 +804,7 @@ function zoomChart() {
             </div>
            
        
-    
+    </div>
 
 
 </body>
