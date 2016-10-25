@@ -1,0 +1,58 @@
+
+
+wholefilter{
+    float: right;
+}
+
+FilterBox {
+    width: 200px;
+    padding-top:1px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    margin:10px;
+    top: 40px;
+    position: absolute;
+    border-left: 3px solid gray;
+    height: auto;
+    background-color: azure;
+}
+
+ProductBox {
+
+ border: 3px solid gray;
+ 
+}
+
+#chartdiv 
+{
+	width	: 100%;
+	height	: 500px;
+}
+
+
+input[type=text] {
+    width: 25%;
+	min-width: 300px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+	
+    margin-top: 10px;
+	margin-bottom: 10px;
+	
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    
+}
+
+input[type=text]:focus {
+    width: 100%;
+    
+ 
+}

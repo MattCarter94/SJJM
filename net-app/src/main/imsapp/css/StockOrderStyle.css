@@ -1,0 +1,189 @@
+/*Menu styling*/
+.tabs{
+    padding: 0px;
+    height: 50px;
+    width: auto;
+    float: left;
+}
+
+input{
+    border-radius: 17px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+ul.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkred; /* #333 */
+}
+
+ul.nav li {
+    float: left;
+}
+
+ul.nav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+ul.nav li a:hover {
+    background-color: #f2f2f2;
+    color: darkred;
+}
+
+ul.nav li.icon {
+    display: none;
+}
+
+
+
+/*Supplier select section*/
+.supplier{
+    padding-left: 10px;
+    margin-top: 14px;
+    height: auto;
+    width: 320px;
+}
+
+.text{
+    float: left;
+    margin-right: 20px;
+    padding-right: 0px;
+}
+
+.selections{
+    float: none;
+    padding-top: 17px;
+    width: 300px;
+    margin-right: -20px;
+}
+
+.add{
+    float: right;
+}
+
+
+
+/*Product Order Info*/
+.searchContainer{
+    margin-top: 30px;
+    padding-left: 10px;
+    height: auto;
+    width: 820px;
+}
+
+.tableContainer{
+    float: left;
+    width: 400px;
+}
+
+.orderTable{
+    float: left;
+}
+
+.genButton{
+    width: auto;
+    height: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+
+
+/*Search box styling*/
+.search{
+    float: left;
+    width: 400px;
+    margin-left: 10px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 17px;
+}
+
+.searchBox{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.searchInput{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchBoxImg{
+    float: left;
+    padding-left: 100px;
+    margin-right: -80px;
+}
+
+.fields{
+    text-align: left;
+    height: auto;
+    width: 390px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.fields #id{
+    width: 50px;
+}
+
+.fields #price{
+/*    width: 100px;*/
+}
+
+.idInput{
+    width: 190px;
+    float: left;
+}
+
+.nameInput{
+    width: 190px;
+    float: left;
+}
+
+.priceInput{
+    width: 190px;
+    float: left;
+}
+
+.priceInput input{
+    width: 100px;
+}
+
+.quantityInput{
+    width: 190px;
+    float: left;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.quantityInput input{
+    width: 100px;
+}
+
+.addButton{
+    margin-right: 30px;
+    float: right;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
