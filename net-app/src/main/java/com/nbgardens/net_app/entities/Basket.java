@@ -20,12 +20,10 @@ public class Basket {
 	private BigDecimal totalPrice;
 	
 	
-	
 	public Basket(){};
 	public Basket(BigDecimal totalPrice){
 		this.totalPrice = totalPrice;
 	}
-	
 	
 	
 	//GETTERS AND SETTERS
