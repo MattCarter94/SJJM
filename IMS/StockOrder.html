@@ -1,0 +1,108 @@
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>IMS New Stock Orders</title>
+        <meta name="description" content="Search for stock and create a new stock order">
+        <link rel="stylesheet" href="StockOrderStyle.css">
+    </head>
+
+    
+    <body>
+        
+        <div class="tabs">
+            <ul class="nav">
+                <li><a href="StockOrder.html">New Stock Order</a></li>
+                <li><a href="PreviousStockOrder.html">Previous Stock Order</a></li>
+            </ul>
+        </div>
+        
+        <br><br>
+        <div class="supplier">
+            <div class="text">
+                <p>Supplier</p>
+            </div>
+            <div class="selections">
+                <select class="supplierSelect">
+                    <option>Gnomes R Us</option>
+                    <option>Go Hard or Go Gnome</option>
+                    <option>Gnomes are Cool</option>
+                </select>
+                <span class="add">
+                    <button>+</button>
+                </span>
+            </div>
+            
+        </div>
+        
+        <div class="searchContainer">
+            <div class="tableContainer">
+                <div class="orderTable">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Clive Gnome</td>
+                            <td>£10</td>
+                            <td>300</td>
+                            <td>£3000</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Clive Gnome</td>
+                            <td>£10</td>
+                            <td>300</td>
+                            <td>£3000</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div class="genButton">
+                    <button>Generate Stock Order</button>
+                </div>
+            </div>
+            
+            <div class="search">
+                <div class="searchBox">
+                    <div class="searchBoxImg">
+                        <img src="./Assets/Images/search.png" height="20px">
+                    </div>
+                    <input type="text">
+                </div>
+                
+                <div class="fields">
+                    <div class="idInput">
+                        <p>ID</p><span><input id="id" type="text"></span>
+                    </div>
+                    
+                    <div class="nameInput">
+                        <p>Name</p><span><input id="name" type="text"></span>
+                    </div>
+                    
+                    <div class="priceInput">
+                        <p>Price</p><span><input id="price" type="text"></span>
+                    </div>
+                    
+                    <div class="quantityInput">
+                        <p>Quantity</p><span><input id="quantity" type="text"></span>
+                    </div>
+                    
+                    <div class="addButton">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+
+
+
+</html>
