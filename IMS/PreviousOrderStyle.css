@@ -61,8 +61,10 @@ ul.nav li.icon {
 
 /*Main content*/
 .pageWrap{
+    margin-top: 10px;
     width: 800px;
-    padding-left: 10px;
+    text-align: left;
+/*    padding-left: 10px;*/
 }
 
 .tableContainer{
@@ -84,9 +86,16 @@ ul.nav li.icon {
 
 
 
+.leftSide{
+    width: 400px;
+    float: left;
+}
 
-
-
+.rightSide{
+    margin-top: 25px;
+    width: 400px;
+    float: left;
+}
 
 
 
