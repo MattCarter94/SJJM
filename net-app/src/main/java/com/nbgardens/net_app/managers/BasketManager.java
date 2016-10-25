@@ -1,16 +1,12 @@
 package com.nbgardens.net_app.managers;
 
-import java.util.List;
-
+import java.math.BigDecimal;
 import com.nbgardens.net_app.entities.Basket;
 
 public interface BasketManager {
-	 public void persistBasket(Basket b);
-	 public void persistBaskets (List<Basket> b);
+	public Basket getBasket(Integer basketID);
+	public Basket getBasketGivenUser(Integer userID);
+	public BigDecimal getTotalPriceGivenUser(Integer userID);
+	public BigDecimal getTotalPrice(Integer basketID);
 	
-	 public Basket findBasketById(Basket id);
-	 
-	 public void addToBasket(Basket b);
-	 public void updateBasket(Basket b);
-	 public void deleteFromBasket(Basket b);
 }
