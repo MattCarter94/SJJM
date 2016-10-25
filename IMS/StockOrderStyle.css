@@ -6,6 +6,12 @@
     float: left;
 }
 
+input{
+    border-radius: 17px;
+    height: 30px;
+    padding-left: 10px;
+}
+
 ul.nav {
     list-style-type: none;
     margin: 0;
@@ -71,11 +77,12 @@ ul.nav li.icon {
     margin-top: 30px;
     padding-left: 10px;
     height: auto;
-    width: 800px;
+    width: 820px;
 }
 
 .tableContainer{
-    width: 420px;
+    float: left;
+    width: 400px;
 }
 
 .orderTable{
@@ -93,23 +100,30 @@ ul.nav li.icon {
 
 /*Search box styling*/
 .search{
-    float: right;
+    float: left;
     width: 400px;
-    margin-top: -60px;
+    margin-left: 10px;
     text-align: center;
     border: 1px solid black;
+    border-radius: 17px;
 }
 
 .searchBox{
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.searchInput{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .searchBoxImg{
     float: left;
     padding-left: 100px;
-    margin-right: -100px;
+    margin-right: -80px;
 }
 
 .fields{
