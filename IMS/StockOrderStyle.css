@@ -75,7 +75,7 @@ ul.nav li.icon {
 }
 
 .tableContainer{
-    width: 420px;
+    width: 400px;
 }
 
 .orderTable{
@@ -95,7 +95,8 @@ ul.nav li.icon {
 .search{
     float: right;
     width: 400px;
-    margin-top: -60px;
+    margin-top: -100px;
+/*    margin-left: 220px;*/
     text-align: center;
     border: 1px solid black;
 }
@@ -104,12 +105,18 @@ ul.nav li.icon {
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.searchInput{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .searchBoxImg{
     float: left;
     padding-left: 100px;
-    margin-right: -100px;
+    margin-right: -80px;
 }
 
 .fields{
