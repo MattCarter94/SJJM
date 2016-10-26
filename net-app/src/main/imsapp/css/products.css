@@ -81,22 +81,22 @@
 }
 .priceOrder h4 {
     display: inline-block;
-    width: 50%;
+    width: 40%;
     color: white;
 }
 .priceOrder select {
-    width: 45%;
+    width: 55%;
 }
 .typeOrder {
     margin-bottom: 20px;
 }
 .typeOrder h4 {
     display: inline-block;
-    width: 50%;
+    width: 40%;
     color: white;
 }
 .typeOrder select {
-    width: 45%;
+    width: 55%;
 }
 
 
