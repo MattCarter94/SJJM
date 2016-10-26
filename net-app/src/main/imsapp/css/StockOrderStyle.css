@@ -106,6 +106,9 @@ ul.nav li.icon {
     text-align: center;
     border: 1px solid black;
     border-radius: 17px;
+    background-color: #3F3F3F;
+    color: white;
+    border: 5px double #2e466e;
 }
 
 .searchBox{
@@ -118,12 +121,14 @@ ul.nav li.icon {
 .searchInput{
     margin-left: auto;
     margin-right: auto;
+    width: 190px;
 }
 
 .searchBoxImg{
     float: left;
     padding-left: 100px;
     margin-right: -80px;
+    margin-top: 6px;
 }
 
 .fields{
