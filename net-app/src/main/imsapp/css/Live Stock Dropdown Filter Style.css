@@ -12,19 +12,10 @@ FilterBox {
     position: absolute;
     border-left: 3px solid gray;
     height: auto;
-    background-color: azure;
-}
-
-ProductBox {
-
- border: 3px solid gray;
- 
-}
-
-#chartdiv 
-{
-	width	: 100%;
-	height	: 500px;
+    background-color: 3F3F3F;
+    color: white;
+    -moz-border-radius:17px;
+	-webkit-border-radius:17px;
 }
 
 
@@ -49,8 +40,7 @@ input[type=text] {
     
 }
 
+
 input[type=text]:focus {
     width: 100%;
-    
- 
 }
