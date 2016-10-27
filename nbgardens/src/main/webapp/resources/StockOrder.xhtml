@@ -1,31 +1,29 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8"/>
         <title>IMS New Stock Orders</title>
-        <meta name="description" content="Search for stock and create a new stock order">
-        <link rel="stylesheet" href="css/StockOrderStyle.css">
-        <link rel="stylesheet" href="css/imsstyling.css">
+        <meta name="description" content="Search for stock and create a new stock order"/>
+        <link rel="stylesheet" href="../css/StockOrderStyle.css"/>
+        <link rel="stylesheet" href="css/imsstyling.css"/>
     </head>
 
     
     <body>
-        
-<!--
-        <div class="tabs">
-            <ul class="nav">
-                <li><a href="StockOrder.html">New Stock Order</a></li>
-                <li><a href="PreviousStockOrder.html">Previous Stock Order</a></li>
-            </ul>
-        </div>
--->
+        <ui:composition template="../templates/template.xhtml">
+<ui:define name="content">
         
         <div class="tabs">
             <a href="StockOrder.html"><button>New Stock Order</button></a>
             <a href="PreviousStockOrder.html"><button>Previous Stock Order</button></a>
         </div>
         
-        <br><br>
+        <br/><br/>
         <div class="supplier">
             <div class="text">
                 <p>Supplier</p>
@@ -94,26 +92,26 @@
             <div class="search">
                 <div class="searchBox">
                     <div class="searchBoxImg">
-                        <img src="img/search.png" height="20px">
+                        <img src="img/search.png" height="20px"/>
                     </div>
-                    <input class="searchInput" type="text" placeholder="Search">
+                    <input class="searchInput" type="text" placeholder="Search"/>
                 </div>
                 
                 <div class="fields">
                     <div class="idInput">
-                        <p>ID</p><span><input id="id" type="text" placeholder="ID"></span>
+                        <p>ID</p><span><input id="id" type="text" placeholder="ID"/></span>
                     </div>
                     
                     <div class="nameInput">
-                        <p>Product Name</p><span><input id="name" type="text" placeholder="Name"></span>
+                        <p>Product Name</p><span><input id="name" type="text" placeholder="Name"/></span>
                     </div>
                     
                     <div class="priceInput">
-                        <p>Price</p><span><input id="price" type="text" placeholder="Price"></span>
+                        <p>Price</p><span><input id="price" type="text" placeholder="Price"/></span>
                     </div>
                     
                     <div class="quantityInput">
-                        <p>Quantity</p><span><input id="quantity" type="text" placeholder="Quantity"></span>
+                        <p>Quantity</p><span><input id="quantity" type="text" placeholder="Quantity"/></span>
                     </div>
                     
                     <div class="addButton">
@@ -123,6 +121,8 @@
             </div>
         </div>
         
+ </ui:define>
+        </ui:composition>
     </body>
 
 
