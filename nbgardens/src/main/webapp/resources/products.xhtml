@@ -1,16 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <head>
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
         <title>NBGardens - Products</title>
-        <link rel="stylesheet" type="text/css" href="../css/products.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/imsstyling.css"/>
         <script type="application/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script type="application/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="application/javascript" src="../js/products.js"></script>
-        
-    </head>
+        <h:outputScript library="js" name="products.js" />
+        <h:outputStylesheet name="products.css" library="css" />
+    </h:head>
     <body>
         <ui:composition template="../templates/template.xhtml">
         	<ui:define name="content">
