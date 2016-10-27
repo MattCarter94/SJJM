@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>NBGardens - Products</title>
+        <link rel="stylesheet" type="text/css" href="css/products.css"/>
+        <link rel="stylesheet" type="text/css" href="css/imsstyling.css"/>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="js/products.js"></script>
+        
+    </head>
+    <body>
+        <ui:composition>
+        	<ui:define name="content">
+		        <h1>Products</h1> 
+		       
+		        <button class="addProduct">+Product</button>
+		        <br/><br/>
+		        
+		        <div class="filter-block">
+		            <h2>Filters</h2>
+		            <div class="priceOrder">
+		                <h4>Order By: </h4>
+		                <select>
+		                    <option value="any">Any</option>
+		                    <option value="hightolow">High to Low</option>
+		                    <option value="lowtohigh">Low to High</option>
+		                </select>
+		            </div>
+		            <div class="typeOrder">
+		            
+		                <h4>Catagory: </h4>
+		                <select>
+		                    <option value="gnome">Gnome</option>
+		                    <option value="gnomeaccesories">Gnome Accessories</option>
+		                    <option value="other">Other Products</option>
+		                </select>
+		            </div>
+		            <input id="tagsSearch" type="text" name="search" placeholder="Search.."/>
+		        </div>
+		        
+		        
+		        <div class="product-list">
+		            <ul>
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> 
+		                            <select class="activeDetails">
+		                            	<option value="Active">Active</option>
+		                            	<option value="Disabled">Disabled</option>
+		                            </select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                
+		                
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> <select class="activeDetails"><option value="Active">Active</option><option value="Disabled">Disabled</option></select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                
+		                
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> <select class="activeDetails"><option value="Active">Active</option><option value="Disabled">Disabled</option></select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> <select class="activeDetails"><option value="Active">Active</option><option value="Disabled">Disabled</option></select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> <select class="activeDetails"><option value="Active">Active</option><option value="Disabled">Disabled</option></select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> <select class="activeDetails"><option value="Active">Active</option><option value="Disabled">Disabled</option></select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> <select class="activeDetails"><option value="Active">Active</option><option value="Disabled">Disabled</option></select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> <select class="activeDetails"><option value="Active">Active</option><option value="Disabled">Disabled</option></select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> <select class="activeDetails"><option value="Active">Active</option><option value="Disabled">Disabled</option></select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                
+		                <li class="product">
+		                    <div class="accordion">
+		                        <span class="idNumber">#0927</span><span class="title">Blue Gnome</span> <span class="price"> £150.00 </span><button class="orderStockButton">Order Stock</button>
+		                        <div class="stock-bar horizontal">
+		                            <div class="stock-track">
+		                                <div class="stock-fill">
+		                                    <span>10%</span>
+		                                </div>
+		                                <p>3005 Units</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="panel">
+		                        <h3><b>Edit Details</b></h3>
+		                        
+		                        <span class="detail">
+		                            <h4>Title:</h4> 
+		                            <input type="text" value="DEFAULT NAME"/>
+		                        </span>
+		                        <span class="detailsPrice detail">
+		                            <h4>Price:</h4> 
+		                            <input type="text" value="DEFAULT PRICE"/>
+		                        </span>
+		                        <span class="detailsDescription detail">
+		                            <h4>Description: </h4> 
+		                            <textarea rows="5">DEFAULT DESCRIPTION</textarea>
+		                        </span>
+		                        <span class="detailsCategory detail">
+		                            <h4>Category: </h4> <select><option value="gnome">Gnome</option><option value="gnomeaccesory">Gnome Accessory</option><option value="other">Other</option></select>
+		                        </span>
+		                        <span class="detailsImage detail">
+		                            <h4>Image: </h4>
+		                            <input type="text" value="DEFAULT IMAGE DIRECTORY"/>
+		                        </span>
+		                        <span class="detailsTags detail">
+		                            <h4>Tags: </h4> 
+		                            <textarea class="descriptionDetails" rows="4">DEFAULT TAGS</textarea>
+		                        </span>
+		                        <span class="detailsStock detail">
+		                            <h4>Stock: </h4> 
+		                            <input type="number" value="999"/>
+		                        </span>
+		                        <span class="detailsActive detail">
+		                            <h4>Active: </h4> 
+		                            <select class="activeDetails">
+		                            	<option value="Active">Active</option>
+		                            	<option value="Disabled">Disabled</option>
+		                            </select>
+		                    
+		                        </span>
+		                        <button id="saveButton">Save Details</button>
+		                    </div>
+		                </li>
+		                
+		            </ul>
+		        </div>
+	        </ui:define>
+        </ui:composition>
+    </body>
+</html>
