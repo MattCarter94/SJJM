@@ -145,3 +145,13 @@ input {
     width: 100%;
     padding: 8px;
 }
+
+textarea {
+    background-color: #2e466e;
+    color: white;
+    border-radius: 17px;
+    padding: 8px;
+    resize: none;
+    width: 100%;
+    font-size: 18px;
+}

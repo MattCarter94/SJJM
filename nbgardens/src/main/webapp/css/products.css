@@ -73,6 +73,75 @@
     margin: 0 0 25px 0;
     
 }
+div.accordion {
+    cursor: pointer;
+    transition: height 0.6s;
+}
+div.panel {
+    background-color: #3F3F3F;
+    color: white;
+    display: none;
+    //border-bottom-left-radius: 17px;
+    //border-bottom-right-radius: 17px;
+    border-radius: 17px;
+    padding: 10px;
+    
+}
+div.panel h3 {
+    color: white;
+}
+
+div.panel.show {
+    display: block;
+}
+
+/*
+.detailsTitle {
+    line-height: 60px;
+    margin-bottom: 10px;
+}
+.detailsTitle input {
+    display: inline-block;
+    width: 65%;
+}
+.detailsTitle h4 {
+    display: inline-block;
+    width: 30%;
+    color: white;
+}
+.detailsPrice input {
+    display: inline-block;
+    width: 65%;
+}
+.detailsPrice h4 {
+    display: inline-block;
+    width: 30%;
+    color: white;
+}
+*/
+.detail {
+    padding-bottom:10px;
+    line-height: 60px;
+}
+.detail h4{
+    color: white;
+    display: inline-block;
+    width: 30%;
+    right:0;
+}
+.detail input {
+    width: 65%;
+    display: inline-block;
+}
+.detail textarea {
+    width: 65%;
+    display: inline-block;
+}
+.detail select {
+    width: 65%;
+    display: inline-block;
+}
+
 
 .filter-block {
     background-color: #3F3F3F;
