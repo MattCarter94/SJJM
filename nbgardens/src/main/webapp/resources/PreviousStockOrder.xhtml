@@ -1,22 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html">
 
-    <head>
-        <meta charset="utf-8">
+    <h:head>
+        <meta charset="utf-8"/>
         <title>IMS Previous Stock Orders</title>
-        <meta name="description" content="Search through previous stock orders">
-        <link rel="stylesheet" href="css/PreviousOrderStyle.css">
-        <link rel="stylesheet" href="css/imsstyling.css">
-    </head>
+        <meta name="description" content="Search through previous stock orders"/>
+        <h:outputStylesheet name="PreviousOrderStyle.css" library="css" />
+    </h:head>
 
     
     <body>
-        
-
-        
-        <br><br>
+        <ui:composition template="../templates/template.xhtml">
+			<ui:define name="content">
+       
         <div class="pageWrap">
             <div class="leftSide">
                 <div class="infoWrap">
@@ -121,7 +122,8 @@
             </div>
             </div>
         </div>
-        
+        </ui:define>
+        </ui:composition>
     </body>
 
 

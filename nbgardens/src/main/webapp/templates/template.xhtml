@@ -15,12 +15,11 @@
     <body>
       <ui:debug/>
       <div class="heading">
-      	<a href="resources/StockOrder.xhtml"><button>New Stock Order</button></a>
-      	<a href="resources/products.xhtml"><button>Products</button></a>
-      	<button>Live Stock Report</button>
+        <h:button value="Home" outcome="index.xhtml"></h:button>
+      	<h:button value="New Stock Order" outcome="StockOrder.xhtml"></h:button>
+      	<h:button value="Previous Stock Order" outcome="PreviousStockOrder.xhtml"></h:button>
+      	<h:button value="Products" outcome="products.xhtml"></h:button>
       </div>
-      
-      <ui:insert name="heading"/>
  
       <div class="content">
         <ui:insert name="content"/>
