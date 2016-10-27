@@ -5,22 +5,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
             xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <head>
-<!--       <link href="styles.css" rel="stylesheet" type="text/css"/> -->
-      <title><ui:insert name="title">Default Title</ui:insert></title>
+      <link href="styles.css" rel="stylesheet" type="../css/imsstyling.css"/>
+      <title>NB Gardens IMS App</title>
     </head>
  
     <body>
       <ui:debug/>
       <div class="heading">
-      	<p>this is totally a nav bar</p>
-        <ui:insert name="heading"/>
+      	<button>Products</button>
+      	<button>New Stock Order</button>
+      	<button>Live Stock Report</button>
       </div>
+      
+      <ui:insert name="heading"/>
  
       <div class="content">
         <ui:insert name="content"/>
       </div>
       
-      <p>this is totally a footer</p>
+      <div class="footer">
+      	<p>NB Gardens and SJJM 2016</p>
+      </div>
+      
     </body>
 </html>
 
