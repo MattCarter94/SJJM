@@ -34,6 +34,14 @@ ul.tab li a:focus, .active {
     background-color: #ccc;
 }
 
+.tab li {
+    padding: 0px;
+    overflow: auto;
+    line-height: 2.5em;
+    margin: 0px 0 0px 0;
+}
+
+
 /* Style the tab content */
 .tabcontent {
     display: none;

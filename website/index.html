@@ -1,100 +1,91 @@
 <!DOCTYPE html>
 <html>
-<title>NB Gardens</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    
-<link rel="stylesheet" href="css/indexStyle.css">
-<!--    <link rel="stylesheet" type="text/css" href="css/catalogue.css">-->
+<head>
+    <title>NB Gardens</title>
+</head>
+
+
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
-}
-
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-    opacity: 0.7;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* First image (Logo. Full height) */
-.bgimg-1 {
-    background-image: url('img/back1.png');
-    min-height: 100%;
-}
-
-/* Second image (Portfolio) */
-.bgimg-2 {
-    background-image: url("img/para2.jpg");
-    min-height: 400px;
-}
-
-/* Third image (Contact) */
-.bgimg-3 {
-    background-image: url("img/back2.png");
-    min-height: 400px;
-}
-
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-width: 1024px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: scroll;
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+    body, html 
+    {
+        height: 100%;
+        color: #777;
+        line-height: 1.8;
     }
-}
+
+    /* Create a Parallax Effect */
+    .bgimg-1, .bgimg-2, .bgimg-3 
+    {
+        opacity: 0.7;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    /* First image (Logo. Full height) */
+    .bgimg-1 
+    {
+        background-image: url('img/back1.png');
+        min-height: 100%;
+    }
+
+    /* Second image (Portfolio) */
+    .bgimg-2 
+    {
+        background-image: url("img/para2.jpg");
+        min-height: 400px;
+    }
+
+    /* Third image (Contact) */
+    .bgimg-3 
+    {
+        background-image: url("img/back2.png");
+        min-height: 400px;
+    }
+
+    .w3-wide {letter-spacing: 10px;}
+    .w3-hover-opacity {cursor: pointer;}
+
+    /* Turn off parallax scrolling for tablets and phones */
+    @media only screen and (max-width: 1024px) 
+    {
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            background-attachment: scroll;
+        }
+    }
 </style>
 <body>
-
-<!-- Navbar (sit on top) -->
-<!--
-<div class="w3-top">
-  <ul class="w3-navbar" id="myNavbar">
-    <li><a href="#">HOME</a></li>
-    <li class="w3-hide-small w3-right">
-      <a href="#" class="w3-hover-red"><i class="fa fa-search"></i></a>
-    </li>
-  </ul>
-</div>
--->
     
 <!--<div class="w3-top">  -->
 <div class="container-fluid">
       <nav class="navbar">
-          <div class="container-fluid">
-              <div class="navbar-header">
+        <div class="container-fluid">
+            <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span> 
                   </button>
-              </div>
-           <div class="collapse navbar-collapse" id="myNavbar">
-                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="aboutus.php">Catalogue</a></li>
-                    <li class="active"><a href="browse.php">About Us</a></li>
-                 </ul>
-                 <ul class="nav navbar-nav navbar-right">
-                          
-                     <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                 </ul>
-           </div>
-                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.php">Catalogue</a></li>
+                        <li class="active"><a href="browse.php">About Us</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+
+                         <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+            </div>
+        </div>
                 <div class="container-fluid">
 
                     <div class="collapse navbar-collapse" id="myNavbar">
-                        <!--logo here -->
+                        
                         <div class="headContainer">
                             <ul class="nav navbar-nav">
                                 <div class="headLeft">
@@ -170,14 +161,14 @@ body, html {
 <!-- Second Parallax Image with Portfolio Text -->
 <div class="bgimg-2 w3-display-container">
   <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-light-grey w3-wide">PORTFOLIO</span>
+    <span class="w3-xxlarge w3-text-light-grey w3-wide">SHOP OUR FAVOURITES</span>
   </div>
 </div>
 
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64">
   <h3 class="w3-center">Our Favourites</h3>
-  <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>
+  <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="favContainer">
@@ -186,19 +177,19 @@ body, html {
         <div class="bestGnome">
             <img src="img/clive.png">
             <h3>Best Selling Gnome</h3>
-            <p>Other stuff I can't read</p>
+            <button class="w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">View All Gnomes</button>
         </div>
         
         <div class="bestAcc">
             <img src="img/clive.png">
             <h3>Best Selling Accessory</h3>
-            <p>Other stuff I can't read</p>
+            <button class="w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">View All Accessories</button>
         </div>
         
         <div class="bestMis">
             <img src="img/clive.png">
             <h3>Best Selling Other</h3>
-            <p>Other stuff I can't read</p>
+            <button class="w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">View Other...</button>
         </div>
     </div>  
       
@@ -224,8 +215,8 @@ body, html {
 
 <!-- Container (Contact Section) -->
 <div class="w3-content w3-container w3-padding-64">
-  <h3 class="w3-center">WHERE I WORK</h3>
-  <p class="w3-center"><em>I'd love your feedback!</em></p>
+  <h3 class="w3-center">WHERE WE WORK</h3>
+  <p class="w3-center"><em>Come give us a visit!</em></p>
 
   <div class="w3-row w3-padding-32 w3-section">
     <div class="w3-col m4 w3-container">
@@ -234,9 +225,9 @@ body, html {
     </div>
     <div class="w3-col m8 w3-container w3-section">
       <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Chicago, US<br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 151515<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: mail@mail.com<br>
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Manchester, England<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 020-GNOME-NOW<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: cliveisnotwhatheseems@helpus.com<br>
       </div>
       <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
       <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
@@ -254,27 +245,34 @@ body, html {
 </div>
 
 <!-- Footer -->
-<div class="row">
-            <div id="footer">
-                <ul class="footer">
-                    <li class="foot"><a class="foot-link" href="contactus.html">Contact Us</a></li>
-                    <li class="foot"><a class="foot-link" href="#">Terms & Conditions</a></li> 
-                    <li class="foot"><p id="copyright">&copy; NB Gardens & SJJM 2016</p></li>
-                    <div id="icon-pos">
-                        <li class="icon" title="Find us on Facebook"><a class="foot-link" href="https://www.facebook.com"><img src="img/facebook.ico"/></a></li>
-                        <li class="icon" title="Follow us on Instagram"><a class="foot-link"  href="https://www.twitter.com"><img src="img/twitter.ico"/></a></li>
-                        <li class="icon" title="Follow us on Twitter"><a class="foot-link"  href="https://www.instagram.com"><img src="img/instagram.ico"/></a></li>
-                    </div>
-                </ul>
-            </div>       
+<div class ="navbar">
+    <div class="container">
+        
+        <span class = "footerIcons">
+            <div class="text-center center-block">
+                <br/>
+                &copy NB Gardens<br>
+                Email: cliveisnotwhatheseems@helpus.com<br><br>
+                    <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>&nbsp
+                    <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>&nbsp
+                    <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>&nbsp
+                    <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                <br/>
+            </div>
+        </span>
+    
+    </div>
+</div>
 
-        </div>
+    
+
+      
  
 <!-- Add Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script>
 <!-- Google Map Location -->
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var myCenter = new google.maps.LatLng(53.474458, -2.285757);
 
 function initialize() {
 var mapProp = {
@@ -318,4 +316,11 @@ function myFunction() {
 
 </body>
 </html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/indexStyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
