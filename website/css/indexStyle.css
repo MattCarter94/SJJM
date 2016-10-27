@@ -1,0 +1,103 @@
+.favContainer{
+    text-align: center;
+}
+
+.favContainer button{
+    
+}
+
+.threeCol{
+    
+}
+
+.bestGnome{
+    width: 30%;
+    display: inline-block;
+}
+
+.bestAcc{
+    width: 30%;
+    display: inline-block;
+}
+
+.bestMis{
+    width: 30%;
+    display: inline-block;
+}
+
+
+
+
+/*Header*/
+
+.headContainer{
+    
+}
+
+.headLeft{
+    display: inline-block;
+    float: left;
+}
+
+.headRight{
+    display: inline-block;
+/*    float: right;*/
+}
+
+
+button.navbar-toggle{
+    background: none;
+}
+.navbar{
+    margin:0px -35px -1px -35px;
+    border-radius: 0px;
+    background: #000; /* For browsers that do not support gradients */
+    
+    border-top-color: #000;
+    border-bottom-color:#000;
+}
+
+ul.nav a{
+    color:lightgray;
+}
+ul.nav a:hover{
+    color: white; 
+    background-color: #238b18 !important;
+
+}
+.nav>li>a:focus, .nav>li>a:hover{
+    color:white;
+    background-color: #238b18 !important;
+    border-color: #238b18 !important;
+     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(135,139,24, 0.6) !important;
+}
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+    color:white;
+    background-color: #238b18 !important;
+    border-color: #238b18 !important;
+     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(135,139,24, 0.6) !important;
+}
+
+
+
+
+.phone img {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 12px;
+    
+}
+.phone h3 {
+    display: inline-block;
+    color: #ddd;
+    font-style: italic;
+}
+
+.logo img{
+    display: inline-block;
+}
+.logo h2 {
+    display: inline-block;
+    color: #ddd;
+    
+}
