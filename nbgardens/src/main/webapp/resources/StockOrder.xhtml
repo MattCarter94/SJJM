@@ -3,25 +3,22 @@
 
 <html
    xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+          xmlns:h="http://java.sun.com/jsf/html">
 
-    <head>
+    <h:head>
         <meta charset="utf-8"/>
         <title>IMS New Stock Orders</title>
         <meta name="description" content="Search for stock and create a new stock order"/>
-        <link rel="stylesheet" href="../css/StockOrderStyle.css"/>
-        <link rel="stylesheet" href="../css/imsstyling.css"/>
-    </head>
+        <h:outputStylesheet name="StockOrderStyle.css" library="css" />
+    </h:head>
 
     
     <body>
         <ui:composition template="../templates/template.xhtml">
 <ui:define name="content">
         
-        <div class="tabs">
-            <a href="StockOrder.html"><button>New Stock Order</button></a>
-            <a href="PreviousStockOrder.html"><button>Previous Stock Order</button></a>
-        </div>
+
         
         <br/><br/>
         <div class="supplier">
