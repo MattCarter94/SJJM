@@ -1,5 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
 <!-- Styles -->
-<style>
+<style xmlns:h="http://java.sun.com/jsf/html">
 #chartdiv {
 	width	: 100%;
 	height	: 500px;
@@ -668,30 +677,38 @@ function zoomChart() {
 </script>
 
 <!-- HTML -->
-<head>
-	<meta charset="ISO-8859-1">
+
+	<meta charset="ISO-8859-1"/>
     <title>NB Gardens: Sales Repersentations</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     
-    <link rel="stylesheet" media = "all" href="../css/Live%20Stock%20Dropdown%20Filter%20Style.css">
+    <h:outputStylesheet name="css/Live%20Stock%20Dropdown%20Filter%20Style.css"/>
+<!--     <link rel="stylesheet" media = "all" href="../css/Live%20Stock%20Dropdown%20Filter%20Style.css"> -->
     
-    <link rel="stylesheet" media = "all" href="../css/imsstyling.css">
+    <h:outputStylesheet name="css/imsstyling.css"/>
+<!--     <link rel="stylesheet" media = "all" href="../css/imsstyling.css"/> -->
     
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <h:outputStylesheet name="https://fonts.googleapis.com/css?family=Ubuntu+Mono"/>
+<!--     <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'/> -->
     
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <h:outputStylesheet name="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/> -->
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-    </script>  
+    <h:outputScript name="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" />
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> -->
+<!--     </script>   -->
     
-    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <h:outputStylesheet name="https://www.amcharts.com/lib/3/plugins/export/export.css"/>
+<!--     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" /> -->
     
-    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <h:outputScript name="https://www.amcharts.com/lib/3/themes/light.js" />
+<!--     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script> -->
    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-    </script>
+    <h:outputScript name="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+<!--     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> -->
+<!--     </script> -->
      
     <script>
     $(document).ready(function(){
@@ -705,22 +722,26 @@ function zoomChart() {
     });       
     </script>
     
-</head>  
+</h:head>  
 <body>
+
+	<ui:composition template="../templates/template.xhtml">
+ 
+      <ui:define name="content">
     
     <div class="container">
         <h1>Live Stock Report</h1>
     </div>
     
-    <br>
+    <br/>
     
     <div class="container">
         <div id="SearchDiv" class ="Search">
-            <input type="text" name="search" placeholder="Search for a Product...">
+            <input type="text" name="search" placeholder="Search for a Product..."/>
         </div>
     </div>
     
-    <hr>
+    <hr/>
     
     
 <div class="container">
@@ -729,7 +750,7 @@ function zoomChart() {
         <div class="col-sm-10">
             <h3>Current Gnome: Annoyed Clive</h3>           
  
-            <br>
+            <br/>
             
             <div id="chartdiv"></div>
         </div>
@@ -744,7 +765,8 @@ function zoomChart() {
                 <!--ID Dropdown--> 
                 <div class="dropdown">
                     <select>
-                        <option value="" disabled selected>Select an ID </option>
+<!--                         <option value="" disabled selected>Select an ID </option> -->
+						<option value="">Select an ID </option>
                         <option value="ID 1">ID: 1</option>
                         <option value="ID 2">ID: 2</option>
                         <option value="ID 3">ID: 3</option>
@@ -754,12 +776,13 @@ function zoomChart() {
                     </select>
                 </div>
 
-                <br><br>
+                <br/><br/>
 
                 <!--Name Dropdown--> 
                 <div class="dropdown">
                     <select>
-                        <option value="" disabled selected>Select a Name </option>
+<!--                         <option value="" disabled selected>Select a Name </option> -->
+						<option value="">Select a Name </option>
                         <option value="The Clive">The Clive</option>
                         <option value="Shocked Clive">Shocked Clive</option>
                         <option value="Annoyed Clive">Annoyed Clive</option>
@@ -769,35 +792,36 @@ function zoomChart() {
                     </select>
                 </div>
 
-                <br><br>
+                <br/><br/>
 
                 <!--Category Dropdown--> 
                 <div class="dropdown">
                     <select>
-                        <option value="" disabled selected>Select a Category </option>
+<!--                         <option value="" disabled selected>Select a Category </option> -->
+						<option value="">Select a Category </option>
                         <option value="Gnomes">Gnomes</option>
                         <option value="Gnome Accessories">Gnome Accessories</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
 
-                    <br>
+                    <br/>
                     <button type="button" onclick="alert('Reset Filter...')">Reset Filters</button>
 
-                    <hr>
+                    <hr></hr>
                 </FilterHide>
 
                 <h3>Filter Options</h3>
 
                 <FilterHide>
                     <button class="CatalougeClass" id="hide">Hide Filters</button>
-                <br></FilterHide>
-                <br>
+                <br></br></FilterHide>
+                <br></br>
                 <div>
                     <button class="CatalougeClass" id="show">Show Filters</button>
                 </div>
-                <br>
-                <br>
+                <br></br>
+                <br></br>
                 </FilterBox>
             
             </div>
@@ -814,10 +838,12 @@ function zoomChart() {
            
     
 
-    <hr>
+    <hr/>
      
        
     </div>
 
-
+</ui:define>
+</ui:composition>
 </body>
+</html>
