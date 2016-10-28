@@ -11,10 +11,11 @@
 <!-- HTML -->
 <h:head>
 	<meta charset="ISO-8859-1"/>
-    <title>NB Gardens: Sales Repersentations</title>
+    <title>NB Gardens: Sales Representations</title>
     <meta charset="utf-8"/>
     
-    <link rel="stylesheet" media = "all" href="css/Live%20Stock%20Dropdown%20Filter%20Style.css"/>
+<!--     <h:outputStylesheet name="LiveStockDropdownFilterStyle.css" library="css" /> -->
+<!--     <link rel="stylesheet" media = "all" href="css/Live%20Stock%20Dropdown%20Filter%20Style.css"/> -->
     
 <!--     <link rel="stylesheet" media = "all" href="css/imsstyling.css"/> -->
     
@@ -723,7 +724,7 @@
 <h:body>
 	<ui:composition template="../templates/template.xhtml">
 		<ui:define name="content">
-    
+    		<h:outputStylesheet name="LiveStockDropdownFilterStyle.css" library="css" />
 		    <div class="container">
 		        <h1>Live Stock Report</h1>
 		    </div>
