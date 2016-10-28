@@ -17,6 +17,9 @@ $(document).ready(function() {
     
     
     $('.accordion').click(function(){
-    	$('.panel').slideToggle();
+    	$(this).parent().find('.panel').slideToggle();
     });
+    
+    
+    
 });
