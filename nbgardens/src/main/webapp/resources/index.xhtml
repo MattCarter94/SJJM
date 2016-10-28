@@ -8,21 +8,18 @@
  
   <body>
     <ui:composition template="../templates/template.xhtml">
- 
       <ui:define name="content">
+      		<h:outputStylesheet name="css/index.css"/>
       
-      <h1>Welcome to the NB Gardens IMS Application</h1>
-      <h2>You are a slave to Clive now!</h2>
-<!--       <img src="../img/TheBestGnomeEver.png"></img> -->
-<!--       	   <h:graphicImage value="img/TheBestGnomeEver.png" /> -->
-		<h:graphicImage url="#{resource['img:TheBestGnomeEver.png']}"  />
- 
-      </ui:define>
- 
-<!--       <ui:define name="content"> -->
-<!--         <ui:include src="contactsTable.xhtml" /> -->
-<!--       </ui:define> -->
-         
+      	<div class="all">
+	      <h1>Welcome to the NB Gardens IMS Application</h1>
+	      <h2>You are a slave to Clive now!</h2>
+	<!--       <img src="../img/TheBestGnomeEver.png"></img> -->
+	<!--       	   <h:graphicImage value="img/TheBestGnomeEver.png" /> -->
+			<h:graphicImage url="#{resource['img:TheBestGnomeEver.png']}"  />
+	 	</div>
+	 
+	      </ui:define>
     </ui:composition>
   </body>
 </html>
