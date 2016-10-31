@@ -6,3 +6,6 @@
 .class
 .jar
 .war
+/nbgardens/.settings/
+/nbgardens/bin/
+/nbgardens/target/
