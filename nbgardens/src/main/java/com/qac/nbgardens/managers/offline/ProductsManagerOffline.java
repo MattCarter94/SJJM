@@ -3,6 +3,8 @@ package com.qac.nbgardens.managers.offline;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.Product;
@@ -10,6 +12,8 @@ import com.qac.nbgardens.entities.User;
 import com.qac.nbgardens.managers.ProductManager;
 import com.qac.nbgardens.util.InitialData;
 
+@Stateless
+@Default
 public class ProductsManagerOffline implements ProductManager{
 
 	@Inject
@@ -55,6 +59,8 @@ public class ProductsManagerOffline implements ProductManager{
 	public void removeProduct(Product p) {
 		//TODO left blank for now
 	}
-	
-	
+	@Override
+	public List<Product> findAll() {
+		return initialData.getProducts();
+	}
 }

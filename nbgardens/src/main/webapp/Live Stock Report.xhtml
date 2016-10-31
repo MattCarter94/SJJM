@@ -18,7 +18,7 @@
     
 </h:head>  
 <h:body>
-	<ui:composition template="../templates/template.xhtml">
+	<ui:composition template="templates/template.xhtml">
 		<ui:define name="content">
 		
 		
@@ -32,8 +32,7 @@
 			<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 			<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 			
-	    	<h:outputStylesheet name="LiveStockDropdownFilterStyle.css" library="css" />
-			    
+			 <link rel="stylesheet" href="css/LiveStockDropdownFilterStyle.css"/>   
 			 
 	    
 		    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'/>
@@ -58,7 +57,7 @@
 		     });     
 		    </script>
 		    
-		    <h:outputScript library="js" name="LiveStockDropdownFilterFunctions.js" />
+		    <script src="js/LiveStockDropdownFilterFunctions.js"></script>
     
 		    
 		    

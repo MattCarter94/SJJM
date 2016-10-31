@@ -1,0 +1,36 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="templates/jamestemplate.xhtml">
+<meta charset="utf-8" />
+<ui:define name="tabtitle">Catalogue</ui:define>
+<ui:define name="maincontent">
+<div class="row row-offcanvas row-offcanvas-left">
+	<div class="col-xs-12 col-sm-9">
+		<div class="jumbotron">
+			<h1>NB Gardens Catalogue</h1>
+			<p>Welcome to our Catalogue!</p>
+		</div>
+		<div class="row">
+			<h:form>
+				<h:outputText escape="false" value="No Products Found" rendered="#{browse.products.rowCount == 0}" />
+				<div>
+					<ui:repeat var="product" value="#{browse.products}">
+						<div class="col-xs-12 col-lg-4">
+							<h:commandLink action="#{products.view(product.id)}" value="#{product.name}" />
+							<p><h:outputText value="#{product.description}" /></p>
+						</div>
+					</ui:repeat>
+					<h:panelGroup rendered="#{browse.products.rowcount > 0}">
+						<h:commandLink value="Previous" action="#{browse.previous}" rendered="#{browse.pagination.hasPreviousPage}" />
+						<h:outputText value="#{browse.pagination.pageFirstItem + 1}..#{browse.pagination.pageLastItem + 1}/#{browse.pagination.itemsCount}" />
+						<h:commandLink value="Next" action="#{browse.next}" rendered="#{browse.pagination.hasNextPage}" />						
+					</h:panelGroup>
+				</div>
+			</h:form>
+		</div>
+	</div>
+</div>	
+</ui:define>	
+</ui:composition>
