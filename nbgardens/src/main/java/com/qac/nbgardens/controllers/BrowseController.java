@@ -10,13 +10,14 @@ import javax.inject.Named;
 
 import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.managers.ProductManager;
+import com.qac.nbgardens.service.BrowseService;
 import com.qac.nbgardens.util.Pagination;
 
 @Named("browse")
 @SessionScoped
 public class BrowseController implements Serializable{
 	@Inject
-	private ProductManager productManager;
+	private BrowseService browseService;
 	private DataModel<Product> products = null;
 	private Pagination pagination;
 	
@@ -49,15 +50,15 @@ public class BrowseController implements Serializable{
 				@Override
 				public DataModel createDataModel() {
 					try {
-						return new ListDataModel<Product>(productManager.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+						return new ListDataModel<Product>(browseService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
-						return new ListDataModel<Product>(productManager.findAll().subList(getPageFirstItem(), getItemsCount()));
+						return new ListDataModel<Product>(browseService.findAll().subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 
 				@Override
 				public int getItemsCount() {
-					return productManager.findAll().size();
+					return browseService.findAll().size();
 				}
 			};
 		return pagination;
