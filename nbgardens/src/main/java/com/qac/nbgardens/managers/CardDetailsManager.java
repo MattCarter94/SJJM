@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.qac.nbgardens.entities.CardDetails;
 
-
-@SuppressWarnings("unused")
 public interface CardDetailsManager {
 	
 	public void updateCardDetails (Integer UserId, String cardNo, String cardExpiry); //

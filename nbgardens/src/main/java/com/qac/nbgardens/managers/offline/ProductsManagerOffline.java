@@ -8,7 +8,6 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.Product;
-import com.qac.nbgardens.entities.User;
 import com.qac.nbgardens.managers.ProductManager;
 import com.qac.nbgardens.util.InitialData;
 

@@ -1,8 +1,13 @@
 package com.qac.nbgardens.managers.offline;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
+
 import com.qac.nbgardens.entities.WishlistProduct;
 import com.qac.nbgardens.managers.WishlistProductManager;
 
+@Default
+@Stateless
 public class WishlistProductManagerOffline implements WishlistProductManager{
 
 	public void persistWishlistProduct(WishlistProduct wp) {

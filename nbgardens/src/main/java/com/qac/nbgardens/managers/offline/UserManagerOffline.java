@@ -2,6 +2,8 @@ package com.qac.nbgardens.managers.offline;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.Basket;
@@ -11,6 +13,8 @@ import com.qac.nbgardens.entities.Wishlist;
 import com.qac.nbgardens.managers.UserManager;
 import com.qac.nbgardens.util.InitialData;
 
+@Default
+@Stateless
 public class UserManagerOffline implements UserManager{
 	@Inject
 	private InitialData initialData;

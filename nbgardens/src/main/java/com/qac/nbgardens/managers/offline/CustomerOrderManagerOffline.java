@@ -3,6 +3,8 @@ package com.qac.nbgardens.managers.offline;
 import java.util.Date;
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.CustomerOrder;
@@ -10,6 +12,8 @@ import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.managers.CustomerOrderManager;
 import com.qac.nbgardens.util.InitialData;
 
+@Default
+@Stateless
 public class CustomerOrderManagerOffline implements CustomerOrderManager {
 	
 	@Inject
