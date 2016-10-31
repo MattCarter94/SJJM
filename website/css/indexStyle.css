@@ -148,6 +148,12 @@ ul.nav a:hover{
     display: inline-block;
     color: #ddd;
     font-style: italic;
+    transition:0.5s;
+}
+.phone h3:hover{
+    color: #238b18;
+    transition:0.5s;
+    font-size:25px;
 }
 
 .logo img{
@@ -159,5 +165,7 @@ ul.nav a:hover{
 }
 
 
-
+#nav-logo{
+    margin-bottom:1px;
+}
 

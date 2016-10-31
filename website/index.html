@@ -58,6 +58,23 @@
 </style>
 <body>
     
+    <script>
+            $(document).ready(function () {
+                    var url = window.location;
+                // Will only work if string in href matches with location
+                    $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+            
+                // Will also work for relative and absolute hrefs
+                    $('ul.nav a').filter(function () {
+                        return this.href == url;
+                    }).parent().addClass('active').parent().parent().addClass('active');
+                });
+                    
+        </script>
+    
+    
+    
+    
 <!--<div class="w3-top">  -->
 <div class="container-fluid">
       <nav class="navbar">
@@ -71,9 +88,9 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="aboutus.php">Catalogue</a></li>
-                        <li class="active"><a href="browse.php">About Us</a></li>
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="catalogue.html">Catalogue</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
@@ -90,7 +107,7 @@
                             <ul class="nav navbar-nav">
                                 <div class="headLeft">
                                     <span class="logo">
-                                        <img src="img/clive.png" href="#" width="60" height="60">
+                                        <img src="img/clive.png" href="#" width="60" height="60" id="nav-logo">
                                         <h2>NB Gardens</h2>
                                     </span>
                                 </div>
@@ -270,6 +287,9 @@
  
 <!-- Add Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js"></script>
+    
+    
+    
 <script>
 <!-- Google Map Location -->
 var myCenter = new google.maps.LatLng(53.474458, -2.285757);
