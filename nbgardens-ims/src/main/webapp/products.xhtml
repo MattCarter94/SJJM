@@ -2,7 +2,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>NBGardens - Products</title>
         
@@ -71,15 +72,13 @@
 	                        	</div>
 	                        	<div class="detailsDescription detail">
 	                            	<h4>Description: </h4> 
-	                            	<textarea rows="5" cols="50">#{product.price}</textarea>
+	                            	<textarea rows="5" cols="50">#{product.description}</textarea>
 	                        	</div>
 	                        	<div class="detailsCategory detail">
 	                            	<h4>Category: </h4> 
-	                            	<select>
-	                            		<option value="gnome">Gnome</option>
-	                            		<option value="gnomeaccesory">Gnome Accessory</option>
-	                            		<option value="other">Other</option>
-	                            	</select>
+	                            	<h:selectOneMenu value="#{product.category}">
+	                            		<f:selectItems value="#{products.categoryValues}"/>
+	                            	</h:selectOneMenu>
 	                        	</div>
 	                        	<div class="detailsImage detail">
 	                            	<h4>Image: </h4>
@@ -95,13 +94,12 @@
 	                        	</div>
 	                        	<div class="detailsActive detail">
 	                            	<h4>Active: </h4> 
-	                            	<select class="activeDetails">
-	                            		<option value="Active">Active</option>
-	                            		<option value="Disabled">Disabled</option>
-	                           		</select>
+	                            	<h:selectOneMenu class="activeDetails" value="product.active">
+	                            		<f:selectItems value="#{products.activeValues}"/>
+	                           		</h:selectOneMenu>
 	                    
 	                        	</div>
-	                        	<button id="saveButton">Save Details</button>
+	                        	<h:commandButton id="saveButton" onclick="alert('Details Saved')" value="Save Details"/>
 	                    	</div>
 	            		</li>           	
 	            	</ui:repeat>

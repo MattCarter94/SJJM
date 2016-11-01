@@ -5,10 +5,13 @@ import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.qac.nbgardens.entities.Product;
+import com.qac.nbgardens.entities.enums.Category;
+import com.qac.nbgardens.entities.enums.ProductStatus;
 import com.qac.nbgardens.service.ProductService;
 import com.qac.nbgardens.util.Pagination;
 
@@ -23,6 +26,28 @@ public class ProductController implements Serializable{
 	
 	public int calculateStockLevel(Integer id) {
 		return productService.calculatePercentageStock(id);
+	}
+	
+	public void updateProduct(Product p) {
+		productService.updateProduct(p);
+	}
+	
+	public SelectItem[] getActiveValues() {
+		SelectItem[] items = new SelectItem[ProductStatus.values().length];
+		int i = 0;
+		for (ProductStatus ps : ProductStatus.values()) {
+			items[i++] = new SelectItem(ps, ps.toString());
+		}
+		return items;
+	}
+	
+	public SelectItem[] getCategoryValues() {
+		SelectItem[] items = new SelectItem[Category.values().length];
+		int i = 0;
+		for (Category c : Category.values()) {
+			items[i++] = new SelectItem(c, c.toString());
+		}
+		return items;
 	}
 	
 	public String next() {

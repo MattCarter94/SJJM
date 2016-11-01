@@ -155,4 +155,23 @@ public class Product {
 	public void setMaxStock(Integer stock) {
 		this.maxStock = stock;
 	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public ProductStatus getState() {
+		return state;
+	}
+	public void setState(ProductStatus state) {
+		this.state = state;
+	}
+	public Date getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+	
 }
