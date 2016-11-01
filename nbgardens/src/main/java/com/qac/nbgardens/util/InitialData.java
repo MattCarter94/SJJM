@@ -42,6 +42,8 @@ public class InitialData {
 
 		//Add products
 		addProduct(new Product("Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product("Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product("Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 
 		//Add wishlists
 		//addWishlist();
@@ -74,8 +76,7 @@ public class InitialData {
 	}
 
 	public ArrayList<Product> getProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		return (ArrayList<Product>) products;
 	}
 
 	public List<StockOrder> getStockOrders() {
