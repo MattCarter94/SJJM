@@ -24,6 +24,7 @@ import com.qac.nbgardens.entities.enums.ProductStatus;
 @Startup
 @Singleton
 public class InitialData {
+	
 	private List<User> users = new ArrayList<User>();
 	//private List<Basket> baskets = new ArrayList<Basket>();
 	private List<CardDetails> cards = new ArrayList<CardDetails>();
@@ -36,9 +37,6 @@ public class InitialData {
 	
 	@PostConstruct
 	public void SetupData() {
-		
-		
-		
 		//Add users
 		addUser(new User(new CardDetails("123456789", "2018-05-03"), new Wishlist(new BigDecimal(20.05)), new Basket(new BigDecimal(20.05)), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
 
@@ -55,8 +53,6 @@ public class InitialData {
 		//addBasket();
 	}
 	
-	
-
 //	public void addToBasket(Basket b) {
 //		baskets.add(b);
 //	}
@@ -73,7 +69,6 @@ public class InitialData {
 		//stub
 	}
 
-
 	public List<CustomerOrder> getCustomerOrders() {
 		return customerOrders;
 	}
@@ -83,14 +78,10 @@ public class InitialData {
 		return null;
 	}
 
-
-
 	public List<StockOrder> getStockOrders() {
 		return stockOrders;
 	}
-
-
-
+	
 	public List<Basket> getBaskets() {
 		// TODO Auto-generated method stub
 		return baskets;

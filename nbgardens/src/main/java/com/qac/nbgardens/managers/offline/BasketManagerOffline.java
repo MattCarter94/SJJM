@@ -3,6 +3,8 @@ package com.qac.nbgardens.managers.offline;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.Basket;
@@ -10,6 +12,8 @@ import com.qac.nbgardens.entities.User;
 import com.qac.nbgardens.managers.BasketManager;
 import com.qac.nbgardens.util.InitialData;
 
+@Default
+@Stateless
 public class BasketManagerOffline implements BasketManager {
 	
 	@Inject

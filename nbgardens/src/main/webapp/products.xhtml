@@ -8,12 +8,12 @@
         
     </h:head>
     <body>
-        <ui:composition template="../templates/template.xhtml">
+        <ui:composition template="templates/template.xhtml">
         	<ui:define name="content">
         		<script type="application/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
         		<script type="application/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        		<h:outputScript library="js" name="products.js" />
-        		<h:outputStylesheet name="products.css" library="css" />
+   				<script src="js/products.js"></script>
+        		<link rel="stylesheet" href="css/products.css"/>
 		        <h1>Products</h1> 
 		       
 		        <button class="addProduct">+Product</button>

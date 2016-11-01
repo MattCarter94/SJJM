@@ -3,6 +3,8 @@ package com.qac.nbgardens.managers.offline;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.CardDetails;
@@ -10,7 +12,8 @@ import com.qac.nbgardens.entities.User;
 import com.qac.nbgardens.managers.CardDetailsManager;
 import com.qac.nbgardens.util.InitialData;
 
-
+@Default
+@Stateless
 public class CardDetailsManagerOffline  implements CardDetailsManager {
 	
 	@Inject

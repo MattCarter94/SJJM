@@ -7,16 +7,15 @@
       xmlns:h="http://java.sun.com/jsf/html">
  
   <body>
-    <ui:composition template="../templates/template.xhtml">
+    <ui:composition template="templates/template.xhtml">
       <ui:define name="content">
-      		<h:outputStylesheet name="css/index.css"/>
-      
+      <link rel="stylesheet" href="css/index.css"/>
       	<div class="all">
 	      <h1>Welcome to the NB Gardens IMS Application</h1>
 	      <h2>You are a slave to Clive now!</h2>
 	<!--       <img src="../img/TheBestGnomeEver.png"></img> -->
 	<!--       	   <h:graphicImage value="img/TheBestGnomeEver.png" /> -->
-			<h:graphicImage url="#{resource['img:TheBestGnomeEver.png']}"  />
+			<h:graphicImage url="img/TheBestGnomeEver.png"  />
 	 	</div>
 	 
 	      </ui:define>
