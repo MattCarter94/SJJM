@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.qac.nbgardens.entities.Product;
-import com.qac.nbgardens.managers.ProductManager;
 import com.qac.nbgardens.service.ProductService;
 import com.qac.nbgardens.util.Pagination;
 
