@@ -33,7 +33,7 @@ public class Product {
 	@Id //ID is for PK
 	@Column (name = "Product_ID")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Product productID;
+	private Integer productID;
 	
 	@Column (name = "Title", nullable = false, length = 255)
 	@NotNull
@@ -85,13 +85,25 @@ public class Product {
 		this.state = state;
 		this.orderDate = orderDate;
 	};
+	public Product(Integer id, String title, BigDecimal price, String description, Category category, String image, String tags, Integer stock, ProductStatus state, Date orderDate){
+		this.productID = id;
+		this.title = title;
+		this.price = price;
+		this.description = description;
+		this.category = category;
+		this.image = image;
+		this.tags = tags;
+		this.stock = stock;
+		this.state = state;
+		this.orderDate = orderDate;
+	};
 	
 	
 	//GETTERS AND SETTERS
-	public Product getProductID() {
+	public Integer getProductID() {
 		return productID;
 	}
-	public void setProductID(Product productID) {
+	public void setProductID(Integer productID) {
 		this.productID = productID;
 	}
 	public String getTitle() {

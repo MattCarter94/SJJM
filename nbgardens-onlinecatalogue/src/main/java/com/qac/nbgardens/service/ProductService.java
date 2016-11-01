@@ -9,7 +9,7 @@ import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.managers.ProductManager;
 
 @Stateless
-public class BrowseService {
+public class ProductService {
 	@Inject
 	private ProductManager productManager;
 

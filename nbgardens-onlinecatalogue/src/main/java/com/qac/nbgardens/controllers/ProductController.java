@@ -9,28 +9,28 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.qac.nbgardens.entities.Product;
-import com.qac.nbgardens.managers.ProductManager;
-import com.qac.nbgardens.service.BrowseService;
+import com.qac.nbgardens.service.ProductService;
 import com.qac.nbgardens.util.Pagination;
 
-@Named("browse")
+
+@Named("products")
 @SessionScoped
-public class BrowseController implements Serializable{
+public class ProductController implements Serializable{
 	@Inject
-	private BrowseService browseService;
+	private ProductService productService;
 	private DataModel<Product> products = null;
 	private Pagination pagination;
 	
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
-		return "browse";
+		return "products";
 	}
 	
 	public String previous() {
 		getPagination().previousPage();
 		recreateModel();
-		return "browse";	
+		return "products";	
 	}
 	
 	private void recreateModel() {
@@ -50,17 +50,18 @@ public class BrowseController implements Serializable{
 				@Override
 				public DataModel createDataModel() {
 					try {
-						return new ListDataModel<Product>(browseService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
-						return new ListDataModel<Product>(browseService.findAll().subList(getPageFirstItem(), getItemsCount()));
+						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 
 				@Override
 				public int getItemsCount() {
-					return browseService.findAll().size();
+					return productService.findAll().size();
 				}
 			};
 		return pagination;
 	}
 }
+

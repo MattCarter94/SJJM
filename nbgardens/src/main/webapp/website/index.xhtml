@@ -1,0 +1,203 @@
+      <ui:composition 
+     	xmlns="https://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+     	template="templates/clivetemplate.xhtml">
+     	
+     	<ui:define name="tabtitle">NBGardens</ui:define>
+     	<ui:define name="main-content">
+     	
+     	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+     	<meta charset="UTF-8" />
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"/>
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/indexStyle.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
+     	
+     	<link rel="stylesheet" href="css/index.css"/>
+
+     	
+     	
+     	<div class="bgimg-1 w3-display-container">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+        <span class="w3-center w3-padding-xlarge w3-black w3-xlarge w3-wide w3-animate-opacity">NB <span class="w3-hide-small">Gardens</span></span>
+    </div>
+</div>
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64">
+    <h3 class="w3-center">Welcome to NB Gardens</h3>
+    <p class="w3-center"><em>Gnometastic</em></p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac mi consequat, pulvinar arcu et, eleifend dolor. Sed sit amet lorem ac diam fringilla aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam suscipit nibh sit amet dolor lobortis dignissim. Nunc sit amet dui tempor nisi posuere malesuada. Proin a lacus et leo accumsan malesuada ut ut leo. Quisque at maximus ipsum. Sed congue magna eu pharetra eleifend. Fusce et pellentesque mi, vitae pulvinar dolor. Pellentesque commodo nunc tristique libero posuere, sed tincidunt mi rhoncus.</p>
+    <div class="w3-row">
+        <div class="w3-col m6 w3-center w3-padding-large">
+            <p><b>Our Products</b></p>
+            <br/>
+            <img src="" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333"/>
+        </div>
+        <!-- Hide this text on small devices -->
+        <div class="w3-col m6 w3-hide-small w3-padding-large">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac mi consequat, pulvinar arcu et, eleifend dolor. Sed sit amet lorem ac diam fringilla aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam suscipit nibh sit amet dolor lobortis dignissim. Nunc sit amet dui tempor nisi posuere malesuada. Proin a lacus et leo accumsan malesuada ut ut leo. Quisque at maximus ipsum. Sed congue magna eu pharetra eleifend. Fusce et pellentesque mi, vitae pulvinar dolor. Pellentesque commodo nunc tristique libero posuere, sed tincidunt mi rhoncus.</p>
+        </div>
+    </div>
+</div>
+<div class="w3-row w3-center w3-dark-grey w3-padding-16">
+    <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">14+</span><br/>
+        Suppliers
+    </div>
+    <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">55+</span><br/>
+        Gnomes sold today
+    </div>
+    <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">89+</span><br/>
+        Happy Clients
+    </div>
+    <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">150+</span><br/>
+        Special Offers
+    </div>
+</div>
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container">
+    <div class="w3-display-middle">
+        <span class="w3-xxlarge w3-text-light-grey w3-wide">SHOP OUR FAVOURITES</span>
+    </div>
+</div>
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64">
+    <h3 class="w3-center">Our Favourites</h3>
+    <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br/> Click on the images to make them bigger</em></p>
+    <br/><br/>
+    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+    <div class="favContainer">
+        <div class="threeCol">
+            <div class="bestGnome">
+                <img src="img/clive.png" class = "fade"/>
+                <h3>Best Selling Gnome</h3>
+                <button class="w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">View All Gnomes</button>
+            </div>
+            <div class="bestAcc">
+                <img src="img/clive.png" class = "fade"/>
+                <h3>Best Selling Accessory</h3>
+                <button class="w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">View All Accessories</button>
+            </div>
+            <div class="bestMis">
+                <img src="img/clive.png" class = "fade"/>
+                <h3>Best Selling Other</h3>
+                <button class="w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">View Other...</button>
+            </div>
+        </div>
+        <button class="w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">LOAD MORE</button>
+    </div>
+</div>
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright" title="Close Modal Image">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image"/>
+        <p id="caption" class="w3-opacity w3-large"></p>
+    </div>
+</div>
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container">
+    <div class="w3-display-middle">
+        <span class="w3-xxlarge w3-text-light-grey w3-wide">CONTACT</span>
+    </div>
+</div>
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64">
+    <h3 class="w3-center">WHERE WE WORK</h3>
+    <p class="w3-center"><em>Come give us a visit!</em></p>
+    <div class="w3-row w3-padding-32 w3-section">
+        <div class="w3-col m4 w3-container">
+            <!-- Add Google Maps -->
+            <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
+        </div>
+        <div class="w3-col m8 w3-container w3-section">
+            <div class="w3-large w3-margin-bottom">
+                <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Manchester, England<br/>
+                <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 020-GNOME-NOW<br/>
+                <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: cliveisnotwhatheseems@helpus.com<br/>
+            </div>
+            <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                <div class="w3-half">
+                    <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Name"/>
+                </div>
+                <div class="w3-half">
+                    <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Email"/>
+                </div>
+            </div>
+            <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Comment"/>
+            <button class="w3-btn w3-section w3-right">SEND MESSAGE</button>
+        </div>
+    </div>
+</div>
+     	
+     	
+     	
+     	
+     	
+     	
+     	
+     	
+     	
+     	<!-- Add Google Maps -->
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		    
+		    
+		    
+		<script>
+		<!-- Google Map Location -->
+		var myCenter = new google.maps.LatLng(53.474458, -2.285757);
+		
+		function initialize() {
+		var mapProp = {
+		  center: myCenter,
+		  zoom: 12,
+		  scrollwheel: false,
+		  draggable: false,
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+		  };
+		
+		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		
+		var marker = new google.maps.Marker({
+		  position: myCenter,
+		});
+		
+		marker.setMap(map);
+		}
+		
+		google.maps.event.addDomListener(window, 'load', initialize);
+		
+		// Modal Image Gallery
+		function onClick(element) {
+		  document.getElementById("img01").src = element.src;
+		  document.getElementById("modal01").style.display = "block";
+		  var captionText = document.getElementById("caption");
+		  captionText.innerHTML = element.alt;
+		}
+		
+		// Change style of navbar on scroll
+		window.onscroll = function() {myFunction()};
+		function myFunction() {
+		    var navbar = document.getElementById("myNavbar");
+		    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+		        navbar.className = "w3-navbar" + " w3-card-2" + " w3-animate-top" + " w3-white";
+		    } else {
+		        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
+		    }
+		}
+		</script>
+     	
+     	
+     	
+     	
+     	
+     	
+     	</ui:define>
+      </ui:composition>
