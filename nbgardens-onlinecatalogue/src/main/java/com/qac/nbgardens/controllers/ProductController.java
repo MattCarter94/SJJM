@@ -9,6 +9,7 @@ import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.qac.nbgardens.beans.ProductBean;
 import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.service.ProductService;
 import com.qac.nbgardens.util.Pagination;
@@ -67,15 +68,20 @@ public class ProductController implements Serializable{
 	
 	
 //	public Product findProductById(Integer id) {
-//		DataModel<Product> dm;
-//		dm.setWrappedData(getProducts());
-//		for (int i = 0; i < products.size(); i++) {
-//			if (products.get(i).getProductID().equals(id)) {
-//				return products.get(i);
-//			}
-//		}
-//		return null;
+//		DataModel<Product> dm = getProducts();
+//		Product p = dm.getRowData();
+//		
+//		return p;
+//		
+////		for (int i = 0; i < products.size(); i++) {
+////			if (products.get(i).getProductID().equals(id)) {
+////				return products.get(i);
+////			}
+////		}
+////		return null;
 //	}
+	
+
 	
 }
 

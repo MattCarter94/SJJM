@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 public class ProductBean {
 
 		public int id;
+		public static String title;
 		
 		//Constructor
 		public ProductBean() {
@@ -34,6 +35,16 @@ public class ProductBean {
 
 		public void setId(int id) {
 			this.id = id;
+		}
+
+
+		public String getTitle() {
+			return title;
+		}
+
+
+		public void setTitle(String title) {
+			this.title = title;
 		}
 		
 		

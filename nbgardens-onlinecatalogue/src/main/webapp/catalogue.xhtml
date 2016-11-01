@@ -102,9 +102,6 @@
 							<h:outputText escape="false" value="No Products Found" rendered="#{products.products.rowCount == 0 }" />
 	           				<ui:repeat var="product" value="#{products.products}">
 	           				
-	           							<h:link value="View" outcome="product.xhtml">
-								            <f:param name="id" value="#{product.productID}" />
-								        </h:link>
 		           					
 										<div class="browse-image 6999">
 											
@@ -112,7 +109,9 @@
 											<p class="price" value="#{product.price}">£#{product.price}</p>
 											<img src="img/#{product.image}" width="200px" class="thumb"/>
 											<figcaption>#{product.title}</figcaption>
-											
+											<h:button value="More Info" outcome="product.xhtml">
+								            	<f:param name="id" value="#{product.productID}" />
+								        	</h:button>
 										</div>
 									
 								

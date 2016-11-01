@@ -323,6 +323,7 @@ input#srch-term.form-control{
     list-style-type: none;
 }
 .browse-image{
+	text-align: center;
 	display:inline-block;
 	float: left;
   	max-width:200px;
