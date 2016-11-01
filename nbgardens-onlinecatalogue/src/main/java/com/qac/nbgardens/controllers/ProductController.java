@@ -1,6 +1,7 @@
 package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -63,5 +64,18 @@ public class ProductController implements Serializable{
 			};
 		return pagination;
 	}
+	
+	
+//	public Product findProductById(Integer id) {
+//		DataModel<Product> dm;
+//		dm.setWrappedData(getProducts());
+//		for (int i = 0; i < products.size(); i++) {
+//			if (products.get(i).getProductID().equals(id)) {
+//				return products.get(i);
+//			}
+//		}
+//		return null;
+//	}
+	
 }
 

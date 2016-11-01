@@ -16,7 +16,7 @@
 	 	    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"/>
 	        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"/>
 	        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	       
+	        
 	        <link rel="stylesheet" type="text/css" href="css/catalogue.css"/>
      	
      	
@@ -97,12 +97,31 @@
             <div class="col-sm-8">
                 <div class="container-fluid">
 					<div id="section1">
-						 <div class="browse-image 6999">
-							<a href="product.xhtml">
-							<p class="price" value="6999">£6,999</p>
-							<img src="img/gnome_swing.jpg" width="200px" class="thumb"/>
-							<figcaption>Swingset Gnomes</figcaption></a>
+					
+						<div class="products-container">
+							<h:outputText escape="false" value="No Products Found" rendered="#{products.products.rowCount == 0 }" />
+	           				<ui:repeat var="product" value="#{products.products}">
+	           				
+	           							<h:link value="View" outcome="product.xhtml">
+								            <f:param name="id" value="#{product.productID}" />
+								        </h:link>
+		           					
+										<div class="browse-image 6999">
+											
+<!-- 											<a href="product.xhtml"> -->
+											<p class="price" value="#{product.price}">£#{product.price}</p>
+											<img src="img/#{product.image}" width="200px" class="thumb"/>
+											<figcaption>#{product.title}</figcaption>
+											
+										</div>
+									
+								
+								
+							</ui:repeat>
 						</div>
+					
+					
+						 
 						
 					</div>
                 </div>

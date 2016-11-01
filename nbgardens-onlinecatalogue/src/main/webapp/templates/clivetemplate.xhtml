@@ -9,6 +9,11 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title><ui:insert name="tabtitle" /></title>
 	<!-- Insert CSS links here -->
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+	<link rel="stylesheet" href="css/indexStyle.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
+	
 	
 </h:head>
 <body>
@@ -24,7 +29,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.xhtml">Home</a></li>
+                <li><a href="index.xhtml">Home</a></li>
                 <li><a href="catalogue.xhtml">Catalogue</a></li>
                 <li><a href="aboutus.xhtml">About Us</a></li>
             </ul>
@@ -58,13 +63,16 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
     </div>
 </nav>
 </div>
+ <script src="js/activeWindow.js"></script>
+
 <!--END OF NAVBAR CODE-->
+      
+     
+     
         
 <!-- Main content -->
 <div class="container-fluid"> 
 <ui:insert name="main-content"></ui:insert>
-
-
 </div>        
         
                   
