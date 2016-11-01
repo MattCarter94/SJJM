@@ -63,6 +63,10 @@ public class Product {
 	@NotNull
 	private Integer stock;
 	
+	@Column (name = "Highest_Stock", nullable = false)
+	@NotNull
+	private Integer maxStock;
+	
 	@Column (name = "State", nullable = false, length = 255)
 	@NotNull
 	private ProductStatus state;
@@ -82,6 +86,7 @@ public class Product {
 		this.image = image;
 		this.tags = tags;
 		this.stock = stock;
+		this.maxStock = stock;
 		this.state = state;
 		this.orderDate = orderDate;
 	};
@@ -94,11 +99,12 @@ public class Product {
 		this.image = image;
 		this.tags = tags;
 		this.stock = stock;
+		this.maxStock = stock;
 		this.state = state;
 		this.orderDate = orderDate;
 	};
 	
-	
+
 	//GETTERS AND SETTERS
 	public Integer getProductID() {
 		return productID;
@@ -141,5 +147,11 @@ public class Product {
 	}
 	public void setStock(Integer stock) {
 		this.stock = stock;
+	}
+	public Integer getMaxStock() {
+		return maxStock;
+	}
+	public void setMaxStock(Integer stock) {
+		this.maxStock = stock;
 	}
 }

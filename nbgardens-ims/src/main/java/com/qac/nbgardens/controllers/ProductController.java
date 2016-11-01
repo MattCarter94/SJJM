@@ -21,6 +21,10 @@ public class ProductController implements Serializable{
 	private DataModel<Product> products = null;
 	private Pagination pagination;
 	
+	public int calculateStockLevel(Integer id) {
+		return productService.calculatePercentageStock(id);
+	}
+	
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();

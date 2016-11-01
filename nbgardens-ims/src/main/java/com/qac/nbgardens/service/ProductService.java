@@ -16,4 +16,11 @@ public class ProductService {
 	public List<Product> findAll() {
 		return productManager.findAll();
 	}
+	
+	
+	public Integer calculatePercentageStock(Integer id) {
+		Product product = productManager.findProductById(id);
+		return (int)((float)product.getStock() / (float)product.getMaxStock()) * 100;	
+	}
+	
 }
