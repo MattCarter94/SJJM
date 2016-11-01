@@ -1,4 +1,4 @@
-package com.qac.nbgardens.controllers;
+package com.qac.nbgardens.beans;
 
 import java.util.Map;
 
