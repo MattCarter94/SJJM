@@ -1,6 +1,7 @@
 package com.qac.nbgardens.entities;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -119,7 +120,7 @@ public class Product {
 		this.title = title;
 	}
 	public BigDecimal getPrice() {
-		return price;
+		return price.setScale(2, BigDecimal.ROUND_HALF_UP);
 	}
 	public void setPrice(BigDecimal price) {
 		this.price = price;
