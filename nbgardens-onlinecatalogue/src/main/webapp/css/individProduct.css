@@ -1,0 +1,42 @@
+.prodContainer{
+    width: 890px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    padding-top: 20px;
+/*    padding-bottom: 20px;*/
+}
+
+.imgContainer{
+    padding-top: 20px;
+    display: inline-block;
+    width: 45%;
+}
+
+.prodPrice{
+    text-align: center;
+    padding-top: 10px;
+    
+}
+
+.prodImg{
+    display: inline-block;
+}
+
+.textContainer{
+    display: inline-block;
+    float: right;
+    width: 45%;
+    
+}
+
+.prodTitle{
+    padding-bottom: 10px;
+    
+}
+
+.prodDescription{
+    padding-right: 20px;
+    
+}
