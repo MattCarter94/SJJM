@@ -19,6 +19,10 @@
 	        <link rel="stylesheet" type="text/css" href="css/catalogue.css"/>
 	        <link rel="stylesheet" type="text/css" href="css/individProduct.css"/>
      	
+     		<f:metadata>
+     			<f:viewParam name="id" value="#{prodbean.id}" />
+     		</f:metadata>
+     	
      	
      		<div class="prodContainer">
             <div class="imgContainer">
@@ -27,7 +31,8 @@
                 </div>
 
                 <div class="prodPrice">
-                    <h3><b>Only £190,000</b></h3>
+                	<h3>#{prodbean.id}</h3>
+                    <h3><b>Only £#{productbean.id}</b></h3>
                 </div>
             </div>
         
