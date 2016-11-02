@@ -60,46 +60,48 @@
 	                        	</div>
 	                    	</div>
 	                    	<div class="panel">
-	                        	<h3><b>Edit Details</b></h3>
-	                        
-	                        	<div class="detail">
-	                            	<h4>Title:</h4> 
-	                            	<input type="text" value="#{product.title}"/>
-	                        	</div>
-	                        	<div class="detailsPrice detail">
-	                            	<h4>Price:</h4> 
-	                            	<input type="text" value="#{product.price}"/>
-	                        	</div>
-	                        	<div class="detailsDescription detail">
-	                            	<h4>Description: </h4> 
-	                            	<textarea rows="5" cols="50">#{product.description}</textarea>
-	                        	</div>
-	                        	<div class="detailsCategory detail">
-	                            	<h4>Category: </h4> 
-	                            	<h:selectOneMenu value="#{product.category}">
-	                            		<f:selectItems value="#{products.categoryValues}"/>
-	                            	</h:selectOneMenu>
-	                        	</div>
-	                        	<div class="detailsImage detail">
-	                            	<h4>Image: </h4>
-	                            	<input type="text" value="#{product.image}"/>
-	                        	</div>
-	                        	<div class="detailsTags detail">
-	                            	<h4>Tags: </h4> 
-	                            	<textarea class="descriptionDetails" rows="4" cols="50">#{product.tags}</textarea>
-	                        	</div>
-	                        	<div class="detailsStock detail">
-	                            	<h4>Stock: </h4> 
-	                            	<input type="text" value="#{product.stock}"/>
-	                        	</div>
-	                        	<div class="detailsActive detail">
-	                            	<h4>Active: </h4> 
-	                            	<h:selectOneMenu class="activeDetails" value="product.active">
-	                            		<f:selectItems value="#{products.activeValues}"/>
-	                           		</h:selectOneMenu>
-	                    
-	                        	</div>
-	                        	<h:commandButton id="saveButton" onclick="alert('Details Saved')" value="Save Details"/>
+	                    		<h:form id="details" action="">
+		                        	<h3><b>Edit Details</b></h3>
+		                        
+		                        	<div class="detail">
+		                            	<h4>Title:</h4> 
+		                            	<input type="text" name="product_title" value="#{product.title}"/>
+		                        	</div>
+		                        	<div class="detailsPrice detail">
+		                            	<h4>Price:</h4> 
+		                            	<input type="text" name="product_price" value="#{product.price}"/>
+		                        	</div>
+		                        	<div class="detailsDescription detail">
+		                            	<h4>Description: </h4> 
+		                            	<textarea name="product_description" rows="5" cols="50">#{product.description}</textarea>
+		                        	</div>
+		                        	<div class="detailsCategory detail">
+		                            	<h4>Category: </h4> 
+		                            	<h:selectOneMenu name="product_category" value="#{product.category}">
+		                            		<f:selectItems value="#{products.categoryValues}"/>
+		                            	</h:selectOneMenu>
+		                        	</div>
+		                        	<div class="detailsImage detail">
+		                            	<h4>Image: </h4>
+		                            	<input type="text" name="product_image" value="#{product.image}"/>
+		                        	</div>
+		                        	<div class="detailsTags detail">
+		                            	<h4>Tags: </h4> 
+		                            	<textarea class="descriptionDetails" name="product_tags" rows="4" cols="50">#{product.tags}</textarea>
+		                        	</div>
+		                        	<div class="detailsStock detail">
+		                            	<h4>Stock: </h4> 
+		                            	<input type="text" name="product_stock" value="#{product.stock}"/>
+		                        	</div>
+		                        	<div class="detailsActive detail">
+		                            	<h4>Active: </h4> 
+		                            	<h:selectOneMenu class="activeDetails" name="product_active" value="product.active">
+		                            		<f:selectItems value="#{products.activeValues}"/>
+		                           		</h:selectOneMenu>
+		                    
+		                        	</div>
+		                        	<h:commandButton id="saveButton" type="submit" action="#{products.updateProduct(product.productID)}" value="Save Details"/>
+		                        </h:form>
 	                    	</div>
 	            		</li>           	
 	            	</ui:repeat>

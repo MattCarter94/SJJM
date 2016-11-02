@@ -3,6 +3,7 @@ package com.qac.nbgardens.controllers;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
@@ -28,8 +29,16 @@ public class ProductController implements Serializable{
 		return productService.calculatePercentageStock(id);
 	}
 	
-	public void updateProduct(Product p) {
-		productService.updateProduct(p);
+	public void updateProduct(Integer id) {
+		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
+		String price = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_price");
+		String description = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_description");
+		String category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_category");
+		String image = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_image");
+		String tags = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_tags");
+		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
+		String active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_active");
+		productService.updateProduct(id, title, price, description, category, image, tags, stock, active);
 	}
 	
 	public SelectItem[] getActiveValues() {
