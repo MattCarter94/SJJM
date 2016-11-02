@@ -6,6 +6,24 @@ html,body{
     background-attachment: fixed;
 }
 
+.pagNav{
+	padding-top: 30px;
+	clear: both;
+	font-weight: bold;
+}
+
+.pagLink{
+	text-decoration: underline;
+}
+
+.productGrid{
+	
+}
+
+.products-container{
+	text-align: center;
+}
+
 .prodButton input{
 	-moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #9acc85;
