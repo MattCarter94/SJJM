@@ -91,5 +91,21 @@ public class UserManagerOffline implements UserManager{
 		}
 		
 	}
+
+
+
+	@Override
+	public List<Customer> getUserListByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Customer getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

@@ -15,7 +15,7 @@
 		    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"/>
 		    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"/>
 	        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	        <link rel="stylesheet" type="text/css" href="css/general.css"/>
+	        
 	        <link rel="stylesheet" type="text/css" href="css/catalogue.css"/>
 	        <link rel="stylesheet" type="text/css" href="css/individProduct.css"/>
      	
@@ -32,7 +32,9 @@
 
                 <div class="prodPrice">
                     <h3><b>Only £#{products.findProductById(prodbean.id).price}</b></h3>
-                    <h:button value="Back" outcome="catalogue.xhtml"></h:button>
+                    <div class="buttons">
+                    	<span><h:button value="Back" outcome="catalogue.xhtml" styleClass="back"></h:button><h:button value="Add to Cart" styleClass="addCart"></h:button></span>
+                    </div>
                 </div>
             </div>
         
