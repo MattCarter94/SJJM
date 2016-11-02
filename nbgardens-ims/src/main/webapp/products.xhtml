@@ -67,33 +67,33 @@
 		                            	<h4>Title:</h4> 
 		                            	<input type="text" name="product_title" value="#{product.title}"/>
 		                        	</div>
-		                        	<div class="detailsPrice detail">
+		                        	<div class="detail">
 		                            	<h4>Price:</h4> 
 		                            	<input type="text" name="product_price" value="#{product.price}"/>
 		                        	</div>
-		                        	<div class="detailsDescription detail">
+		                        	<div class="detail">
 		                            	<h4>Description: </h4> 
 		                            	<textarea name="product_description" rows="5" cols="50">#{product.description}</textarea>
 		                        	</div>
-		                        	<div class="detailsCategory detail">
+		                        	<div class="detail">
 		                            	<h4>Category: </h4> 
 		                            	<h:selectOneMenu name="product_category" value="#{product.category}">
 		                            		<f:selectItems value="#{products.categoryValues}"/>
 		                            	</h:selectOneMenu>
 		                        	</div>
-		                        	<div class="detailsImage detail">
+		                        	<div class="detail">
 		                            	<h4>Image: </h4>
 		                            	<input type="text" name="product_image" value="#{product.image}"/>
 		                        	</div>
-		                        	<div class="detailsTags detail">
+		                        	<div class="detail">
 		                            	<h4>Tags: </h4> 
 		                            	<textarea class="descriptionDetails" name="product_tags" rows="4" cols="50">#{product.tags}</textarea>
 		                        	</div>
-		                        	<div class="detailsStock detail">
+		                        	<div class="detail">
 		                            	<h4>Stock: </h4> 
 		                            	<input type="text" name="product_stock" value="#{product.stock}"/>
 		                        	</div>
-		                        	<div class="detailsActive detail">
+		                        	<div class="detail">
 		                            	<h4>Active: </h4> 
 		                            	<h:selectOneMenu class="activeDetails" name="product_active" value="product.active">
 		                            		<f:selectItems value="#{products.activeValues}"/>

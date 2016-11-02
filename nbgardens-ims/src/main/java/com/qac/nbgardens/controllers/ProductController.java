@@ -25,7 +25,7 @@ public class ProductController implements Serializable{
 	private DataModel<Product> products = null;
 	private Pagination pagination;
 	
-	public int calculateStockLevel(Integer id) {
+	public float calculateStockLevel(Integer id) {
 		return productService.calculatePercentageStock(id);
 	}
 	
@@ -33,11 +33,11 @@ public class ProductController implements Serializable{
 		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
 		String price = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_price");
 		String description = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_description");
-		String category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_category");
+		String category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("j_idt15:0:details:j_idt18");
 		String image = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_image");
 		String tags = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_tags");
 		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
-		String active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_active");
+		String active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("j_idt15:0:details:j_idt21");
 		productService.updateProduct(id, title, price, description, category, image, tags, stock, active);
 	}
 	
