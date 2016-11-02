@@ -63,8 +63,19 @@
 		    
 		    <div class="container">
 		        <h1>Live Stock Report</h1>
+		       <ui:repeat var="customer" value="#{customers.customers}">
+	                <span class="title">#{customer.surname}</span> 
+	           </ui:repeat>
 		    </div>
 		    
+		     <div class="container">
+		        <h1>Live Stock Report</h1>
+		       <ui:repeat var="product" value="#{products.products}">
+	                <span class="title">#{product.title}</span> 
+	           </ui:repeat>
+		    </div>
+		    
+	 	    
 		    <br/>
 		    
 		    <div class="container">
@@ -98,30 +109,23 @@
 		                <div class="dropdown">
 		                <h:form>
 		                    <select>
-<!-- 		                        <option value="" disabled selected>Select an ID </option> -->
-								<option value="">Select an ID </option>
-		                        <option value="ID 1">ID: 1</option>
-		                        <option value="ID 2">ID: 2</option>
-		                        <option value="ID 3">ID: 3</option>
-		                        <option value="ID 4">ID: 4</option>
-		                        <option value="ID 5">ID: 5</option>
-		                        <option value="ID 6">ID: 6</option>
+<!-- 		                    <option value="" disabled selected>Select an ID </option> -->
+								<ui:repeat var="product" value="#{products.products}">
+									<option value="">#{product.productID}</option>			        
+		                        </ui:repeat>
 		                    </select>
 		                </h:form>
 		                </div>
 		
 		                <br/><br/>
-		
+
 		                <!--Name Dropdown--> 
 		                <div class="dropdown">
 		                    <select>
-<!-- 		                        <option value="" disabled selected>Select a Name </option> -->
-		                        <option value="The Clive">The Clive</option>
-		                        <option value="Shocked Clive">Shocked Clive</option>
-		                        <option value="Annoyed Clive">Annoyed Clive</option>
-		                        <option value="Sad Clive">Sad Clive</option>
-		                        <option value="Perplexed Clive">Perplexed Clive</option>
-		                        <option value="Angry Clive">Angry Clive</option>
+<!-- 		                    <option value="" disabled selected>Select a Name </option> -->
+		                        <ui:repeat var="product" value="#{products.products}">		                 
+									<option value="">#{product.title}</option>			                      
+		                        </ui:repeat>
 		                    </select>
 		                </div>
 		
@@ -130,11 +134,10 @@
 		                <!--Category Dropdown--> 
 		                <div class="dropdown">
 		                    <select>
-<!-- 		                        <option value="" disabled selected>Select a Category </option> -->
-								<option value="">Select a Category </option>
-		                        <option value="Gnomes">Gnomes</option>
-		                        <option value="Gnome Accessories">Gnome Accessories</option>
-		                        <option value="Other">Other</option>
+<!-- 		                     <option value="" disabled selected>Select a Category </option> -->
+		                        <ui:repeat var="product" value="#{products.products}">		                 
+									<option value="">#{product.title}</option>			                      
+		                        </ui:repeat>
 		                    </select>
 		                </div>
 		
@@ -148,7 +151,8 @@
 		
 		                <FilterHide>
 		                    <button class="CatalougeClass" id="hide">Hide Filters</button>
-		                <br/></FilterHide>
+		                	<br/>
+		                </FilterHide>
 		                <br/>
 		                <div>
 		                    <button class="CatalougeClass" id="show">Show Filters</button>
@@ -158,19 +162,11 @@
 		                </FilterBox>
 		            
 		            </div>
-		               
-		            
-		            
-		            
-		            
-		            
-		            
+		             
 		            
 		        </div>
 		  
-		           
-		    
-		
+		          
 		    <hr/>
 		     
 		       

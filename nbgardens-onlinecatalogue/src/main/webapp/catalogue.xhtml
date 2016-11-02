@@ -109,9 +109,11 @@
 											<p class="price" value="#{product.price}">£#{product.price}</p>
 											<img src="img/#{product.image}" width="200px" class="thumb"/>
 											<figcaption>#{product.title}</figcaption>
-											<h:button value="More Info" outcome="product.xhtml">
-								            	<f:param name="id" value="#{product.productID}" />
-								        	</h:button>
+											<div class="prodButton">
+												<h:button value="More Info" outcome="product.xhtml" styleClass="moreButton">
+								            		<f:param name="id" value="#{product.productID}" />
+								        		</h:button>
+								        	</div>
 										</div>
 									
 								

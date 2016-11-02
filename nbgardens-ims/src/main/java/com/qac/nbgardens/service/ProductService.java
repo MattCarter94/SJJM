@@ -53,4 +53,10 @@ public class ProductService {
 		return (int)((float)product.getStock() / (float)product.getMaxStock()) * 100;	
 	}
 	
+	
+	public Product findProductById(int id){
+		return productManager.findProductById(id);
+		
+	}
+	
 }
