@@ -1,0 +1,28 @@
+ <ui:composition 
+     	xmlns="https://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+     	template="templates/clivetemplate.xhtml">
+     	
+     	<ui:define name="tabtitle">NBGardens</ui:define>
+     	<ui:define name="main-content">
+     	
+     	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+     	<meta charset="UTF-8" />
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	
+     	
+     	<link rel="stylesheet" href="css/login.css"/>
+     	
+
+		<h:outputText value="Your Username is: #{customers.username}" /><br/>
+     	<h:outputText value="Your Password is: #{customers.password}" />
+     	
+     	
+     	
+     	</ui:define>
+     	</ui:composition>
+     	
