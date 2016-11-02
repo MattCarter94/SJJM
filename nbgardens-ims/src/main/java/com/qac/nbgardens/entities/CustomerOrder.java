@@ -24,8 +24,6 @@ public class CustomerOrder {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer customerOrderID;
 	
-
-	
 	@OneToOne //For FK.
 	@JoinColumn(name="User_ID", nullable = false)
 	@NotNull
