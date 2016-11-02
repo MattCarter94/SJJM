@@ -16,4 +16,8 @@ public class ProductService {
 	public List<Product> findAll() {
 		return productManager.findAll();
 	}
+
+	public Product findProductById(Integer id) {
+		return productManager.findProductById(id);
+	}
 }

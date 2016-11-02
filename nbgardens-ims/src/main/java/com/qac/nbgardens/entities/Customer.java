@@ -85,10 +85,7 @@ public class Customer {
 	
 	//End constructors
 	
-	
-	
-	
-	
+
 	//GETTERS AND SETTERS
 	public Integer getUserID() {
 		return userID;

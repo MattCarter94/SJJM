@@ -55,6 +55,13 @@ public class CustomerOrderManagerOffline implements CustomerOrderManager {
 		}
 		return null;
 	}
+
+
+	@Override
+	public List<CustomerOrder> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
