@@ -67,20 +67,10 @@ public class ProductController implements Serializable{
 	}
 	
 	
-//	public Product findProductById(Integer id) {
-//		DataModel<Product> dm = getProducts();
-//		Product p = dm.getRowData();
-//		
-//		return p;
-//		
-////		for (int i = 0; i < products.size(); i++) {
-////			if (products.get(i).getProductID().equals(id)) {
-////				return products.get(i);
-////			}
-////		}
-////		return null;
-//	}
-	
+	public Product findProductById(Integer id) {
+		return productService.findProductById(id);
+		
+	}
 
 	
 }
