@@ -25,7 +25,23 @@ public class CustomerService
 	public void displayProductTitleFromSpecificCustomerOrder(Integer customerID, Integer orderID) {
 		// TODO Auto-generated method stub
 		
-		String plz  = customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle();
-		System.out.println(plz);
+		// This code is here for testing reference. - It basically lets you see any part of a stock order. 
+		
+		// The amount of orders customer 0 has
+		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().size());
+		
+		// Gets customer 0's order date
+		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getOrderDate());
+		
+		// Get Customers Email
+		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getEmail());
+		
+		// get Order Quantity of customer 0's 1st order (element 0 in the list).
+		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getQuantity());
+		
+		// Get Product
+		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle());
+		
+		
 	}
 }

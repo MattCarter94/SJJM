@@ -28,7 +28,7 @@ public class CustomerOrder {
 	@OneToOne //For FK.
 	@JoinColumn(name="Email", nullable = false)
 	@NotNull
-	private Customer email;
+	private String email;
 	
 	@OneToMany //For FK.
 	@JoinColumn(name="AddressID", nullable = false)
@@ -50,6 +50,8 @@ public class CustomerOrder {
 	
 	public CustomerOrder(OrderLine customerOrder, String email, Date orderDate, OrderStatus status) {
 		
+		this.customerOrder = customerOrder;
+		this.email = email;
 		this.orderDate = orderDate;
 		this.status = status;
 	}
@@ -67,6 +69,14 @@ public class CustomerOrder {
 	public Date getOrderDate() {
 		return orderDate;
 	}
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}

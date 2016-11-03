@@ -57,7 +57,7 @@ public class InitialData {
 			e.printStackTrace();
 		}
 		try {
-			customers.get(1).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), sdf.parse("31-08-1982"), OrderStatus.INPROGRESS));
+			customers.get(0).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), sdf.parse("31-08-1982"), OrderStatus.INPROGRESS));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,13 +70,12 @@ public class InitialData {
 		}
 		// Dates demand some exception handling.
 		
-		//customers.get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle();
-		
+
 		//Add wishlists
 		//addWishlist();
 		
 		//Add stockOrders
-		//addStockOrder();s
+	//	addStockOrder(new StockOrder(productID, supplier, quantity, stockOrderDate, stockRecievedDate));
 		
 		//Add baskets
 		//addBasket();
@@ -87,6 +86,10 @@ public class InitialData {
 //	}
 	public void addProduct(Product p) {
 		products.add(p);
+	}
+	
+	public void addStockOrder(StockOrder so) {
+		stockOrders.add(so);
 	}
 	
 	public void addCustomer(Customer c) {
