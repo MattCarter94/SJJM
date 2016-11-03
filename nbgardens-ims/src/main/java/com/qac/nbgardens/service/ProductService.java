@@ -55,11 +55,11 @@ public class ProductService {
 			productManager.findProductById(id).setState(ProductStatus.DISCONTINUED);
 			break;
 		}
-		//TODO productManager.findProductById(id).setActive()
-
 		System.out.println("active: " + active);
-		
-		
+	}
+	
+	public void addProduct(Product p) {
+		productManager.addProduct(p);
 	}
 	
 	

@@ -12,6 +12,7 @@ public interface ProductManager {
 	public Product findProductById(Integer id);
 	public ArrayList<Product> getProducts();
 	
+	public void addProduct (Product p);
 	public void updateProduct (Product p);
 	public void removeProduct (Product p);
 	public List<Product> findAll();

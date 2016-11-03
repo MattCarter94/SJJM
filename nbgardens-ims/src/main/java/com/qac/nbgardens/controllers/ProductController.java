@@ -1,6 +1,9 @@
 package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -30,15 +33,37 @@ public class ProductController implements Serializable{
 	}
 	
 	public void updateProduct(Integer id) {
+		List<String> listParameters = new ArrayList<>();
+		FacesContext.getCurrentInstance().getExternalContext().getRequestParameterNames().forEachRemaining(k->{
+			listParameters.add(k);
+		});
+		String category = "";
+		String active = "";
+		for(String property : listParameters) {
+			if(property.contains("j_idt26"))
+				category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
+			if(property.contains("j_idt29"))
+				active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
+		}
 		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
 		String price = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_price");
 		String description = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_description");
-		String category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("j_idt15:0:details:j_idt18");
+		System.out.println("CATEGORY: " + category);
 		String image = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_image");
 		String tags = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_tags");
 		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
-		String active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("j_idt15:0:details:j_idt21");
+		//System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
+		
+		System.out.println("ACTIVE: " + active);
+		//System.out.println(active);
+		for (String l : listParameters) {
+			System.out.println("ListParam: " + l);
+		}
 		productService.updateProduct(id, title, price, description, category, image, tags, stock, active);
+	}
+	
+	public void addProduct() {
+		//TODO
 	}
 	
 	public SelectItem[] getActiveValues() {
