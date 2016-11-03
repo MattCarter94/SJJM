@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>NBGardens - Products</title>
         
@@ -16,8 +17,54 @@
    				<script src="js/products.js"></script>
         		<link rel="stylesheet" href="css/products.css"/>
 		        <h1>Products</h1> 
-		       
-		        <button class="addProduct">+Product</button>
+		        <div class="accordion">
+		        	<button class="addProduct">+Product</button>
+		        
+		        </div>
+		        <div class="panel">
+                 	<h:form id="details" action="">
+                      	<h3><b>Edit Details</b></h3>
+                      
+                      	<div class="detail">
+                          	<h4>Title:</h4> 
+                          	<input type="text" name="product_title" value=""/>
+                      	</div>
+                      	<div class="detail">
+                          	<h4>Price:</h4> 
+                          	<input type="text" name="product_price" value="#"/>
+                      	</div>
+                      	<div class="detail">
+                          	<h4>Description: </h4> 
+                          	<textarea name="product_description" rows="5" cols="50"></textarea>
+                      	</div>
+                      	<div class="detail">
+                          	<h4>Category: </h4> 
+                          	<h:selectOneMenu name="product_category" p:autocorrect="off" value="#">
+                          		<f:selectItems value="#{products.categoryValues}"/>
+                          	</h:selectOneMenu>
+                      	</div>
+                      	<div class="detail">
+                          	<h4>Image: </h4>
+                          	<input type="text" name="product_image" value=""/>
+                      	</div>
+                      	<div class="detail">
+                          	<h4>Tags: </h4> 
+                          	<textarea class="descriptionDetails" name="product_tags" rows="4" cols="50"></textarea>
+                      	</div>
+                      	<div class="detail">
+                          	<h4>Stock: </h4> 
+                          	<input type="text" name="product_stock" value=""/>
+                      	</div>
+                      	<div class="detail">
+                          	<h4>Active: </h4> 
+                          	<h:selectOneMenu class="activeDetails" name="product_active" p:autocorrect="off" value="">
+                          		<f:selectItems value="#{products.activeValues}"/>
+                         	</h:selectOneMenu>
+                      	</div>
+                      	<h:commandButton id="saveButton" type="submit" action="#{products.addProduct()}" value="Save Details"/>
+                      </h:form>
+                 	</div>
+		        
 		        <br/><br/>
 		        
 		        <div class="filter-block">
@@ -49,7 +96,7 @@
 	           		<ui:repeat var="product" value="#{products.products}">
 	            		<li class="product">
 	            			<div class="accordion">
-	                        	<span class="idNumber">#{product.productID}</span><span class="title">#{product.title}</span> <span class="price"> £#{product.price} </span><button class="orderStockButton">Order Stock</button>
+	                        	<span class="idNumber">##{product.productID}</span><span class="title">#{product.title}</span> <span class="price"> £#{product.price} </span><button class="orderStockButton">Order Stock</button>
 	                        	<div class="stock-bar horizontal">
 	                            	<div class="stock-track">
 	                                	<div class="stock-fill">
@@ -77,7 +124,7 @@
 		                        	</div>
 		                        	<div class="detail">
 		                            	<h4>Category: </h4> 
-		                            	<h:selectOneMenu name="product_category" value="#{product.category}">
+		                            	<h:selectOneMenu name="product_category" p:autocorrect="off" value="#{product.category}">
 		                            		<f:selectItems value="#{products.categoryValues}"/>
 		                            	</h:selectOneMenu>
 		                        	</div>
@@ -95,10 +142,9 @@
 		                        	</div>
 		                        	<div class="detail">
 		                            	<h4>Active: </h4> 
-		                            	<h:selectOneMenu class="activeDetails" name="product_active" value="product.active">
+		                            	<h:selectOneMenu class="activeDetails" name="product_active" p:autocorrect="off" value="#{product.state}">
 		                            		<f:selectItems value="#{products.activeValues}"/>
 		                           		</h:selectOneMenu>
-		                    
 		                        	</div>
 		                        	<h:commandButton id="saveButton" type="submit" action="#{products.updateProduct(product.productID)}" value="Save Details"/>
 		                        </h:form>
