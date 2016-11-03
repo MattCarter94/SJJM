@@ -18,15 +18,6 @@
      	<link rel="stylesheet" href="css/login.css"/>
      	
      	
-<!--      	<h:form styleClass="login-container"> -->
-<!-- 	     	<label for="username" styleClass="label">Enter your Username:</label> -->
-<!-- 			<h:inputText value="#{customers.username}" type="text" class="form-control field username" a:placeholder="Username"/> -->
-	
-<!-- 	     	<label for="password" styleClass="label">Enter your Password:</label> -->
-<!-- 	     	<h:inputSecret value="#{customers.password}"  class="form-control field username" a:placeholder="**********"/> -->
-	
-<!-- 	     	<h:commandButton action="login-test" value="Log In" styleClass="login-btn" /> -->
-<!--      	</h:form> -->
 		<h:form class="navbar-form login-container" rendered="#{!currentUser.loggedIn}">
 			<div class="form-group">
 				<h:inputText class="form-control" value="#{login.email}" type="email" required="true" requiredMessage="Enter Email" a:placeholder="Username"/>

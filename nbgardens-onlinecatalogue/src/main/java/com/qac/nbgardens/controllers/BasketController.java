@@ -10,7 +10,7 @@ import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.service.BasketService;
 
 @Named("basketController")
-@RequestScoped
+@RequestScoped //Only used when asked for
 public class BasketController {
 	@Inject
 	private BasketService basketService;

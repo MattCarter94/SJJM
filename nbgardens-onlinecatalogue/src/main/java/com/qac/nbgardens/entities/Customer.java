@@ -82,7 +82,7 @@ public class Customer {
 		this.firstName = name;
 		this.surname = surname;
 		this.credit = Currency.getInstance(Locale.UK);
-		
+		this.email = email;
 		this.phoneNumber = phoneNo;
 		this.password = password;
 		//TODO FIX THIS: this.permissions = permissions;
