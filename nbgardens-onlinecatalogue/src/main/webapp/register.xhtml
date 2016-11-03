@@ -16,9 +16,67 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/login.css" />
 
+					<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Wizard</title>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+	</h:head>
+	<h:form>
+			<p:wizard>
+				<p:tab id="regFormStep1">
+					<p:panelGrid columns="2">
+						<h:outputLabel value="First Name: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel value="Surname: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel value="Email Address: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel value="Password *"/><h:inputSecret value=""></h:inputSecret>
+						<h:outputLabel value="Phone number: "/><h:inputText value=""></h:inputText>
+						
+					</p:panelGrid>
+				</p:tab>
+				<p:tab id="regFormStep2">
+					<p:panelGrid columns="2">
+						<h:outputLabel value="House Name/No: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel value="Street: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel value="Town/City: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel value="County: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel value="Postcode: *"/><h:inputText value=""></h:inputText>
+					</p:panelGrid>
+				</p:tab>
+				
+				<p:tab id="regFormStep2">
+					<p:panelGrid columns="2">
+						<h:outputLabel value="Name (as it appears on the card): *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel value="Card Number: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel value="Expiry Date: *"/><p:calendar></p:calendar>
+						<h:outputLabel value="CSV: *"/><h:inputText value=""></h:inputText>
+					</p:panelGrid>
+					<h:commandButton value="Register" ></h:commandButton>
+				</p:tab>
+			</p:wizard>
+			<p:dataTable value="" var="">
+				<f:facet name="header">
+					<p:outputLabel value="Tutorials List"/>
+				</f:facet>
+				<p:column>
+					<h:outputText value=""/>
+				</p:column>
+				<p:column>
+					<h:outputText value=""/>
+				</p:column>
+				<p:column>
+					<h:outputText value=""/>
+				</p:column>
+				<p:column>
+					<h:outputText value=""/>
+				</p:column>
+			</p:dataTable>
 
-	
-	
+	</h:form>
+</html>
 	
 	
 	</ui:define>
