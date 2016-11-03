@@ -5,14 +5,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import com.qac.nbgardens.entities.Customer;
 
-@Named("newUser")
-@SessionScoped
+@Named("registration")
+@RequestScoped
 public class Registration implements Serializable {
 	private Customer user;
 	

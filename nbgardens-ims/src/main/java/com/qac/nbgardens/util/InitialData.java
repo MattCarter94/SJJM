@@ -50,7 +50,6 @@ public class InitialData {
 		customers.get(1).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
 		customers.get(2).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(1), 5, new BigDecimal(9.99)), customers.get(2).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
 		
-		customers.get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle();
 		
 		//Add wishlists
 		//addWishlist();

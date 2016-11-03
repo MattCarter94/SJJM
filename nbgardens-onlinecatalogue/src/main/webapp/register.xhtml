@@ -14,7 +14,7 @@
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/register.css" />
 
 					<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -23,38 +23,37 @@
 	xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<title>Wizard</title>
-		<script name="jquery/jquery.js" library="primefaces"></script>
+		<script name="jquery-3.1.1.min.js" library="js"></script>
 	</h:head>
 	<h:form>
 			<p:wizard>
 				<p:tab id="regFormStep1">
 					<p:panelGrid columns="2">
-						<h:outputLabel value="First Name: *"/><h:inputText value=""></h:inputText>
-						<h:outputLabel value="Surname: *"/><h:inputText value=""></h:inputText>
-						<h:outputLabel value="Email Address: *"/><h:inputText value=""></h:inputText>
-						<h:outputLabel value="Password *"/><h:inputSecret value=""></h:inputSecret>
-						<h:outputLabel value="Phone number: "/><h:inputText value=""></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="First Name: *"/><h:inputText value="#{register.firstName}"></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="Surname: *"/><h:inputText value="#{register.surname}"></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="Email Address: *"/><h:inputText value="#{register.email}"></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="Password *"/><h:inputSecret value="#{register.password}"></h:inputSecret>
+						<h:outputLabel styleClass="inputForm" value="Phone number: "/><h:inputText value="#{register.phoneNo}" onkeypress="if(event.which &lt; 48 || event.which &gt; 57 ) if(event.which != 8) return false;"></h:inputText>
 						
 					</p:panelGrid>
 				</p:tab>
 				<p:tab id="regFormStep2">
 					<p:panelGrid columns="2">
-						<h:outputLabel value="House Name/No: *"/><h:inputText value=""></h:inputText>
-						<h:outputLabel value="Street: *"/><h:inputText value=""></h:inputText>
-						<h:outputLabel value="Town/City: *"/><h:inputText value=""></h:inputText>
-						<h:outputLabel value="County: *"/><h:inputText value=""></h:inputText>
-						<h:outputLabel value="Postcode: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="House Name/No: *"/><h:inputText value="#{register.houseNo}"></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="Street: *"/><h:inputText value="#{register.street}"></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="Town/City: *"/><h:inputText value="#{register.town}"></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="County: *"/><h:inputText value="#{register.county}"></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="Postcode: *"/><h:inputText value="#{register.postcode}"></h:inputText>
 					</p:panelGrid>
 				</p:tab>
 				
-				<p:tab id="regFormStep2">
+				<p:tab id="regFormStep3">
 					<p:panelGrid columns="2">
-						<h:outputLabel value="Name (as it appears on the card): *"/><h:inputText value=""></h:inputText>
-						<h:outputLabel value="Card Number: *"/><h:inputText value=""></h:inputText>
-						<h:outputLabel value="Expiry Date: *"/><p:calendar></p:calendar>
-						<h:outputLabel value="CSV: *"/><h:inputText value=""></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="Name (as it appears on the card): *"/><h:inputText value="#{register.cardName}"></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="Card Number: *"/><h:inputText value="#{register.cardNo}" onkeypress="if(event.which &lt; 48 || event.which &gt; 57 ) if(event.which != 8) return false;"></h:inputText>
+						<h:outputLabel styleClass="inputForm" value="Expiry Date: *"/><h:inputText value ="#{register.expiry}"></h:inputText>
 					</p:panelGrid>
-					<h:commandButton value="Register" ></h:commandButton>
+					<h:commandButton value="Register" action ="#{register.register()}"></h:commandButton>
 				</p:tab>
 			</p:wizard>
 			<p:dataTable value="" var="">

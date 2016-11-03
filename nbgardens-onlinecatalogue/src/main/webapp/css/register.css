@@ -1,0 +1,11 @@
+#regFormStep1, #regFormStep2, #regFormStep3{
+	display: block;
+	margin-top: 20px;
+	margin-bottom:30px;
+	clear:both;
+}
+
+.inputForm{
+	display:block;
+	clear:both;
+}
