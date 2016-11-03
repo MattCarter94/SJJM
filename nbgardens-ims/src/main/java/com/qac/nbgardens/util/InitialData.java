@@ -70,10 +70,6 @@ public class InitialData {
 		}
 		// Dates demand some exception handling.
 		
-<<<<<<< HEAD
-=======
-		//customers.get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle();
->>>>>>> 14e5c54418329f6a94745907db8f9a31b3d45f95
 		
 		//Add wishlists
 		//addWishlist();
