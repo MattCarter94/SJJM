@@ -13,11 +13,10 @@ public class LoginService {
 	@Inject
 	private UserManager userManager;
 
-	public boolean validateDetails(String user, String pass) {
-		List<Customer> customers = userManager.getUserListByEmail(user);
-		for(Customer c : customers)
-			if(c.getPassword().equals(pass))
-				return true;
+	public boolean validateDetails(String email, String pass) {
+		Customer customer = userManager.getUserByEmail(email);
+		if (customer != null && customer.getPassword().equals(pass))
+			return true;
 		return false;
 	}
 

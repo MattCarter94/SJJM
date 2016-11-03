@@ -5,7 +5,9 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 import com.qac.nbgardens.entities.Customer;
+import javax.enterprise.inject.Alternative;
 
+@Alternative
 @Named("currentUser")
 @SessionScoped
 public class UserCredentials implements Serializable {

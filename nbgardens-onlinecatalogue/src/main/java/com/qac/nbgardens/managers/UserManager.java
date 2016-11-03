@@ -11,7 +11,6 @@ public interface UserManager {
 	public void persistUser(CardDetails card, Wishlist wishlist, Basket basket, String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode);
 	
 	public Customer getUser(Integer id);
-	public List<Customer> getUserListByEmail(String email);
 	public Customer getUserByEmail(String email);
 	public List<Customer> getUsers();
 	

@@ -37,6 +37,8 @@ public class InitialData {
 	public void SetupData() {
 		//Add users
 		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), new Wishlist(new BigDecimal(20.05)), new Basket(new BigDecimal(20.05)), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), new Wishlist(new BigDecimal(20.05)), new Basket(new BigDecimal(20.05)), "Dog", "Carter", "dog", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), new Wishlist(new BigDecimal(20.05)), new Basket(new BigDecimal(20.05)), "Cat", "Carter", "cat@email.co.uk", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
 
 
 		//Add products
@@ -79,10 +81,10 @@ public class InitialData {
 	}
 
 	public List<Customer> getUsers() {
-			return users;
+		return users;
 	}
 	public void addUser(Customer u) {
-	 		users.add(u);
+	 	users.add(u);
 	}
 	public void addToBasket(Basket b) {
 		 //stub
