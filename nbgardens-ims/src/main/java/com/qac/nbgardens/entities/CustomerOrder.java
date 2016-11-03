@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,14 +21,20 @@ import com.qac.nbgardens.entities.enums.OrderStatus;
 public class CustomerOrder {
 	
 	@Id //ID is for PK
-	@Column (name = "Customer_Order_ID")  
+	@Column (name = "Customer_Order")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer customerOrderID;
+	private OrderLine customerOrder;
 	
 	@OneToOne //For FK.
-	@JoinColumn(name="User_ID", nullable = false)
+	@JoinColumn(name="Email", nullable = false)
 	@NotNull
-	private Customer user;
+	private Customer email;
+	
+	@OneToMany //For FK.
+	@JoinColumn(name="AddressID", nullable = false)
+	@NotNull
+	private Address												
+	addressID;
 	
 	@Column (name = "Order_Date", nullable = false)
 	@NotNull
@@ -38,10 +45,10 @@ public class CustomerOrder {
 	private OrderStatus status;
 	//End of table definition
 
+	// Constructors
 	public CustomerOrder() {}
-	public CustomerOrder(Customer user, Date orderDate,
-			OrderStatus status) {
-		super();
+	
+	public CustomerOrder(OrderLine customerOrder, String email, Date orderDate, OrderStatus status) {
 		
 		this.orderDate = orderDate;
 		this.status = status;
@@ -50,11 +57,11 @@ public class CustomerOrder {
 
 
 	//GETTERS AND SETTERS
-	public Integer getCustomerOrderID() {
-		return customerOrderID;
+	public OrderLine getCustomerOrderID() {
+		return customerOrder;
 	}
-	public void setCustomerOrderID(Integer customerOrderID) {
-		this.customerOrderID = customerOrderID;
+	public void setCustomerOrderID(OrderLine customerOrderID) {
+		this.customerOrder = customerOrderID;
 	}
 	
 	public Date getOrderDate() {

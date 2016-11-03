@@ -18,7 +18,7 @@ public class CardDetails {
 	private String card_number;
 	
 	@OneToMany //For FK.
-	@JoinColumn(name="CustomerCard", nullable = false)
+	@JoinColumn(name="Address_ID", nullable = false)
 	@NotNull
 	private Address address;
 	
