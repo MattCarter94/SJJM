@@ -1,5 +1,5 @@
 package com.qac.nbgardens.entities.enums;
 
 public enum OrderStatus {
-	INPROGRESS, DISPATCHED
+	INPROGRESS, DISPATCHED, BASKET
 }

@@ -1,24 +1,26 @@
 package com.qac.nbgardens.controllers;
 
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.qac.nbgardens.beans.UserCredentials;
 import com.qac.nbgardens.service.LoginService;
 
-@Named(value = "login")
+
+@Named("login")
 @RequestScoped
 public class LoginController {
 	@Inject
-	LoginService loginService;
+	private LoginService loginService;
 	@Inject
-	UserCredentials userCredentials;
+	private UserCredentials userCredentials;
 	private String email = "";
 	private String password = "";
 	private String error = "";
 
 	public String login() {
+		System.out.println(email + " " + password);
 		if (email.equals("")) {
 			error = "please enter your email";
 			password = "";
@@ -32,11 +34,12 @@ public class LoginController {
 		if (!loginService.validateDetails(email, password)) {
 			error = "Invalid login";
 			password = "";
+			System.out.println("invalid Login");
 			return "login";
 		}
 
 		userCredentials.setUser(loginService.getUserID(email));
-
+		System.out.println("Valid login");
 		return "index";
 	}
 
@@ -45,7 +48,7 @@ public class LoginController {
 		return "home";
 	}
 
-	public String getUsername() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -57,8 +60,8 @@ public class LoginController {
 		return error;
 	}
 
-	public void setUsername(String user) {
-		this.email = user;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setPassword(String pass) {

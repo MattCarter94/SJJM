@@ -1,5 +1,6 @@
 package com.qac.nbgardens.managers.offline;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -55,6 +56,15 @@ public class CustomerOrderManagerOffline implements CustomerOrderManager {
 		}
 		return null;
 	}
-	
-	
+
+
+	@Override
+	public CustomerOrder getBasketGivenUser(Integer userID) {
+		List<CustomerOrder> customerOrders = new ArrayList<>();
+		initialData.getCustomerOrders().forEach(customerOrder->{
+			if(customerOrder.getCustomer().getUserID().equals(userID) && customerOrder.getStatus().equals(OrderStatus.BASKET))
+				customerOrders.add(customerOrder);
+		});
+		return customerOrders.get(0);
+	}
 }

@@ -15,11 +15,11 @@ public abstract class Pagination {
 	abstract public DataModel createDataModel();
 	abstract public int getItemsCount();
 	
-	protected int getPageFirstItem() {
+	public int getPageFirstItem() {
 		return page * pageSize;
 	}
 	
-	protected int getPageSize() {
+	public int getPageSize() {
 		return pageSize;
 	}
 	

@@ -9,7 +9,6 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
-import com.qac.nbgardens.entities.Basket;
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
@@ -30,25 +29,29 @@ public class InitialData {
 	
 	private List<Customer> users = new ArrayList<Customer>();
 	private List<CardDetails> cards = new ArrayList<CardDetails>();
-	private List<Basket> baskets = new ArrayList<Basket>();
 	
 	
 	@PostConstruct
 	public void SetupData() {
 		//Add users
-		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), new Wishlist(new BigDecimal(20.05)), new Basket(new BigDecimal(20.05)), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
+
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), new Wishlist(new BigDecimal(20.05)), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), new Wishlist(new BigDecimal(20.05)), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), new Wishlist(new BigDecimal(20.05)), "Dog", "Carter", "dog", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), new Wishlist(new BigDecimal(20.05)), "Cat", "Carter", "cat@email.co.uk", "02938475812", "password1", 2, "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
+
 
 
 		//Add products
 		addProduct(new Product(100, "Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "clive.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(101, "Blue Gnome", new BigDecimal(300.99), "its a gnome", Category.GNOME, "gnome_swing.jpg", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(102, "Rainbow Gnome", new BigDecimal(908070.50), "its a gnome", Category.GNOME, "clive.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(103, "Clive Gnome", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(104, "Clive Gnome", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(105, "Clive Gnome", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(106, "Clive Gnome", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(107, "Clive Gnome", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(108, "Clive Gnome", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(102, "Lumber Clive", new BigDecimal(908070.50), "its a gnome", Category.GNOME, "gnome2.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(103, "Doctor Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(104, "Wizard Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(105, "Doctor Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(106, "Wizard Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(107, "Lumber Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(108, "Doctor Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(109, "Clive Gnome", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 
 		
@@ -79,18 +82,10 @@ public class InitialData {
 	}
 
 	public List<Customer> getUsers() {
-			return users;
+		return users;
 	}
 	public void addUser(Customer u) {
-	 		users.add(u);
-	}
-	public void addToBasket(Basket b) {
-		 //stub
-	}
-	
-	public List<Basket> getBaskets() {
-		// TODO Auto-generated method stub
-		return baskets;
+	 	users.add(u);
 	}
 	
 }

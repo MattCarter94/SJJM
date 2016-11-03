@@ -6,7 +6,6 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import com.qac.nbgardens.entities.Basket;
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.Wishlist;
@@ -20,8 +19,8 @@ public class UserManagerOffline implements UserManager{
 	private InitialData initialData;
 	
 	
-	public void persistUser(CardDetails card, Wishlist wishlist, Basket basket, String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
-		Customer u = new Customer(card, wishlist, basket, name, surname, email, phoneNo, password, permissions, add1, add2, town, county, postcode);
+	public void persistUser(CardDetails card, Wishlist wishlist, String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
+		Customer u = new Customer(card, wishlist, name, surname, email, phoneNo, password, permissions, add1, add2, town, county, postcode);
 		initialData.addUser(u);
 	}
 	
@@ -94,18 +93,26 @@ public class UserManagerOffline implements UserManager{
 
 
 
-	@Override
-	public List<Customer> getUserListByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 
 	@Override
 	public Customer getUserByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		//Get all the users
+		List<Customer> us = initialData.getUsers();
+		//go through each one
+		for(int i=0; i<us.size(); i++){
+			//check to see if the emails match (not case sensitive)
+			System.out.println(us.get(i).getEmail());
+			if(us.get(i).getEmail().equals(email)){
+				return us.get(i); //return the first one that matches
+			}
+		}
+		return null; //return null if none found
+			
+		
+		
+		
+		
+
 	}
 	
 }

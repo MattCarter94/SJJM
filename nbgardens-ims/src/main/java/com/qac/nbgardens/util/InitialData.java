@@ -13,14 +13,13 @@ import com.qac.nbgardens.entities.Address;
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
+import com.qac.nbgardens.entities.OrderLine;
 import com.qac.nbgardens.entities.CustomerCard;
 import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.entities.StockOrder;
 import com.qac.nbgardens.entities.enums.Category;
+import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.entities.enums.ProductStatus;
-
-
-
 
 @Startup 
 @Singleton
@@ -28,9 +27,9 @@ public class InitialData {
 	private List<Product> products = new ArrayList<Product>();
 	//private List<Wishlist> wishlists = new ArrayList<Wishlist>();
 	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
-	private List<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
 	private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 	private List<Customer> customers = new ArrayList<Customer>();
+	public InitialData iniD;
 	
 	@PostConstruct
 	public void SetupData() {
@@ -41,18 +40,19 @@ public class InitialData {
 		addCustomer(new Customer("stefanmaslanka@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "14 Clive Lane", "Cliverton","Clivechester", "Clive Scotland", "MER4 32F"), new Date()), "jaredpepper@gmail.com"), "Stefan", "Maslanka", "12345678998", "secret_password"));
 		//The email is added twice in text, I will come back to this later. In hind sight you would pass, through an 'email' variable, but this is just dummy data at the moment - Jared. 	
 		
-		//Add products
+		//Add Products
 		addProduct(new Product(100, "Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(101, "Blue Gnome", new BigDecimal(300.99), "its a gnome", Category.GARDENFOUNTIAN, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(102, "Rainbow Gnome", new BigDecimal(908070.50), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(103, "Clive Gnome", new BigDecimal(908070.50), "its a gnome", Category.GNOMEACCESSORY, "imgurl.png", "tag1, tag2, tag3", 200, ProductStatus.DISCONTINUED, new Date()));
 
-
 		// Add Customer Orders
-	//	customers.get(1).ad
-	//	customers.get(1).addCustomerOrder(new Basket(), new Date(), OrderStatus.INPROGRESS);
+		customers.get(0).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(0), 2, new BigDecimal(5.05)), customers.get(0).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
+		customers.get(1).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
+		customers.get(2).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(1), 5, new BigDecimal(9.99)), customers.get(2).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
 		
-		//addCustomerOrder(new CustomerOrder(CustomerManagerOffline.this.findCustomerById(1), orderDate, status));
+		customers.get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle();
+		
 		//Add wishlists
 		//addWishlist();
 		
@@ -72,15 +72,6 @@ public class InitialData {
 	
 	public void addCustomer(Customer c) {
 		customers.add(c);
-	}
-	
-	public void addCustomerOrder(CustomerOrder co) {
-		customerOrders.add(co);
-	}
-	
-
-	public List<CustomerOrder> getCustomerOrders() {
-		return customerOrders;
 	}
 	
 	public List<Customer> getCustomers() {
