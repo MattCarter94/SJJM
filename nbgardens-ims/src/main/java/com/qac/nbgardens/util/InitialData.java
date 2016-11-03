@@ -68,21 +68,6 @@ public class InitialData {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// Dates demand some exception handling.
-		
-<<<<<<< HEAD
-=======
-		//customers.get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle();
->>>>>>> 14e5c54418329f6a94745907db8f9a31b3d45f95
-		
-		//Add wishlists
-		//addWishlist();
-		
-		//Add stockOrders
-		//addStockOrder();s
-		
-		//Add baskets
-		//addBasket();
 	}
 	
 //	public void addToBasket(Basket b) {

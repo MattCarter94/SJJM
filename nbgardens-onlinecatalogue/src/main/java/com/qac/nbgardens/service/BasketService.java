@@ -20,6 +20,7 @@ public class BasketService {
 	
 	// Add a product to basket given a user id and product id
 	public void addProduct(Integer userID, Integer productID) {
+		System.out.println("Adding product " + productID);
 		CustomerOrder basket = customerOrderManager.getBasketGivenUser(userID); // basket is the local order associated with the current user
 		if(basket == null) // if no such order exists
 			basket = new CustomerOrder(userManager.getUser(userID), OrderStatus.BASKET); // create the order, linking it to the user and specifying a status of basket

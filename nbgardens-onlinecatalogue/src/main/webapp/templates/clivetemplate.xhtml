@@ -28,11 +28,14 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
             </button>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="index.xhtml">Home</a></li>
-                <li><a href="catalogue.xhtml">Catalogue</a></li>
-                <li><a href="aboutUs.xhtml">About Us</a></li>
-            </ul>
+        	<h:form>
+	            <ul class="nav navbar-nav">
+	                <li><a href="index.xhtml">Home</a></li>
+	                <li><h:commandLink value="Catalogue" action="catalogue"></h:commandLink></li>
+	<!--                 <li><a href="catalogue.xhtml">Catalogue</a></li> -->
+	                <li><a href="aboutUs.xhtml">About Us</a></li>
+	            </ul>
+            </h:form>
             <ul class="nav navbar-nav navbar-right">
             
 				<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
