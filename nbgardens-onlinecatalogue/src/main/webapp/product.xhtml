@@ -33,7 +33,9 @@
                 <div class="prodPrice">
                     <h3><b>Only £#{products.findProductById(prodbean.id).price}</b></h3>
                     <div class="buttons">
-                    	<span><h:button value="Back" outcome="catalogue.xhtml" styleClass="back"></h:button><h:button value="Add to Cart" styleClass="addCart"></h:button></span>
+                    	<span><h:button value="Back" outcome="catalogue.xhtml" styleClass="back"></h:button>
+                    	<h:button value="Add to Cart" outcome="#{basketBean.addToBasket(products.findProductById(prodbean.id))}" styleClass="addCart"></h:button></span>
+                    	<h:outputText value="#{basketBean.basketProducts.size()}" />
                     </div>
                 </div>
             </div>

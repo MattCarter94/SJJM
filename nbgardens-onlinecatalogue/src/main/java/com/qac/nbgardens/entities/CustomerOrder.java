@@ -1,13 +1,17 @@
 package com.qac.nbgardens.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -25,14 +29,9 @@ public class CustomerOrder {
 	private Integer customerOrderID;
 	
 	@OneToOne //For FK.
-	@JoinColumn(name="Basket_ID", nullable = false)
-	@NotNull
-	private Basket basket;
-	
-	@OneToOne //For FK.
 	@JoinColumn(name="User_ID", nullable = false)
 	@NotNull
-	private Customer user;
+	private Customer customer;
 	
 	@Column (name = "Order_Date", nullable = false)
 	@NotNull
@@ -42,16 +41,18 @@ public class CustomerOrder {
 	@NotNull
 	private OrderStatus status;
 	//End of table definition
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="customer")
+	private List<OrderLine> orderLines;
 
 	public CustomerOrder() {}
-	public CustomerOrder(Basket basket, Customer user, Date orderDate,
-			OrderStatus status) {
-		super();
-		this.basket = basket;
-		this.orderDate = orderDate;
-		this.status = status;
-	}
 
+
+	//TODO Get Explanation
+	public CustomerOrder(Customer customer, OrderStatus orderStatus) {
+		this.customer = customer;
+		this.status = orderStatus;
+	}
 
 
 	//GETTERS AND SETTERS
@@ -74,11 +75,24 @@ public class CustomerOrder {
 	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
-	public Basket getBasket() {
-		return basket;
+
+	public void addOrderLine(Product product, int quantity) {
+		if(orderLines==null)
+			orderLines = new ArrayList<>();
+		orderLines.add(new OrderLine(this, product, quantity));
 	}
-	public void setBasket(Basket basket) {
-		this.basket = basket;
+
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
 	}
-	
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void addOrderLine(OrderLine orderLine) {
+		if(!orderLine.getCustomerOrder().equals(this))
+			orderLine.setCustomerOrder(this);
+		orderLines.add(orderLine);
+	}
 }

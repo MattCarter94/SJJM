@@ -40,6 +40,13 @@ public class ProductsManagerOffline implements ProductManager{
 		}
 		return null;
 	}
+	
+	@Override
+	public void addProduct(Product p) {
+		
+		initialData.addProduct(p);
+	}
+	
 	@Override
 	public ArrayList<Product> getProducts() {
 
