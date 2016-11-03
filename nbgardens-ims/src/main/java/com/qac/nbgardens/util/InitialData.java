@@ -68,6 +68,7 @@ public class InitialData {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		// Dates demand some exception handling.
 		
 		
@@ -79,6 +80,7 @@ public class InitialData {
 		
 		//Add baskets
 		//addBasket();
+
 	}
 	
 //	public void addToBasket(Basket b) {

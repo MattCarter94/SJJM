@@ -42,13 +42,16 @@ public class CustomerOrder {
 	private OrderStatus status;
 	//End of table definition
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="customer")
+	// One customer order linked to many order lines
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="customer") //TODO Get Explanation
 	private List<OrderLine> orderLines;
 
+	
+	// Empty constructor can also be used?
 	public CustomerOrder() {}
 
 
-	//TODO Get Explanation
+	//New constructor, requires only a customer and an order status
 	public CustomerOrder(Customer customer, OrderStatus orderStatus) {
 		this.customer = customer;
 		this.status = orderStatus;
@@ -76,10 +79,11 @@ public class CustomerOrder {
 		this.status = status;
 	}
 
+	// There are two of these
 	public void addOrderLine(Product product, int quantity) {
-		if(orderLines==null)
-			orderLines = new ArrayList<>();
-		orderLines.add(new OrderLine(this, product, quantity));
+		if(orderLines==null) // if order lines does not exist
+			orderLines = new ArrayList<>(); // create list
+		orderLines.add(new OrderLine(this, product, quantity)); // add a new order line object to this customer order. this specifies the current order so they are linked together
 	}
 
 	public List<OrderLine> getOrderLines() {
@@ -91,8 +95,8 @@ public class CustomerOrder {
 	}
 
 	public void addOrderLine(OrderLine orderLine) {
-		if(!orderLine.getCustomerOrder().equals(this))
-			orderLine.setCustomerOrder(this);
-		orderLines.add(orderLine);
+		if(!orderLine.getCustomerOrder().equals(this)) // if the specified order line is not linked to the current customer order...
+			orderLine.setCustomerOrder(this); // link the order line to this customer order
+		orderLines.add(orderLine); // add the order line we input to the customer order objects list of order lines
 	}
 }
