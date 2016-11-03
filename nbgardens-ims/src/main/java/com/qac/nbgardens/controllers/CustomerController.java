@@ -43,6 +43,11 @@ public class CustomerController implements Serializable{
 			customers = getPagination().createDataModel();
 		return customers;
 	}
+	
+	public void getProductTitleFromCustomerOrder(Integer customerID, Integer orderID)
+	{
+		 customerService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
+	}
 
 	private Pagination getPagination() 
 	{
