@@ -9,19 +9,20 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
+import com.qac.nbgardens.entities.Address;
+import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
+import com.qac.nbgardens.entities.CustomerCard;
 import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.entities.StockOrder;
 import com.qac.nbgardens.entities.enums.Category;
-import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.entities.enums.ProductStatus;
-import com.qac.nbgardens.managers.CustomerManager;
-import com.qac.nbgardens.managers.offline.CustomerManagerOffline;
 
 
 
-@Startup
+
+@Startup 
 @Singleton
 public class InitialData {
 	private List<Product> products = new ArrayList<Product>();
@@ -34,11 +35,12 @@ public class InitialData {
 	@PostConstruct
 	public void SetupData() {
 		//Add users
-		addCustomer(new Customer("Jared", "Pepper","jaredpepper@gmail.com", "12345678998", "secret_password", 1, "12 Manc Hill", "Manchester", "Manchester City", "Greater Manchester", "MANC H3S"));
-		addCustomer(new Customer("Joe", "Trost","joetrost@gmail.com", "12345678998", "secret_password", 1, "12 Manc Hill", "Manchester", "Manchester City", "Greater Manchester", "MANC H3S"));
-		addCustomer(new Customer("Matt", "Carter","mattcarter@gmail.com", "12345678998", "secret_password", 1, "12 Manc Hill", "Manchester", "Manchester City", "Greater Manchester", "MANC H3S"));
-		addCustomer(new Customer("Stefan", "Maslanka","stefanaslanka@gmail.com", "12345678998", "secret_password", 1, "12 Manc Hill", "Manchester", "Manchester City", "Greater Manchester", "MANC H3S"));
-
+		addCustomer(new Customer("jaredpepper@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "12 Clive Road", "Cliverton","Clivechester", "Clive Kingdom", "MER4 32D"), new Date()), "jaredpepper@gmail.com"), "Jared", "Pepper", "12345678998", "secret_password"));
+		addCustomer(new Customer("joetrost@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "12 Clive Road", "Cliverton","Clivechester", "Clive Wales", "MER4 32D"), new Date()), "jaredpepper@gmail.com"), "Joe", "Trost", "12345678998", "secret_password"));
+		addCustomer(new Customer("mattcarter@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "13 Clive Street", "Cliverton","Clivechester", "Clive England", "MER4 32E"), new Date()), "jaredpepper@gmail.com"), "Matt", "Carter", "12345678998", "secret_password"));
+		addCustomer(new Customer("stefanmaslanka@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "14 Clive Lane", "Cliverton","Clivechester", "Clive Scotland", "MER4 32F"), new Date()), "jaredpepper@gmail.com"), "Stefan", "Maslanka", "12345678998", "secret_password"));
+		//The email is added twice in text, I will come back to this later. In hind sight you would pass, through an 'email' variable, but this is just dummy data at the moment - Jared. 	
+		
 		//Add products
 		addProduct(new Product(100, "Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(101, "Blue Gnome", new BigDecimal(300.99), "its a gnome", Category.GARDENFOUNTIAN, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
@@ -54,7 +56,7 @@ public class InitialData {
 		//addWishlist();
 		
 		//Add stockOrders
-		//addStockOrder();
+		//addStockOrder();s
 		
 		//Add baskets
 		//addBasket();

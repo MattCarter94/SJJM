@@ -22,6 +22,8 @@ public class ProductController implements Serializable{
 	private ProductService productService;
 	private DataModel<Product> products = null;
 	private Pagination pagination;
+	private int selected;
+	private Product product;
 	
 	public String next() {
 		getPagination().nextPage();
@@ -35,7 +37,7 @@ public class ProductController implements Serializable{
 		return "products";	
 	}
 	
-	private void recreateModel() {
+	public void recreateModel() {
 		products = null;
 	}
 
@@ -45,12 +47,12 @@ public class ProductController implements Serializable{
 		return products;
 	}
 
-	private Pagination getPagination() {
+	public Pagination getPagination() {
 		if(pagination==null)
-			pagination = new Pagination(20) {
+			pagination = new Pagination(5) {
 				
 				@Override
-				public DataModel createDataModel() {
+				public DataModel<Product> createDataModel() {
 					try {
 						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
@@ -69,9 +71,47 @@ public class ProductController implements Serializable{
 	
 	public Product findProductById(Integer id) {
 		return productService.findProductById(id);
-		
 	}
 
+	
+	
+	
+	
+	public DataModel<Product> getDataModel() {
+		  if (products == null)
+		    products = getPagination().createDataModel();
+		  return products;
+		}
+
+	private void updateCurrentItem() {
+		  int count = productService.findAll().size();
+		  if (selected >= count) {
+		    selected = count-1;
+		    if (pagination.getPageFirstItem() >= count)
+		      pagination.previousPage();
+		  } if (selected >= 0)
+		    try {
+		      setProduct(productService.findAll().subList(selected, selected + 1).get(0));
+		    } catch(Exception e) {
+		      setProduct(productService.findAll().subList(selected, count).get(0));
+		   }
+		}
+
+	public String view(Integer id) {
+		  product = productService.findProductById(id);
+		  return "product";
+		}
+
+		public Product getProduct() {
+		  return product;
+		}
+
+		public void setProduct(Product product){
+		  this.product = product;
+		}
+
+	
+	
 	
 }
 

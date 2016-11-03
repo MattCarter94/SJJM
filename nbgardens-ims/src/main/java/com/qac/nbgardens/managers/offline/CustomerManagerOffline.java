@@ -34,7 +34,7 @@ public class CustomerManagerOffline implements CustomerManager{
 	public Customer findCustomerById(Integer id) {
 		List<Customer> customers = initialData.getCustomers();
 		for (int i = 0; i < customers.size(); i++) {
-			if (customers.get(i).getUserID().equals(id)) {
+			if (customers.get(i).getEmail().equals(id)) {
 				return customers.get(i);
 			}
 		}
@@ -54,7 +54,7 @@ public class CustomerManagerOffline implements CustomerManager{
 	public void updateCustomer(Customer c) {
 		List<Customer> customers = initialData.getCustomers();
 		for (int i = 0; i < customers.size(); i++) {
-			if (customers.get(i).getUserID() == c.getUserID()) {
+			if (customers.get(i).getEmail() == c.getEmail()) {
 				customers.set(i, c);
 			}
 		}
