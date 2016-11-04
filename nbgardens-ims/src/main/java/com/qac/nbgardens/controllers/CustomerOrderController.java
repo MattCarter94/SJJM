@@ -24,23 +24,7 @@ public class CustomerOrderController implements Serializable{
 	private CustomerOrderService customerOrderService;
 	private ArrayList<CustomerOrder> customerOrders = null;
 	private Pagination pagination;
-	
-//	public String next() {
-//		getPagination().nextPage();
-//		recreateModel();
-//		return "customers";
-//	}
-//	
-//	public String previous() {
-//		getPagination().previousPage();
-//		recreateModel();
-//		return "customers";	
-//	}
-	
-//	private void recreateModel() {
-//		pro = null;
-//	}
-//
+
 	public ArrayList<CustomerOrder> getCustomerOrders() 
 	{
 		if(customerOrders == null)

@@ -2,6 +2,7 @@
 package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -10,60 +11,62 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.qac.nbgardens.entities.Customer;
+import com.qac.nbgardens.entities.CustomerOrder;
+import com.qac.nbgardens.entities.StockOrder;
 import com.qac.nbgardens.service.CustomerService;
+import com.qac.nbgardens.service.StockOrderService;
 import com.qac.nbgardens.util.Pagination;
 
 
-@Named("customers")
+@Named("stockorders")
 @SessionScoped
 public class StockOrderController implements Serializable{ // Need to changeeeeeeeee everything.
 	@Inject
-	private CustomerService customerService;
-	private DataModel<Customer> customers = null;
+	private StockOrderService stockOrderService;
+	private ArrayList<StockOrder> stockOrders = null;
 	private Pagination pagination;
 		
 
-	public DataModel<Customer> getCustomers() 
+	public ArrayList<StockOrder> getStockOrders() 
 	{
-		if(customers == null)
-			customers = getPagination().createDataModel();
-		return customers;
+		if(stockOrders == null)
+			stockOrders = getPagination().createArrayList();
+		return stockOrders;
 	}
 		
-	public void getProductTitleFromCustomerOrder(Integer customerID, Integer orderID)
+	public void stockOrderTest()
 	{	 
 		 System.out.println("Step 1");
-		 System.out.println(customerID +" <-Customer ID || Order Id-> " + orderID);
-		 customerService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
+		 System.out.println("Step 2");
+		 System.out.println("Step 3");
+		 System.out.println("Step 4");
+		 
+		// System.out.println(customerID +" <-Customer ID || Order Id-> " + orderID);
+		 stockOrderService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
 	}
 
 	private Pagination getPagination() 
 	{
 		if(pagination==null)
-			pagination = new Pagination(20) 
-		{
-					
-			@Override
-			public DataModel createDataModel() 
-			{
-				try 
-				{
-					return new ListDataModel<Customer>(customerService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
-				} catch (Exception e) 
-				{
-					return new ListDataModel<Customer>(customerService.findAll().subList(getPageFirstItem(), getItemsCount()));
+			pagination = new Pagination(20) {
+				
+				@Override
+				public ArrayList createArrayList() {
+					try {
+						return new ArrayList<StockOrder>(stockOrderService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+					} catch (Exception e) {
+						return new ArrayList<StockOrder>(stockOrderService.findAll().subList(getPageFirstItem(), getItemsCount()));
+					}
 				}
-			}
 
-			@Override
-			public int getItemsCount() 
-			{
-				return customerService.findAll().size();
-			}
-		};
+				@Override
+				public int getItemsCount() {
+					return stockOrderService.findAll().size();
+				}
+			};
 		return pagination;
 	}
-}
+	
 
 
 	

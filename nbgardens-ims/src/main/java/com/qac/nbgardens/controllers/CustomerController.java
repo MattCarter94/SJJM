@@ -32,7 +32,6 @@ public class CustomerController implements Serializable{
 	public void getProductTitleFromCustomerOrder(Integer customerID, Integer orderID)
 	{	 
 		 System.out.println("Step 1");
-		 System.out.println(customerID +" <-Customer ID || Order Id-> " + orderID);
 		 customerService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
 	}
 
