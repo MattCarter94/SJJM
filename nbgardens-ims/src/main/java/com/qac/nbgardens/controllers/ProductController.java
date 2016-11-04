@@ -104,26 +104,26 @@ public class ProductController implements Serializable{
 		if(products == null)
 			products = getPagination().createArrayList();
 		
-		String order = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_order");
-		String type = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_type");
-		String search = "";
-		try {
-		search = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_search");
-		System.out.println(order + " : " + type + " : " + search);
-		System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
-		} catch (Exception e){
+		//String order = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_order");
+		//String type = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_type");
+		//String search = "";
+		//try {
+		//search = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_search");
+		//System.out.println(order + " : " + type + " : " + search);
+		//System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
+		//} catch (Exception e){
 			
-		}
-		List<Product> list = new ArrayList<Product>();
-		for (Product p : products) {
-			if (search != null) {
+		//}
+		//List<Product> list = new ArrayList<Product>();
+		//for (Product p : products) {
+		//	if (search != null) {
 				//Search matching
-				if (p.getTitle().contains(search)) {
-					list.add(p);
-					System.out.println(p.getTitle());
-				}
-			}
-		}
+		//		if (p.getTitle().contains(search)) {
+		//			list.add(p);
+		//			System.out.println(p.getTitle());
+		//		}
+		//	}
+		//}
 		//DataModel<Product> rtn = (DataModel<Product>) list;
 		
 		return products;

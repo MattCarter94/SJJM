@@ -31,13 +31,11 @@ import com.qac.nbgardens.entities.enums.ProductStatus;
 public class InitialData {
 	private List<Product> products = new ArrayList<Product>();
 	private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
-<<<<<<< HEAD
+
 	private List<Customer> customers = new ArrayList<Customer>();
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
 	
-=======
-	private List<Customer> customers = new ArrayList<Customer>();	
->>>>>>> 2bebfc2967248c6171b083fba2515eb549744bb4
+
 	SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
 	@PostConstruct
 	public void SetupData() {
