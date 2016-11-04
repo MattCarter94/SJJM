@@ -1,8 +1,6 @@
 package com.qac.nbgardens.entities;
 
 import java.math.BigDecimal;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

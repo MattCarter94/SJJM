@@ -1,7 +1,5 @@
 package com.qac.nbgardens;
 
-import com.qac.nbgardens.managers.offline.CustomerManagerOffline;
-
 /**
  * Hello world!
  *

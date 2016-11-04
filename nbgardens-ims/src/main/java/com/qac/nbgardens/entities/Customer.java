@@ -1,6 +1,5 @@
 package com.qac.nbgardens.entities;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.List;
@@ -15,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import com.qac.nbgardens.util.InitialData;
 
 
 @Entity
