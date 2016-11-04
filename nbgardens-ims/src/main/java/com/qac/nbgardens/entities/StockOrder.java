@@ -1,9 +1,6 @@
 package com.qac.nbgardens.entities;
 
-import java.util.Currency;
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +12,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
 
 
 @NamedQueries ({
@@ -38,87 +34,62 @@ public class StockOrder {
 	@Id //ID is for PK
 	@Column (name = "Stock_Order_ID")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer stockOrderID;
+	private StockLine stockLine;
 	
 	@OneToMany //For FK.
-	@JoinColumn(name="Product_ID", nullable = false)
+	@JoinColumn(name="Supplier_ID", nullable = false)
 	@NotNull
-	private List<Product> product;
-	
-	@Column (name = "Supplier", length = 255)
-	private String supplier;
-	
-	@Column (name = "Quantity", length = 255)
-	private Integer quantity;
-	
-	@Column (name = "Total_Price")
-	private Currency totalPrice;
+	private Supplier supplier;
 	
 	@Column (name = "Stock_Order_Date")
 	private Date stockOrderDate;
 	
 	@Column (name = "Stock_Received_Date")
 	private Date stockRecievedDate;
-	
-	
-	public StockOrder() {}
-	public StockOrder(List<Product> productID,
-			String supplier, Integer quantity, Date stockOrderDate,
-			Date stockRecievedDate) {
-		super();
-		this.product = productID;
+
+	public StockOrder(StockLine stockLine, Supplier supplier, Date stockOrderDate, Date stockRecievedDate) {
+		this.stockLine = stockLine;
 		this.supplier = supplier;
-		this.quantity = quantity;
 		this.stockOrderDate = stockOrderDate;
 		this.stockRecievedDate = stockRecievedDate;
-		//TODO TOTALPRICE
 	}
 	
+	// GETTERS and SETTERS
 	
-	
-	
-	//GETTERS AND SETTERS
-	public Integer getStockOrderID() {
-		return stockOrderID;
+	public StockLine getStockOrderID() {
+		return stockLine;
 	}
-	public void setStockOrderID(Integer stockOrderID) {
-		this.stockOrderID = stockOrderID;
+
+	public StockLine getStockLine() {
+		return stockLine;
 	}
-	public String getSupplier() {
+
+	public void setStockLine(StockLine stockLine) {
+		this.stockLine = stockLine;
+	}
+
+	public Supplier getSupplier() {
 		return supplier;
 	}
-	public void setSupplier(String supplier) {
+
+	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
-	public Integer getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-	public Currency getTotalPrice() {
-		return totalPrice;
-	}
-	public void setTotalPrice(Currency totalPrice) {
-		this.totalPrice = totalPrice;
-	}
+
 	public Date getStockOrderDate() {
 		return stockOrderDate;
 	}
+
 	public void setStockOrderDate(Date stockOrderDate) {
 		this.stockOrderDate = stockOrderDate;
 	}
+
 	public Date getStockRecievedDate() {
 		return stockRecievedDate;
 	}
+
 	public void setStockRecievedDate(Date stockRecievedDate) {
 		this.stockRecievedDate = stockRecievedDate;
-	}
-	public List<Product> getProductID() {
-		return product;
-	}
-	public void setProductID(List<Product> productID) {
-		this.product = productID;
 	}
 
 }

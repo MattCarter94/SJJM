@@ -42,6 +42,7 @@ public class CustomerService
 		// Get Product
 		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle());
 		
-		
+		// Get Supplier
+		//System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle());
 	}
 }
