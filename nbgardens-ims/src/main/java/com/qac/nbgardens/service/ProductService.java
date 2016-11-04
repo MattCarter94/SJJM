@@ -1,6 +1,7 @@
 package com.qac.nbgardens.service;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -27,7 +28,7 @@ public class ProductService {
 		BigDecimal nPrice = new BigDecimal(Float.parseFloat(price));
 		productManager.findProductById(id).setPrice(nPrice);
 		productManager.findProductById(id).setDescription(description);
-		System.out.println("category: " + category);
+		//System.out.println("category: " + category);
 		switch (category) {
 		case "GNOME":
 			productManager.findProductById(id).setCategory(Category.GNOME);
@@ -55,11 +56,41 @@ public class ProductService {
 			productManager.findProductById(id).setState(ProductStatus.DISCONTINUED);
 			break;
 		}
-		System.out.println("active: " + active);
+		//System.out.println("active: " + active);
 	}
 	
-	public void addProduct(Product p) {
+	public void addProduct(Integer id, String title, String price, String description, String category, String image, String tags, String stock, String active, Date orderDate) {
+		BigDecimal nPrice = new BigDecimal(Float.parseFloat(price));
+		Category c = Category.GNOME;
+		switch (category) {
+		case "GNOME":
+			c =Category.GNOME;
+			break;
+		case "GNOMEACCESSORY":
+			c = Category.GNOMEACCESSORY;
+			break;
+		case "GARDENFOUNTIAN":
+			c = Category.GARDENFOUNTIAN;
+			break;
+		}
+		Integer nStock = Integer.parseInt(stock);
+		ProductStatus a = ProductStatus.ACTIVE;
+		switch (active) {
+		case "ACTIVE":
+			a = ProductStatus.ACTIVE;
+			break;
+		case "DISCONTINUED":
+			a = ProductStatus.DISCONTINUED;
+			break;
+		}
+		
+		Product p = new Product(id, title, nPrice, description, c, image, tags, nStock, a, orderDate);
+		
 		productManager.addProduct(p);
+		
+		for (Product d : productManager.getProducts()) {
+			System.out.println(d.getTitle() + " : " + d.getProductID() + d.getCategory().toString() + d.getState().toString());
+		}
 	}
 	
 	

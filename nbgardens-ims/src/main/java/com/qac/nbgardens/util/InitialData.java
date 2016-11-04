@@ -29,7 +29,7 @@ public class InitialData {
 	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 	private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 	private List<Customer> customers = new ArrayList<Customer>();
-	public InitialData iniD;
+	//public InitialData iniD;
 	
 	@PostConstruct
 	public void SetupData() {
@@ -50,9 +50,7 @@ public class InitialData {
 		customers.get(0).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(0), 2, new BigDecimal(5.05)), customers.get(0).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
 		customers.get(1).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
 		customers.get(2).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(1), 5, new BigDecimal(9.99)), customers.get(2).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
-		
-		customers.get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle();
-		
+	
 		//Add wishlists
 		//addWishlist();
 		
@@ -86,5 +84,4 @@ public class InitialData {
 	public List<StockOrder> getStockOrders() {
 		return stockOrders;
 	}
-	
 }
