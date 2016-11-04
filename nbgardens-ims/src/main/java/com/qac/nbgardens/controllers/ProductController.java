@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.model.DataModel;
+
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
@@ -25,7 +25,7 @@ import com.qac.nbgardens.util.Pagination;
 public class ProductController implements Serializable{
 	@Inject
 	private ProductService productService;
-	private DataModel<Product> products = null;
+	private ArrayList<Product> products = null;
 	private Pagination pagination;
 	
 	public float calculateStockLevel(Integer id) {
@@ -62,33 +62,6 @@ public class ProductController implements Serializable{
 		productService.updateProduct(id, title, price, description, category, image, tags, stock, active);
 	}
 	
-	public String addProduct() {
-		List<String> listParameters = new ArrayList<>();
-		FacesContext.getCurrentInstance().getExternalContext().getRequestParameterNames().forEachRemaining(k->{
-			listParameters.add(k);
-		});
-		String category = "";
-		String active = "";
-		for(String property : listParameters) {
-			//System.out.println(property);
-			if(property.contains("j_idt15"))
-				category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
-			if(property.contains("j_idt18"))
-				active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
-		}
-		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
-		String price = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_price");
-		String description = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_description");
-		System.out.println("CATEGORY: " + category);
-		String image = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_image");
-		String tags = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_tags");
-		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
-		//System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
-		//System.out.println(title + ", " + price + ", " + description + ", " + category + ", " + image + ", " + tags + ", " + stock + ", " + active);
-		productService.addProduct((int)(Math.random() * 1000), title, price, description, category, image, tags, stock, active, new Date());
-		//productService.addProduct(105, title, price, description, category, image, tags, stock, active, new Date());
-		return "products";
-	}
 	
 	public SelectItem[] getActiveValues() {
 		SelectItem[] items = new SelectItem[ProductStatus.values().length];
@@ -124,9 +97,35 @@ public class ProductController implements Serializable{
 		products = null;
 	}
 
-	public DataModel<Product> getProducts() {
+	public void invalidate() {
+		
+	}
+	public ArrayList<Product> getProducts() {
 		if(products == null)
-			products = getPagination().createDataModel();
+			products = getPagination().createArrayList();
+		
+		String order = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_order");
+		String type = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_type");
+		String search = "";
+		try {
+		search = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_search");
+		System.out.println(order + " : " + type + " : " + search);
+		System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
+		} catch (Exception e){
+			
+		}
+		List<Product> list = new ArrayList<Product>();
+		for (Product p : products) {
+			if (search != null) {
+				//Search matching
+				if (p.getTitle().contains(search)) {
+					list.add(p);
+					System.out.println(p.getTitle());
+				}
+			}
+		}
+		//DataModel<Product> rtn = (DataModel<Product>) list;
+		
 		return products;
 	}
 
@@ -135,11 +134,11 @@ public class ProductController implements Serializable{
 			pagination = new Pagination(20) {
 				
 				@Override
-				public DataModel createDataModel() {
+				public ArrayList createArrayList() {
 					try {
-						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+						return new ArrayList<Product>(productService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
-						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(), getItemsCount()));
+						return new ArrayList<Product>(productService.findAll().subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 

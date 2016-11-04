@@ -22,78 +22,42 @@
 		        
 		        </div>
 		        
-                 	<h:form id="new_product" action="">
-                      	<h3><b>Add Product</b></h3>
-                      		<div class="panel">
-                      	<div class="detail">
-                          	<h4>Title:</h4> 
-                          	<input type="text" name="product_title"/>
-                      	</div>
-                      	<div class="detail">
-                          	<h4>Price:</h4> 
-                          	<input type="text" name="product_price"/>
-                      	</div>
-                      	<div class="detail">
-                          	<h4>Description: </h4> 
-                          	<textarea name="product_description" rows="5" cols="50"></textarea>
-                      	</div>
-                      	<div class="detail">
-                          	<h4>Category: </h4> 
-                          	<h:selectOneMenu name="product_category" >
-                          		<f:selectItems value="#{products.categoryValues}"/>
-                          	</h:selectOneMenu>
-                      	</div>
-                      	<div class="detail">
-                          	<h4>Image: </h4>
-                          	<input type="text" name="product_image"/>
-                      	</div>
-                      	<div class="detail">
-                          	<h4>Tags: </h4> 
-                          	<textarea class="descriptionDetails" name="product_tags" rows="4" cols="50"></textarea>
-                      	</div>
-                      	<div class="detail">
-                          	<h4>Stock: </h4> 
-                          	<input type="text" name="product_stock"/>
-                      	</div>
-                      	<div class="detail">
-                          	<h4>Active: </h4> 
-                          	<h:selectOneMenu class="activeDetails" name="product_active">
-                          		<f:selectItems value="#{products.activeValues}"/>
-                         	</h:selectOneMenu>
-                      	</div>
-                      	<h:commandButton id="saveButton" type="submit" action="#{products.addProduct()}" value="Save Details"/>
-                      	</div>
-                      </h:form>
-                 
+                 	
 		        
 		        <br/><br/>
 		        
 		        <div class="filter-block">
-		            <h2>Filters</h2>
-		            <div class="priceOrder">
-		                <h4>Order By: </h4>
-		                <select>
-		                    <option value="any">Any</option>
-		                    <option value="hightolow">High to Low</option>
-		                    <option value="lowtohigh">Low to High</option>
-		                </select>
-		            </div>
-		            <div class="typeOrder">
-		            
-		                <h4>Category: </h4>
-		                <select>
-		                    <option value="gnome">Gnome</option>
-		                    <option value="gnomeaccesories">Gnome Accessories</option>
-		                    <option value="other">Other Products</option>
-		                </select>
-		            </div>
-		            <input id="tagsSearch" type="text" name="search"/>
+		        	<h:form id="filter">
+			            <h2>Filters</h2>
+			            <div class="priceOrder">
+			                <h4>Order By: </h4>
+			                <select name="filter_order">
+			                    <option value="any">Any</option>
+			                    <option value="hightolow">High to Low</option>
+			                    <option value="lowtohigh">Low to High</option>
+			                </select>
+			            </div>
+			            <div class="typeOrder">
+			            	
+			                <h4>Category: </h4>
+			                <select name="filter_type">
+			                    <option value="gnome">Gnome</option>
+			                    <option value="gnomeaccesories">Gnome Accessories</option>
+			                    <option value="other">Other Products</option>
+			                </select>
+			            </div>
+			            <input id="tagsSearch" type="text" name="filter_search"/>
+			            <br/>
+			            <h:commandButton value="Search" action="#{products.getProducts()}">
+			            	<f:ajax execute="@this" render="product-list"/>
+			            </h:commandButton>
+		            </h:form>
 		        </div>
 		        
 		        
 		     
 		        <div class="product-list">
-		        	<h:outputText escape="false" value="No Products Found" rendered="#{products.products.rowCount == 0 }" />
+		        	<h:outputText escape="false" value="No Products Found" rendered="#{products.products.size() == 0 }" />
 	           		<ui:repeat var="product" value="#{products.products}">
 	           			<li class="product" >
 	            			<div class="accordion" style="{true ? 'background-color: #FF0000' : 'background-color: #00FF00'}">

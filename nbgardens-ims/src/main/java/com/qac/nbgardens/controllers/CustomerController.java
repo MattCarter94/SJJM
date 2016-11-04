@@ -1,9 +1,9 @@
 package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.enterprise.context.SessionScoped;
-import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,14 +18,14 @@ import com.qac.nbgardens.util.Pagination;
 public class CustomerController implements Serializable{
 	@Inject
 	private CustomerService customerService;
-	private DataModel<Customer> customers = null;
+	private ArrayList<Customer> customers = null;
 	private Pagination pagination;
 	
 
-	public DataModel<Customer> getCustomers() 
+	public ArrayList<Customer> getCustomers() 
 	{
 		if(customers == null)
-			customers = getPagination().createDataModel();
+			customers = getPagination().createArrayList();
 		return customers;
 	}
 	
@@ -42,11 +42,11 @@ public class CustomerController implements Serializable{
 			pagination = new Pagination(20) {
 				
 				@Override
-				public DataModel createDataModel() {
+				public ArrayList createArrayList() {
 					try {
-						return new ListDataModel<Customer>(customerService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+						return new ArrayList<Customer>(customerService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
-						return new ListDataModel<Customer>(customerService.findAll().subList(getPageFirstItem(), getItemsCount()));
+						return new ArrayList<Customer>(customerService.findAll().subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 
