@@ -2,8 +2,6 @@ package com.qac.nbgardens.util;
 
 import javax.faces.model.DataModel;
 
-import com.qac.nbgardens.entities.Product;
-
 public abstract class Pagination {
 	private int pageSize;
 	private int page;

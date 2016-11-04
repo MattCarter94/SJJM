@@ -2,7 +2,7 @@ package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Date;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
@@ -40,9 +40,9 @@ public class ProductController implements Serializable{
 		String category = "";
 		String active = "";
 		for(String property : listParameters) {
-			if(property.contains("j_idt26"))
+			if(property.contains("j_idt32"))
 				category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
-			if(property.contains("j_idt29"))
+			if(property.contains("j_idt36"))
 				active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
 		}
 		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
@@ -62,8 +62,32 @@ public class ProductController implements Serializable{
 		productService.updateProduct(id, title, price, description, category, image, tags, stock, active);
 	}
 	
-	public void addProduct() {
-		//TODO
+	public String addProduct() {
+		List<String> listParameters = new ArrayList<>();
+		FacesContext.getCurrentInstance().getExternalContext().getRequestParameterNames().forEachRemaining(k->{
+			listParameters.add(k);
+		});
+		String category = "";
+		String active = "";
+		for(String property : listParameters) {
+			//System.out.println(property);
+			if(property.contains("j_idt15"))
+				category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
+			if(property.contains("j_idt18"))
+				active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
+		}
+		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
+		String price = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_price");
+		String description = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_description");
+		System.out.println("CATEGORY: " + category);
+		String image = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_image");
+		String tags = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_tags");
+		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
+		//System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
+		//System.out.println(title + ", " + price + ", " + description + ", " + category + ", " + image + ", " + tags + ", " + stock + ", " + active);
+		productService.addProduct((int)(Math.random() * 1000), title, price, description, category, image, tags, stock, active, new Date());
+		//productService.addProduct(105, title, price, description, category, image, tags, stock, active, new Date());
+		return "products";
 	}
 	
 	public SelectItem[] getActiveValues() {

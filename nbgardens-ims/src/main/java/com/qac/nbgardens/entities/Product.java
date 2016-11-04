@@ -1,7 +1,6 @@
 package com.qac.nbgardens.entities;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.Date;
 
 import javax.persistence.Column;

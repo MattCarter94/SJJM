@@ -33,6 +33,26 @@
     
 }
 
+.activeColouring {
+	background-color: repeating-linear-gradient(
+    -45deg,
+    #606dbc,
+    #606dbc 10px,
+    #465298 10px,
+    #465298 20px
+  ) !important;
+}
+
+.inactiveColouring {
+	background-color: repeating-linear-gradient(
+    -45deg,
+    #606dbc,
+    #606dbc 10px,
+    #465298 10px,
+    #465298 20px
+  ) !important;
+}
+
 .horizontal .stock-fill {
     position: relative;
     background: #415989;
@@ -64,6 +84,14 @@
 
 .addProduct {
     float: right;
+}
+
+.product_window {
+	width: 50%;
+	align: center;
+	background-color: #3F3F3F;
+	border-radius: 17px;
+	padding:20px;
 }
 
 .product {

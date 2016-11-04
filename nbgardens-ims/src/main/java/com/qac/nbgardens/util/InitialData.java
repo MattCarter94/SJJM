@@ -30,8 +30,7 @@ public class InitialData {
 	//private List<Wishlist> wishlists = new ArrayList<Wishlist>();
 	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 	private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
-	private List<Customer> customers = new ArrayList<Customer>();
-	
+	private List<Customer> customers = new ArrayList<Customer>();	
 	SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
 	@PostConstruct
 	public void SetupData() {
@@ -57,7 +56,7 @@ public class InitialData {
 			e.printStackTrace();
 		}
 		try {
-			customers.get(1).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), sdf.parse("31-08-1982"), OrderStatus.INPROGRESS));
+			customers.get(0).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), sdf.parse("31-08-1982"), OrderStatus.INPROGRESS));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,13 +69,13 @@ public class InitialData {
 		}
 
 		// Dates demand some exception handling.
-		
-		
+
 		//Add wishlists
 		//addWishlist();
 		
 		//Add stockOrders
-		//addStockOrder();s
+
+	//	addStockOrder(new StockOrder(productID, supplier, quantity, stockOrderDate, stockRecievedDate));
 		
 		//Add baskets
 		//addBasket();
@@ -88,6 +87,10 @@ public class InitialData {
 //	}
 	public void addProduct(Product p) {
 		products.add(p);
+	}
+	
+	public void addStockOrder(StockOrder so) {
+		stockOrders.add(so);
 	}
 	
 	public void addCustomer(Customer c) {
@@ -106,5 +109,4 @@ public class InitialData {
 	public List<StockOrder> getStockOrders() {
 		return stockOrders;
 	}
-	
 }

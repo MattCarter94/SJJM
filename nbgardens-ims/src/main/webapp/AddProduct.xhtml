@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>NBGardens - Products</title>
+        
+    </h:head>
+    <body>
+        <ui:composition template="templates/template.xhtml">
+        	<ui:define name="content">
+        		<script type="application/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        		<script type="application/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   				<script src="js/products.js"></script>
+        		<link rel="stylesheet" href="css/products.css"/>
+		        	
+                 	<h:form id="new_product" action="">
+                      	<h3><b>Add Product</b></h3>
+                      		<div class="product_window">
+		                      	<div class="detail">
+		                          	<h4>Title:</h4> 
+		                          	<input type="text" name="product_title" required="true"/>
+		                      	</div>
+		                      	<div class="detail">
+		                          	<h4>Price:</h4> 
+		                          	<input type="text" name="product_price" required="true"/>
+		                      	</div>
+		                      	<div class="detail">
+		                          	<h4>Description: </h4> 
+		                          	<textarea name="product_description" rows="5" cols="50" required="true"></textarea>
+		                      	</div>
+		                      	<div class="detail">
+		                          	<h4>Category: </h4> 
+		                          	<h:selectOneMenu name="product_category" >
+		                          		<f:selectItems value="#{products.categoryValues}"/>
+		                          	</h:selectOneMenu>
+		                      	</div>
+		                      	<div class="detail">
+		                          	<h4>Image: </h4>
+		                          	<input type="text" name="product_image" required="true"/>
+		                      	</div>
+		                      	<div class="detail">
+		                          	<h4>Tags: </h4> 
+		                          	<textarea class="descriptionDetails" name="product_tags" rows="4" cols="50" required="true"></textarea>
+		                      	</div>
+		                      	<div class="detail">
+		                          	<h4>Stock: </h4> 
+		                          	<input type="text" name="product_stock" required="true"/>
+		                      	</div>
+		                      	<div class="detail">
+		                          	<h4>Active: </h4> 
+		                          	<h:selectOneMenu class="activeDetails" name="product_active">
+		                          		<f:selectItems value="#{products.activeValues}"/>
+		                         	</h:selectOneMenu>
+		                      	</div>
+		                      	<h:commandButton id="saveButton" type="submit" action="#{addproduct.addProduct()}" value="Save Details"/>
+                      		</div>
+                      </h:form>
+		        	
+	        </ui:define>
+        </ui:composition>
+    </body>
+</html>

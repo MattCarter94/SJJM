@@ -5,12 +5,9 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
-import javax.inject.Inject;
-
 import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.managers.CustomerOrderManager;
-import com.qac.nbgardens.util.InitialData;
 import com.qac.nbgardens.entities.Customer;
 
 @Default
