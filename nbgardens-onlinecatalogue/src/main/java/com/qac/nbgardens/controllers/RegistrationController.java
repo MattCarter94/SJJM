@@ -56,7 +56,7 @@ public class RegistrationController implements Serializable {
 		
 		Customer c = new Customer(new CardDetails(this.cardNo, this.expiry), this.firstName, this.surname, this.email, this.phoneNo, this.password, this.houseNo, this.street, this.town, this.county, this.postcode);
 		initialData.addUser(c);
-		System.out.println("The last added user's first name is: " + initialData.returnLastUser());
+		//System.out.println("The last added user's first name is: " + initialData.returnLastUser());
 		
 		return "index";
 	}
