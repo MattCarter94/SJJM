@@ -7,15 +7,15 @@ import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.managers.UserManager;
 
 @Stateless
-public class LoginService {
+public class RegistrationService {
 	@Inject
 	private UserManager userManager;
 
-	public boolean validateDetails(String email, String pass) {
+	public boolean checkIfRegistered(String email) {
 		Customer customer = userManager.getUserByEmail(email);
-		if (customer != null && customer.getPassword().equals(pass))
-			return true;
-		return false;
+		if (customer.getEmail().equals(email))
+			return false;
+		return true;
 	}
 
 	public Customer getUserID(String user) {
