@@ -2,6 +2,7 @@ package com.qac.nbgardens.controllers;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -21,7 +22,7 @@ import com.qac.nbgardens.util.Pagination;
 public class CustomerOrderController implements Serializable{
 	@Inject
 	private CustomerOrderService customerOrderService;
-	private DataModel<CustomerOrder> customerOrders = null;
+	private ArrayList<CustomerOrder> customerOrders = null;
 	private Pagination pagination;
 	
 //	public String next() {
@@ -40,10 +41,10 @@ public class CustomerOrderController implements Serializable{
 //		pro = null;
 //	}
 //
-	public DataModel<CustomerOrder> getCustomerOrders() 
+	public ArrayList<CustomerOrder> getCustomerOrders() 
 	{
 		if(customerOrders == null)
-			customerOrders = getPagination().createDataModel();
+			customerOrders = getPagination().createArrayList();
 		return customerOrders;
 	}
 
@@ -53,11 +54,11 @@ public class CustomerOrderController implements Serializable{
 			pagination = new Pagination(20) {
 				
 				@Override
-				public DataModel createDataModel() {
+				public ArrayList createArrayList() {
 					try {
-						return new ListDataModel<CustomerOrder>(customerOrderService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+						return new ArrayList<CustomerOrder>(customerOrderService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
-						return new ListDataModel<CustomerOrder>(customerOrderService.findAll().subList(getPageFirstItem(), getItemsCount()));
+						return new ArrayList<CustomerOrder>(customerOrderService.findAll().subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 

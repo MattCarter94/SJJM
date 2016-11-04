@@ -1,40 +1,40 @@
 package com.qac.nbgardens.entities;
 
 import java.math.BigDecimal;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
-public class OrderLine {
+public class StockLine {
 	
 	@Id //ID is for PK
-	@OneToMany //For FK.
-	@Column (name = "Customer_Order_ID")  
+	@OneToOne
+	@Column (name = "Stock_Order_ID")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer customerOrderID;
-
-	@Id //ID is for PK
+	private Integer stockOrderID;
+	
+	@Id // Id is for PK
 	@OneToMany //For FK.
-	@JoinColumn (name = "Product_ID")  
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@JoinColumn(name="Product_ID", nullable = false)
+	@NotNull
 	private Product product;
-
-	@Column (name = "Quantity", nullable = false)
-	@NotNull
-	private Integer quantity;
 	
-	@Column (name = "Price", nullable = false)
-	@NotNull
+	@Column (name = "Quantity", length = 255)
+	private Integer qty;
+	
+	@Column (name = "Price", length = 255)
 	private BigDecimal price;
-	
-	public OrderLine(Product product, Integer quantity, BigDecimal price) {
-		
+
+	public StockLine(Product product, Integer qty, BigDecimal price) {
 		this.product = product;
-		this.quantity = quantity;
+		this.qty = qty;
 		this.price = price;
 	}
 
@@ -46,12 +46,12 @@ public class OrderLine {
 		this.product = product;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
+	public Integer getQty() {
+		return qty;
 	}
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setQty(Integer qty) {
+		this.qty = qty;
 	}
 
 	public BigDecimal getPrice() {
@@ -61,5 +61,5 @@ public class OrderLine {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-
+	
 }

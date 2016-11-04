@@ -1,6 +1,7 @@
 package com.qac.nbgardens.pagination;
 
-import javax.faces.model.DataModel;
+import java.util.ArrayList;
+
 
 public abstract class PaginationHelper {
 	  private int pageSize;
@@ -11,7 +12,7 @@ public abstract class PaginationHelper {
 	  }
 
 	  public abstract int getItemsCount();
-	  public abstract DataModel createPageDataModel();
+	  public abstract ArrayList createPageArrayList();
 
 	  public int getPageFirstItem() {
 	    return page * pageSize;
