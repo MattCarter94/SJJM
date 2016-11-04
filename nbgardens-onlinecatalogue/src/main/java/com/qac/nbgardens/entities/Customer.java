@@ -75,24 +75,24 @@ public class Customer {
 	
 	//Constructors
 	public Customer() {};
-	public Customer(CardDetails card, Wishlist wishlist, String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
+	public Customer(CardDetails card, String firstName, String surname, String email, String phoneNo, String password, String houseNo, String street, String town, String county, String postcode) {
 		this.card = card;
-		this.wishlist = wishlist;
 
-		this.firstName = name;
+
+		this.firstName = firstName;
 		this.surname = surname;
-		this.credit = Currency.getInstance(Locale.UK);
+		
 		this.email = email;
 		this.phoneNumber = phoneNo;
 		this.password = password;
-		//TODO FIX THIS: this.permissions = permissions;
-		this.address1 = add1;
-		this.address2 = add2;
+		this.address1 = houseNo;
+		this.address2 = street;
 		this.town = town;
 		this.county = county;
 		this.postcode = postcode;
-
 	}
+	
+	
 	//End constructors
 	
 	//GETTERS AND SETTERS

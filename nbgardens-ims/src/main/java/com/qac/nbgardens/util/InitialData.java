@@ -1,6 +1,8 @@
 package com.qac.nbgardens.util;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,11 +30,11 @@ public class InitialData {
 	//private List<Wishlist> wishlists = new ArrayList<Wishlist>();
 	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 	private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
-	private List<Customer> customers = new ArrayList<Customer>();
-	//public InitialData iniD;
-	
+	private List<Customer> customers = new ArrayList<Customer>();	
+	SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
 	@PostConstruct
 	public void SetupData() {
+		
 		//Add users
 		addCustomer(new Customer("jaredpepper@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "12 Clive Road", "Cliverton","Clivechester", "Clive Kingdom", "MER4 32D"), new Date()), "jaredpepper@gmail.com"), "Jared", "Pepper", "12345678998", "secret_password"));
 		addCustomer(new Customer("joetrost@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "12 Clive Road", "Cliverton","Clivechester", "Clive Wales", "MER4 32D"), new Date()), "jaredpepper@gmail.com"), "Joe", "Trost", "12345678998", "secret_password"));
@@ -47,18 +49,37 @@ public class InitialData {
 		addProduct(new Product(103, "Clive Gnome", new BigDecimal(908070.50), "its a gnome", Category.GNOMEACCESSORY, "imgurl.png", "tag1, tag2, tag3", 200, ProductStatus.DISCONTINUED, new Date()));
 
 		// Add Customer Orders
-		customers.get(0).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(0), 2, new BigDecimal(5.05)), customers.get(0).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
-		customers.get(1).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
-		customers.get(2).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(1), 5, new BigDecimal(9.99)), customers.get(2).getCustEmail(), new Date(), OrderStatus.INPROGRESS));
-	
+		try {
+			customers.get(0).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(0), 2, new BigDecimal(5.05)), customers.get(0).getCustEmail(), sdf.parse("31-08-2006"), OrderStatus.INPROGRESS));
+		} catch (ParseException e) 
+		{
+			e.printStackTrace();
+		}
+		try {
+			customers.get(0).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), sdf.parse("31-08-1982"), OrderStatus.INPROGRESS));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			customers.get(2).addCustomerOrder(new CustomerOrder(new OrderLine(2, products.get(1), 5, new BigDecimal(9.99)), customers.get(2).getCustEmail(), sdf.parse("31-08-1982"), OrderStatus.INPROGRESS));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// Dates demand some exception handling.
+
 		//Add wishlists
 		//addWishlist();
 		
 		//Add stockOrders
-		//addStockOrder();s
+
+	//	addStockOrder(new StockOrder(productID, supplier, quantity, stockOrderDate, stockRecievedDate));
 		
 		//Add baskets
 		//addBasket();
+
 	}
 	
 //	public void addToBasket(Basket b) {
@@ -66,6 +87,10 @@ public class InitialData {
 //	}
 	public void addProduct(Product p) {
 		products.add(p);
+	}
+	
+	public void addStockOrder(StockOrder so) {
+		stockOrders.add(so);
 	}
 	
 	public void addCustomer(Customer c) {

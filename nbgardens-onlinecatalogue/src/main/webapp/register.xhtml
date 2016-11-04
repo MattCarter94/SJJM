@@ -1,4 +1,3 @@
-
 <ui:composition xmlns="https://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -14,12 +13,88 @@
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/register.css" />
+
+<h:head>
+	<title>Wizard</title>
+	<script name="jquery-3.1.1.min.js" library="js"></script>
+	<script src="js/regForm.js"></script>
+</h:head>
+
+<ul class="tab">
+	<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'userDetails')" id="defaultOpen">Your Details</a></li>
+	<li><span class="glyphicon glyphicon-triangle-right"></span></li>
+	<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'userAddress')">Your Address</a></li>
+	<li><span class="glyphicon glyphicon-triangle-right"></span></li>
+	<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'userPayment')">Payment Details</a></li>
+</ul>
 
 
-	
-	
-	
-	
+
+
+<h:form>
+	<p:wizard>
+	<div id="userDetails" class="tabcontent">
+		<p:tab id="regFormStep1">
+			<p:panelGrid columns="2">
+				<h:outputLabel value="First Name" styleClass="labelForm"/>
+				<h:inputText value="#{register.firstName}" styleClass="inputForm"></h:inputText>
+				<h:outputLabel value="Surname" styleClass="labelForm"/>
+				<h:inputText value="#{register.surname}" styleClass="inputForm"></h:inputText>
+				<h:outputLabel value="Email Address" styleClass="labelForm"/>
+				<h:inputText value="#{register.email}" styleClass="inputForm"></h:inputText>
+				<h:outputLabel value="Password" styleClass="labelForm"/>
+				<h:inputSecret value="#{register.password}" styleClass="inputForm"></h:inputSecret>
+				<h:outputLabel value="Phone number" styleClass="labelForm"/>
+				<h:inputText value="#{register.phoneNo}" styleClass="inputForm"
+					onkeypress="if(event.which &lt; 48 || event.which &gt; 57 ) if(event.which != 8) return false;"></h:inputText>
+					<button type="button" href="javascript:void(0)" onclick="openTab(event, 'userAddress')" class="tablinks btn btn-success">Next</button>
+
+			</p:panelGrid>
+		</p:tab>
+		</div>
+		<div id="userAddress" class="tabcontent">
+		<p:tab id="regFormStep2">
+			<p:panelGrid columns="2">
+				<h:outputLabel value="House Name/No" styleClass="labelForm"/>
+				<h:inputText value="#{register.houseNo}" styleClass="inputForm"></h:inputText>
+				<h:outputLabel value="Street" styleClass="labelForm"/>
+				<h:inputText value="#{register.street}" styleClass="inputForm"></h:inputText>
+				<h:outputLabel value="Town/City" styleClass="labelForm"/>
+				<h:inputText value="#{register.town}" styleClass="inputForm"></h:inputText>
+				<h:outputLabel value="County" styleClass="labelForm"/>
+				<h:inputText value="#{register.county}" styleClass="inputForm"></h:inputText>
+				<h:outputLabel value="Postcode" styleClass="labelForm"/>
+				<h:inputText value="#{register.postcode}" styleClass="inputForm"></h:inputText>
+				<button type="button" href="javascript:void(0)" onclick="openTab(event, 'userDetails')" class="tablinks btn btn-success">Previous</button>
+				<button type="button" href="javascript:void(0)" onclick="openTab(event, 'userPayment')" class="tablinks btn btn-success">Next</button>
+			</p:panelGrid>
+		</p:tab>
+		</div>
+		<div id="userPayment" class="tabcontent">
+
+					<p:tab id="regFormStep3">
+						<p:panelGrid columns="2">
+							<h:outputLabel value="Name (as it appears on the card)" styleClass="labelForm" />
+							<h:inputText value="#{register.cardName}" styleClass="inputForm"></h:inputText>
+							<h:outputLabel value="Card Number" styleClass="labelForm" />
+							<h:inputText value="#{register.cardNo}"
+								onkeypress="if(event.which &lt; 48 || event.which &gt; 57 ) if(event.which != 8) return false;" styleClass="inputForm"></h:inputText>
+							<h:outputLabel value="Expiry Date" styleClass="labelForm" />
+							<h:inputText value="#{register.expiry}" styleClass="inputForm"></h:inputText>
+						</p:panelGrid>
+						<button type="button" href="javascript:void(0)"
+							onclick="openTab(event, 'userAddress')"
+							class="tablinks btn btn-success">Previous</button>
+						<h:commandButton value="Register" action="#{register.register()}"
+							styleClass="btn btn-success"></h:commandButton>
+					</p:tab>
+				</div>
+	</p:wizard>
+</h:form>
+
+	 
+
+
 	</ui:define>
 </ui:composition>

@@ -19,8 +19,8 @@ public class UserManagerOffline implements UserManager{
 	private InitialData initialData;
 	
 	
-	public void persistUser(CardDetails card, Wishlist wishlist, String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode) {
-		Customer u = new Customer(card, wishlist, name, surname, email, phoneNo, password, permissions, add1, add2, town, county, postcode);
+	public void persistUser(CardDetails card, Wishlist wishlist, String firstName, String surname, String email, String phoneNo, String password, Integer permissions, String houseNo, String street, String town, String county, String postcode) {
+		Customer u = new Customer(card, firstName, surname, email, phoneNo, password,  houseNo, street, town, county, postcode);
 		initialData.addUser(u);
 	}
 	

@@ -20,7 +20,6 @@ public class LoginController {
 	private String error = "";
 
 	public String login() {
-		System.out.println(email + " " + password);
 		if (email.equals("")) {
 			error = "please enter your email";
 			password = "";

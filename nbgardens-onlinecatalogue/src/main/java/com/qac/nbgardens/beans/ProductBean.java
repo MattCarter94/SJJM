@@ -1,19 +1,15 @@
 package com.qac.nbgardens.beans;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 
-@ManagedBean(name="prodbean")
+import java.io.Serializable;
+
+import javax.enterprise.context.SessionScoped;
+
+@Named("prodbean")
 @SessionScoped
-public class ProductBean {
-
-		public int id;
-		
-		//Constructor
-		public ProductBean() {
-			
-		}
-
+public class ProductBean implements Serializable {
+		private int id;
 	
 		//Getters and Setters
 		public int getId() {
@@ -23,6 +19,4 @@ public class ProductBean {
 		public void setId(int id) {
 			this.id = id;
 		}
-
-
 }
