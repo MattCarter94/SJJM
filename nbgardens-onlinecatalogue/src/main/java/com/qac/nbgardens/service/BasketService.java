@@ -33,10 +33,11 @@ public class BasketService {
 	}
 
 	// Find the customer order that is linked to the customer id we provide, this order has status set to basket
-	public CustomerOrder getUserBasket(Integer userID) {// feed in id of user who's order we want to find
-		CustomerOrder basket = customerOrderManager.getBasketGivenUser(userID); // basket is the order linked to the customer we specified
+	public CustomerOrder getUserBasket(String email) {// feed in id of user who's order we want to find
+		CustomerOrder basket = customerOrderManager.getBasketGivenEmail(email); // basket is the order linked to the customer we specified
 		if(basket == null) // if not such order exists, if the customer does not have an order with status of basket...
-			basket = new CustomerOrder(userManager.getUser(userID), OrderStatus.BASKET); // create a new customerOrder / basket, specifying the customer and that the order is technically a basket
+//			basket = new CustomerOrder(userManager.getUser(userID), OrderStatus.BASKET); // create a new customerOrder / basket, specifying the customer and that the order is technically a basket
+			System.out.println("Basket is Null");
 		return basket; // return the customer order / basket
 	}
 

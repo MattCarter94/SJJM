@@ -5,6 +5,8 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 import com.qac.nbgardens.entities.Customer;
+import com.qac.nbgardens.entities.CustomerOrder;
+
 import javax.enterprise.inject.Alternative;
 
 @Alternative
@@ -12,6 +14,7 @@ import javax.enterprise.inject.Alternative;
 @SessionScoped
 public class UserCredentials implements Serializable {
 	private Customer user;
+//	public CustomerOrder basket;
 
 	public boolean isLoggedIn() {
 		return (user!=null)? true : false;

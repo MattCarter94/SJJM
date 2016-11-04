@@ -1,0 +1,50 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/clivetemplate.xhtml">
+
+	<ui:define name="tabtitle">Basket</ui:define>
+	<ui:define name="main-content">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet"
+			href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<script
+			src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/basket.css" />
+
+
+		<div class="basket-container">
+<!-- 			<h:form> -->
+<!-- 				<h:outputText escape="false" value="No Products Found" -->
+<!-- 					rendered="#{basketController.getBasketProducts().getOrderLines().size() == 0 }" /> -->
+
+<!-- 				<h:panelGroup rendered="#{basketController.getBasketProducts().getOrderLines().size() > 0}"> -->
+
+<!-- 					<div class="productGrid"> -->
+<!-- 						<ui:repeat var="product" value="#{basketController.getBasketProducts().getOrderLines()}"> -->
+<!-- 							<div class="browse-image 6999"> -->
+								
+<!-- 								<p class="title">#{product.getProduct.title}</p> -->
+<!-- <!-- 								<img src="img/#{product.image}" width="200px" class="thumb" /> --> -->
+<!-- <!-- 								<figcaption>#{product.title}</figcaption> --> -->
+<!-- <!-- 								<div class="prodButton"> --> -->
+<!-- <!-- 									<h:button value="More Info" outcome="product.xhtml" --> -->
+<!-- <!-- 										styleClass="moreButton"> --> -->
+<!-- <!-- 										<f:param name="id" value="#{product.productID}" /> --> -->
+<!-- <!-- 									</h:button> --> -->
+<!-- <!-- 								</div> --> -->
+<!-- 							</div> -->
+<!-- 						</ui:repeat> -->
+<!-- 					</div> -->
+
+<!-- 				</h:panelGroup> -->
+<!-- 			</h:form> -->
+		</div>
+
+
+	</ui:define>
+</ui:composition>
