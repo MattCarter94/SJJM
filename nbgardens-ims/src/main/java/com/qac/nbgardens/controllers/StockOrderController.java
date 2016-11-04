@@ -1,3 +1,4 @@
+
 package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
@@ -15,12 +16,12 @@ import com.qac.nbgardens.util.Pagination;
 
 @Named("customers")
 @SessionScoped
-public class CustomerController implements Serializable{
+public class StockOrderController implements Serializable{ // Need to changeeeeeeeee everything.
 	@Inject
 	private CustomerService customerService;
 	private DataModel<Customer> customers = null;
 	private Pagination pagination;
-	
+		
 
 	public DataModel<Customer> getCustomers() 
 	{
@@ -28,7 +29,7 @@ public class CustomerController implements Serializable{
 			customers = getPagination().createDataModel();
 		return customers;
 	}
-	
+		
 	public void getProductTitleFromCustomerOrder(Integer customerID, Integer orderID)
 	{	 
 		 System.out.println("Step 1");
@@ -39,23 +40,57 @@ public class CustomerController implements Serializable{
 	private Pagination getPagination() 
 	{
 		if(pagination==null)
-			pagination = new Pagination(20) {
-				
-				@Override
-				public DataModel createDataModel() {
-					try {
-						return new ListDataModel<Customer>(customerService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
-					} catch (Exception e) {
-						return new ListDataModel<Customer>(customerService.findAll().subList(getPageFirstItem(), getItemsCount()));
-					}
+			pagination = new Pagination(20) 
+		{
+					
+			@Override
+			public DataModel createDataModel() 
+			{
+				try 
+				{
+					return new ListDataModel<Customer>(customerService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+				} catch (Exception e) 
+				{
+					return new ListDataModel<Customer>(customerService.findAll().subList(getPageFirstItem(), getItemsCount()));
 				}
+			}
 
-				@Override
-				public int getItemsCount() {
-					return customerService.findAll().size();
-				}
-			};
+			@Override
+			public int getItemsCount() 
+			{
+				return customerService.findAll().size();
+			}
+		};
 		return pagination;
 	}
 }
 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
