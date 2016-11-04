@@ -35,8 +35,13 @@ public class OrderLine {
 	
 	
 	public void setCustomerOrder(CustomerOrder customerOrder) {
-		if(!customerOrder.getOrderLines().contains(this)) // if the customer order we pass in does not contain the current order line...
-			customerOrder.addOrderLine(this); // add this order line to the customer order's list of order lines
+		System.out.println("Entering setCustomerorder");
+//		System.out.println("Testing this validity " + this.product.getTitle()); //There is no product?
+//		if(!customerOrder.getOrderLines().contains(this)) // if the customer order we pass in does not contain the current order line...
+			System.out.println("The Orders orderLines does not contain this orderLine");
+//			System.out.println("Are we working with the orderLine object? " + this.product.getTitle());
+//			customerOrder.addOrderLine(this); // add this order line to the customer order's list of order lines
+			System.out.println("Just added the orderline to the order");
 		this.customerOrder = customerOrder;
 	}
 
