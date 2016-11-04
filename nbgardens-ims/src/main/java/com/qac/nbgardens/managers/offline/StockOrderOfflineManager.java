@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.StockOrder;
 import com.qac.nbgardens.managers.StockOrderManager;
 import com.qac.nbgardens.util.InitialData;
@@ -54,6 +55,11 @@ public class StockOrderOfflineManager implements StockOrderManager {
 			System.out.println("No Stock Order with that ID found");
 		}
 		return null;
+	}
+	
+	@Override
+	public List<StockOrder> findAll() {
+		return initialData.getStockOrders();
 	}
 	
 	

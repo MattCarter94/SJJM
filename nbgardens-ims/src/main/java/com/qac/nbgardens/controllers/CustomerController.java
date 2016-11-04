@@ -21,22 +21,7 @@ public class CustomerController implements Serializable{
 	private ArrayList<Customer> customers = null;
 	private Pagination pagination;
 	
-//	public String next() {
-//		getPagination().nextPage();
-//		recreateModel();
-//		return "customers";
-//	}
-//	
-//	public String previous() {
-//		getPagination().previousPage();
-//		recreateModel();
-//		return "customers";	
-//	}
-	
-//	private void recreateModel() {
-//		pro = null;
-//	}
-//
+
 	public ArrayList<Customer> getCustomers() 
 	{
 		if(customers == null)
@@ -47,7 +32,6 @@ public class CustomerController implements Serializable{
 	public void getProductTitleFromCustomerOrder(Integer customerID, Integer orderID)
 	{	 
 		 System.out.println("Step 1");
-		 System.out.println(customerID +" <-Customer ID || Order Id-> " + orderID);
 		 customerService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
 	}
 
