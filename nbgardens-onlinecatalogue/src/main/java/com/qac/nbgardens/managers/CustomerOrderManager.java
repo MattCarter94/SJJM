@@ -11,5 +11,5 @@ public interface CustomerOrderManager {
 	public OrderStatus findOrderStatus(Integer customerOrderID);
 
 	public CustomerOrder getBasketGivenUser(Integer userID);
-		
+	public CustomerOrder getBasketGivenEmail(String email);
 }

@@ -9,12 +9,14 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
+import com.qac.nbgardens.controllers.BasketController;
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.entities.Wishlist;
 import com.qac.nbgardens.entities.enums.Category;
+import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.entities.enums.ProductStatus;
 
 
@@ -36,7 +38,6 @@ public class InitialData {
 		//Add users
 
 		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
-		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
 		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Dog", "Carter", "dog", "02938475812", "password1", "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
 		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Cat", "Carter", "cat@email.co.uk", "02938475812", "password1", "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
 
@@ -55,6 +56,9 @@ public class InitialData {
 		addProduct(new Product(109, "Clive Gnome", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 
 		
+		//Add Customer Order
+		addCustomerOrder(new CustomerOrder(getCustomer(0), OrderStatus.BASKET));
+		
 		//Add wishlists
 		//addWishlist();
 		
@@ -63,6 +67,14 @@ public class InitialData {
 		
 		//Add baskets
 		//addBasket();
+	}
+	
+	private void addCustomerOrder(CustomerOrder cu) {
+		customerOrders.add(cu);
+	}
+
+	public Customer getCustomer(int index){
+		return users.get(index);
 	}
 	
 //	public void addToBasket(Basket b) {
