@@ -29,7 +29,7 @@ public class BasketService {
 //		System.out.println("About to run addOrderLine");
 		basket.addOrderLine(productManager.findProductById(productID), 1); // this overrides one of these methods. adds a product to the logged in users]
 //		System.out.println("The order line in the customer order has " + basket.getOrderLines().size() + " products in it");
-		System.out.println("End of addProduct...");
+//		System.out.println("End of addProduct...");
 	}
 
 	// Find the customer order that is linked to the customer id we provide, this order has status set to basket

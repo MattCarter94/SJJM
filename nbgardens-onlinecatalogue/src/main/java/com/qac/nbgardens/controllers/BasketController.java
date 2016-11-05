@@ -54,11 +54,11 @@ public class BasketController {
 	
 	// Add a product to the order / basket
 	public void addToBasket(Product product){ // specify a product
-		System.out.println("Entered the method...");
+//		System.out.println("Entered the method...");
 		if(userCredentials.isLoggedIn()) // if the customer using the website is logged in
 			basketService.addProduct(userCredentials.getUser().getEmail() , product.getProductID()); // adding a product given the current users id and the products id
-//		    System.out.println("Adding " + product.getTitle());
-		    System.out.println("user id is " + userCredentials.getUser().getEmail() + " and product id is " + product.getProductID());
+		    System.out.println("Adding " + product.getTitle());
+//		    System.out.println("user id is " + userCredentials.getUser().getEmail() + " and product id is " + product.getProductID());
 	}
 	
 	public void removeFromBasket(Integer id){

@@ -14,7 +14,7 @@ import javax.enterprise.inject.Alternative;
 @SessionScoped
 public class UserCredentials implements Serializable {
 	private Customer user;
-//	public CustomerOrder basket;
+	private CustomerOrder basket;
 
 	public boolean isLoggedIn() {
 		return (user!=null)? true : false;
@@ -32,4 +32,14 @@ public class UserCredentials implements Serializable {
 	public void setUser(Customer user) {
 		this.user = user;
 	}
+
+	public CustomerOrder getBasket() {
+		return basket;
+	}
+
+	public void setBasket(CustomerOrder basket) {
+		this.basket = basket;
+	}
+	
+	
 }

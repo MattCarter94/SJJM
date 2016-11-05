@@ -42,6 +42,7 @@ public class LoginController {
 
 		userCredentials.setUser(loginService.getUserID(email));
 		System.out.println("Valid login");
+		userCredentials.setBasket(loginService.getBasket(email));
 //		basketController.setBasket(userCredentials.getUser().getEmail());
 		return "index";
 	}
