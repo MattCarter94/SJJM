@@ -19,7 +19,7 @@ public class BasketService {
 	private ProductManager productManager;
 	
 	// Add a product to basket given a user id and product id
-	public void addProduct(String email, Integer productID) {
+	public void addProduct(String email, Integer productID, int quantity) {
 //		System.out.println("Adding product " + productID);
 		CustomerOrder basket = customerOrderManager.getBasketGivenEmail(email); // basket is the local order associated with the current user
 		
@@ -27,7 +27,7 @@ public class BasketService {
 //			System.out.println("Basket is Null");
 			basket = new CustomerOrder(userManager.getUserByEmail(email), OrderStatus.BASKET); // create the order, linking it to the user and specifying a status of basket
 //		System.out.println("About to run addOrderLine");
-		basket.addOrderLine(productManager.findProductById(productID), 1); // this overrides one of these methods. adds a product to the logged in users]
+		basket.addOrderLine(productManager.findProductById(productID), quantity); // this overrides one of these methods. adds a product to the logged in users]
 //		System.out.println("The order line in the customer order has " + basket.getOrderLines().size() + " products in it");
 //		System.out.println("End of addProduct...");
 	}
