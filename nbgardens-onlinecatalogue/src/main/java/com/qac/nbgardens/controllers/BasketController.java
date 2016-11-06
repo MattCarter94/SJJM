@@ -28,6 +28,7 @@ public class BasketController {
 //	private CustomerOrderManager customerOrderManager;
 	
 	private int quantity;
+	private int deleteId;
 
 	// Attributes
 	private CustomerOrder customerOrder = null; // Holds a single customer order
@@ -68,12 +69,10 @@ public class BasketController {
 //		    System.out.println("CO orderlines " + customerOrderManager.getBasketGivenEmail(userCredentials.getUser().getEmail()).getOrderLines().size());
 	}
 	
-	public void removeFromBasket(Integer id){
-		for (int i=0; i>customerOrder.getOrderLines().size(); i++){
-			if(customerOrder.getOrderLines().get(i).getProduct().getProductID() == id){
-				customerOrder.getOrderLines().remove(i);
-			}
-		}
+	public void removeFromBasket(){
+		System.out.println(deleteId);
+		basketService.deleteProduct(userCredentials.getUser().getEmail(), deleteId);
+//		System.out.println("Deleted product" + deleteId);
 	}
 
 	public int getQuantity() {
@@ -86,6 +85,15 @@ public class BasketController {
 		}
 		this.quantity = quantity;
 	}
+
+	public int getDeleteId() {
+		return deleteId;
+	}
+
+	public void setDeleteId(int deleteId) {
+		this.deleteId = deleteId;
+	}
+	
 	
 	
 }

@@ -41,4 +41,9 @@ public class BasketService {
 		return basket; // return the customer order / basket
 	}
 
+	public void deleteProduct(String email, Integer productID){
+		CustomerOrder basket = customerOrderManager.getBasketGivenEmail(email);
+		basket.deleteOrderLine(productID);
+	}
+	
 }
