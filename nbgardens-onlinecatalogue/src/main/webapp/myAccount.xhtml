@@ -39,7 +39,21 @@
 					</div>
 				</h:panelGroup>
 			</h:form>
+			<hr/>
 		
+			<div class="orders">
+				<h3>Orders in Progress:</h3>
+				<h:form>
+					<h:outputText class="noOrders" escape="false" value="No current orders to display"
+					rendered="#{!currentUser.hasOrders()}" />
+					<h:panelGroup rendered="#{currentUser.hasOrders()}">
+						<div class="orderDetails">
+							
+						</div>
+					</h:panelGroup>
+				</h:form>
+			</div>
+			
 		</div>
 
 

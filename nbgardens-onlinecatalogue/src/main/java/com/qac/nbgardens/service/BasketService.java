@@ -33,7 +33,7 @@ public class BasketService {
 //		System.out.println("About to run addOrderLine");
 		basket.addOrderLine(productManager.findProductById(productID), quantity); // this overrides one of these methods. adds a product to the logged in users]
 		BigDecimal x = userCredentials.getTotal();
-		userCredentials.setTotal(x.add(productManager.findProductById(productID).getPrice()));
+		userCredentials.setTotal(x.add(productManager.findProductById(productID).getPrice().multiply(new BigDecimal(quantity))));
 //		System.out.println("The order line in the customer order has " + basket.getOrderLines().size() + " products in it");
 //		System.out.println("End of addProduct...");
 	}
