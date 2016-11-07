@@ -1,10 +1,12 @@
 package com.qac.nbgardens.managers;
 
+import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
+@Singleton
 public class PersistanceManager {
 	private EntityManagerFactory emf;
 	
