@@ -46,9 +46,9 @@
 			                    <option value="other">Other Products</option>
 			                </select>
 			            </div>
-			            <input id="tagsSearch" type="text" name="filter_search"/>
+			            <input id="tagsSearch" type="text" name="filter_search" value="#{search.searchTerms}"/>
 			            <br/>
-			            <h:commandButton value="Search" action="#{products.getProducts()}">
+			            <h:commandButton value="Search" >
 			            	<f:ajax execute="@this" render="product-list"/>
 			            </h:commandButton>
 		            </h:form>

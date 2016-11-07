@@ -1,0 +1,74 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/clivetemplate.xhtml">
+
+	<ui:define name="tabtitle">Basket</ui:define>
+	<ui:define name="main-content">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet"
+			href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<script
+			src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/basket.css" />
+
+		<f:metadata>
+     		<f:viewParam name="id" value="#{basketController.deleteId}" />
+     	</f:metadata>
+
+		<div class="basket-container">
+			<h:form>
+				<h:outputText class="noProducts" escape="false" value="No Products In Basket"
+					rendered="#{currentUser.basket.getOrderLines().size() == 0}" />
+
+				<h:panelGroup rendered="#{currentUser.basket.getOrderLines().size() > 0}">
+
+					<div class="basketGrid">
+						<h1>Your Basket Currently Contains:</h1>
+						<div class="repeat">
+						<table class="basketTable">
+							<tr>
+								<th>Product Name</th>
+								<th>Quantity</th>
+								<th>Price</th>
+								<th>Edit</th>
+							</tr>
+						<ui:repeat var="product" value="#{currentUser.basket.getOrderLines()}">
+							<tr>
+								<td>#{product.getProduct().title}</td>
+								<td>#{product.getQuantity()}</td>
+								<td>#{product.getPrice()}</td>
+								<td><h:button value="Delete" outcome="basket.xhtml" action="#{basketController.removeFromBasket()}" styleClass="deleteButton">
+										<f:param name="id" value="#{product.getProduct().productID}" /></h:button>
+								</td>
+							</tr>
+						</ui:repeat>
+						</table>
+						</div>
+					</div>
+					
+<!-- 					<div class="dataTable"> -->
+<!-- 						<h:dataTable value="#{currentUser.getBasket().getOrderLines()}" val="basket"> -->
+<!-- 							<h:column> -->
+<!-- 								#{basket.getProduct().title} -->
+<!-- 							</h:column> -->
+<!-- 							<h:column> -->
+<!-- 								#{basket.getQuantity()} -->
+<!-- 							</h:column> -->
+<!-- 							<h:column> -->
+<!-- 								#{basket.getPrice()} -->
+<!-- 							</h:column> -->
+<!-- 						</h:dataTable> -->
+<!-- 					</div> -->
+
+				</h:panelGroup>
+			</h:form>
+		</div>
+
+
+	</ui:define>
+</ui:composition>

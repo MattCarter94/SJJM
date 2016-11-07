@@ -1,8 +1,6 @@
 package com.qac.nbgardens.entities;
 
 import java.util.Currency;
-import java.util.Locale;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

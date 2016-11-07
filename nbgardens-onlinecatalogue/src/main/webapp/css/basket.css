@@ -1,0 +1,65 @@
+.noProducts{
+	font-size:20px;
+}
+
+.basket-container{
+	width: 890px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.basketGrid h1{
+	margin-bottom: 20px;
+}
+
+table.basketTable{
+	margin-left:auto; 
+    margin-right:auto;
+    border-collapse:collapse;
+    border-spacing:0;
+    border-color:black;
+}
+
+.basketTable td{
+	font-family:Arial, sans-serif;
+	font-size:20px;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#bbb;
+	color:#594F4F;
+	background-color:#E0FFEB;
+	border-top-width:1px;
+	border-bottom-width:1px;
+	}
+	
+.basketTable th{
+	font-family:Arial, sans-serif;
+	font-size:25px;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#bbb;
+	color:#493F3F;
+	background-color:#9DE0AD;
+	border-top-width:1px;
+	border-bottom-width:1px;
+	}
+
+.basketTable th{
+	vertical-align:top
+	}
+
+
+
+
+
+
+

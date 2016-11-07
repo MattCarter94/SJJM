@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.qac.nbgardens.beans.UserCredentials;
 import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.managers.CustomerOrderManager;
@@ -19,6 +20,8 @@ public class CustomerOrderManagerOffline implements CustomerOrderManager {
 	
 	@Inject
 	private InitialData initialData;
+	@Inject
+	private UserCredentials userCredentials;
 	
 	@Override
 	public Date returnOrderDate(Integer customerOrderID){
@@ -74,12 +77,19 @@ public class CustomerOrderManagerOffline implements CustomerOrderManager {
 		List<CustomerOrder> customerOrders = new ArrayList<>(); // Create empty list to contain customer orders
 		initialData.getCustomerOrders().forEach(co->{ // Get list of customer orders. For each order in this list...
 			if(co.getCustomer().getEmail().equals(email) && co.getStatus().equals(OrderStatus.BASKET)) // If the order has a customer who's id is equal to the one we feed in, and the orders status is set to basket...
-				System.out.println("Found an order with a correct customer email and status of basket");
+//				System.out.println("Found an order with a correct customer email and status of basket");
 				customerOrders.add(co); // Add the order we found to the local list created above
 		});
-		System.out.println("Initial data customerOrders list is " + initialData.getCustomerOrders().size() + " items long");
-		System.out.println("customerOrders list is " + customerOrders.size() + " items long");
-		return customerOrders.get(0); // Return the first item because it only has one item in it, the order we found and added
+		if(customerOrders.size() == 0){
+			CustomerOrder cu = new CustomerOrder(userCredentials.getUser(), OrderStatus.BASKET);
+			initialData.addCustomerOrder(cu);
+			System.out.println("Created a new basket");
+			return cu;
+		}
+		else{
+			System.out.println("Existing Basket found");
+			return customerOrders.get(0); // Return the first item because it only has one item in it, the order we found and added
 //		return null;
+		}
 	}
 }

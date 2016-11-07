@@ -83,14 +83,14 @@ public class CustomerOrder {
 
 	// There are two of these
 	public void addOrderLine(Product product, int quantity) {
-		System.out.println("product in addOrderLine is " + product.getTitle() + " with a quantity of " + quantity);
-		System.out.println("Entered add order line");
+//		System.out.println("product in addOrderLine is " + product.getTitle() + " with a quantity of " + quantity);
+//		System.out.println("Entered add order line");
 		if(orderLines==null) // if order lines does not exist
-			System.out.println("This orders orderLines is empty");
+//			System.out.println("This orders orderLines is empty");
 			orderLines = new ArrayList<>(); // create list
-		System.out.println("Attmepting to add new orderLine to this customer order");
+//		System.out.println("Attmepting to add new orderLine to this customer order");
 		orderLines.add(new OrderLine(this, product, quantity)); // add a new order line object to this customer order. this specifies the current order so they are linked together
-		System.out.println("Successfully added the orderLine to the order");
+//		System.out.println("Successfully added the orderLine to the order");
 	}
 
 	public List<OrderLine> getOrderLines() {
@@ -102,14 +102,24 @@ public class CustomerOrder {
 	}
 
 	public void addOrderLine(OrderLine orderLine) {
-		System.out.println("Entering second addOrderLine");
+//		System.out.println("Entering second addOrderLine");
 //		System.out.println("Does this orderLine have a custOrder ID? " + orderLine.getCustomerOrder().getCustomer().getEmail());
 		if(!orderLine.getCustomerOrder().equals(this)) // if the specified order line is not linked to the current customer order...
-			System.out.println("The orderLine is not associated with this order");
+//			System.out.println("The orderLine is not associated with this order");
 			orderLine.setCustomerOrder(this); // link the order line to this customer order
-			System.out.println("Just linked this order with the orderLine");
-		System.out.println("About to add the orderLine to order lines");
+//			System.out.println("Just linked this order with the orderLine");
+//		System.out.println("About to add the orderLine to order lines");
 		orderLines.add(orderLine); // add the order line we input to the customer order objects list of order lines
-		System.out.println("Added the orderLine to the customer order");
+//		System.out.println("Added the orderLine to the customer order");
+	}
+
+
+	public void deleteOrderLine(Integer productID) {
+		for(int i=0; i>orderLines.size(); i++){
+			if(orderLines.get(i).getProduct().getProductID() == productID){
+				orderLines.remove(i);
+				System.out.println("Removed product " + productID);
+			}
+		}
 	}
 }

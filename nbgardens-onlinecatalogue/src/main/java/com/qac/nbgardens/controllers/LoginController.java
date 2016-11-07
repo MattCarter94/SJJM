@@ -15,6 +15,9 @@ public class LoginController {
 	private LoginService loginService;
 	@Inject
 	private UserCredentials userCredentials;
+	@Inject
+	private BasketController basketController;
+	
 	private String email = "";
 	private String password = "";
 	private String error = "";
@@ -39,6 +42,8 @@ public class LoginController {
 
 		userCredentials.setUser(loginService.getUserID(email));
 		System.out.println("Valid login");
+		userCredentials.setBasket(loginService.getBasket(email));
+//		basketController.setBasket(userCredentials.getUser().getEmail());
 		return "index";
 	}
 
