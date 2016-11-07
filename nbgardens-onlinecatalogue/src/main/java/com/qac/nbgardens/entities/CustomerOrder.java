@@ -1,5 +1,6 @@
 package com.qac.nbgardens.entities;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -120,6 +121,13 @@ public class CustomerOrder {
 				orderLines.remove(i);
 				System.out.println("Removed product " + productID);
 			}
+		}
+	}
+	
+	public void getTotalCost(){
+		BigDecimal total = new BigDecimal(0);
+		for(int i=0; i>orderLines.size(); i++){
+			total.add(orderLines.get(i).getPrice().multiply(new BigDecimal(orderLines.get(i).getQuantity())));
 		}
 	}
 }

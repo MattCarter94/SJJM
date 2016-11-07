@@ -48,7 +48,26 @@
 					rendered="#{!currentUser.hasOrders()}" />
 					<h:panelGroup rendered="#{currentUser.hasOrders()}">
 						<div class="orderDetails">
-							
+							<table>
+								<tr>
+									<th>Order ID</th>
+									<th>Item Quantity</th>
+									<th>Total Price</th>
+								</tr>
+								<ui:repeat var="order" value="#{currentUser.userOrders}">
+									<tr>
+										<td>
+											#{order.getCustomerOrderID()}
+										</td>
+										<td>
+											#{order.getItemQuantity()}
+										</td>
+										<td>
+											#{order.getTotalCost()}
+										</td>
+									</tr>
+								</ui:repeat>
+							</table>
 						</div>
 					</h:panelGroup>
 				</h:form>
