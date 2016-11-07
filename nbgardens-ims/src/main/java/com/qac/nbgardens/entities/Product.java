@@ -19,7 +19,7 @@ import com.qac.nbgardens.entities.enums.ProductStatus;
 
 @NamedQueries ({
 	@NamedQuery (
-		name = "findProductById",
+		name = "Product.FIND_PRODUCT_BY_ID",
 		query = "SELECT * FROM Product p where p.productID = :productID"
 	)
 })
