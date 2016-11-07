@@ -40,7 +40,7 @@ public class Customer {
 	private String surname;
 	
 	@Column (name = "Credit")
-	private Currency credit;
+	private double credit;
 	
 	@Column (name = "Email", length = 255)
 	private String email;
@@ -89,6 +89,7 @@ public class Customer {
 		this.county = county;
 		this.postcode = postcode;
 		this.wishlistProduct = new WishlistProduct();
+		this.credit = 10000;
 	}
 	
 	
@@ -113,10 +114,10 @@ public class Customer {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public Currency getCredit() {
+	public double getCredit() {
 		return credit;
 	}
-	public void setCredit(Currency credit) {
+	public void setCredit(double credit) {
 		this.credit = credit;
 	}
 	public String getEmail() {

@@ -47,6 +47,9 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 				<h:panelGroup rendered="#{!currentUser.loggedIn}">
                 	<li><a href="register.xhtml"><span class="glyphicon glyphicon-user"></span> Register</a></li>
                 </h:panelGroup>
+                <h:panelGroup rendered="#{currentUser.loggedIn}">
+					<li><a href="myAccount.xhtml"><span class="glyphicon glyphicon-home"></span> My Account</a></li>
+				</h:panelGroup>
                 <h:panelGroup rendered="#{!currentUser.loggedIn}">
                 	<li><a href="login.xhtml"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </h:panelGroup>
