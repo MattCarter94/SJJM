@@ -43,7 +43,13 @@
 								<td>#{product.getQuantity()}</td>
 								<td>#{product.getPrice()}</td>
 								<td><h:button value="Delete" outcome="basket.xhtml" action="#{basketController.removeFromBasket()}" styleClass="deleteButton">
-										<f:param name="id" value="#{product.getProduct().productID}" /></h:button>
+										<f:param name="id" value="#{product.getProduct().productID}" />
+<!-- 										<f:setPropertyActionListener target="#{basketController.deleteId}" value="#{basketController.deleteId}" /> -->
+									</h:button>
+										
+<!-- 									<h:commandButton action="#{basketController.removeFromBasket()}" value="delete"> -->
+<!-- 									    <f:setPropertyActionListener target="#{basketController.deleteId}" value="#{basketController.deleteId}" /> -->
+<!-- 									</h:commandButton> -->
 								</td>
 							</tr>
 						</ui:repeat>
