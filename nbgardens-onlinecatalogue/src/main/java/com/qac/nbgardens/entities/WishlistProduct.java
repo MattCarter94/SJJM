@@ -2,6 +2,9 @@ package com.qac.nbgardens.entities;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,24 +37,15 @@ public class WishlistProduct {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)	
 	private Integer wpID;
 	
-	
-	@OneToOne //For FK.
-	@JoinColumn(name="WishList_ID", nullable = false)
-	@NotNull
-	private Wishlist wishList;   
-	
-	
 	@OneToOne //For FK.
 	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
-	private Product product;
+	private List<Product> products;
 	
 	//Constructors
-	public WishlistProduct(){}
-	public WishlistProduct(Wishlist WishListID, Product ProductID ){
+	public WishlistProduct(){
 	
-		this.wishList = WishListID;
-		this.product = ProductID;
+		this.products = new ArrayList<>();
 
 	}
 	
@@ -61,20 +55,17 @@ public class WishlistProduct {
 	public Integer getWpID() {
 		return wpID;
 	}
+	
 	public void setWpID(Integer wpID) {
 		this.wpID = wpID;
 	}
-	public Wishlist getwishListID() {
-		return wishList;
+	
+	public List<Product> getProducts() {
+		return products;
 	}
-	public void setwishListID(Wishlist wishListID) {
-		this.wishList = wishListID;
-	}
-	public Product getProductID() {
-		return product;
-	}
-	public void setProductID(Product productID) {
-		this.product = productID;
+	
+	public void setProducts(Product products) {
+		this.products = new ArrayList<>();
 	}
 	
 }

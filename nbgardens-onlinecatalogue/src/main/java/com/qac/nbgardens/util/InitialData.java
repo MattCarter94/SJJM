@@ -14,7 +14,6 @@ import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.Product;
-import com.qac.nbgardens.entities.Wishlist;
 import com.qac.nbgardens.entities.enums.Category;
 import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.entities.enums.ProductStatus;
