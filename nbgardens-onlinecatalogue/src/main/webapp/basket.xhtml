@@ -16,33 +16,57 @@
 
 		<link rel="stylesheet" type="text/css" href="css/basket.css" />
 
+		<f:metadata>
+     		<f:viewParam name="id" value="#{basketController.deleteId}" />
+     	</f:metadata>
 
 		<div class="basket-container">
-<!-- 			<h:form> -->
-<!-- 				<h:outputText escape="false" value="No Products Found" -->
-<!-- 					rendered="#{basketController.getBasketProducts().getOrderLines().size() == 0 }" /> -->
+			<h:form>
+				<h:outputText class="noProducts" escape="false" value="No Products In Basket"
+					rendered="#{currentUser.basket.getOrderLines().size() == 0}" />
 
-<!-- 				<h:panelGroup rendered="#{basketController.getBasketProducts().getOrderLines().size() > 0}"> -->
+				<h:panelGroup rendered="#{currentUser.basket.getOrderLines().size() > 0}">
 
-<!-- 					<div class="productGrid"> -->
-<!-- 						<ui:repeat var="product" value="#{basketController.getBasketProducts().getOrderLines()}"> -->
-<!-- 							<div class="browse-image 6999"> -->
-								
-<!-- 								<p class="title">#{product.getProduct.title}</p> -->
-<!-- <!-- 								<img src="img/#{product.image}" width="200px" class="thumb" /> --> -->
-<!-- <!-- 								<figcaption>#{product.title}</figcaption> --> -->
-<!-- <!-- 								<div class="prodButton"> --> -->
-<!-- <!-- 									<h:button value="More Info" outcome="product.xhtml" --> -->
-<!-- <!-- 										styleClass="moreButton"> --> -->
-<!-- <!-- 										<f:param name="id" value="#{product.productID}" /> --> -->
-<!-- <!-- 									</h:button> --> -->
-<!-- <!-- 								</div> --> -->
-<!-- 							</div> -->
-<!-- 						</ui:repeat> -->
+					<div class="basketGrid">
+						<h1>Your Basket Currently Contains:</h1>
+						<div class="repeat">
+						<table class="basketTable">
+							<tr>
+								<th>Product Name</th>
+								<th>Quantity</th>
+								<th>Price</th>
+								<th>Edit</th>
+							</tr>
+						<ui:repeat var="product" value="#{currentUser.basket.getOrderLines()}">
+							<tr>
+								<td>#{product.getProduct().title}</td>
+								<td>#{product.getQuantity()}</td>
+								<td>#{product.getPrice()}</td>
+								<td><h:button value="Delete" outcome="basket.xhtml" action="#{basketController.removeFromBasket()}" styleClass="deleteButton">
+										<f:param name="id" value="#{product.getProduct().productID}" /></h:button>
+								</td>
+							</tr>
+						</ui:repeat>
+						</table>
+						</div>
+					</div>
+					
+<!-- 					<div class="dataTable"> -->
+<!-- 						<h:dataTable value="#{currentUser.getBasket().getOrderLines()}" val="basket"> -->
+<!-- 							<h:column> -->
+<!-- 								#{basket.getProduct().title} -->
+<!-- 							</h:column> -->
+<!-- 							<h:column> -->
+<!-- 								#{basket.getQuantity()} -->
+<!-- 							</h:column> -->
+<!-- 							<h:column> -->
+<!-- 								#{basket.getPrice()} -->
+<!-- 							</h:column> -->
+<!-- 						</h:dataTable> -->
 <!-- 					</div> -->
 
-<!-- 				</h:panelGroup> -->
-<!-- 			</h:form> -->
+				</h:panelGroup>
+			</h:form>
 		</div>
 
 

@@ -112,4 +112,14 @@ public class CustomerOrder {
 		orderLines.add(orderLine); // add the order line we input to the customer order objects list of order lines
 //		System.out.println("Added the orderLine to the customer order");
 	}
+
+
+	public void deleteOrderLine(Integer productID) {
+		for(int i=0; i>orderLines.size(); i++){
+			if(orderLines.get(i).getProduct().getProductID() == productID){
+				orderLines.remove(i);
+				System.out.println("Removed product " + productID);
+			}
+		}
+	}
 }

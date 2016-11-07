@@ -69,7 +69,7 @@ public class InitialData {
 		//addBasket();
 	}
 	
-	private void addCustomerOrder(CustomerOrder cu) {
+	public void addCustomerOrder(CustomerOrder cu) {
 		customerOrders.add(cu);
 	}
 

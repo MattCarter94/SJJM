@@ -3,6 +3,7 @@
 		xmlns:f="http://java.sun.com/jsf/core"
 		xmlns:h="http://java.sun.com/jsf/html"
 		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
      	template="templates/clivetemplate.xhtml">
      	
      	<ui:define name="tabtitle">Product</ui:define>
@@ -33,12 +34,13 @@
                 <div class="prodPrice">
                     <h3><b>Only £#{products.findProductById(prodbean.id).price}</b></h3>
                     <div class="buttons">
-                    <h:form>
-                    	<span><h:button value="Back" outcome="catalogue.xhtml" styleClass="back"></h:button>
-                    		<h:commandButton value="Add to Cart" action="#{basketController.addToBasket(products.findProductById(prodbean.id))}" styleClass="addCart" rendered="#{currentUser.isLoggedIn()}"></h:commandButton></span>
-<!--                     	<h:button value="Add to Cart" outcome="#{basketBean.addToBasket(products.findProductById(prodbean.id))}" styleClass="addCart"></h:button></span> -->
-<!--                     	<h:outputText value="#{basketBean.basketProducts.size()}" /> -->
-					</h:form>
+	                    <h:form>
+	                    	<span><h:button value="Back" outcome="catalogue.xhtml" styleClass="back"></h:button>
+	                    		<h:inputText class="quantity" value="#{basketController.quantity}" a:placeholder="1" rendered="#{currentUser.isLoggedIn()}" onkeypress="if(event.which &lt; 48 || event.which &gt; 57 ) if(event.which != 8) return false;"/>
+	                    		<h:commandButton value="Add to Cart" action="#{basketController.addToBasket(products.findProductById(prodbean.id))}" styleClass="addCart" rendered="#{currentUser.isLoggedIn()}"></h:commandButton></span>
+	<!--                     	<h:button value="Add to Cart" outcome="#{basketBean.addToBasket(products.findProductById(prodbean.id))}" styleClass="addCart"></h:button></span> -->
+	<!--                     	<h:outputText value="#{basketBean.basketProducts.size()}" /> -->
+						</h:form>
                     </div>
                 </div>
             </div>

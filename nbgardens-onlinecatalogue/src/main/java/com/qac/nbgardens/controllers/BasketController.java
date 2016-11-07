@@ -11,6 +11,7 @@ import com.qac.nbgardens.beans.UserCredentials;
 import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.entities.enums.OrderStatus;
+import com.qac.nbgardens.managers.CustomerOrderManager;
 import com.qac.nbgardens.service.BasketService;
 import com.qac.nbgardens.util.InitialData;
 
@@ -23,6 +24,11 @@ public class BasketController {
 	private UserCredentials userCredentials;
 	@Inject
 	private InitialData initialData;
+//	@Inject
+//	private CustomerOrderManager customerOrderManager;
+	
+	private int quantity;
+	private int deleteId;
 
 	// Attributes
 	private CustomerOrder customerOrder = null; // Holds a single customer order
@@ -54,18 +60,40 @@ public class BasketController {
 	
 	// Add a product to the order / basket
 	public void addToBasket(Product product){ // specify a product
-		System.out.println("Entered the method...");
+//		System.out.println("Entered the method...");
 		if(userCredentials.isLoggedIn()) // if the customer using the website is logged in
-			basketService.addProduct(userCredentials.getUser().getEmail() , product.getProductID()); // adding a product given the current users id and the products id
-//		    System.out.println("Adding " + product.getTitle());
-		    System.out.println("user id is " + userCredentials.getUser().getEmail() + " and product id is " + product.getProductID());
+			basketService.addProduct(userCredentials.getUser().getEmail() , product.getProductID(), quantity); // adding a product given the current users id and the products id
+		    System.out.println("Adding " + product.getTitle());
+//		    System.out.println("user id is " + userCredentials.getUser().getEmail() + " and product id is " + product.getProductID());
+//		    System.out.println("User orderlines " + userCredentials.getBasket().getOrderLines().size());
+//		    System.out.println("CO orderlines " + customerOrderManager.getBasketGivenEmail(userCredentials.getUser().getEmail()).getOrderLines().size());
 	}
 	
-	public void removeFromBasket(Integer id){
-		for (int i=0; i>customerOrder.getOrderLines().size(); i++){
-			if(customerOrder.getOrderLines().get(i).getProduct().getProductID() == id){
-				customerOrder.getOrderLines().remove(i);
-			}
-		}
+	public void removeFromBasket(){
+		System.out.println(deleteId);
+		basketService.deleteProduct(userCredentials.getUser().getEmail(), deleteId);
+//		System.out.println("Deleted product" + deleteId);
 	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		if(quantity==0){
+			quantity=1;
+		}
+		this.quantity = quantity;
+	}
+
+	public int getDeleteId() {
+		return deleteId;
+	}
+
+	public void setDeleteId(int deleteId) {
+		this.deleteId = deleteId;
+	}
+	
+	
+	
 }

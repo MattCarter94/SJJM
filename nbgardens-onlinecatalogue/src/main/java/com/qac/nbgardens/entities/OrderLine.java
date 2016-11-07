@@ -27,6 +27,7 @@ public class OrderLine {
 		setCustomerOrder(customerOrder);
 		this.product = product;
 		this.quantity = quantity;
+		this.price = product.getPrice().multiply(new BigDecimal(quantity));
 	}
 	
 	public CustomerOrder getCustomerOrder() {
