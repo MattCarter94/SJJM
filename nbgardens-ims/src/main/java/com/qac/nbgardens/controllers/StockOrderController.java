@@ -42,7 +42,9 @@ public class StockOrderController implements Serializable{ // Need to changeeeee
 		 System.out.println("Step 4");
 		 
 		// System.out.println(customerID +" <-Customer ID || Order Id-> " + orderID);
-		 //stockOrderService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
+
+		// stockOrderService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
+
 	}
 
 	private Pagination getPagination() 

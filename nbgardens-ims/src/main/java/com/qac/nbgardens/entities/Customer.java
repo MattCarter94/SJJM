@@ -11,13 +11,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+@NamedQueries ({
+	@NamedQuery (
+		name = "findCustomerByEmail",
+		query = "SELECT * FROM  Customers where c.email = :custEmail"
+	)
+})
 
 @Entity
-@Table (name = "User")
+@Table (name = "Customers")
 public class Customer {
 	
 	private enum Permissions{

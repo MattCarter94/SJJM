@@ -42,9 +42,6 @@ public class CustomerManagerOffline implements CustomerManager{
 	}
 	
 	
-	
-	
-	
 	@Override
 	public ArrayList<Customer> getCustomers() {
 
