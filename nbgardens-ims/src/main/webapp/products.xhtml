@@ -59,8 +59,8 @@
 		        <div class="product-list">
 		        	<h:outputText escape="false" value="No Products Found" rendered="#{products.products.size() == 0 }" />
 	           		<ui:repeat var="product" value="#{products.products}">
-	           			<li class="product" >
-	            			<div class="accordion" style="{true ? 'background-color: #FF0000' : 'background-color: #00FF00'}">
+	           			<li class="product"  style="#{(product.state == 'ACTIVE') ? '' : 'opacity:0.6; filter: alpha(opacity=60)'}">
+	            			<div class="accordion">
 	                        	<span class="idNumber">##{product.productID}</span><span class="title">#{product.title}</span> <span class="price"> £#{product.price} </span><button class="orderStockButton">Order Stock</button>
 	                        	<div class="stock-bar horizontal">
 	                            	<div class="stock-track">
