@@ -7,4 +7,7 @@ public interface WishlistProductManager {
 	
 	public void updateWishlistProduct();
 	public void deleteWishlistProduct();
+
+	public WishlistProduct getWishlistGivenUserEmail(String email);
+	
 }

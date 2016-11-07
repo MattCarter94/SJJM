@@ -1,18 +1,9 @@
-.total {
-	margin-top: 30px;
-	font-size: 20px;
-	
-}
-
-.total .checkout{
-	font-size: 15px;
-}
 
 .noProducts{
 	font-size:20px;
 }
 
-.basket-container{
+.wishlist-container{
 	width: 890px;
 	margin-left: auto;
 	margin-right: auto;
@@ -20,11 +11,11 @@
 	text-align: center;
 }
 
-.basketGrid h1{
+.wishlistGrid h1{
 	margin-bottom: 20px;
 }
 
-table.basketTable{
+table.wishlistTable{
 	margin-left:auto; 
     margin-right:auto;
     border-collapse:collapse;
@@ -32,7 +23,7 @@ table.basketTable{
     border-color:black;
 }
 
-.basketTable td{
+.wishlistTable td{
 	font-family:Arial, sans-serif;
 	font-size:20px;
 	padding:10px 5px;
@@ -47,7 +38,7 @@ table.basketTable{
 	border-bottom-width:1px;
 	}
 	
-.basketTable th{
+.wishlistTable th{
 	font-family:Arial, sans-serif;
 	font-size:25px;
 	font-weight:normal;
@@ -63,7 +54,7 @@ table.basketTable{
 	border-bottom-width:1px;
 	}
 
-.basketTable th{
+.wishlistTable th{
 	vertical-align:top
 	}
 

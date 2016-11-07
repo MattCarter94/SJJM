@@ -2,7 +2,9 @@ package com.qac.nbgardens.service;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.math.BigDecimal;
 
+import com.qac.nbgardens.beans.UserCredentials;
 import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.managers.CustomerOrderManager;
@@ -17,6 +19,8 @@ public class BasketService {
 	private UserManager userManager;
 	@Inject
 	private ProductManager productManager;
+	@Inject
+	UserCredentials userCredentials;
 	
 	// Add a product to basket given a user id and product id
 	public void addProduct(String email, Integer productID, int quantity) {
@@ -28,6 +32,8 @@ public class BasketService {
 			basket = new CustomerOrder(userManager.getUserByEmail(email), OrderStatus.BASKET); // create the order, linking it to the user and specifying a status of basket
 //		System.out.println("About to run addOrderLine");
 		basket.addOrderLine(productManager.findProductById(productID), quantity); // this overrides one of these methods. adds a product to the logged in users]
+		BigDecimal x = userCredentials.getTotal();
+		userCredentials.setTotal(x.add(productManager.findProductById(productID).getPrice()));
 //		System.out.println("The order line in the customer order has " + basket.getOrderLines().size() + " products in it");
 //		System.out.println("End of addProduct...");
 	}
@@ -45,5 +51,6 @@ public class BasketService {
 		CustomerOrder basket = customerOrderManager.getBasketGivenEmail(email);
 		basket.deleteOrderLine(productID);
 	}
+
 	
 }

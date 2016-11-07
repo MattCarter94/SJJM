@@ -1,11 +1,14 @@
 package com.qac.nbgardens.beans;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
+import com.qac.nbgardens.entities.WishlistProduct;
 
 import javax.enterprise.inject.Alternative;
 
@@ -15,6 +18,8 @@ import javax.enterprise.inject.Alternative;
 public class UserCredentials implements Serializable {
 	private Customer user;
 	private CustomerOrder basket;
+	private BigDecimal total = new BigDecimal(0);
+	private Integer deleteId;
 
 	public boolean isLoggedIn() {
 		return (user!=null)? true : false;
@@ -40,6 +45,32 @@ public class UserCredentials implements Serializable {
 	public void setBasket(CustomerOrder basket) {
 		this.basket = basket;
 	}
+
+	public BigDecimal getTotal() {
+		return total;
+	}
+
+	public void setTotal(BigDecimal total) {
+		this.total = total;
+	}
+
+	public Integer getDeleteId() {
+		return deleteId;
+	}
+
+	public void setDeleteId(Integer deleteId) {
+		this.deleteId = deleteId;
+	}
 	
+	public boolean itemInWishlist(Integer productID){
+		WishlistProduct wlp = user.getWishlist();
+		for(int i=0; i>wlp.getProducts().size(); i++){
+			if(wlp.getProducts().get(i).getProductID() == productID){
+				return true;
+			}
+		}
+		return false;
+		
+	}
 	
 }

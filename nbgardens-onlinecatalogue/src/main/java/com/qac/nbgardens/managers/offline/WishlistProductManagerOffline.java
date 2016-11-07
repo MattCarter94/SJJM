@@ -9,21 +9,29 @@ import com.qac.nbgardens.managers.WishlistProductManager;
 @Default
 @Stateless
 public class WishlistProductManagerOffline implements WishlistProductManager{
-
+	
+	@Override
 	public void persistWishlistProduct(WishlistProduct wp) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	@Override
 	public void updateWishlistProduct() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	
+	@Override
 	public void deleteWishlistProduct() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public WishlistProduct getWishlistGivenUserEmail(String email) {
+		
+		
+		return null;
 	}
 	
 //	@Override
