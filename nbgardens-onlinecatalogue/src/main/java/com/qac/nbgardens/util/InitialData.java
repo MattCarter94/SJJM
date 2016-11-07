@@ -57,6 +57,9 @@ public class InitialData {
 		
 		//Add Customer Order
 		addCustomerOrder(new CustomerOrder(getCustomer(0), OrderStatus.BASKET));
+		addCustomerOrder(new CustomerOrder(getCustomer(0), OrderStatus.INPROGRESS));
+		//Add a product to the above order
+		customerOrders.get(1).addOrderLine(products.get(0), 2);
 		
 		//Add wishlists
 		//addWishlist();

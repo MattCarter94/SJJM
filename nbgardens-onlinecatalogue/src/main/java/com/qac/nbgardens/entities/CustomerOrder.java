@@ -51,7 +51,6 @@ public class CustomerOrder {
 	// Empty constructor can also be used?
 	public CustomerOrder() {}
 
-
 	//New constructor, requires only a customer and an order status
 	public CustomerOrder(Customer customer, OrderStatus orderStatus) {
 		this.customer = customer;
@@ -124,10 +123,24 @@ public class CustomerOrder {
 		}
 	}
 	
-	public void getTotalCost(){
+	public BigDecimal getTotalCost(){
 		BigDecimal total = new BigDecimal(0);
 		for(int i=0; i>orderLines.size(); i++){
 			total.add(orderLines.get(i).getPrice().multiply(new BigDecimal(orderLines.get(i).getQuantity())));
 		}
+		return total;
 	}
+	
+	public int getQuantity(){
+		int quantity = 0;
+		for(int i=0; i>orderLines.size(); i++){
+			quantity = quantity + orderLines.get(i).getQuantity();
+		}
+		return quantity;
+	}
+	
+	
 }
+
+
+

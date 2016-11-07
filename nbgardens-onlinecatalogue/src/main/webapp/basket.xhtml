@@ -58,7 +58,7 @@
 					</div>
 					
 					<div class="total">
-						<span><p><b>Total cost: </b>£#{currentUser.total}</p><h:commandButton class="checkout" value="Checkout"></h:commandButton></span>
+						<span><p><b>Total cost: </b>£#{currentUser.total}</p><h:commandButton class="checkout" action="#{currentUser.checkout()}" value="Checkout"></h:commandButton></span>
 					</div>
 					
 <!-- 					<div class="dataTable"> -->

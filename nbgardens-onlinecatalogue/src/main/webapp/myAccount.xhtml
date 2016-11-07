@@ -53,17 +53,21 @@
 									<th>Order ID</th>
 									<th>Item Quantity</th>
 									<th>Total Price</th>
+									<th>Status</th>
 								</tr>
-								<ui:repeat var="order" value="#{currentUser.userOrders}">
+								<ui:repeat var="order" value="#{currentUser.getUserOrders()}">
 									<tr>
 										<td>
 											#{order.getCustomerOrderID()}
 										</td>
 										<td>
-											#{order.getItemQuantity()}
+											#{order.getQuantity()}
 										</td>
 										<td>
 											#{order.getTotalCost()}
+										</td>
+										<td>
+											#{order.getStatus()}
 										</td>
 									</tr>
 								</ui:repeat>

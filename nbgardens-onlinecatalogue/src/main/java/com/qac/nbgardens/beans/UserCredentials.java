@@ -29,7 +29,7 @@ public class UserCredentials implements Serializable {
 	private CustomerOrder basket;
 	private BigDecimal total = new BigDecimal(0);
 	private Integer deleteId;
-	private List<CustomerOrder> userOrders = null;
+	private List<CustomerOrder> userOrders;
 
 	public boolean isLoggedIn() {
 		return (user!=null)? true : false;
@@ -60,6 +60,10 @@ public class UserCredentials implements Serializable {
 		else{
 			return false;
 		}
+	}
+	
+	public void checkout(){
+		basket.setStatus(OrderStatus.INPROGRESS);
 	}
 	
 	public boolean itemInWishlist(Integer productID){
@@ -103,6 +107,15 @@ public class UserCredentials implements Serializable {
 	public void setDeleteId(Integer deleteId) {
 		this.deleteId = deleteId;
 	}
+
+	public List<CustomerOrder> getUserOrders() {
+		return userOrders;
+	}
+
+	public void setUserOrders(List<CustomerOrder> userOrders) {
+		this.userOrders = userOrders;
+	}
+	
 	
 	
 }
