@@ -19,9 +19,9 @@
 		<div class="wishlist-container">
 			<h:form>
 				<h:outputText class="noProducts" escape="false" value="No Products In Wishlist"
-					rendered="#{currentUser.user.getWishlist().getProducts().size() == 0}" />
+					rendered="#{currentUser.user.getWishlistProduct().getProducts().size() == 0}" />
 
-				<h:panelGroup rendered="#{currentUser.user.getWishlist().getProducts().size() > 0}">
+				<h:panelGroup rendered="#{currentUser.user.getWishlistProduct().getProducts().size() > 0}">
 
 					<div class="wishlistGrid">
 						<h1>Your Wishlist Currently Contains:</h1>
@@ -32,11 +32,12 @@
 								<th>Price</th>
 								<th>Edit</th>
 							</tr>
-						<ui:repeat var="product" value="#{currentUser.user.getWishlist().getProducts()}">
+						<ui:repeat var="product" value="#{currentUser.user.getWishlistProduct().getProducts()}">
 							<tr>
 								<td>#{product.title}</td>
 								<td>£#{product.getPrice()}</td>
-								<td><h:commandButton value="Delete" styleClass="deleteButton">
+								<td><h:commandButton value="Delete" action="#{wishlist.removeFromWishlist()}" styleClass="deleteButton">
+										<f:setPropertyActionListener target="#{wishlist.deleteId}" value="#{product.productID}" />
 									</h:commandButton>
 								</td>
 							</tr>
@@ -45,9 +46,6 @@
 						</div>
 					</div>
 					
-<!-- 					<div class="total"> -->
-<!-- 						<span><p><b>Total cost: </b>£#{currentUser.total}</p><h:commandButton class="checkout" value="Checkout"></h:commandButton></span> -->
-<!-- 					</div> -->
 
 				</h:panelGroup>
 			</h:form>

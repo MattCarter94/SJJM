@@ -28,7 +28,7 @@
      		<div class="prodContainer">
             <div class="imgContainer">
                 <div class="prodImg">
-                    <img src="img/#{products.findProductById(prodbean.id).image}" />
+                    <img src="img/#{products.findProductById(prodbean.id).image}" width="250px"/>
                 </div>
 
                 <div class="prodPrice">
@@ -42,8 +42,15 @@
 	<!--                     	<h:outputText value="#{basketBean.basketProducts.size()}" /> -->
 						</h:form>
 						<h:form class="wishlist">
-							<h:commandLink rendered="#{!currentuser.itemInWishlist(prodbean.id)}" action="#{wishlist.addToWishlist(products.findProductById(prodbean.id))}"><span class="glyphicon glyphicon-star-empty"></span> Wishlist</h:commandLink>
-							<h:commandLink rendered="#{currentuser.itemInWishlist(prodbean.id)}"><span class="glyphicon glyphicon-star"></span> Wishlist</h:commandLink>
+						
+						<h:panelGroup rendered="#{currentUser.isLoggedIn()}">
+							<h:panelGroup rendered="#{wishlist.containsItem(prodbean.id) == false}">
+								<h:commandLink action="#{wishlist.addToWishlist(products.findProductById(prodbean.id))}"><span class="glyphicon glyphicon-star-empty"></span> Wishlist</h:commandLink>
+							</h:panelGroup>
+							<h:panelGroup rendered="#{wishlist.containsItem(prodbean.id) == true}">
+								<h:commandLink ><span class="glyphicon glyphicon-star"></span> Wishlist</h:commandLink>
+							</h:panelGroup>	
+						</h:panelGroup>					
 						</h:form>
                     </div>
                 </div>

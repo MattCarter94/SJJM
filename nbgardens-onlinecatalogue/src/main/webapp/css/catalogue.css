@@ -1,5 +1,17 @@
 @import 'https://fonts.googleapis.com/css?family=Maven+Pro|Poiret+One';
 
+.browse-image{
+	height:300px;
+}
+
+.moreButton{
+	position: absolute;
+	right:    30%;
+	bottom:   0;
+}
+
+
+
 html,body{
     height:100%;
     /*background-image: url(images/seigaiha.png);  */
@@ -22,6 +34,10 @@ html,body{
 
 .products-container{
 	text-align: center;
+}
+
+.prodButton{
+	height: 25%;
 }
 
 .prodButton input{

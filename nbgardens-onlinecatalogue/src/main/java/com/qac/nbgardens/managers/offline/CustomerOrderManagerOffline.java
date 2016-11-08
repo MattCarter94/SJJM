@@ -9,6 +9,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.nbgardens.beans.UserCredentials;
+import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.managers.CustomerOrderManager;
@@ -92,4 +93,19 @@ public class CustomerOrderManagerOffline implements CustomerOrderManager {
 //		return null;
 		}
 	}
+
+
+	@Override
+	public void updateUserBasket(CustomerOrder basket, int idx) {
+		initialData.updateCustomerOrder(basket, idx);
+	}
+
+
+	@Override
+	public void updateCheckoutBasket(CustomerOrder newBasket, int idx, CustomerOrder basket) {
+		initialData.updateCheckoutOrder(newBasket, idx, basket);
+	}
+
+
+	
 }

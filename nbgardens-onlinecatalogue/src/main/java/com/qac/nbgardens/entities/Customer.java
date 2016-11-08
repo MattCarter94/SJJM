@@ -51,43 +51,23 @@ public class Customer {
 	@Column (name = "Password", length = 255)
 	private String password;
 	
-	@Column (name = "Permissions")
-	private Permissions permissions;
-	
-	@Column (name = "Address_1", length = 255)
-	private String address1;
-	
-	@Column (name = "Address_2", length = 255)
-	private String address2;
-	
-	@Column (name = "Town", length = 255)
-	private String town;
-	
-	@Column (name = "County", length = 255)
-	private String county;
-	
-	@Column (name = "Postcode", length = 255)
-	private String postcode;
+	@Column (name = "Address", length = 255)
+	private Address address;
 	
 	//End of variables
 	
 	//Constructors
 	public Customer() {};
-	public Customer(CardDetails card, String firstName, String surname, String email, String phoneNo, String password, String houseNo, String street, String town, String county, String postcode) {
+	public Customer(CardDetails card, String firstName, String surname, String email, String phoneNo, String password, Address address) {
 		this.card = card;
 
 
 		this.firstName = firstName;
 		this.surname = surname;
-		
 		this.email = email;
 		this.phoneNumber = phoneNo;
 		this.password = password;
-		this.address1 = houseNo;
-		this.address2 = street;
-		this.town = town;
-		this.county = county;
-		this.postcode = postcode;
+		this.address = address;
 		this.wishlistProduct = new WishlistProduct();
 		this.credit = 10000;
 	}
@@ -99,95 +79,86 @@ public class Customer {
 	public Integer getUserID() {
 		return userID;
 	}
+	
 	public void setUserID(Integer userID) {
 		this.userID = userID;
 	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	
 	public String getSurname() {
 		return surname;
 	}
+	
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
+	
 	public double getCredit() {
 		return credit;
 	}
+	
 	public void setCredit(double credit) {
 		this.credit = credit;
 	}
+	
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+	
 	public void setPhoneNo(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Permissions getPermissions() {
-		return permissions;
-	}
-	public void setPermissions(Permissions permissions) {
-		this.permissions = permissions;
-	}
-	public String getAddress1() {
-		return address1;
-	}
-	public void setAddress1(String address1) {
-		this.address1 = address1;
-	}
-	public String getAddress2() {
-		return address2;
-	}
-	public void setAddress2(String address2) {
-		this.address2 = address2;
-	}
-	public String getTown() {
-		return town;
-	}
-	public void setTown(String town) {
-		this.town = town;
-	}
-	public String getCounty() {
-		return county;
-	}
-	public void setCounty(String county) {
-		this.county = county;
-	}
-	public String getPostcode() {
-		return postcode;
-	}
-	public void setPostcode(String postcode) {
-		this.postcode = postcode;
-	}
+	
 	public CardDetails getCard() {
 		return card;
 	}
+	
 	public void setCard(CardDetails card) {
 		this.card = card;
 	}
-	public WishlistProduct getWishlist() {
+	
+	public WishlistProduct getWishlistProduct() {
 		return wishlistProduct;
 	}
-	public void setWishlist(WishlistProduct wishlist) {
+	
+	public void setWishlistProduct(WishlistProduct wishlist) {
 		this.wishlistProduct = wishlist;
 	}
 	
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	
+	public Address getAddress() {
+		return address;
+	}
+	
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
 }

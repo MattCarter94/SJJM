@@ -43,10 +43,10 @@ public class InitialData {
 	public void SetupData() {
 		
 		//Product
-		Product p1 = new Product(1, "Clive", 9.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 130000, ProductStatus.ACTIVE);
-		Product p2 = new Product(2, "Mega Clive", 19.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 1000, ProductStatus.ACTIVE);
-		Product p3 = new Product(3, "Happy Clive", 199.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 200, ProductStatus.ACTIVE);
-		Product p4 = new Product(4, "Clive Clive Hat Stand", 200.05d, "its a gnome", Category.GNOMEACCESSORY, "imgurl.png", "hatstand", 5, ProductStatus.ACTIVE);
+		Product p1 = new Product("Clive", 9.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 130000, ProductStatus.ACTIVE);
+		Product p2 = new Product("Mega Clive", 19.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 1000, ProductStatus.ACTIVE);
+		Product p3 = new Product("Happy Clive", 199.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 200, ProductStatus.ACTIVE);
+		Product p4 = new Product("Clive Clive Hat Stand", 200.05d, "its a gnome", Category.GNOMEACCESSORY, "imgurl.png", "hatstand", 5, ProductStatus.ACTIVE);
 		
 		
 		//Addresses

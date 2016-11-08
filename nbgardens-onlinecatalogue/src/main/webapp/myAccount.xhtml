@@ -31,10 +31,11 @@
 							<p><b>Credit:</b> £#{currentUser.user.getCredit()}</p>
 							<p><b>Phone Number:</b> #{currentUser.user.getPhoneNumber()}</p>
 							<p><b>Address:</b></p>
-							<p>#{currentUser.user.getAddress1()}</p>
-							<p>#{currentUser.user.getAddress2()}</p>
-							<p>#{currentUser.user.getTown()}</p>
-							<p>#{currentUser.user.getCounty()}</p>
+							<p>#{currentUser.user.getAddress().address1}</p>
+							<p>#{currentUser.user.getAddress().address2}</p>
+							<p>#{currentUser.user.getAddress().town}</p>
+							<p>#{currentUser.user.getAddress().county}</p>
+							<p>#{currentUser.user.getAddress().postcode}</p>
 						</div>
 					</div>
 				</h:panelGroup>
@@ -43,19 +44,21 @@
 		
 			<div class="orders">
 				<h3>Orders in Progress:</h3>
+				
+<!-- 				<h:commandButton value="see orders" action="#{account.hasOrders()}"></h:commandButton> -->
 				<h:form>
 					<h:outputText class="noOrders" escape="false" value="No current orders to display"
-					rendered="#{!currentUser.hasOrders()}" />
-					<h:panelGroup rendered="#{currentUser.hasOrders()}">
+					rendered="#{account.hasOrders() == false}" />
+					<h:panelGroup rendered="#{account.hasOrders() == true}">
 						<div class="orderDetails">
-							<table>
+							<table class="orders">
 								<tr>
 									<th>Order ID</th>
 									<th>Item Quantity</th>
 									<th>Total Price</th>
 									<th>Status</th>
 								</tr>
-								<ui:repeat var="order" value="#{currentUser.getUserOrders()}">
+								<ui:repeat var="order" value="#{currentUser.userOrders}">
 									<tr>
 										<td>
 											#{order.getCustomerOrderID()}
@@ -64,7 +67,7 @@
 											#{order.getQuantity()}
 										</td>
 										<td>
-											#{order.getTotalCost()}
+											£#{order.getTotalCost()}
 										</td>
 										<td>
 											#{order.getStatus()}

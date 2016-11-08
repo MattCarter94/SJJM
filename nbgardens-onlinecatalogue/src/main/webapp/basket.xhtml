@@ -29,6 +29,7 @@
 
 					<div class="basketGrid">
 						<h1>Your Basket Currently Contains:</h1>
+						
 						<div class="repeat">
 						<table class="basketTable">
 							<tr>
@@ -43,13 +44,8 @@
 								<td>#{product.getQuantity()}</td>
 								<td>£#{product.getPrice()}</td>
 								<td><h:commandButton value="Delete" action="#{basketController.removeFromBasket()}" styleClass="deleteButton">
-<!-- 										<f:param name="id" value="#{product.getProduct().productID}" /> -->
-										<f:setPropertyActionListener target="#{currentUser.deleteId}" value="#{product.getProduct().productID}" />
+										<f:setPropertyActionListener target="#{basketController.deleteId}" value="#{product.getProduct().productID}" />
 									</h:commandButton>
-										
-<!-- 									<h:commandButton action="#{basketController.removeFromBasket()}" value="delete"> -->
-<!-- 									    <f:setPropertyActionListener target="#{basketController.deleteId}" value="#{basketController.deleteId}" /> -->
-<!-- 									</h:commandButton> -->
 								</td>
 							</tr>
 						</ui:repeat>
@@ -58,7 +54,7 @@
 					</div>
 					
 					<div class="total">
-						<span><p><b>Total cost: </b>£#{currentUser.total}</p><h:commandButton class="checkout" action="#{currentUser.checkout()}" value="Checkout"></h:commandButton></span>
+						<span><p><b>Total cost: </b>£#{currentUser.basket.getTotalCost()}</p><h:commandButton class="checkout" onclick="return alert('This order has been confirmed and is viewable on your account page');" action="#{basketController.checkout(currentUser.user.getEmail())}" value="Checkout"></h:commandButton></span>
 					</div>
 					
 <!-- 					<div class="dataTable"> -->
