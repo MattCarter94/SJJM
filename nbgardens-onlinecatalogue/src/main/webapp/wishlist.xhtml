@@ -19,9 +19,9 @@
 		<div class="wishlist-container">
 			<h:form>
 				<h:outputText class="noProducts" escape="false" value="No Products In Wishlist"
-					rendered="#{currentUser.user.getWishlist().getProducts().size() == 0}" />
+					rendered="#{currentUser.user.getWishlistProduct().getProducts().size() == 0}" />
 
-				<h:panelGroup rendered="#{currentUser.user.getWishlist().getProducts().size() > 0}">
+				<h:panelGroup rendered="#{currentUser.user.getWishlistProduct().getProducts().size() > 0}">
 
 					<div class="wishlistGrid">
 						<h1>Your Wishlist Currently Contains:</h1>
@@ -32,7 +32,7 @@
 								<th>Price</th>
 								<th>Edit</th>
 							</tr>
-						<ui:repeat var="product" value="#{currentUser.user.getWishlist().getProducts()}">
+						<ui:repeat var="product" value="#{currentUser.user.getWishlistProduct().getProducts()}">
 							<tr>
 								<td>#{product.title}</td>
 								<td>£#{product.getPrice()}</td>
