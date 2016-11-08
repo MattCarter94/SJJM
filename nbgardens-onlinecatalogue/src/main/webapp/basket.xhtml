@@ -44,7 +44,6 @@
 								<td>#{product.getQuantity()}</td>
 								<td>£#{product.getPrice()}</td>
 								<td><h:commandButton value="Delete" action="#{basketController.removeFromBasket()}" styleClass="deleteButton">
-<!-- 										<f:param name="id" value="#{product.getProduct().productID}" /> -->
 										<f:setPropertyActionListener target="#{basketController.deleteId}" value="#{product.getProduct().productID}" />
 									</h:commandButton>
 								</td>

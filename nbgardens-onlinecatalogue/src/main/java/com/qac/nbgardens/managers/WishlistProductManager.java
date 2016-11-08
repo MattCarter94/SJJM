@@ -9,5 +9,7 @@ public interface WishlistProductManager {
 	public void deleteWishlistProduct();
 
 	public WishlistProduct getWishlistGivenUserEmail(String email);
+
+	public void updateWishlist(String email, WishlistProduct wishlist);
 	
 }
