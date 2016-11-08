@@ -27,36 +27,37 @@
 		        <br/><br/>
 		        
 		        <div class="filter-block">
-		        	<h:form id="filter">
+		        	<h:form id="filter" action="">
 			            <h2>Filters</h2>
 			            
 			            <div class="idRange">
 			            	<h4>ID Range:</h4>
-			            	<input type="number" value="#{search.lowcap}"/>
-			            	<input type="number" value="#{search.upcap}"/>
+			            	<h:inputText type="number" value="#{products.lowcap}" min="0" max="9999" placeholder="0"/>
+			            	<h:inputText type="number" value="#{products.highcap}" min="0" max="9999" placeholder="9999"/>
 			            </div>
 			            <div class="priceOrder">
 			                <h4>Order By: </h4>
-			                <select name="filter_order">
-			                    <option value="any">Any</option>
-			                    <option value="hightolow">High to Low</option>
-			                    <option value="lowtohigh">Low to High</option>
-			                </select>
+			                
+			                <h:selectOneMenu value="#{products.priceFilter}">
+			                	<f:selectItem itemValue="any" itemLabel="Any"/>
+			                	<f:selectItem itemValue="lowtohigh" itemLabel="Low to High"/>
+			                	<f:selectItem itemValue="hightolow" itemLabel="High to Low"/>
+			                </h:selectOneMenu>
 			            </div>
 			            <div class="typeOrder">
 			            	
 			                <h4>Category: </h4>
-			                <select name="filter_type">
-			                	<option value="any">Any</option> 
-			                    <option value="gnome">Gnome</option>
-			                    <option value="gnomeaccesories">Gnome Accessories</option>
-			                    <option value="other">Other Products</option>
-			                </select>
+			                <h:selectOneMenu value="#{products.typeFilter}">
+			                	<f:selectItem itemValue="any" itemLabel="Any"/>
+			                	<f:selectItem itemValue="gnome" itemLabel="Gnome"/>
+			                	<f:selectItem itemValue="gnomeaccesories" itemLabel="Gnome Accessories"/>
+			                	<f:selectItem itemValue="gardenfountain" itemLabel="Garden Fountain"/>
+			                </h:selectOneMenu>
 			            </div>
-			            <input id="tagsSearch" type="text" name="filter_search" value="#{search.searchTerms}"/>
+			            <input id="tagsSearch" type="text" name="filter_search" value="#{products.searchTerms}"/>
 			            <br/>
-			            <h:commandButton value="Search" id="searchButton">
-			            	<f:ajax execute="@this" render="product-list"/>
+			            <h:commandButton value="Search" class="searchButton" type="submit" action="products">
+			            	
 			            </h:commandButton>
 		            </h:form>
 		        </div>
@@ -64,8 +65,8 @@
 		        
 		     
 		        <div class="product-list">
-		        	<h:outputText escape="false" value="No Products Found" rendered="#{products.products.size() == 0 }" />
-	           		<ui:repeat var="product" value="#{products.products}">
+		        	<h:outputText escape="false" value="No Products Found" rendered="#{products.filterResults().size() == 0 }" />
+	           		<ui:repeat var="product" value="#{products.filterResults()}">
 	           			<li class="product"  style="#{(product.state == 'ACTIVE') ? '' : 'opacity:0.6; filter: alpha(opacity=60)'}">
 	            			<div class="accordion">
 	                        	<span class="idNumber">##{product.productId}</span><span class="title">#{product.title}</span> <span class="price"> £#{product.price} </span><button class="orderStockButton">Order Stock</button>
