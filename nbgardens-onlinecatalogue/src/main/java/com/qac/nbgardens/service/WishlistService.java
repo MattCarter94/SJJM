@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import com.qac.nbgardens.beans.UserCredentials;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
+import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.entities.WishlistProduct;
 import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.managers.ProductManager;
@@ -44,6 +45,23 @@ public class WishlistService {
 			}
 		}
 		wishlistProductManager.updateWishlist(email, wishlist);
+	}
+
+
+	public boolean containsItem(String email, Integer productId) {
+		boolean x = false;
+		List<Product> wishlist = userManager.getUserByEmail(email).getWishlist().getProducts();
+		System.out.println("service wishlist contains " + wishlist.size() + " items");
+		for(int i=0; i<=wishlist.size()-1; i++){
+			System.out.println("entered loop - incr: " + i);
+			System.out.println("wishlist id " + wishlist.get(i).getProductID() + " vs product id " + productId);
+			if(wishlist.get(i).getProductID().equals(productId)){
+				System.out.println("entered if statement");
+				x = true;
+				return x;
+			}
+		}
+		return x;
 	}
 	
 }

@@ -22,10 +22,6 @@ public class WishlistController {
 	public void addToWishlist(Product product){
 		wishlistService.addProduct(userCredentials.getUser().getEmail() , product.getProductID());
 	}
-	
-	public boolean containsItem(){
-		return false;
-	}
 
 	public Integer getDeleteId() {
 		return deleteId;
@@ -38,6 +34,12 @@ public class WishlistController {
 	public void removeFromWishlist(){
 		System.out.println("wishlist remove " + deleteId);
 		wishlistService.deleteProduct(userCredentials.getUser().getEmail(), deleteId);
+	}
+	
+	public boolean containsItem(Integer productId){
+		System.out.println(productId);
+		boolean result = wishlistService.containsItem(userCredentials.getUser().getEmail(), productId);
+		return result;
 	}
 	
 }

@@ -42,8 +42,13 @@
 	<!--                     	<h:outputText value="#{basketBean.basketProducts.size()}" /> -->
 						</h:form>
 						<h:form class="wishlist">
-							<h:commandLink rendered="#{currentUser.isLoggedIn()}" action="#{wishlist.addToWishlist(products.findProductById(prodbean.id))}"><span class="glyphicon glyphicon-star-empty"></span> Wishlist</h:commandLink>
-<!-- 							<h:commandLink rendered="#{currentUser.isLoggedIn() && wishlist.containsItem()}"><span class="glyphicon glyphicon-star"></span> Wishlist</h:commandLink> -->
+						
+							<h:panelGroup rendered="#{wishlist.containsItem(prodbean.id) == false}">
+								<h:commandLink rendered="#{currentUser.isLoggedIn()}" action="#{wishlist.addToWishlist(products.findProductById(prodbean.id))}"><span class="glyphicon glyphicon-star-empty"></span> Wishlist</h:commandLink>
+							</h:panelGroup>
+							<h:panelGroup rendered="#{wishlist.containsItem(prodbean.id) == true}">
+								<h:commandLink rendered="#{currentUser.isLoggedIn()}"><span class="glyphicon glyphicon-star"></span> Wishlist</h:commandLink>
+							</h:panelGroup>						
 						</h:form>
                     </div>
                 </div>
