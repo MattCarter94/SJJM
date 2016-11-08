@@ -139,20 +139,31 @@ public class InitialData {
 		
 		
 		//Add stock orders
-		StockOrder so1 = new StockOrder(s1.getSupplierId(), new Date(), new Date());
-		StockOrder so2 = new StockOrder(s1.getSupplierId(), new Date(), new Date());
-		StockOrder so3 = new StockOrder(s1.getSupplierId(), new Date(), new Date());
-
+		StockOrder 	so1 = new StockOrder(),
+					so2 = new StockOrder(),  
+					so3 = new StockOrder();			                               
+		try
+		{
+			 so1 = new StockOrder(s1.getSupplierId(), sdf.parse("01-11-2016"), sdf.parse("03-11-2016"));
+			 so2 = new StockOrder(s1.getSupplierId(), sdf.parse("03-11-20016"),sdf.parse("05-11-2016"));
+			 so3 = new StockOrder(s1.getSupplierId(), sdf.parse("05-11-20016"), sdf.parse("07-11-2016"));
+		} 
+		catch (ParseException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		
 		s1.addStockOrder(so1);
 		s2.addStockOrder(so2);
 		s3.addStockOrder(so3);
 		
 		//Add stocklines for stock orders
-		StockLine sl1 = new StockLine(so1.getStockOrderId(), p1.getProductId(), 300, p1);
-		StockLine sl2 = new StockLine(so1.getStockOrderId(), p2.getProductId(), 300, p2);
-		StockLine sl3 = new StockLine(so2.getStockOrderId(), p2.getProductId(), 300, p2);
-		StockLine sl4 = new StockLine(so2.getStockOrderId(), p3.getProductId(), 300, p3);
-		StockLine sl5 = new StockLine(so3.getStockOrderId(), p4.getProductId(), 300, p4);
+		StockLine sl1 = new StockLine(so1.getStockOrderId(), p1.getProductId(), 50, p1);
+		StockLine sl2 = new StockLine(so1.getStockOrderId(), p2.getProductId(), 100, p2);
+		StockLine sl3 = new StockLine(so2.getStockOrderId(), p2.getProductId(), 150, p2);
+		StockLine sl4 = new StockLine(so2.getStockOrderId(), p3.getProductId(), 200, p3);
+		StockLine sl5 = new StockLine(so3.getStockOrderId(), p4.getProductId(), 350, p4);
 		
 		so1.addStockLine(sl1);
 		so1.addStockLine(sl2);
@@ -182,76 +193,7 @@ public class InitialData {
 		suppliers.add(s2);
 		suppliers.add(s3);
 		
-		
-		
-		
-		//Add users
-//		addCustomer(new Customer("jaredpepper@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "12 Clive Road", "Cliverton","Clivechester", "Clive Kingdom", "MER4 32D"), new Date()), "jaredpepper@gmail.com"), "Jared", "Pepper", "12345678998", "secret_password"));
-//		addCustomer(new Customer("joetrost@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "12 Clive Road", "Cliverton","Clivechester", "Clive Wales", "MER4 32D"), new Date()), "jaredpepper@gmail.com"), "Joe", "Trost", "12345678998", "secret_password"));
-//		addCustomer(new Customer("mattcarter@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "13 Clive Street", "Cliverton","Clivechester", "Clive England", "MER4 32E"), new Date()), "jaredpepper@gmail.com"), "Matt", "Carter", "12345678998", "secret_password"));
-//		addCustomer(new Customer("stefanmaslanka@gmail.com", new CustomerCard(new CardDetails("123123123", new Address(1, "14 Clive Lane", "Cliverton","Clivechester", "Clive Scotland", "MER4 32F"), new Date()), "jaredpepper@gmail.com"), "Stefan", "Maslanka", "12345678998", "secret_password"));
-		
-		
-		//The email is added twice in text, I will come back to this later. In hind sight you would pass, through an 'email' variable, but this is just dummy data at the moment - Jared. 	
-		
-		//Add Products
-//		addProduct(new Product(100, "Green Gnome", new BigDecimal(9.99), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-//		addProduct(new Product(101, "Blue Gnome", new BigDecimal(19.99), "its a gnome", Category.GARDENFOUNTIAN, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-//		addProduct(new Product(102, "Rainbow Gnome", new BigDecimal(29.99), "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-//		addProduct(new Product(103, "Clive Gnome", new BigDecimal(39.99), "its a gnome", Category.GNOMEACCESSORY, "imgurl.png", "tag1, tag2, tag3", 200, ProductStatus.DISCONTINUED, new Date()));
-//		
-//		//Add Suppliers and supplier products and their prices to each supplier.
-//		addSupplier(new Supplier("Gnomes'R'Us"));
-//		suppliers.get(0).addSupplierProduct(new SupplierProducts(products.get(0), new BigDecimal(9.99),  new BigDecimal(7.99),  new BigDecimal(4.99)));
-//		suppliers.get(0).addSupplierProduct(new SupplierProducts(products.get(1), new BigDecimal(19.99),  new BigDecimal(15.99),  new BigDecimal(12.99)));
-//		suppliers.get(0).addSupplierProduct(new SupplierProducts(products.get(2), new BigDecimal(39.99),  new BigDecimal(32.99),  new BigDecimal(27.99)));
-//		
-//		addSupplier(new Supplier("We Gnome what you want"));
-//		suppliers.get(1).addSupplierProduct(new SupplierProducts(products.get(0), new BigDecimal(11.99),  new BigDecimal(9.99),  new BigDecimal(6.99)));
-//		suppliers.get(1).addSupplierProduct(new SupplierProducts(products.get(1), new BigDecimal(22.99),  new BigDecimal(17.99),  new BigDecimal(14.99)));
-//		suppliers.get(1).addSupplierProduct(new SupplierProducts(products.get(2), new BigDecimal(42.99),  new BigDecimal(34.99),  new BigDecimal(29.99)));
-//		
-//		addSupplier(new Supplier("Gnomes 4 lyf"));
-//		suppliers.get(2).addSupplierProduct(new SupplierProducts(products.get(0), new BigDecimal(8.99),  new BigDecimal(6.99),  new BigDecimal(3.99)));
-//		suppliers.get(2).addSupplierProduct(new SupplierProducts(products.get(1), new BigDecimal(18.99),  new BigDecimal(14.99),  new BigDecimal(11.99)));
-//		suppliers.get(2).addSupplierProduct(new SupplierProducts(products.get(2), new BigDecimal(38.99),  new BigDecimal(31.99),  new BigDecimal(26.99)));
-//		
 
-		// Add Customer Orders
-//		try {
-//			customers.get(0).addCustomerOrder(new CustomerOrder(new OrderLine(products.get(0), 2, new BigDecimal(5.05)), customers.get(0).getCustEmail(), sdf.parse("31-08-2006"), OrderStatus.INPROGRESS));
-//		} catch (ParseException e) 
-//		{
-//			e.printStackTrace();
-//		}
-//		try {
-//			customers.get(0).addCustomerOrder(new CustomerOrder(new OrderLine(products.get(2), 5, new BigDecimal(8.49)), customers.get(1).getCustEmail(), sdf.parse("08-02-2015"), OrderStatus.INPROGRESS));
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		try {
-//			customers.get(2).addCustomerOrder(new CustomerOrder(new OrderLine(products.get(1), 5, new BigDecimal(9.99)), customers.get(2).getCustEmail(), sdf.parse("25-08-2016"), OrderStatus.INPROGRESS));
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		//Add Stock Orders - Price will need to be calculated on a method, that takes into consideration supplier discount (100 orders etc).
-//		try {
-//			addStockOrder(new StockOrder(new StockLine(products.get(0), 5, new BigDecimal(19.99)), suppliers.get(0), sdf.parse("17-08-2016"), sdf.parse("21-08-2016")));
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		try {
-//			addStockOrder(new StockOrder(new StockLine(products.get(1), 7, new BigDecimal(39.99)), suppliers.get(1), sdf.parse("24-11-2016"), sdf.parse("29-11-2016")));
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-	
 
 	}
 	
@@ -274,6 +216,7 @@ public class InitialData {
 	public List<Customer> getCustomers() {
 		return (ArrayList<Customer>) customers;
 	}
+	
 
 	public ArrayList<Product> getProducts() {
 		

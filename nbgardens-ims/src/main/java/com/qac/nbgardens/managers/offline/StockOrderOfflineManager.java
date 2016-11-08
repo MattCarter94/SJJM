@@ -73,8 +73,10 @@ public class StockOrderOfflineManager implements StockOrderManager {
 	@Override
 	public List<StockOrder> findAll() {
 		List<StockOrder> so = new ArrayList<StockOrder>();
-		for (Supplier s : initialData.getSuppliers()) {
-			for (int i = 0; i < s.getStockOrders().size(); i++) {
+		for (Supplier s : initialData.getSuppliers()) 
+		{
+			for (int i = 0; i < s.getStockOrders().size(); i++) 
+			{
 				so.add(s.getStockOrders().get(i));
 			}
 		}

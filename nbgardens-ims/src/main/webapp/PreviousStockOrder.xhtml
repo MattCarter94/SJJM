@@ -21,57 +21,27 @@
        
         <div class="pageWrap">
             <div class="leftSide">
-                <div class="infoWrap">
-                    <div class="supplier">
-                        <p>Supplier: </p>
-                    </div>
-
-                    <div class="date">
-                        <p>Date Received: </p>
-                    </div>
-
-                </div>
-        
-            
+               
+                
+                <br></br>
+                <br></br>
+                <br></br>
         
                 <div class="tableContainer">
                     <div class="orderTable">
                         <table>
-                            <tr>
-                                <th>ID</th>
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Subtotal</th>
+                            <tr>                  
+                                <th>Supplier ID</th>
+                                <th>Stock Order Date</th>
+                                <th>Stock Order Received Date</th>
                             </tr>
+                            <ui:repeat var="stockorder" value="#{stockorders.stockOrders}">
                             <tr>
-                                <td>1</td>
-                                <td>Clive Gnome</td>
-                                <td>£10</td>
-                                <td>300</td>
-                                <td>£3000</td>
+                                <td>#{stockorder.supplierId}</td>
+                                <td>#{stockorder.stockOrderDate}</td>
+                                <td>#{stockorder.stockRecievedDate}</td>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Clive Gnome</td>
-                                <td>£10</td>
-                                <td>300</td>
-                                <td>£3000</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Clive Gnome</td>
-                                <td>£10</td>
-                                <td>300</td>
-                                <td>£3000</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Clive Gnome</td>
-                                <td>£10</td>
-                                <td>300</td>
-                                <td>£3000</td>
-                            </tr>
+                            </ui:repeat>
                         </table>
 
                         <div class="total">
@@ -82,6 +52,41 @@
                     </div>
 
                 </div>
+                
+                <div class="tableContainer">
+                    <div class="orderTable">
+                        <table>
+                            <tr>   
+                            	<th>Stock Order ID</th>               
+                                <th>Product ID</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                            <ui:repeat var="stockLine" value="#{stockline.stockLines}">
+                            <tr>
+                            	<td>#{stockLine.stockOrderID}</td>
+                                <td>#{stockLine.productId}</td>
+                                <td>#{stockLine.quantity}</td>
+                                <td>#{stockLine.price}</td>
+                            </tr>
+                            </ui:repeat>
+                        </table>
+
+                        <div class="total">
+                            <p>Total</p>
+                            <p>£_____</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                
+         
+                
+                
+             
+                
+                
             </div>
             
             <div class="rightSide">
