@@ -2,4 +2,34 @@
 	width: 890px;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
+}
+
+.text h3{
+	text-align: center;
+}
+
+.text{
+	width: 400px;
+	padding-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+.clive h3{
+	text-align: center;
+}
+
+.clive{
+	width: 400px;
+	padding-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.clive p{
+	text-align: left;
 }
