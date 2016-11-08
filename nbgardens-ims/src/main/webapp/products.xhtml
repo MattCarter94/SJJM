@@ -29,6 +29,12 @@
 		        <div class="filter-block">
 		        	<h:form id="filter">
 			            <h2>Filters</h2>
+			            
+			            <div class="idRange">
+			            	<h4>ID Range:</h4>
+			            	<input type="number" value="#{search.lowcap}"/>
+			            	<input type="number" value="#{search.upcap}"/>
+			            </div>
 			            <div class="priceOrder">
 			                <h4>Order By: </h4>
 			                <select name="filter_order">
@@ -41,6 +47,7 @@
 			            	
 			                <h4>Category: </h4>
 			                <select name="filter_type">
+			                	<option value="any">Any</option> 
 			                    <option value="gnome">Gnome</option>
 			                    <option value="gnomeaccesories">Gnome Accessories</option>
 			                    <option value="other">Other Products</option>
@@ -48,7 +55,7 @@
 			            </div>
 			            <input id="tagsSearch" type="text" name="filter_search" value="#{search.searchTerms}"/>
 			            <br/>
-			            <h:commandButton value="Search" >
+			            <h:commandButton value="Search" id="searchButton">
 			            	<f:ajax execute="@this" render="product-list"/>
 			            </h:commandButton>
 		            </h:form>

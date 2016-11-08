@@ -207,7 +207,25 @@ div.panel.show {
     width: 55%;
 }
 
+.idRange h4 {
+    display: inline-block;
+    width: 40%;
+    color: white;
+    margin-bottom: 25px;
+}
 
+.idRange input {
+	width: 20%;
+}
+
+#tagsSearch {
+	margin-bottom: 30px;
+	width: 90%;
+}
+
+#searchButton {
+	width: 20%;
+}
 
 .title {
     font-weight: 700;
