@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
-import com.qac.nbgardens.entities.Wishlist;
 import com.qac.nbgardens.managers.UserManager;
 import com.qac.nbgardens.util.InitialData;
 
@@ -19,7 +18,7 @@ public class UserManagerOffline implements UserManager{
 	private InitialData initialData;
 	
 	
-	public void persistUser(CardDetails card, Wishlist wishlist, String firstName, String surname, String email, String phoneNo, String password, Integer permissions, String houseNo, String street, String town, String county, String postcode) {
+	public void persistUser(CardDetails card, String firstName, String surname, String email, String phoneNo, String password, Integer permissions, String houseNo, String street, String town, String county, String postcode) {
 		Customer u = new Customer(card, firstName, surname, email, phoneNo, password,  houseNo, street, town, county, postcode);
 		initialData.addUser(u);
 	}

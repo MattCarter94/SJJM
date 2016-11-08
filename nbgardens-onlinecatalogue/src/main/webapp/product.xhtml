@@ -41,6 +41,10 @@
 	<!--                     	<h:button value="Add to Cart" outcome="#{basketBean.addToBasket(products.findProductById(prodbean.id))}" styleClass="addCart"></h:button></span> -->
 	<!--                     	<h:outputText value="#{basketBean.basketProducts.size()}" /> -->
 						</h:form>
+						<h:form class="wishlist">
+							<h:commandLink rendered="#{!currentuser.itemInWishlist(prodbean.id)}" action="#{wishlist.addToWishlist(products.findProductById(prodbean.id))}"><span class="glyphicon glyphicon-star-empty"></span> Wishlist</h:commandLink>
+							<h:commandLink rendered="#{currentuser.itemInWishlist(prodbean.id)}"><span class="glyphicon glyphicon-star"></span> Wishlist</h:commandLink>
+						</h:form>
                     </div>
                 </div>
             </div>

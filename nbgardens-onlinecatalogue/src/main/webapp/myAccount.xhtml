@@ -1,0 +1,84 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/clivetemplate.xhtml">
+
+	<ui:define name="tabtitle">Basket</ui:define>
+	<ui:define name="main-content">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet"
+			href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<script
+			src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/myAccount.css" />
+
+		<div class="account-container">
+			<h:form>
+				<h:outputText class="noAccount" escape="false" value="Must be logged in to view account"
+					rendered="#{!currentUser.loggedIn}" />
+				<h:panelGroup rendered="#{currentUser.loggedIn}">
+					<div class="accountDetails">
+						<h1>Welcome #{currentUser.user.getFirstName()}</h1>
+						<br/>
+						<h3>The following details are registered to your account:</h3>
+						<br/>
+						<div class="details">
+							<p><b>Email:</b> #{currentUser.user.getEmail()}</p>
+							<p><b>Credit:</b> £#{currentUser.user.getCredit()}</p>
+							<p><b>Phone Number:</b> #{currentUser.user.getPhoneNumber()}</p>
+							<p><b>Address:</b></p>
+							<p>#{currentUser.user.getAddress1()}</p>
+							<p>#{currentUser.user.getAddress2()}</p>
+							<p>#{currentUser.user.getTown()}</p>
+							<p>#{currentUser.user.getCounty()}</p>
+						</div>
+					</div>
+				</h:panelGroup>
+			</h:form>
+			<hr/>
+		
+			<div class="orders">
+				<h3>Orders in Progress:</h3>
+				<h:form>
+					<h:outputText class="noOrders" escape="false" value="No current orders to display"
+					rendered="#{!currentUser.hasOrders()}" />
+					<h:panelGroup rendered="#{currentUser.hasOrders()}">
+						<div class="orderDetails">
+							<table>
+								<tr>
+									<th>Order ID</th>
+									<th>Item Quantity</th>
+									<th>Total Price</th>
+									<th>Status</th>
+								</tr>
+								<ui:repeat var="order" value="#{currentUser.getUserOrders()}">
+									<tr>
+										<td>
+											#{order.getCustomerOrderID()}
+										</td>
+										<td>
+											#{order.getQuantity()}
+										</td>
+										<td>
+											#{order.getTotalCost()}
+										</td>
+										<td>
+											#{order.getStatus()}
+										</td>
+									</tr>
+								</ui:repeat>
+							</table>
+						</div>
+					</h:panelGroup>
+				</h:form>
+			</div>
+			
+		</div>
+
+
+	</ui:define>
+</ui:composition>

@@ -1,5 +1,6 @@
 package com.qac.nbgardens.entities;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -49,7 +50,6 @@ public class CustomerOrder {
 	
 	// Empty constructor can also be used?
 	public CustomerOrder() {}
-
 
 	//New constructor, requires only a customer and an order status
 	public CustomerOrder(Customer customer, OrderStatus orderStatus) {
@@ -122,4 +122,25 @@ public class CustomerOrder {
 			}
 		}
 	}
+	
+	public BigDecimal getTotalCost(){
+		BigDecimal total = new BigDecimal(0);
+		for(int i=0; i>orderLines.size(); i++){
+			total.add(orderLines.get(i).getPrice().multiply(new BigDecimal(orderLines.get(i).getQuantity())));
+		}
+		return total;
+	}
+	
+	public int getQuantity(){
+		int quantity = 0;
+		for(int i=0; i>orderLines.size(); i++){
+			quantity = quantity + orderLines.get(i).getQuantity();
+		}
+		return quantity;
+	}
+	
+	
 }
+
+
+

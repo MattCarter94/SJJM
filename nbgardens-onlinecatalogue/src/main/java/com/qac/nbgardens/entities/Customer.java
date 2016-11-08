@@ -31,7 +31,7 @@ public class Customer {
 	@OneToOne //FK.
 	@JoinColumn(name="Wishlist_ID", nullable = false)
 	@NotNull
-	private Wishlist wishlist;
+	private WishlistProduct wishlistProduct;
 	
 	@Column (name = "First_Name", length = 255)
 	private String firstName;
@@ -40,7 +40,7 @@ public class Customer {
 	private String surname;
 	
 	@Column (name = "Credit")
-	private Currency credit;
+	private double credit;
 	
 	@Column (name = "Email", length = 255)
 	private String email;
@@ -88,6 +88,8 @@ public class Customer {
 		this.town = town;
 		this.county = county;
 		this.postcode = postcode;
+		this.wishlistProduct = new WishlistProduct();
+		this.credit = 10000;
 	}
 	
 	
@@ -112,10 +114,10 @@ public class Customer {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public Currency getCredit() {
+	public double getCredit() {
 		return credit;
 	}
-	public void setCredit(Currency credit) {
+	public void setCredit(double credit) {
 		this.credit = credit;
 	}
 	public String getEmail() {
@@ -178,11 +180,11 @@ public class Customer {
 	public void setCard(CardDetails card) {
 		this.card = card;
 	}
-	public Wishlist getWishlist() {
-		return wishlist;
+	public WishlistProduct getWishlist() {
+		return wishlistProduct;
 	}
-	public void setWishlist(Wishlist wishlist) {
-		this.wishlist = wishlist;
+	public void setWishlist(WishlistProduct wishlist) {
+		this.wishlistProduct = wishlist;
 	}
 	
 	public void setPhoneNumber(String phoneNumber) {

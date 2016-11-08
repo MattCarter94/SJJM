@@ -1,5 +1,6 @@
 package com.qac.nbgardens.controllers;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class BasketController {
 //	private CustomerOrderManager customerOrderManager;
 	
 	private int quantity;
-	private int deleteId;
+	private Integer deleteId;
 
 	// Attributes
 	private CustomerOrder customerOrder = null; // Holds a single customer order
@@ -70,8 +71,9 @@ public class BasketController {
 	}
 	
 	public void removeFromBasket(){
-		System.out.println(deleteId);
-		basketService.deleteProduct(userCredentials.getUser().getEmail(), deleteId);
+//		System.out.println(deleteId);
+		Integer productID = userCredentials.getDeleteId();
+		basketService.deleteProduct(userCredentials.getUser().getEmail(), productID);
 //		System.out.println("Deleted product" + deleteId);
 	}
 
@@ -86,14 +88,12 @@ public class BasketController {
 		this.quantity = quantity;
 	}
 
-	public int getDeleteId() {
+	public Integer getDeleteId() {
 		return deleteId;
 	}
 
-	public void setDeleteId(int deleteId) {
+	public void setDeleteId(Integer deleteId) {
 		this.deleteId = deleteId;
 	}
-	
-	
 	
 }

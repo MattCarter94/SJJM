@@ -14,7 +14,6 @@ import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.Product;
-import com.qac.nbgardens.entities.Wishlist;
 import com.qac.nbgardens.entities.enums.Category;
 import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.entities.enums.ProductStatus;
@@ -58,6 +57,9 @@ public class InitialData {
 		
 		//Add Customer Order
 		addCustomerOrder(new CustomerOrder(getCustomer(0), OrderStatus.BASKET));
+		addCustomerOrder(new CustomerOrder(getCustomer(0), OrderStatus.INPROGRESS));
+		//Add a product to the above order
+		customerOrders.get(1).addOrderLine(products.get(0), 2);
 		
 		//Add wishlists
 		//addWishlist();
