@@ -22,25 +22,24 @@ public class CustomerService
 	}
 
 
-	public void displayProductTitleFromSpecificCustomerOrder(Integer customerID, Integer orderID) {
+	public void displayProductTitleFromSpecificCustomerOrder() {
 		// TODO Auto-generated method stub
 		
 		// This code is here for testing reference. - It basically lets you see any part of a stock order. 
 		
 		// The amount of orders customer 0 has
-		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().size());
-		
+		System.out.println(customerManager.getCustomers().size());		
 		// Gets customer 0's order date
-		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getOrderDate());
+	//	System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getOrderDate());
 		
 		// Get Customers Email
-		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getEmail());
+//		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getEmail());
 		
 		// get Order Quantity of customer 0's 1st order (element 0 in the list).
-		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getQuantity());
+		//System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getQuantity());
 		
 		// Get Product
-		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle());
+		//System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle());
 		
 		// Get Supplier
 		//System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle());

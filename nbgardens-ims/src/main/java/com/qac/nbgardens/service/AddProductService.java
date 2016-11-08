@@ -1,6 +1,5 @@
 package com.qac.nbgardens.service;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -23,8 +22,8 @@ public class AddProductService {
 	
 	
 	
-	public void addProduct(Integer id, String title, String price, String description, String category, String image, String tags, String stock, String active, Date orderDate) {
-		BigDecimal nPrice = new BigDecimal(Float.parseFloat(price));
+	public void addProduct(String title, String price, String description, String category, String image, String tags, String stock, String active, Date orderDate) {
+		double nPrice = Double.parseDouble(price);
 		Category c = Category.GNOME;
 		switch (category) {
 		case "GNOME":
@@ -48,12 +47,13 @@ public class AddProductService {
 			break;
 		}
 		
-		Product p = new Product(id, title, nPrice, description, c, image, tags, nStock, a, orderDate);
+		Product p = new Product(title, nPrice, description, c, image, tags, nStock, a);
 		
 		productManager.addProduct(p);
-		
+		System.out.println(String.format("ADDED ENTRY: 	ID: %s | Title: %s | Category: %s | Image: %s | Tags: %s | Stock: %s | State: %s |", p.getProductId(), p.getTitle(), p.getCategory().toString(), p.getImage(), p.getTags(), p.getStock().toString(), p.getState().toString()));
+		System.out.println("\r\nALL PRODUCTS");
 		for (Product d : productManager.getProducts()) {
-			System.out.println(d.getTitle() + " : " + d.getProductID() + d.getCategory().toString() + d.getState().toString());
+			System.out.println(String.format("ENTRY: 	ID: %s | Title: %s | Category: %s | Image: %s | Tags: %s | Stock: %s | State: %s |", d.getProductId(), d.getTitle(), d.getCategory().toString(), d.getImage(), d.getTags(), d.getStock().toString(), d.getState().toString()));
 		}
 	}
 	

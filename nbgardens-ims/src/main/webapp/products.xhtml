@@ -61,11 +61,11 @@
 	           		<ui:repeat var="product" value="#{products.products}">
 	           			<li class="product"  style="#{(product.state == 'ACTIVE') ? '' : 'opacity:0.6; filter: alpha(opacity=60)'}">
 	            			<div class="accordion">
-	                        	<span class="idNumber">##{product.productID}</span><span class="title">#{product.title}</span> <span class="price"> £#{product.price} </span><button class="orderStockButton">Order Stock</button>
+	                        	<span class="idNumber">##{product.productId}</span><span class="title">#{product.title}</span> <span class="price"> £#{product.price} </span><button class="orderStockButton">Order Stock</button>
 	                        	<div class="stock-bar horizontal">
 	                            	<div class="stock-track">
 	                                	<div class="stock-fill">
-	                                    	<span>#{products.calculateStockLevel(product.productID)}%</span>
+	                                    	<span>#{products.calculateStockLevel(product.productId)}%</span>
 	                                	</div>
 	                                	<p>#{product.stock}</p>
 	                            	</div>
@@ -111,7 +111,7 @@
 		                            		<f:selectItems value="#{products.activeValues}"/>
 		                           		</h:selectOneMenu>
 		                        	</div>
-		                        	<h:commandButton id="saveButton" type="submit" action="#{products.updateProduct(product.productID)}" value="Save Details"/>
+		                        	<h:commandButton id="saveButton" type="submit" action="#{products.updateProduct(product.productId)}" value="Save Details"/>
 		                        </h:form>
 	                    	</div>
 	            		</li>           	

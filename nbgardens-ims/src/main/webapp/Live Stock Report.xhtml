@@ -86,7 +86,7 @@
 		    <!-- This is a test button, it tests customer orders, leave it here for now; It prints customer orders into the console - Jared -->
 		    <div>
 		    <h:form action ="">
-            	<h:commandButton type="submit" action="#{customers.getProductTitleFromCustomerOrder(0,0)}" value="Test Button for Customer Stock Orders"/>
+            	<h:commandButton type="submit" action="#{customers.getProductTitleFromCustomerOrder()}" value="Test Button for Customer Stock Orders"/>
             </h:form>
 		    </div>
 		    
@@ -136,7 +136,7 @@
 		                    <select>
 <!-- 		                    <option value="" disabled selected>Select an ID </option> -->
 								<ui:repeat var="product" value="#{products.products}">
-									<option value="">#{product.productID}</option>			        
+									<option value="">#{product.productId}</option>			        
 		                        </ui:repeat>
 		                    </select>
 		                </h:form>

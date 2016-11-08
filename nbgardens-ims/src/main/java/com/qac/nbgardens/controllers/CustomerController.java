@@ -29,10 +29,10 @@ public class CustomerController implements Serializable{
 		return customers;
 	}
 	
-	public void getProductTitleFromCustomerOrder(Integer customerID, Integer orderID)
+	public void getProductTitleFromCustomerOrder()
 	{	 
 		 System.out.println("Step 1");
-		 customerService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
+		 customerService.displayProductTitleFromSpecificCustomerOrder();
 	}
 
 	private Pagination getPagination() 
@@ -41,7 +41,7 @@ public class CustomerController implements Serializable{
 			pagination = new Pagination(20) {
 				
 				@Override
-				public ArrayList createArrayList() {
+				public ArrayList<Customer> createArrayList() {
 					try {
 						return new ArrayList<Customer>(customerService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {

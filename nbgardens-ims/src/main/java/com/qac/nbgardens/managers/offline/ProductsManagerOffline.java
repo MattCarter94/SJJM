@@ -34,7 +34,7 @@ public class ProductsManagerOffline implements ProductManager{
 	public Product findProductById(Integer id) {
 		List<Product> products = initialData.getProducts();
 		for (int i = 0; i < products.size(); i++) {
-			if (products.get(i).getProductID().equals(id)) {
+			if (products.get(i).getProductId().equals(id)) {
 				return products.get(i);
 			}
 		}
@@ -56,7 +56,7 @@ public class ProductsManagerOffline implements ProductManager{
 	public void updateProduct(Product p) {
 		List<Product> products = initialData.getProducts();
 		for (int i = 0; i < products.size(); i++) {
-			if (products.get(i).getProductID() == p.getProductID()) {
+			if (products.get(i).getProductId() == p.getProductId()) {
 				products.set(i, p);
 			}
 		}

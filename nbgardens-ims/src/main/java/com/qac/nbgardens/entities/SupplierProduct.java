@@ -1,6 +1,5 @@
 package com.qac.nbgardens.entities;
 
-import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -11,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
-public class SupplierProducts {
+public class SupplierProduct {
 
 	
 	@Id //ID is for PK
@@ -24,25 +23,74 @@ public class SupplierProducts {
 	@OneToMany //For FK.
 	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
-	private Product product;
+	private Integer productId;
 	
 	@Column (name = "PriceForOneUnit", nullable = false)
 	@NotNull
-	private BigDecimal priceFor_1_Unit;
+	private double priceFor_1_Unit;
 	
 	@Column (name = "PriceForTenUnits", nullable = false)
 	@NotNull
-	private BigDecimal priceFor_10_Unit;
+	private double priceFor_10_Unit;
 	
 	@Column (name = "PriceForHundredUnits", nullable = false)
 	@NotNull
-	private BigDecimal priceFor_100_Unit;
+	private double priceFor_100_Unit;
+	
+	
+	private Product product;
 
-	public SupplierProducts(Product product, BigDecimal priceFor_1_Unit, BigDecimal priceFor_10_Unit,
-			BigDecimal priceFor_100_Unit) {
-		this.product = product;
+	
+
+	public SupplierProduct(Integer supplierID, Integer productId, double priceFor_1_Unit,
+			double priceFor_10_Unit, double priceFor_100_Unit, Product product) {
+		this.supplierID = supplierID;
+		this.productId = productId;
 		this.priceFor_1_Unit = priceFor_1_Unit;
 		this.priceFor_10_Unit = priceFor_10_Unit;
+		this.priceFor_100_Unit = priceFor_100_Unit;
+		this.product = product;
+	}
+
+
+
+	public Integer getSupplierID() {
+		return supplierID;
+	}
+
+	public void setSupplierID(Integer supplierID) {
+		this.supplierID = supplierID;
+	}
+
+	public Integer getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Integer productId) {
+		this.productId = productId;
+	}
+
+	public double getPriceFor_1_Unit() {
+		return priceFor_1_Unit;
+	}
+
+	public void setPriceFor_1_Unit(double priceFor_1_Unit) {
+		this.priceFor_1_Unit = priceFor_1_Unit;
+	}
+
+	public double getPriceFor_10_Unit() {
+		return priceFor_10_Unit;
+	}
+
+	public void setPriceFor_10_Unit(double priceFor_10_Unit) {
+		this.priceFor_10_Unit = priceFor_10_Unit;
+	}
+
+	public double getPriceFor_100_Unit() {
+		return priceFor_100_Unit;
+	}
+
+	public void setPriceFor_100_Unit(double priceFor_100_Unit) {
 		this.priceFor_100_Unit = priceFor_100_Unit;
 	}
 
@@ -54,28 +102,6 @@ public class SupplierProducts {
 		this.product = product;
 	}
 
-	public BigDecimal getPriceFor_1_Unit() {
-		return priceFor_1_Unit;
-	}
-
-	public void setPriceFor_1_Unit(BigDecimal priceFor_1_Unit) {
-		this.priceFor_1_Unit = priceFor_1_Unit;
-	}
-
-	public BigDecimal getPriceFor_10_Unit() {
-		return priceFor_10_Unit;
-	}
-
-	public void setPriceFor_10_Unit(BigDecimal priceFor_10_Unit) {
-		this.priceFor_10_Unit = priceFor_10_Unit;
-	}
-
-	public BigDecimal getPriceFor_100_Unit() {
-		return priceFor_100_Unit;
-	}
-
-	public void setPriceFor_100_Unit(BigDecimal priceFor_100_Unit) {
-		this.priceFor_100_Unit = priceFor_100_Unit;
-	}
+	
 	
 }

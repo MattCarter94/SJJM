@@ -1,6 +1,9 @@
 package com.qac.nbgardens.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,12 +37,12 @@ public class StockOrder {
 	@Id //ID is for PK
 	@Column (name = "Stock_Order_ID")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private StockLine stockLine;
+	private Integer stockOrderId;
 	
 	@OneToMany //For FK.
 	@JoinColumn(name="Supplier_ID", nullable = false)
 	@NotNull
-	private Supplier supplier;
+	private Integer supplierId;
 	
 	@Column (name = "Stock_Order_Date")
 	private Date stockOrderDate;
@@ -47,33 +50,36 @@ public class StockOrder {
 	@Column (name = "Stock_Received_Date")
 	private Date stockRecievedDate;
 
-	public StockOrder(StockLine stockLine, Supplier supplier, Date stockOrderDate, Date stockRecievedDate) {
-		this.stockLine = stockLine;
-		this.supplier = supplier;
+	
+	
+	private List<StockLine> stockLines;
+	
+	
+	
+	public StockOrder(Integer supplierId, Date stockOrderDate, Date stockRecievedDate) {
+		super();
+		this.supplierId = supplierId;
 		this.stockOrderDate = stockOrderDate;
 		this.stockRecievedDate = stockRecievedDate;
+		this.stockLines = new ArrayList<StockLine>();
 	}
 	
-	// GETTERS and SETTERS
 	
-	public StockLine getStockOrderID() {
-		return stockLine;
+
+	public Integer getStockOrderId() {
+		return stockOrderId;
 	}
 
-	public StockLine getStockLine() {
-		return stockLine;
+	public void setStockOrderId(Integer stockOrderId) {
+		this.stockOrderId = stockOrderId;
 	}
 
-	public void setStockLine(StockLine stockLine) {
-		this.stockLine = stockLine;
+	public Integer getSupplierId() {
+		return supplierId;
 	}
 
-	public Supplier getSupplier() {
-		return supplier;
-	}
-
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
+	public void setSupplierId(Integer supplierId) {
+		this.supplierId = supplierId;
 	}
 
 	public Date getStockOrderDate() {
@@ -91,5 +97,21 @@ public class StockOrder {
 	public void setStockRecievedDate(Date stockRecievedDate) {
 		this.stockRecievedDate = stockRecievedDate;
 	}
+
+	public List<StockLine> getStockLines() {
+		return stockLines;
+	}
+
+	public void setStockLines(List<StockLine> stockLines) {
+		this.stockLines = stockLines;
+	}
+	
+	public void addStockLine(StockLine sl) {
+		stockLines.add(sl);
+	}
+
+	// GETTERS and SETTERS
+	
+	
 
 }
