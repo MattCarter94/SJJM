@@ -21,26 +21,31 @@ public class LoginController {
 	private String email = "";
 	private String password = "";
 	private String error = "";
+	private boolean failedLogin = false;
 
 	public String login() {
 		if (email.equals("")) {
 			error = "please enter your email";
 			password = "";
+			failedLogin = true;
 			return "login";
 		}
 		if (password.equals("")) {
 			error = "please enter a password";
 			password = "";
+			failedLogin = true;
 			return "login";
 		}
 		if (!loginService.validateDetails(email, password)) {
 			error = "Invalid login";
 			password = "";
 			System.out.println("invalid Login");
+			failedLogin = true;
 			return "login";
 		}
 
 		userCredentials.setUser(loginService.getUserID(email));
+		failedLogin = false;
 		System.out.println("Valid login");
 		userCredentials.setBasket(loginService.getBasket(email));
 //		basketController.setBasket(userCredentials.getUser().getEmail());
@@ -70,5 +75,17 @@ public class LoginController {
 
 	public void setPassword(String pass) {
 		this.password = pass;
+	}
+
+	public boolean isFailedLogin() {
+		return failedLogin;
+	}
+
+	public void setFailedLogin(boolean failedLogin) {
+		this.failedLogin = failedLogin;
+	}
+	
+	public boolean getFailedLogin() {
+		return failedLogin;
 	}
 }
