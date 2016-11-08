@@ -98,8 +98,10 @@ public class ProductController implements Serializable{
 		
 	}
 	public ArrayList<Product> getProducts() {
-		if(products == null)
-			products = getPagination().createArrayList();
+		if(products == null) {
+			return new ArrayList<Product>(productService.findAll());
+		}
+			//products = getPagination().createArrayList();
 		
 		//String order = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_order");
 		//String type = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_type");
