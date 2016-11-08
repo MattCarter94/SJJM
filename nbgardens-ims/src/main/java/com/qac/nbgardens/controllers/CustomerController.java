@@ -29,10 +29,10 @@ public class CustomerController implements Serializable{
 		return customers;
 	}
 	
-	public void getProductTitleFromCustomerOrder(Integer customerID, Integer orderID)
+	public void getProductTitleFromCustomerOrder()
 	{	 
 		 System.out.println("Step 1");
-		 customerService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
+		 customerService.displayProductTitleFromSpecificCustomerOrder();
 	}
 
 	private Pagination getPagination() 

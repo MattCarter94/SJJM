@@ -80,25 +80,16 @@
 		        "enabled": true
 		    },
 		    
-		 //   List<DV> dvs = new List<>.,><.;
-		 //   String bigstring;
-		 //   for (DV temp : dvs) {
-		 //   	bigstring += "{"
-		 //   	bigstring += "date = " + temp.date();
-		 //   	bigstring += "value = " + temp.value();
-		 //   	bigstring += "},"
-		    }
-		    
-		    
 		    "dataProvider": [{
 		        "date": "x",
 		        "value": 15
 		    }, {
 		        "date": "y8",
 		        "value": 11
-		    }] //{
-		        "date": "2012-07-29",
-		        "value": 15
+		    }] 
+		    //{
+		     //   "date": "2012-07-29",
+		      //  "value": 15
 //		    }, {
 //		        "date": "2012-07-30",
 //		        "value": 16
