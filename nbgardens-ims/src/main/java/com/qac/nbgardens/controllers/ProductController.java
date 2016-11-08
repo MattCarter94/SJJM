@@ -28,6 +28,51 @@ public class ProductController implements Serializable{
 	private ArrayList<Product> products = null;
 	private Pagination pagination;
 	
+	private String searchTerms;
+	private Integer lowcap;
+	private Integer highcap;
+	private String priceFilter;
+	private String typeFilter;
+	
+	
+	
+	
+	
+	public String getTypeFilter() {
+		return typeFilter;
+	}
+	public void setTypeFilter(String s) {
+		typeFilter = s;
+	}
+	
+	public String getPriceFilter() {
+		return priceFilter;
+	}
+	public void setPriceFilter(String s) {
+		priceFilter = s;
+	}
+	
+	public Integer getHighcap() {
+		return highcap;
+	}
+	public void setHighcap(Integer s) {
+		highcap = s;
+	}
+	
+	public Integer getLowcap() {
+		return lowcap;
+	}
+	public void setLowcap(Integer s) {
+		lowcap = s;
+	}
+	
+	public String getSearchTerms() {
+		return searchTerms;
+	}
+	public void setSearchTerms(String s) {
+		searchTerms = s;
+	}
+	
 	public float calculateStockLevel(Integer id) {
 		return productService.calculatePercentageStock(id);
 	}
@@ -94,9 +139,46 @@ public class ProductController implements Serializable{
 		products = null;
 	}
 
-	public void invalidate() {
+	public ArrayList<Product> filterResults() {
+		ArrayList<Product> initial = getProducts();
+		ArrayList<Product> result = new ArrayList<Product>();
 		
+		List<String> listParameters = new ArrayList<>();
+		FacesContext.getCurrentInstance().getExternalContext().getRequestParameterNames().forEachRemaining(k->{
+			listParameters.add(k);
+			System.out.println("PARAMETER: " + k);
+		});
+		
+		//Apply filter variables
+		for(String property : listParameters) {
+			if(property.contains("filter:j_idt17"))
+				lowcap = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property));
+			if(property.contains("filter:j_idt18"))
+				highcap = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property));
+			if(property.contains("filter:j_idt25"))
+				searchTerms = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
+		}
+		
+		if (lowcap==null) lowcap=0;
+		if (highcap==null) highcap=9999;
+		
+		
+		//Limit by id range
+		
+		
+		
+		System.out.println("Lowcap: " + lowcap +" | Highcap: " + highcap);
+		for (Product p : initial) {
+			System.out.println("Product ID: " + p.getProductId());
+			if (p.getProductId() > lowcap -1 && p.getProductId() <= highcap) {
+				result.add(p);
+				System.out.println(p.getProductId() + " Added to results");
+			}
+		}
+		return result;
 	}
+	
+	
 	public ArrayList<Product> getProducts() {
 		if(products == null) {
 			return new ArrayList<Product>(productService.findAll());

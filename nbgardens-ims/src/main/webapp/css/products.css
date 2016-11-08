@@ -33,25 +33,6 @@
     
 }
 
-.activeColouring {
-	background-color: repeating-linear-gradient(
-    -45deg,
-    #606dbc,
-    #606dbc 10px,
-    #465298 10px,
-    #465298 20px
-  ) !important;
-}
-
-.inactiveColouring {
-	background-color: repeating-linear-gradient(
-    -45deg,
-    #606dbc,
-    #606dbc 10px,
-    #465298 10px,
-    #465298 20px
-  ) !important;
-}
 
 .horizontal .stock-fill {
     position: relative;
@@ -123,30 +104,7 @@ div.panel.show {
     display: block;
 }
 
-/*
-.detailsTitle {
-    line-height: 60px;
-    margin-bottom: 10px;
-}
-.detailsTitle input {
-    display: inline-block;
-    width: 65%;
-}
-.detailsTitle h4 {
-    display: inline-block;
-    width: 30%;
-    color: white;
-}
-.detailsPrice input {
-    display: inline-block;
-    width: 65%;
-}
-.detailsPrice h4 {
-    display: inline-block;
-    width: 30%;
-    color: white;
-}
-*/
+
 .detail {
     padding-bottom:10px;
     line-height: 60px;
@@ -223,8 +181,8 @@ div.panel.show {
 	width: 90%;
 }
 
-#searchButton {
-	width: 20%;
+.searchButton {
+	width: 95%;
 }
 
 .title {
