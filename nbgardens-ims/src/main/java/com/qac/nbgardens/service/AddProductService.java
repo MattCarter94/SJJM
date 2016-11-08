@@ -1,6 +1,5 @@
 package com.qac.nbgardens.service;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class AddProductService {
 	
 	
 	public void addProduct(Integer id, String title, String price, String description, String category, String image, String tags, String stock, String active, Date orderDate) {
-		BigDecimal nPrice = new BigDecimal(Float.parseFloat(price));
+		double nPrice = Double.parseDouble(price);
 		Category c = Category.GNOME;
 		switch (category) {
 		case "GNOME":
@@ -48,12 +47,12 @@ public class AddProductService {
 			break;
 		}
 		
-		Product p = new Product(id, title, nPrice, description, c, image, tags, nStock, a, orderDate);
+		Product p = new Product(title, nPrice, description, c, image, tags, nStock, a);
 		
 		productManager.addProduct(p);
 		
 		for (Product d : productManager.getProducts()) {
-			System.out.println(d.getTitle() + " : " + d.getProductID() + d.getCategory().toString() + d.getState().toString());
+			System.out.println(d.getTitle() + " : " + d.getProductId() + d.getCategory().toString() + d.getState().toString());
 		}
 	}
 	

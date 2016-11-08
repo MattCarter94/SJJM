@@ -1,7 +1,5 @@
 package com.qac.nbgardens.service;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -22,10 +20,8 @@ public class ProductService {
 	}
 	
 	public void updateProduct(Integer id, String title, String price, String description, String category, String image, String tags, String stock, String active) {
-		System.out.println("Product Updated -: 		ID: " + id + "|| Title: " + title);
-		
 		productManager.findProductById(id).setTitle(title);
-		BigDecimal nPrice = new BigDecimal(Float.parseFloat(price));
+		double nPrice = Double.parseDouble(price);
 		productManager.findProductById(id).setPrice(nPrice);
 		productManager.findProductById(id).setDescription(description);
 		//System.out.println("category: " + category);

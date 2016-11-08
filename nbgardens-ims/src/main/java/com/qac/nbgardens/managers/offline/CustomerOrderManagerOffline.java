@@ -23,7 +23,7 @@ public class CustomerOrderManagerOffline implements CustomerOrderManager {
 		Date orderDate;
 		List<CustomerOrder> co = customer.getCustomerOrders();
 		for(int i=0; i < co.size(); i++){
-			if(co.get(i).getCustomerOrderID().equals(customerOrderID)){
+			if(co.get(i).getCustomerOrderId().equals(customerOrderID)){
 				orderDate = co.get(i).getOrderDate();
 				count++;
 				return orderDate;
@@ -42,7 +42,7 @@ public class CustomerOrderManagerOffline implements CustomerOrderManager {
 		OrderStatus orderStatus;
 		List<CustomerOrder> co = customer.getCustomerOrders();
 		for(int i=0; i<co.size(); i++){
-			if(co.get(i).getCustomerOrderID().equals(customerOrderID)){
+			if(co.get(i).getCustomerOrderId().equals(customerOrderID)){
 				orderStatus = co.get(i).getStatus();
 				count++;
 				return orderStatus;

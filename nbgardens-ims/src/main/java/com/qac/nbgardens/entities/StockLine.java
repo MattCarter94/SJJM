@@ -1,7 +1,5 @@
 package com.qac.nbgardens.entities;
 
-import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -17,24 +15,64 @@ public class StockLine {
 	@Id //ID is for PK
 	@OneToOne
 	@Column (name = "Stock_Order_ID")  
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer stockOrderID;
 	
 	@Id // Id is for PK
-	@OneToMany //For FK.
+	@OneToOne //For FK.
 	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
-	private Product product;
+	private Integer productId;
 	
 	@Column (name = "Quantity", length = 255)
-	private Integer qty;
+	private Integer quantity;
 	
 	@Column (name = "Price", length = 255)
-	private BigDecimal price;
-
-	public StockLine(Product product, Integer qty, BigDecimal price) {
+	private double price;
+	
+	
+	private Product product;
+	
+	
+	
+	public StockLine(Integer stockOrderID, Integer productId, Integer quantity, Product product) {
+		this.stockOrderID = stockOrderID;
+		this.productId = productId;
+		this.quantity = quantity;
+		this.price = product.getPrice() * quantity;
 		this.product = product;
-		this.qty = qty;
+	}
+
+
+
+	public Integer getStockOrderID() {
+		return stockOrderID;
+	}
+
+	public void setStockOrderID(Integer stockOrderID) {
+		this.stockOrderID = stockOrderID;
+	}
+
+	public Integer getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Integer productId) {
+		this.productId = productId;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -46,20 +84,4 @@ public class StockLine {
 		this.product = product;
 	}
 
-	public Integer getQty() {
-		return qty;
-	}
-
-	public void setQty(Integer qty) {
-		this.qty = qty;
-	}
-
-	public BigDecimal getPrice() {
-		return price;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-	
 }

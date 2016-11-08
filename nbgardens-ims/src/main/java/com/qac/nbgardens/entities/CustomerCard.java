@@ -4,50 +4,58 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 public class CustomerCard {
 	
 	
 	@Id //PK
+	@OneToOne
 	@Column (name = "Card_No", length = 255)  
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private CardDetails card_number;
+	//@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private String cardNo;
 	
 	@Id //PK
+	@OneToOne
 	@Column (name = "Email", length = 255)  
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private String custEmail;
+	//@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private String customerEmail;
+	
+
+	private CardDetails card;
 
 	
-	// Constructors
 	
-	public CustomerCard() {};
-	
-	public CustomerCard(CardDetails card_number, String custEmail) {
-	
-		this.card_number = card_number;
-		this.custEmail = custEmail;
+	public CustomerCard(String cardNo, String customerEmail, CardDetails card) {
+		this.cardNo = cardNo;
+		this.customerEmail = customerEmail;
+		this.card = card;
 	}
-	
-	
+
+
 	// GETTERS & SETTERS
-	public CardDetails getCard_number() {
-		return card_number;
+	public String getCardNo() {
+		return cardNo;
 	}
 
-	public void setCard_number(CardDetails card_number) {
-		this.card_number = card_number;
+	public void setCardNo(String cardNo) {
+		this.cardNo = cardNo;
 	}
 
-	public String getCustEmail() {
-		return custEmail;
+	public String getCustomerEmail() {
+		return customerEmail;
 	}
 
-	public void setCustEmail(String custEmail) {
-		this.custEmail = custEmail;
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
 	}
-	
-	
-	
+
+	public CardDetails getCard() {
+		return card;
+	}
+
+	public void setCard(CardDetails card) {
+		this.card = card;
+	}
 
 }

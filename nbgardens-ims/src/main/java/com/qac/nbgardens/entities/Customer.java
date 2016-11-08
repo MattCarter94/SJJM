@@ -1,21 +1,21 @@
 package com.qac.nbgardens.entities;
 
+
 import java.util.ArrayList;
-import java.util.Currency;
+
 import java.util.List;
-import java.util.Locale;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+
 
 @NamedQueries ({
 	@NamedQuery (
@@ -28,24 +28,12 @@ import javax.validation.constraints.NotNull;
 @Table (name = "Customers")
 public class Customer {
 	
-	private enum Permissions{
-		Customer, Admin, IMS
-	};
 	
 	@Id //PK
 	@Column (name = "Email", length = 255)  
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private String custEmail;
+	//@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private String customerEmail;
 	
-	@OneToMany //For FK.
-	@JoinColumn(name="CustomerCard", nullable = false)
-	@NotNull
-	private CustomerCard custCard;
-	
-	@OneToMany //For FK.
-	@JoinColumn(name="WishList", nullable = false)
-	@NotNull
-	private WishListProduct custWishlist;
 	
 	@Column (name = "First_Name", length = 255)
 	private String firstName;
@@ -54,49 +42,123 @@ public class Customer {
 	private String surname;
 	
 	@Column (name = "Credit")
-	private Currency credit;
+	private double credit;
 	
 	@Column (name = "Phone_Number")
 	private String phoneNumber;
 	
 	@Column (name = "Password", length = 255)
 	private String password;
+
+
 	
-	@Column (name = "Permissions")
-	private Permissions permissions;
-	
-	@Column (name = "CustomerOrders")
-	private List<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
+	private List<WishlistProduct> customerWishlistProducts;
+	private List<CustomerCard> customerCards;
+	private List<CustomerAddress> customerAddresses;
+	private List<CustomerOrder> customerOrders;
 	
 	//End of variables
 	
 	//Constructors
-	public Customer() {};
-	
-	public Customer(String email, CustomerCard customerCard, String name, String surname, String phoneNo, String password) {
-		
-		this.custEmail = email;
-		this.custCard = customerCard;
-		
-		this.firstName = name;
+	public Customer(String customerEmail, String firstName, String surname,
+			 String phoneNumber, String password) {
+		this.customerEmail = customerEmail;
+		this.firstName = firstName;
 		this.surname = surname;
-		this.credit = Currency.getInstance(Locale.UK);
-		this.phoneNumber = phoneNo;
+		this.credit = 10000;
+		this.phoneNumber = phoneNumber;
+		this.password = password;
+		this.customerWishlistProducts = new ArrayList<WishlistProduct>();
+		this.customerCards = new ArrayList<CustomerCard>();
+		this.customerAddresses = new ArrayList<CustomerAddress>();
+		this.customerOrders = new ArrayList<CustomerOrder>();
+	}
+	
+	
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public double getCredit() {
+		return credit;
+	}
+
+	public void setCredit(double credit) {
+		this.credit = credit;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	//End constructors
-//	public CustomerOrder addCustomerOrder(String Email,  BigDecimal Price  ){
-//		return null;
-//	}
-	
-	
-	
-	public void addCustomerOrder(CustomerOrder co) {	
-		customerOrders.add(co);
+
+	public List<WishlistProduct> getCustomerWishlistProducts() {
+		return customerWishlistProducts;
+	}
+
+	public void setCustomerWishlistProducts(List<WishlistProduct> customerWishlistProducts) {
+		this.customerWishlistProducts = customerWishlistProducts;
 	}
 	
+	public void addCustomerWishlistProduct(WishlistProduct w) {
+		this.customerWishlistProducts.add(w);
+	}
+
+	public List<CustomerCard> getCustomerCards() {
+		return customerCards;
+	}
+
+	public void setCustomerCards(List<CustomerCard> customerCards) {
+		this.customerCards = customerCards;
+	}
+	
+	public void addCustomerCard(CustomerCard c) {
+		this.customerCards.add(c);
+	}
+
+	public List<CustomerAddress> getCustomerAddresses() {
+		return customerAddresses;
+	}
+
+	public void setCustomerAddresses(List<CustomerAddress> customerAddresses) {
+		this.customerAddresses = customerAddresses;
+	}
+	
+	public void addCustomerAddress(CustomerAddress c) {
+		this.customerAddresses.add(c);
+	}
 
 	public List<CustomerOrder> getCustomerOrders() {
 		return customerOrders;
@@ -105,72 +167,5 @@ public class Customer {
 	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
 		this.customerOrders = customerOrders;
 	}
-
-	//GETTERS AND SETTERS
-	public String getEmail() {
-		return custEmail;
-	}
-	public void setEmail(String email) {
-		this.custEmail = email;
-	}
 	
-	
-	public String getCustEmail() {
-		return custEmail;
-	}
-	public void setCustEmail(String custEmail) {
-		this.custEmail = custEmail;
-	}
-	public CustomerCard getCustCard_no() {
-		return custCard;
-	}
-	public void setCustCard_no(CustomerCard custCard_no) {
-		this.custCard = custCard_no;
-	}
-	public WishListProduct getCustWishlist() {
-		return custWishlist;
-	}
-	public void setCustWishlist(WishListProduct custWishlist) {
-		this.custWishlist = custWishlist;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getSurname() {
-		return surname;
-	}
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-	public Currency getCredit() {
-		return credit;
-	}
-	public void setCredit(Currency credit) {
-		this.credit = credit;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNo(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public Permissions getPermissions() {
-		return permissions;
-	}
-	public void setPermissions(Permissions permissions) {
-		this.permissions = permissions;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
 }

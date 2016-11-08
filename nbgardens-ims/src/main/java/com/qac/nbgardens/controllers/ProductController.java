@@ -54,11 +54,7 @@ public class ProductController implements Serializable{
 		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
 		//System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
 		
-		System.out.println("ACTIVE: " + active);
-		//System.out.println(active);
-		for (String l : listParameters) {
-			System.out.println("ListParam: " + l);
-		}
+		System.out.println(String.format("Product Updated- ID: %s | Title: %s | Price: £%s | Description: %s | Category: %s | Image: %s | Tags: %s | Stock: %s | Active: %s", id, title, price, description, category.toString(), image, tags, stock, active.toString()));
 		productService.updateProduct(id, title, price, description, category, image, tags, stock, active);
 	}
 	

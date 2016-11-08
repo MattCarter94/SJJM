@@ -25,7 +25,7 @@ public class StockOrderOfflineManager implements StockOrderManager {
 		Date stockOrderDate;
 		List<StockOrder> so = initialData.getStockOrders();
 		for(int i=0; i<so.size(); i++){
-			if(so.get(i).getStockOrderID().equals(stockOrderID)){
+			if(so.get(i).getStockOrderId().equals(stockOrderID)){
 				stockOrderDate = so.get(i).getStockOrderDate();
 				count++;
 				return stockOrderDate;
@@ -45,7 +45,7 @@ public class StockOrderOfflineManager implements StockOrderManager {
 		Date recievedDate;
 		List<StockOrder> so = initialData.getStockOrders();
 		for(int i=0; i<so.size(); i++){
-			if(so.get(i).getStockOrderID().equals(stockOrderID)){
+			if(so.get(i).getStockOrderId().equals(stockOrderID)){
 				recievedDate = so.get(i).getStockRecievedDate();
 				count++;
 				return recievedDate;

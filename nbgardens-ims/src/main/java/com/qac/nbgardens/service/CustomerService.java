@@ -37,10 +37,10 @@ public class CustomerService
 		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getEmail());
 		
 		// get Order Quantity of customer 0's 1st order (element 0 in the list).
-		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getQuantity());
+		//System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getQuantity());
 		
 		// Get Product
-		System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle());
+		//System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle());
 		
 		// Get Supplier
 		//System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().get(0).getCustomerOrderID().getProduct().getTitle());

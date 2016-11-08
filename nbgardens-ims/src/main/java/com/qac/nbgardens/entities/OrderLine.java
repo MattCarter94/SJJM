@@ -1,6 +1,6 @@
 package com.qac.nbgardens.entities;
 
-import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,14 +14,13 @@ public class OrderLine {
 	@Id //ID is for PK
 	@OneToMany //For FK.
 	@Column (name = "Customer_Order_ID")  
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer customerOrderID;
 
 	@Id //ID is for PK
 	@OneToMany //For FK.
 	@JoinColumn (name = "Product_ID")  
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Product product;
+	private Integer productId;
+
 
 	@Column (name = "Quantity", nullable = false)
 	@NotNull
@@ -29,21 +28,37 @@ public class OrderLine {
 	
 	@Column (name = "Price", nullable = false)
 	@NotNull
-	private BigDecimal price;
+	private double price;
 	
-	public OrderLine(Product product, Integer quantity, BigDecimal price) {
-		
-		this.product = product;
+	
+	private Product product;
+	private final float markup = 1.2f;
+	
+	
+	public OrderLine(Integer customerOrderID, Integer productId, Integer quantity, Product product) {
+		this.customerOrderID = customerOrderID;
+		this.productId = productId;
 		this.quantity = quantity;
-		this.price = price;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
+		this.price = (product.getPrice() * quantity) * markup;
 		this.product = product;
+	}
+
+	
+	
+	public Integer getCustomerOrderID() {
+		return customerOrderID;
+	}
+
+	public void setCustomerOrderID(Integer customerOrderID) {
+		this.customerOrderID = customerOrderID;
+	}
+
+	public Integer getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Integer productId) {
+		this.productId = productId;
 	}
 
 	public Integer getQuantity() {
@@ -54,12 +69,19 @@ public class OrderLine {
 		this.quantity = quantity;
 	}
 
-	public BigDecimal getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigDecimal price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 }
