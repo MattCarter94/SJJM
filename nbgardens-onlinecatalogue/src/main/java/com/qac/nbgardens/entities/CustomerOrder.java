@@ -134,8 +134,12 @@ public class CustomerOrder {
 	
 	public BigDecimal getTotalCost(){
 		BigDecimal total = new BigDecimal(0);
+		BigDecimal x = new BigDecimal(0);
 		for(int i=0; i<=orderLines.size()-1; i++){
-			total = total.add(orderLines.get(i).getPrice().multiply(new BigDecimal(orderLines.get(i).getQuantity())));
+			x = x.add(orderLines.get(i).getPrice()); //.multiply(new BigDecimal(orderLines.get(i).getQuantity()
+			System.out.println("X is " + x);
+			total = total.add(x);
+			x = new BigDecimal(0);
 		}
 		return total;
 	}

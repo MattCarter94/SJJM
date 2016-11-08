@@ -43,7 +43,7 @@
 						</h:form>
 						<h:form class="wishlist">
 							<h:commandLink rendered="#{currentUser.isLoggedIn()}" action="#{wishlist.addToWishlist(products.findProductById(prodbean.id))}"><span class="glyphicon glyphicon-star-empty"></span> Wishlist</h:commandLink>
-							<h:commandLink rendered="#{currentUser.isLoggedIn()}"><span class="glyphicon glyphicon-star"></span> Wishlist</h:commandLink>
+<!-- 							<h:commandLink rendered="#{currentUser.isLoggedIn() && wishlist.containsItem()}"><span class="glyphicon glyphicon-star"></span> Wishlist</h:commandLink> -->
 						</h:form>
                     </div>
                 </div>
