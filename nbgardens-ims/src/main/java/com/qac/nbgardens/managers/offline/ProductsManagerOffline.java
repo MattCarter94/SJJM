@@ -33,7 +33,9 @@ public class ProductsManagerOffline implements ProductManager{
 	@Override
 	public Product findProductById(Integer id) {
 		List<Product> products = initialData.getProducts();
+		System.out.println("PRODUCT SIZE::::::::::::::::: " +products.size());
 		for (int i = 0; i < products.size(); i++) {
+			System.out.println("I = " + i);
 			if (products.get(i).getProductId().equals(id)) {
 				return products.get(i);
 			}

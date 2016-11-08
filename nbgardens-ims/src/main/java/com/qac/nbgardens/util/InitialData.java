@@ -32,7 +32,7 @@ import com.qac.nbgardens.entities.enums.ProductStatus;
 @Singleton
 public class InitialData {
 	private List<Product> products = new ArrayList<Product>();
-	private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
+	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 
 	private List<Customer> customers = new ArrayList<Customer>();
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
@@ -43,10 +43,10 @@ public class InitialData {
 	public void SetupData() {
 		
 		//Product
-		Product p1 = new Product("Clive", 9.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 130000, ProductStatus.ACTIVE);
-		Product p2 = new Product("Mega Clive", 19.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 1000, ProductStatus.ACTIVE);
-		Product p3 = new Product("Happy Clive", 199.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 200, ProductStatus.ACTIVE);
-		Product p4 = new Product("Clive Clive Hat Stand", 200.05d, "its a gnome", Category.GNOMEACCESSORY, "imgurl.png", "hatstand", 5, ProductStatus.ACTIVE);
+		Product p1 = new Product(1, "Clive", 9.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 130000, ProductStatus.ACTIVE);
+		Product p2 = new Product(2, "Mega Clive", 19.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 1000, ProductStatus.ACTIVE);
+		Product p3 = new Product(3, "Happy Clive", 199.99d, "its a gnome", Category.GNOME, "imgurl.png", "tag1, tag2, tag3", 200, ProductStatus.ACTIVE);
+		Product p4 = new Product(4, "Clive Clive Hat Stand", 200.05d, "its a gnome", Category.GNOMEACCESSORY, "imgurl.png", "hatstand", 5, ProductStatus.ACTIVE);
 		
 		
 		//Addresses
@@ -164,10 +164,23 @@ public class InitialData {
 		
 		
 		
+		//Adding elements
+		//Add Customers
+		customers.add(c1);
+		customers.add(c2);
+		customers.add(c3);
+		customers.add(c4);
 		
+		//Add Products
+		products.add(p1);
+		products.add(p2);
+		products.add(p3);
+		products.add(p4);
 		
-		
-		
+		//Add Suppliers
+		suppliers.add(s1);
+		suppliers.add(s2);
+		suppliers.add(s3);
 		
 		
 		
@@ -246,9 +259,9 @@ public class InitialData {
 		products.add(p);
 	}
 	
-	public void addStockOrder(StockOrder so) {
-		stockOrders.add(so);
-	}
+	//public void addStockOrder(StockOrder so) {
+	//	stockOrders.add(so);
+	//}
 	
 	public void addCustomer(Customer c) {
 		customers.add(c);
@@ -267,9 +280,9 @@ public class InitialData {
 		return (ArrayList<Product>) products;
 	}
 
-	public List<StockOrder> getStockOrders() {
-		return stockOrders;
-	}
+	//public List<StockOrder> getStockOrders() {
+	//	return stockOrders;
+	//}
 	public List<Supplier> getSuppliers() {
 		return suppliers;
 	}

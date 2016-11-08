@@ -72,7 +72,6 @@ public class Product {
 	//Constructor
 	public Product(String title, double price, String description, Category category, String image, String tags,
 			Integer stock, ProductStatus state) {
-		super();
 		this.title = title;
 		this.price = price;
 		this.description = description;
@@ -83,7 +82,20 @@ public class Product {
 		this.maxStock = stock;
 		this.state = state;
 	}
-
+	
+	public Product(int id, String title, double price, String description, Category category, String image, String tags,
+			Integer stock, ProductStatus state) {
+		this.title = title;
+		this.price = price;
+		this.description = description;
+		this.category = category;
+		this.image = image;
+		this.tags = tags;
+		this.stock = stock;
+		this.maxStock = stock;
+		this.state = state;
+		this.productId = id;
+	}
 	
 	//GETTERS AND SETTERS
 	public Integer getProductId() {

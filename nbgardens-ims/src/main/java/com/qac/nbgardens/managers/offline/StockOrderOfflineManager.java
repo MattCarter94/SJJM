@@ -1,5 +1,6 @@
 package com.qac.nbgardens.managers.offline;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.StockOrder;
+import com.qac.nbgardens.entities.Supplier;
 import com.qac.nbgardens.managers.StockOrderManager;
 import com.qac.nbgardens.util.InitialData;
 
@@ -23,7 +25,13 @@ public class StockOrderOfflineManager implements StockOrderManager {
 	public Date getStockOrderDate(Integer stockOrderID){
 		int count = 0;
 		Date stockOrderDate;
-		List<StockOrder> so = initialData.getStockOrders();
+		List<StockOrder> so = new ArrayList<StockOrder>();
+		for (Supplier s : initialData.getSuppliers()) {
+			for (int i = 0; i < s.getStockOrders().size(); i++) {
+				so.add(s.getStockOrders().get(i));
+			}
+		}
+		
 		for(int i=0; i<so.size(); i++){
 			if(so.get(i).getStockOrderId().equals(stockOrderID)){
 				stockOrderDate = so.get(i).getStockOrderDate();
@@ -43,7 +51,12 @@ public class StockOrderOfflineManager implements StockOrderManager {
 	public Date getstockRecievedDate(Integer stockOrderID){
 		int count = 0;
 		Date recievedDate;
-		List<StockOrder> so = initialData.getStockOrders();
+		List<StockOrder> so = new ArrayList<StockOrder>();
+		for (Supplier s : initialData.getSuppliers()) {
+			for (int i = 0; i < s.getStockOrders().size(); i++) {
+				so.add(s.getStockOrders().get(i));
+			}
+		}
 		for(int i=0; i<so.size(); i++){
 			if(so.get(i).getStockOrderId().equals(stockOrderID)){
 				recievedDate = so.get(i).getStockRecievedDate();
@@ -59,7 +72,13 @@ public class StockOrderOfflineManager implements StockOrderManager {
 	
 	@Override
 	public List<StockOrder> findAll() {
-		return initialData.getStockOrders();
+		List<StockOrder> so = new ArrayList<StockOrder>();
+		for (Supplier s : initialData.getSuppliers()) {
+			for (int i = 0; i < s.getStockOrders().size(); i++) {
+				so.add(s.getStockOrders().get(i));
+			}
+		}
+		return so;
 	}
 	
 	

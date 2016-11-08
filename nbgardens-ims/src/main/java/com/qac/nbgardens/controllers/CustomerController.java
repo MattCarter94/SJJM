@@ -41,7 +41,7 @@ public class CustomerController implements Serializable{
 			pagination = new Pagination(20) {
 				
 				@Override
-				public ArrayList createArrayList() {
+				public ArrayList<Customer> createArrayList() {
 					try {
 						return new ArrayList<Customer>(customerService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
