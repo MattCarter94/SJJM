@@ -36,13 +36,14 @@ public class ProductController implements Serializable{
 		List<String> listParameters = new ArrayList<>();
 		FacesContext.getCurrentInstance().getExternalContext().getRequestParameterNames().forEachRemaining(k->{
 			listParameters.add(k);
+			//System.out.println("PARAMETER: " + k);
 		});
 		String category = "";
 		String active = "";
 		for(String property : listParameters) {
-			if(property.contains("j_idt32"))
+			if(property.contains("details:j_idt23"))
 				category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
-			if(property.contains("j_idt36"))
+			if(property.contains("details:j_idt26"))
 				active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
 		}
 		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
@@ -54,7 +55,7 @@ public class ProductController implements Serializable{
 		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
 		//System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
 		
-		System.out.println(String.format("Product Updated- ID: %s | Title: %s | Price: £%s | Description: %s | Category: %s | Image: %s | Tags: %s | Stock: %s | Active: %s", id, title, price, description, category.toString(), image, tags, stock, active.toString()));
+		System.out.println(String.format("Product Updated- ID: %s | Title: %s | Price: £%s | Description: %s | Category: %s | Image: %s | Tags: %s | Stock: %s | Active: %s |", id, title, price, description, category.toString(), image, tags, stock, active.toString()));
 		productService.updateProduct(id, title, price, description, category, image, tags, stock, active);
 	}
 	
@@ -130,7 +131,7 @@ public class ProductController implements Serializable{
 			pagination = new Pagination(20) {
 				
 				@Override
-				public ArrayList createArrayList() {
+				public ArrayList<Product> createArrayList() {
 					try {
 						return new ArrayList<Product>(productService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {

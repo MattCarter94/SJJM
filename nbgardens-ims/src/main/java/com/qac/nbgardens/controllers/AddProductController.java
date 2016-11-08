@@ -45,13 +45,13 @@ public class AddProductController implements Serializable{
 		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
 		String price = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_price");
 		String description = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_description");
-		System.out.println("CATEGORY: " + category);
+		//System.out.println("CATEGORY: " + category);
 		String image = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_image");
 		String tags = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_tags");
 		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
 		//System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
 		//System.out.println(title + ", " + price + ", " + description + ", " + category + ", " + image + ", " + tags + ", " + stock + ", " + active);
-		productService.addProduct((int)(Math.random() * 1000), title, price, description, category, image, tags, stock, active, new Date());
+		productService.addProduct(title, price, description, category, image, tags, stock, active, new Date());
 		//productService.addProduct(105, title, price, description, category, image, tags, stock, active, new Date());
 		return "products";
 	}

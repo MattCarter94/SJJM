@@ -69,9 +69,15 @@ public class Product {
 	private ProductStatus state;
 	//End of table definition
 	
+	private static int idCounter = 1000;
+	
 	//Constructor
 	public Product(String title, double price, String description, Category category, String image, String tags,
 			Integer stock, ProductStatus state) {
+		if (this.productId == null) {
+			this.productId = idCounter;
+			idCounter++;
+		}
 		this.title = title;
 		this.price = price;
 		this.description = description;
@@ -83,19 +89,6 @@ public class Product {
 		this.state = state;
 	}
 	
-	public Product(int id, String title, double price, String description, Category category, String image, String tags,
-			Integer stock, ProductStatus state) {
-		this.title = title;
-		this.price = price;
-		this.description = description;
-		this.category = category;
-		this.image = image;
-		this.tags = tags;
-		this.stock = stock;
-		this.maxStock = stock;
-		this.state = state;
-		this.productId = id;
-	}
 	
 	//GETTERS AND SETTERS
 	public Integer getProductId() {
