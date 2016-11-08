@@ -164,15 +164,9 @@ public class ProductController implements Serializable{
 		
 		
 		//Limit by id range
-		
-		
-		
-		System.out.println("Lowcap: " + lowcap +" | Highcap: " + highcap);
 		for (Product p : initial) {
-			System.out.println("Product ID: " + p.getProductId());
 			if (p.getProductId() > lowcap -1 && p.getProductId() <= highcap) {
 				result.add(p);
-				System.out.println(p.getProductId() + " Added to results");
 			}
 		}
 		return result;
