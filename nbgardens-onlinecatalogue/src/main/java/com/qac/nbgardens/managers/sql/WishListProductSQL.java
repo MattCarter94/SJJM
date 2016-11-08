@@ -34,4 +34,10 @@ public class WishListProductSQL implements WishlistProductManager{
 		return null;
 	}
 
+	@Override
+	public void updateWishlist(String email, WishlistProduct wishlist) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

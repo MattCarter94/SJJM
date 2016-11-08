@@ -17,6 +17,9 @@
      	
      	<link rel="stylesheet" href="css/login.css"/>
      	
+     	<h:outputScript rendered="#{login.failedLogin}">
+		    alert('Oh no that login failed. Clive wont see you with those details');
+		</h:outputScript>
      	
 		<h:form class="navbar-form login-container" rendered="#{!currentUser.loggedIn}">
 			<div class="form-group">

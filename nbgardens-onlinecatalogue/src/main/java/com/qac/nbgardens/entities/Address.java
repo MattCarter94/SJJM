@@ -10,7 +10,7 @@ public class Address {
 	@Id //ID is for PK
 	@Column (name = "Address_ID")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer addressID;
+	private Integer addressId;
 	
 	@Column (name = "Address_1", length = 255)
 	private String address1;
@@ -29,25 +29,17 @@ public class Address {
 
 	
 	// Constructors
-	public Address(){};
-	
-	public Address(Integer addressID, String address1, String address2, String town, String county, String postcode) {
-		this.addressID = addressID;
+	public Address(String address1, String address2, String town, String county, String postcode) {
 		this.address1 = address1;
 		this.address2 = address2;
 		this.town = town;
 		this.county = county;
 		this.postcode = postcode;
 	}
+	
 
+	
 	// GETTERS & SETTERS
-	public Integer getAddressID() {
-		return addressID;
-	}
-
-	public void setAddressID(Integer addressID) {
-		this.addressID = addressID;
-	}
 
 	public String getAddress1() {
 		return address1;
@@ -88,5 +80,11 @@ public class Address {
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
+
+	public Integer getAddressId() {
+		return addressId;
+	}
+
+	
 	
 }

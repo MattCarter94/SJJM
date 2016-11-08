@@ -54,10 +54,10 @@ public class StockOrder {
 	
 	private List<StockLine> stockLines;
 	
+	public StockOrder(){};
 	
 	
 	public StockOrder(Integer supplierId, Date stockOrderDate, Date stockRecievedDate) {
-		super();
 		this.supplierId = supplierId;
 		this.stockOrderDate = stockOrderDate;
 		this.stockRecievedDate = stockRecievedDate;

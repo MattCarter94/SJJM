@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.qac.nbgardens.entities.Address;
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.managers.UserManager;
@@ -18,8 +19,8 @@ public class UserManagerOffline implements UserManager{
 	private InitialData initialData;
 	
 	
-	public void persistUser(CardDetails card, String firstName, String surname, String email, String phoneNo, String password, Integer permissions, String houseNo, String street, String town, String county, String postcode) {
-		Customer u = new Customer(card, firstName, surname, email, phoneNo, password,  houseNo, street, town, county, postcode);
+	public void persistUser(CardDetails card, String firstName, String surname, String email, String phoneNo, String password, Address address) {
+		Customer u = new Customer(card, firstName, surname, email, phoneNo, password, address);
 		initialData.addUser(u);
 	}
 	
@@ -112,6 +113,16 @@ public class UserManagerOffline implements UserManager{
 		
 		
 
+	}
+
+
+
+	@Override
+	public void persistUser(CardDetails card, String name, String surname, String email, String phoneNo,
+			String password, Integer permissions, String add1, String add2, String town, String county,
+			String postcode) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

@@ -32,7 +32,7 @@ public class StockLine {
 	
 	private Product product;
 	
-	
+	public StockLine(){};
 	
 	public StockLine(Integer stockOrderID, Integer productId, Integer quantity, Product product) {
 		this.stockOrderID = stockOrderID;

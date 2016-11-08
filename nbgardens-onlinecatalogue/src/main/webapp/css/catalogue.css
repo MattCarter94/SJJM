@@ -1,4 +1,15 @@
-@import 'https://fonts.googleapis.com/css?family=Maven+Pro|Poiret+One';
+
+.browse-image{
+	height:300px;
+}
+
+.moreButton{
+	position: absolute;
+	right:    30%;
+	bottom:   0;
+}
+
+
 
 html,body{
     height:100%;
@@ -22,6 +33,10 @@ html,body{
 
 .products-container{
 	text-align: center;
+}
+
+.prodButton{
+	height: 25%;
 }
 
 .prodButton input{
@@ -142,6 +157,8 @@ ul.nav a:hover{
     height:60px;
     margin: 0 -15px 0 -15px;
 }
+
+
 
 .footer{
     list-style-type: none;
