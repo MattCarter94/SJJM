@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
+import com.qac.nbgardens.entities.Address;
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
@@ -31,15 +32,20 @@ public class InitialData {
 	private List<Customer> users = new ArrayList<Customer>();
 	private List<CardDetails> cards = new ArrayList<CardDetails>();
 	private List<OrderLine> orderLines = new ArrayList<OrderLine>();
+	private List<Address> addresses = new ArrayList<Address>();
 	
 	
 	@PostConstruct
 	public void SetupData() {
+		
+		//Add addresses
+		addAddress(new Address("420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
+		
+		
 		//Add users
-
-		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
-		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Dog", "Carter", "dog", "02938475812", "password1", "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
-		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Cat", "Carter", "cat@email.co.uk", "02938475812", "password1", "420", "Blaze Rd", "Cranberry", "Oxfordshire", "OX123AB"));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", addresses.get(0)));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Dog", "Carter", "dog", "02938475812", "password1", addresses.get(0)));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Cat", "Carter", "cat@email.co.uk", "02938475812", "password1", addresses.get(0)));
 
 
 
@@ -97,6 +103,10 @@ public class InitialData {
 		orderLines.add(ol);
 	}
 	
+	public void addAddress(Address address){
+		addresses.add(address);
+	}
+	
 	
 
 	public List<OrderLine> getOrderLines() {
@@ -149,5 +159,22 @@ public class InitialData {
 		Integer userSize = users.size();
 		return users.get(userSize - 1).getFirstName();
 	}
+
+	public List<CardDetails> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<CardDetails> cards) {
+		this.cards = cards;
+	}
+
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+	
 	
 }

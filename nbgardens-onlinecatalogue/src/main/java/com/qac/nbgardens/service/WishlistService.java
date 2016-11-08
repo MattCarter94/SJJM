@@ -32,12 +32,12 @@ public class WishlistService {
 //		wishlist.addProduct(productManager.findProductById(productID));
 		
 		Customer customer = userManager.getUserByEmail(email);
-		customer.getWishlist().addProduct(productManager.findProductById(productID));
+		customer.getWishlistProduct().addProduct(productManager.findProductById(productID));
 	}
 
 
 	public void deleteProduct(String email, Integer deleteId) {
-		WishlistProduct wishlist = userCredentials.getUser().getWishlist();
+		WishlistProduct wishlist = userCredentials.getUser().getWishlistProduct();
 		
 		for(int i=0; i<=wishlist.getProducts().size()-1; i++){
 			if(wishlist.getProducts().get(i).getProductID() == deleteId){
@@ -50,7 +50,7 @@ public class WishlistService {
 
 	public boolean containsItem(String email, Integer productId) {
 		boolean x = false;
-		List<Product> wishlist = userManager.getUserByEmail(email).getWishlist().getProducts();
+		List<Product> wishlist = userManager.getUserByEmail(email).getWishlistProduct().getProducts();
 		System.out.println("service wishlist contains " + wishlist.size() + " items");
 		for(int i=0; i<=wishlist.size()-1; i++){
 			System.out.println("entered loop - incr: " + i);

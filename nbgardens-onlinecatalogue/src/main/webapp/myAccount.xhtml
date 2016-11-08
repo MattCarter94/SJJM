@@ -31,10 +31,11 @@
 							<p><b>Credit:</b> £#{currentUser.user.getCredit()}</p>
 							<p><b>Phone Number:</b> #{currentUser.user.getPhoneNumber()}</p>
 							<p><b>Address:</b></p>
-							<p>#{currentUser.user.getAddress1()}</p>
-							<p>#{currentUser.user.getAddress2()}</p>
-							<p>#{currentUser.user.getTown()}</p>
-							<p>#{currentUser.user.getCounty()}</p>
+							<p>#{currentUser.user.getAddress().address1}</p>
+							<p>#{currentUser.user.getAddress().address2}</p>
+							<p>#{currentUser.user.getAddress().town}</p>
+							<p>#{currentUser.user.getAddress().county}</p>
+							<p>#{currentUser.user.getAddress().postcode}</p>
 						</div>
 					</div>
 				</h:panelGroup>

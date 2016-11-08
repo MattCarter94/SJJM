@@ -37,7 +37,7 @@ public class WishlistProductManagerOffline implements WishlistProductManager{
 	}
 	@Override
 	public void updateWishlist(String email, WishlistProduct wishlist) {
-		userManager.getUserByEmail(email).setWishlist(wishlist);
+		userManager.getUserByEmail(email).setWishlistProduct(wishlist);
 	}
 	
 //	@Override

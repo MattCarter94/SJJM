@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.qac.nbgardens.entities.Address;
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.service.RegistrationService;
@@ -54,7 +55,8 @@ public class RegistrationController implements Serializable {
 			return "catalogue";
 		}
 		
-		Customer c = new Customer(new CardDetails(this.cardNo, this.expiry), this.firstName, this.surname, this.email, this.phoneNo, this.password, this.houseNo, this.street, this.town, this.county, this.postcode);
+		Address a = new Address(this.houseNo, this.street, this.town, this.county, this.postcode);
+		Customer c = new Customer(new CardDetails(this.cardNo, this.expiry), this.firstName, this.surname, this.email, this.phoneNo, this.password, a);
 		initialData.addUser(c);
 		//System.out.println("The last added user's first name is: " + initialData.returnLastUser());
 		
@@ -111,46 +113,6 @@ public class RegistrationController implements Serializable {
 		this.phoneNo = phoneNo;
 	}
 
-	public String getHouseNo() {
-		return houseNo;
-	}
-
-	public void setHouseNo(String houseNo) {
-		this.houseNo = houseNo;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public String getTown() {
-		return town;
-	}
-
-	public void setTown(String town) {
-		this.town = town;
-	}
-
-	public String getCounty() {
-		return county;
-	}
-
-	public void setCounty(String county) {
-		this.county = county;
-	}
-
-	public String getPostcode() {
-		return postcode;
-	}
-
-	public void setPostcode(String postcode) {
-		this.postcode = postcode;
-	}
-
 	public String getCardName() {
 		return cardName;
 	}
@@ -175,6 +137,54 @@ public class RegistrationController implements Serializable {
 		this.expiry = expiry;
 	}
 
-	
+
+	public String getHouseNo() {
+		return houseNo;
+	}
+
+
+	public void setHouseNo(String houseNo) {
+		this.houseNo = houseNo;
+	}
+
+
+	public String getStreet() {
+		return street;
+	}
+
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+
+	public String getTown() {
+		return town;
+	}
+
+
+	public void setTown(String town) {
+		this.town = town;
+	}
+
+
+	public String getCounty() {
+		return county;
+	}
+
+
+	public void setCounty(String county) {
+		this.county = county;
+	}
+
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
 	
 }
