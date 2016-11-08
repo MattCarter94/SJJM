@@ -43,19 +43,21 @@
 		
 			<div class="orders">
 				<h3>Orders in Progress:</h3>
+				
+<!-- 				<h:commandButton value="see orders" action="#{account.hasOrders()}"></h:commandButton> -->
 				<h:form>
 					<h:outputText class="noOrders" escape="false" value="No current orders to display"
-					rendered="#{!currentUser.hasOrders()}" />
-					<h:panelGroup rendered="#{currentUser.hasOrders()}">
+					rendered="#{account.hasOrders() == false}" />
+					<h:panelGroup rendered="#{account.hasOrders() == true}">
 						<div class="orderDetails">
-							<table>
+							<table class="orders">
 								<tr>
 									<th>Order ID</th>
 									<th>Item Quantity</th>
 									<th>Total Price</th>
 									<th>Status</th>
 								</tr>
-								<ui:repeat var="order" value="#{currentUser.getUserOrders()}">
+								<ui:repeat var="order" value="#{currentUser.userOrders}">
 									<tr>
 										<td>
 											#{order.getCustomerOrderID()}
@@ -64,7 +66,7 @@
 											#{order.getQuantity()}
 										</td>
 										<td>
-											#{order.getTotalCost()}
+											£#{order.getTotalCost()}
 										</td>
 										<td>
 											#{order.getStatus()}

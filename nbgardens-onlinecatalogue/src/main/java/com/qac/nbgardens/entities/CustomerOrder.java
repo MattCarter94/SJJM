@@ -58,6 +58,15 @@ public class CustomerOrder {
 		this.orderDate = null;
 		this.orderLines = new ArrayList<>();
 	}
+	
+	//Alternative constructor
+	public CustomerOrder(Customer customer, OrderStatus orderStatus, OrderLine orderLine) {
+		this.customer = customer;
+		this.status = orderStatus;
+		this.orderDate = null;
+		this.orderLines = new ArrayList<>();
+		this.orderLines.add(orderLine);
+	}
 
 
 	//GETTERS AND SETTERS
@@ -115,7 +124,7 @@ public class CustomerOrder {
 
 
 	public void deleteOrderLine(Integer productID) {
-		for(int i=0; i>orderLines.size(); i++){
+		for(int i=0; i<=orderLines.size()-1; i++){
 			if(orderLines.get(i).getProduct().getProductID() == productID){
 				orderLines.remove(i);
 				System.out.println("Removed product " + productID);
@@ -125,15 +134,15 @@ public class CustomerOrder {
 	
 	public BigDecimal getTotalCost(){
 		BigDecimal total = new BigDecimal(0);
-		for(int i=0; i>orderLines.size(); i++){
-			total.add(orderLines.get(i).getPrice().multiply(new BigDecimal(orderLines.get(i).getQuantity())));
+		for(int i=0; i<=orderLines.size()-1; i++){
+			total = total.add(orderLines.get(i).getPrice().multiply(new BigDecimal(orderLines.get(i).getQuantity())));
 		}
 		return total;
 	}
 	
 	public int getQuantity(){
 		int quantity = 0;
-		for(int i=0; i>orderLines.size(); i++){
+		for(int i=0; i<=orderLines.size()-1; i++){
 			quantity = quantity + orderLines.get(i).getQuantity();
 		}
 		return quantity;

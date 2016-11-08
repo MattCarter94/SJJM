@@ -37,4 +37,16 @@ public class CustomerOrderManagerSQL  implements CustomerOrderManager{
 		return null;
 	}
 
+	@Override
+	public void updateUserBasket(CustomerOrder basket, int idx) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCheckoutBasket(CustomerOrder newBasket, int idx, CustomerOrder basket) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

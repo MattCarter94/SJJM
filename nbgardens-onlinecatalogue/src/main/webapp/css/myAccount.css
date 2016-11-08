@@ -14,4 +14,35 @@
 
 .orders{
 	padding-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 460px;
+}
+
+.orderDetails{
+	padding-top: 20px;
+}
+
+table .orders{
+	text-align:center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+	background-color: #f2f2f2
+	}
+
+th {
+    background-color: #238b18;
+    color: white;
 }

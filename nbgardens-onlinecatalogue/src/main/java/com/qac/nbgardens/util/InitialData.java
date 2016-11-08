@@ -9,10 +9,10 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
-import com.qac.nbgardens.controllers.BasketController;
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.CustomerOrder;
+import com.qac.nbgardens.entities.OrderLine;
 import com.qac.nbgardens.entities.Product;
 import com.qac.nbgardens.entities.enums.Category;
 import com.qac.nbgardens.entities.enums.OrderStatus;
@@ -30,6 +30,7 @@ public class InitialData {
 	
 	private List<Customer> users = new ArrayList<Customer>();
 	private List<CardDetails> cards = new ArrayList<CardDetails>();
+	private List<OrderLine> orderLines = new ArrayList<OrderLine>();
 	
 	
 	@PostConstruct
@@ -45,21 +46,23 @@ public class InitialData {
 		//Add products
 		addProduct(new Product(100, "Green Gnome", new BigDecimal(20.05), "its a gnome", Category.GNOME, "clive.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(101, "Blue Gnome", new BigDecimal(300.99), "its a gnome", Category.GNOME, "gnome_swing.jpg", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(102, "Lumber Clive", new BigDecimal(908070.50), "its a gnome", Category.GNOME, "gnome2.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(102, "Lumber Clive", new BigDecimal(90), "its a gnome", Category.GNOME, "gnome2.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(103, "Doctor Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(104, "Wizard Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(105, "Doctor Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(106, "Wizard Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(107, "Lumber Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(108, "Doctor Clive", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(104, "Wizard Clive", new BigDecimal(59.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(105, "Doctor Clive", new BigDecimal(69.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(106, "Wizard Clive", new BigDecimal(79.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(107, "Lumber Clive", new BigDecimal(89.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(108, "Doctor Clive", new BigDecimal(29.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(109, "Clive Gnome", new BigDecimal(49.99), "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 
 		
 		//Add Customer Order
 		addCustomerOrder(new CustomerOrder(getCustomer(0), OrderStatus.BASKET));
 		addCustomerOrder(new CustomerOrder(getCustomer(0), OrderStatus.INPROGRESS));
-		//Add a product to the above order
-		customerOrders.get(1).addOrderLine(products.get(0), 2);
+		
+		addOrderLines(new OrderLine(customerOrders.get(1), products.get(0), 2));
+		
+		custOrderAddOrderLine(customerOrders.get(1), orderLines.get(0));
 		
 		//Add wishlists
 		//addWishlist();
@@ -71,8 +74,49 @@ public class InitialData {
 		//addBasket();
 	}
 	
+	public void updateCustomerOrder(CustomerOrder basket, int idx){
+		customerOrders.remove(idx);
+		customerOrders.add(basket);
+	}
+	
+	public void updateCheckoutOrder(CustomerOrder newBasket, int idx, CustomerOrder basket) {
+		customerOrders.remove(idx);
+		customerOrders.add(basket);
+		customerOrders.add(newBasket);
+	}
+	
+	public void custOrderAddOrderLine(CustomerOrder co, OrderLine ol){
+		co.addOrderLine(ol);
+	}
+	
 	public void addCustomerOrder(CustomerOrder cu) {
 		customerOrders.add(cu);
+	}
+	
+	public void addOrderLines(OrderLine ol){
+		orderLines.add(ol);
+	}
+	
+	
+
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
+		this.customerOrders = customerOrders;
+	}
+
+	public void setUsers(List<Customer> users) {
+		this.users = users;
 	}
 
 	public Customer getCustomer(int index){
