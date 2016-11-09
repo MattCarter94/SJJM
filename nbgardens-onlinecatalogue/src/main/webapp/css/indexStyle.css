@@ -1,3 +1,14 @@
+#circle {
+
+  border-radius: 20px;
+
+}
+
+.circle p{
+	height: 30px;
+}
+
+
 .favContainer{
     text-align: center;
 }
