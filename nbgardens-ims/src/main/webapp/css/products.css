@@ -82,6 +82,10 @@
     margin: 0 0 25px 0;
     
 }
+
+.product-list {
+	min-width: 450px;
+}
 div.accordion {
     cursor: pointer;
     transition: height 0.6s;
@@ -137,6 +141,7 @@ div.panel.show {
     color: white;
     padding: 10px;
     border: 5px double #2e466e;
+    min-width: 280px;
 }
 
 .filter-block h2 {
@@ -182,7 +187,12 @@ div.panel.show {
 }
 
 .searchButton {
-	width: 95%;
+	width: 65%;
+	display: inline-block;
+}
+
+.resetButton {
+	width: 30%;
 }
 
 .title {

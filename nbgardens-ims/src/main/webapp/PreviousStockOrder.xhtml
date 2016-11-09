@@ -6,6 +6,8 @@
    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
    xmlns:h="http://java.sun.com/jsf/html">
 
+
+
     <h:head>
         <meta charset="utf-8"/>
         <title>IMS Previous Stock Orders</title>
@@ -16,8 +18,10 @@
     
     <body>
         <ui:composition template="templates/template.xhtml">
+
 			<ui:define name="content">
 			<link rel="stylesheet" href="css/PreviousOrderStyle.css"/>
+
        
         <div class="pageWrap">
             <div class="leftSide">
@@ -26,32 +30,7 @@
                 <br></br>
                 <br></br>
                 <br></br>
-        
-                <div class="tableContainer">
-                    <div class="orderTable">
-                        <table>
-                            <tr>                  
-                                <th>Supplier ID</th>
-                                <th>Stock Order Date</th>
-                                <th>Stock Order Received Date</th>
-                            </tr>
-                            <ui:repeat var="stockorder" value="#{stockorders.stockOrders}">
-                            <tr>
-                                <td>#{stockorder.supplierId}</td>
-                                <td>#{stockorder.stockOrderDate}</td>
-                                <td>#{stockorder.stockRecievedDate}</td>
-                            </tr>
-                            </ui:repeat>
-                        </table>
 
-                        <div class="total">
-                            <p>Total</p>
-                            <p>£_____</p>
-                        </div>
-
-                    </div>
-
-                </div>
                 
                 <div class="tableContainer">
                     <div class="orderTable">
@@ -81,51 +60,31 @@
 
                 </div>
                 
-         
-                
-                
-             
-                
-                
             </div>
             
             <div class="rightSide">
-            <div class="selectInvoice">
-                <p><b>Select Invoice</b></p>
-                
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Date</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Order 1</td>
-                        <td>01/01/12</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Order 1</td>
-                        <td>01/01/12</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Order 1</td>
-                        <td>01/01/12</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Order 1</td>
-                        <td>01/01/12</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Order 1</td>
-                        <td>01/01/12</td>
-                    </tr>
-                </table>
-            </div>
+	            <div class="selectInvoice">            
+	                <div class="tableContainer">
+	                    <div class="orderTable">
+	                        <table>
+	                            <tr>                  
+	                                <th>Stock Order ID</th>
+	                                <th>Stock Order Date</th>
+	                                <th>Stock Order Received Date</th>
+	                                <th>Display Order Lines</th>
+	                            </tr>
+	                            <ui:repeat var="stockorder" value="#{stockorders.stockOrders}">
+		                            <tr>
+		                                <td>#{stockorder.stockOrderId}</td>
+		                                <td>#{stockorder.stockOrderDate}</td>
+		                                <td>#{stockorder.stockRecievedDate}</td>
+		                                <td><h:button value="Display"></h:button></td>
+		                            </tr>                            
+	                            </ui:repeat>
+	                        </table>
+	                    </div>
+	                </div>              
+	            </div>
             </div>
         </div>
         </ui:define>

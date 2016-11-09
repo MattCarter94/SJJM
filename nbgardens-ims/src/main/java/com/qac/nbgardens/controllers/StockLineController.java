@@ -22,10 +22,10 @@ public class StockLineController implements Serializable
 	private Pagination pagination;
 		
 
-	public ArrayList<StockLine> getStockLines() 
+	public ArrayList<StockLine> getStockLines() // run this and choose number to get it going
 	{
 		if(stockLines == null)
-			stockLines = getPagination().createArrayList();
+			stockLines = getPagination(1).createArrayList();
 		return stockLines;
 	}
 		
@@ -40,7 +40,7 @@ public class StockLineController implements Serializable
 		// stockOrderService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
 	}
 
-	private Pagination getPagination() 
+	private Pagination getPagination(Integer selectID) 
 	{
 		if(pagination==null)
 			pagination = new Pagination(20) {
@@ -49,18 +49,18 @@ public class StockLineController implements Serializable
 				public ArrayList createArrayList() {
 					try 
 					{
-						return new ArrayList<StockLine>(stockLineService.findAll().subList(getPageFirstItem(), getPageLastItem() + getPageSize()));
+						return new ArrayList<StockLine>(stockLineService.findAll(selectID).subList(getPageFirstItem(), getPageLastItem() + getPageSize()));
 						
 					} 
 					catch (Exception e) 
 					{
-						return new ArrayList<StockLine>(stockLineService.findAll().subList(getPageFirstItem(), getItemsCount()));
+						return new ArrayList<StockLine>(stockLineService.findAll(selectID).subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 
 				@Override
 				public int getItemsCount() {
-					return stockLineService.findAll().size();
+					return stockLineService.findAll(selectID).size();
 				}
 			};
 		return pagination;
