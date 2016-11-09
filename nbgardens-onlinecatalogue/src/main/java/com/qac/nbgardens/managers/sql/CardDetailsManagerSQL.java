@@ -10,11 +10,7 @@ import com.qac.nbgardens.managers.CardDetailsManager;
 @Stateless
 public class CardDetailsManagerSQL implements CardDetailsManager{
 
-	@Override
-	public void updateCardDetails(Integer UserId, String cardNo, String cardExpiry) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
 	public CardDetails findByCardNo(String Card_No) {

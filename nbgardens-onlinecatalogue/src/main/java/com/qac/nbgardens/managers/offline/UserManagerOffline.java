@@ -19,80 +19,17 @@ public class UserManagerOffline implements UserManager{
 	private InitialData initialData;
 	
 	
-	public void persistUser(CardDetails card, String firstName, String surname, String email, String phoneNo, String password, Address address) {
+	public void createUser(CardDetails card, String firstName, String surname, String email, String phoneNo, String password, Address address) {
 		Customer u = new Customer(card, firstName, surname, email, phoneNo, password, address);
 		initialData.addUser(u);
 	}
 	
 	
-
-	public Customer getUser(Integer id) {
-		List<Customer> us = initialData.getUsers();
-		for(int i=0; i<us.size(); i++){
-			if(us.get(i).getUserID().equals(id)){
-				return us.get(i);
-			}
-		}
-		return null;
-		
-	}
 	
 	public List<Customer> getUsers() {
 		return initialData.getUsers();
 	}
 	
-	
-	
-	public void updateUserEmail(Integer id, String email) {
-		int count = 0;
-		List<Customer> us = initialData.getUsers();
-		for(int i=0; i<us.size(); i++){
-			if(us.get(i).getUserID().equals(id)){
-				us.get(i).setEmail(email);
-				count++;
-			}
-		}
-		if(count==0){
-			System.out.println("No user with that ID found");
-		}
-		
-	}
-	
-	//@Override
-	public void updateUserPhoneNo(Integer id, String phoneNo) {
-		int count = 0;
-		List<Customer> us = initialData.getUsers();
-		for(int i=0; i<us.size(); i++){
-			if(us.get(i).getUserID().equals(id)){
-				us.get(i).setPhoneNumber(phoneNo);
-				count++;
-			}
-		}
-		if(count==0){
-			System.out.println("No user with that ID found");
-		}
-		
-	}
-	
-	
-	//@Override
-	public void updateUserPassword(Integer id, String password) {
-		int count = 0;
-		List<Customer> us = initialData.getUsers();
-		for(int i=0; i<us.size(); i++){
-			if(us.get(i).getUserID().equals(id)){
-				us.get(i).setPassword(password);
-				count++;
-			}
-		}
-		if(count==0){
-			System.out.println("No user with that ID found");
-		}
-		
-	}
-
-
-
 
 	@Override
 	public Customer getUserByEmail(String email) {
@@ -121,6 +58,30 @@ public class UserManagerOffline implements UserManager{
 	public void persistUser(CardDetails card, String name, String surname, String email, String phoneNo,
 			String password, Integer permissions, String add1, String add2, String town, String county,
 			String postcode) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void persistUsers(Customer c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void updateCustomer(Customer c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void removeCustomer(Customer c) {
 		// TODO Auto-generated method stub
 		
 	}

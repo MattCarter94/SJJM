@@ -76,7 +76,7 @@
 					<p:tab id="regFormStep3">
 						<p:panelGrid columns="2">
 							<h:outputLabel value="Name (as it appears on the card)" styleClass="labelForm" />
-							<h:inputText value="#{register.cardName}" styleClass="inputForm"></h:inputText>
+							<h:inputText value="#{register.nameOnCard}" styleClass="inputForm"></h:inputText>
 							<h:outputLabel value="Card Number" styleClass="labelForm" />
 							<h:inputText value="#{register.cardNo}"
 								onkeypress="if(event.which &lt; 48 || event.which &gt; 57 ) if(event.which != 8) return false;" styleClass="inputForm"></h:inputText>

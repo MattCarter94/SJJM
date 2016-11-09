@@ -20,14 +20,14 @@ public class OrderLine {
 	
 	private int quantity; // The quantity of that specific product
 	
-	private BigDecimal price;
+	private double price;
 
 	// Constructor
 	public OrderLine(CustomerOrder customerOrder, Product product, int quantity) {
 		setCustomerOrder(customerOrder);
 		this.product = product;
 		this.quantity = quantity;
-		this.price = product.getPrice().multiply(new BigDecimal(quantity));
+		this.price = product.getPrice()*quantity;
 	}
 	
 	public CustomerOrder getCustomerOrder() {
@@ -55,12 +55,12 @@ public class OrderLine {
 	}
 
 
-	public BigDecimal getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
 
-	public void setPrice(BigDecimal price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

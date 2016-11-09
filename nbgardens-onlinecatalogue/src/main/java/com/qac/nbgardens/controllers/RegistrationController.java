@@ -40,6 +40,7 @@ public class RegistrationController implements Serializable {
 	private String cardName;
 	private String cardNo;
 	private String expiry;
+	private String nameOnCard;
 
 	public String register(){
 	
@@ -56,7 +57,7 @@ public class RegistrationController implements Serializable {
 		}
 		
 		Address a = new Address(this.houseNo, this.street, this.town, this.county, this.postcode);
-		Customer c = new Customer(new CardDetails(this.cardNo, this.expiry), this.firstName, this.surname, this.email, this.phoneNo, this.password, a);
+		Customer c = new Customer(new CardDetails(this.cardNo, this.expiry, this.nameOnCard), this.firstName, this.surname, this.email, this.phoneNo, this.password, a);
 		initialData.addUser(c);
 		//System.out.println("The last added user's first name is: " + initialData.returnLastUser());
 		
@@ -68,6 +69,18 @@ public class RegistrationController implements Serializable {
 	public Customer getUser() {
 		return user;
 	}
+	
+	
+
+	public String getNameOnCard() {
+		return nameOnCard;
+	}
+
+
+	public void setNameOnCard(String nameOnCard) {
+		this.nameOnCard = nameOnCard;
+	}
+
 
 	public void setUser(Customer user) {
 		this.user = user;

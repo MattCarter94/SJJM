@@ -12,12 +12,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.qac.nbgardens.entities.enums.OrderStatus;
+
+@NamedQueries ({
+	@NamedQuery (
+		name = "findOrderStatus",
+		query = "SELECT * FROM CustomerOrder co where co. = :"
+	)
+})
 
 //SQL table definition
 @Entity
@@ -132,14 +141,14 @@ public class CustomerOrder {
 		}
 	}
 	
-	public BigDecimal getTotalCost(){
-		BigDecimal total = new BigDecimal(0);
-		BigDecimal x = new BigDecimal(0);
+	public double getTotalCost(){
+		double total = 0;
+		double x = 0;
 		for(int i=0; i<=orderLines.size()-1; i++){
-			x = x.add(orderLines.get(i).getPrice()); //.multiply(new BigDecimal(orderLines.get(i).getQuantity()
-			System.out.println("X is " + x);
-			total = total.add(x);
-			x = new BigDecimal(0);
+			x = x + orderLines.get(i).getPrice(); //.multiply(new BigDecimal(orderLines.get(i).getQuantity()
+//			System.out.println("X is " + x);
+			total = total + x;
+			x = 0;
 		}
 		return total;
 	}

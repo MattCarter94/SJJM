@@ -39,6 +39,16 @@ public class WishlistProductManagerOffline implements WishlistProductManager{
 	public void updateWishlist(String email, WishlistProduct wishlist) {
 		userManager.getUserByEmail(email).setWishlistProduct(wishlist);
 	}
+	@Override
+	public void updateWishlistProduct(WishlistProduct wp) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void deleteWishlistProduct(WishlistProduct wp) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 //	@Override
 //	public void persistWishlistProduct(WishlistProduct wp){

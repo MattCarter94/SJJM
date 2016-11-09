@@ -1,6 +1,6 @@
 package com.qac.nbgardens.entities;
 
-import java.math.BigDecimal;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -41,7 +41,7 @@ public class Product {
 	
 	@Column (name = "Price", nullable = false)
 	@NotNull
-	private BigDecimal price;
+	private double price;
 	
 	@Column (name = "Description", nullable = false, length = 1000)
 	@NotNull
@@ -74,7 +74,7 @@ public class Product {
 	
 	//Constructor
 	public Product(){};
-	public Product(String title, BigDecimal price, String description, Category category, String image, String tags, Integer stock, ProductStatus state, Date orderDate){
+	public Product(String title, double price, String description, Category category, String image, String tags, Integer stock, ProductStatus state, Date orderDate){
 		this.title = title;
 		this.price = price;
 		this.description = description;
@@ -85,7 +85,7 @@ public class Product {
 		this.state = state;
 		this.orderDate = orderDate;
 	};
-	public Product(Integer id, String title, BigDecimal price, String description, Category category, String image, String tags, Integer stock, ProductStatus state, Date orderDate){
+	public Product(Integer id, String title, double price, String description, Category category, String image, String tags, Integer stock, ProductStatus state, Date orderDate){
 		this.productID = id;
 		this.title = title;
 		this.price = price;
@@ -112,10 +112,10 @@ public class Product {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public BigDecimal getPrice() {
-		return price.setScale(2,BigDecimal.ROUND_HALF_UP);
+	public double getPrice() {
+		return price;
 	}
-	public void setPrice(BigDecimal price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public String getDescription() {
