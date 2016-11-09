@@ -8,11 +8,17 @@ import com.qac.nbgardens.entities.Customer;
 public interface UserManager {
 	public void persistUser(CardDetails card, String name, String surname, String email, String phoneNo, String password, Integer permissions, String add1, String add2, String town, String county, String postcode);
 	
-	public Customer getUser(Integer id);
+
 	public Customer getUserByEmail(String email);
 	public List<Customer> getUsers();
+
+
+	void persistUsers(Customer c);
+
+
+	void updateCustomer(Customer c);
+
+
+	void removeCustomer(Customer c);
 	
-	public void updateUserEmail(Integer id, String email);
-	public void updateUserPhoneNo(Integer id, String phoneNo);
-	public void updateUserPassword(Integer id, String password);
 }

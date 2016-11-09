@@ -7,22 +7,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table (name = "User")
-public class Customer {
+@NamedQueries ({
+	@NamedQuery (
+		name = "findCustomerByEmail",
+		query = "SELECT * FROM  Customers c where c.Email = :Email"
+	),
 	
-	private enum Permissions{
-		Customer, Admin, IMS
-	};
+	@NamedQuery (
+			name = "returnAll",
+			query = "SELECT * FROM  Customers"
+		)
+})
+
+@Entity
+@Table (name = "Customers")
+public class Customer {
+
 	
 	@Id //PK
-	@Column (name = "User_ID")  
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer userID;
+	@Column (name = "Email", unique = true)
+	private String email;
 	
 	@Id //PK / Composite key
 	@Column (name = "CardNo")  
@@ -41,9 +51,6 @@ public class Customer {
 	
 	@Column (name = "Credit")
 	private double credit;
-	
-	@Column (name = "Email", length = 255)
-	private String email;
 	
 	@Column (name = "Phone_Number")
 	private String phoneNumber;
@@ -76,14 +83,6 @@ public class Customer {
 	//End constructors
 	
 	//GETTERS AND SETTERS
-	public Integer getUserID() {
-		return userID;
-	}
-	
-	public void setUserID(Integer userID) {
-		this.userID = userID;
-	}
-	
 	public String getFirstName() {
 		return firstName;
 	}

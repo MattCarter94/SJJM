@@ -91,7 +91,6 @@ public class CustomerManagerSQL implements CustomerManager
 		EntityManager em = pm.CreateEntityManager();
 		em.remove(c);
 		pm.CloseEntityManager(em);
-
 	}
 
 	@Override

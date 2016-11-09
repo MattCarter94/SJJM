@@ -18,26 +18,6 @@ public class CardDetailsManagerOffline  implements CardDetailsManager {
 	
 	@Inject
 	private InitialData initialData; 
-	
-	public void updateCardDetails (Integer UserId, String cardNo, String cardExpiry) {
-		CardDetails card;
-		int count = 0;
-		List<Customer> us = initialData.getUsers();
-		for(int i=0; i<us.size(); i++){
-			if(us.get(i).getUserID().equals(UserId)){
-				card = us.get(i).getCard();
-				card.setCardNo(cardNo);
-				card.setCardExpiry(cardExpiry);
-				count++;
-			}
-		}
-		if(count == 0){
-			System.out.println("No users found with that ID");
-		}
-	}
-	
-
-
 	@Override
 	public CardDetails findByCardNo(String Card_No) { //Define an override for findById (The method being overriden is in CardDetailsManager)
 		//Passing in the variable "Card_No" (The primary key for the Card_Details table)

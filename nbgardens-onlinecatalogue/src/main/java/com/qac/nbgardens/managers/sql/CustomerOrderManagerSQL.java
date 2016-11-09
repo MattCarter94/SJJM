@@ -25,11 +25,6 @@ public class CustomerOrderManagerSQL  implements CustomerOrderManager{
 		return null;
 	}
 
-	@Override
-	public CustomerOrder getBasketGivenUser(Integer userID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public CustomerOrder getBasketGivenEmail(String email) {

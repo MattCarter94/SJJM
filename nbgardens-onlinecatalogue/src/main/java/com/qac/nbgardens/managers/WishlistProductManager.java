@@ -11,5 +11,9 @@ public interface WishlistProductManager {
 	public WishlistProduct getWishlistGivenUserEmail(String email);
 
 	public void updateWishlist(String email, WishlistProduct wishlist);
+
+	void updateWishlistProduct(WishlistProduct wp);
+
+	void deleteWishlistProduct(WishlistProduct wp);
 	
 }

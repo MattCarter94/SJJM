@@ -43,9 +43,9 @@ public class InitialData {
 		
 		
 		//Add users
-		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", addresses.get(0)));
-		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Dog", "Carter", "dog", "02938475812", "password1", addresses.get(0)));
-		addUser(new Customer(new CardDetails("123456789", "2018-05-03"), "Cat", "Carter", "cat@email.co.uk", "02938475812", "password1", addresses.get(0)));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03", "Matt"), "Matt", "Carter", "matt@email.co.uk", "02938475812", "password1", addresses.get(0)));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03", "Dog"), "Dog", "Carter", "dog", "02938475812", "password1", addresses.get(0)));
+		addUser(new Customer(new CardDetails("123456789", "2018-05-03", "Cat"), "Cat", "Carter", "cat@email.co.uk", "02938475812", "password1", addresses.get(0)));
 
 
 

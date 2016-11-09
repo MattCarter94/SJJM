@@ -17,6 +17,10 @@ public class CardDetails {
 	@NotNull
 	private String cardNo;
 	
+	@Column (name= "Name_On_Card")
+	@NotNull
+	private String nameOnCard;
+	
 	@Column (name = "Card_Expiry")
 	@NotNull
 	private String cardExpiry;
@@ -24,9 +28,10 @@ public class CardDetails {
 	
 	//Constructor
 	public CardDetails(){};
-	public CardDetails(String cardNo, String cardExpiry){
+	public CardDetails(String cardNo, String cardExpiry, String nameOnCard){
 		this.cardNo = cardNo;
 		this.cardExpiry = cardExpiry;
+		this.nameOnCard = nameOnCard;
 	};
 	
 	
@@ -35,6 +40,12 @@ public class CardDetails {
 	
 	public String getCardNo() {
 		return cardNo;
+	}
+	public String getNameOnCard() {
+		return nameOnCard;
+	}
+	public void setNameOnCard(String nameOnCard) {
+		this.nameOnCard = nameOnCard;
 	}
 	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
