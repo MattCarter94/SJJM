@@ -107,8 +107,6 @@ public class ProductController implements Serializable{
 		String image = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_image");
 		String tags = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_tags");
 		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
-		//System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
-		
 		System.out.println(String.format("Product Updated- ID: %s | Title: %s | Price: £%s | Description: %s | Category: %s | Image: %s | Tags: %s | Stock: %s | Active: %s |", id, title, price, description, category.toString(), image, tags, stock, active.toString()));
 		productService.updateProduct(id, title, price, description, category, image, tags, stock, active);
 	}
@@ -164,7 +162,7 @@ public class ProductController implements Serializable{
 		List<String> listParameters = new ArrayList<>();
 		FacesContext.getCurrentInstance().getExternalContext().getRequestParameterNames().forEachRemaining(k->{
 			listParameters.add(k);
-			System.out.println("PARAMETER: " + k);
+			//System.out.println("PARAMETER: " + k);
 		});
 		
 		//Apply filter variables
@@ -177,16 +175,12 @@ public class ProductController implements Serializable{
 				priceFilter = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
 			if(property.contains("filter:j_idt25"))
 				typeFilter = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
-			if(property.contains("filter:j_idt31"))
+			if(property.contains("filter_search"))
 				searchTerms = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
 		}
-		
 		if (lowcap==null) lowcap=0;
 		if (highcap==null) highcap=9999;
-		//System.out.println("SEARCH TERMS: " + searchTerms);
-		//System.out.println("PRICE FILTER: " + priceFilter);
-		//System.out.println("TYPE FILTER: " + typeFilter);
-		
+
 		//Limit by id range
 		ArrayList<Product> idrange = new ArrayList<Product>();
 		for (Product p : initial) {
@@ -199,9 +193,6 @@ public class ProductController implements Serializable{
 		//convert category string to enum
 
 		for (Product p : idrange) {
-			//System.out.println("Object p = " + p.getCategory().toString());
-			//System.out.println(typeFilter.toUpperCase());
-			//System.out.println();
 			
 			switch (typeFilter) {
 			case "any":
@@ -224,9 +215,9 @@ public class ProductController implements Serializable{
 				break;
 			}
 		}
-		
-		if (searchTerms == null || searchTerms == "") {
-			//System.out.println("skipped as no search terms present, itemsize: " + cat.size());
+		System.out.println(searchTerms);
+		if (searchTerms == null || searchTerms.isEmpty()) {
+			System.out.println("skipped as no search terms present, itemsize: " + cat.size());
 			result = cat;
 		} else {
 			
@@ -247,7 +238,6 @@ public class ProductController implements Serializable{
 		case "hightolow":
 			result.sort((o1, o2) -> o1.getProductId().compareTo(o2.getProductId()));
 			Collections.reverse(cat);
-			//Collections.sort(cat, Collections.reverseOrder());
 			break;
 		case "lowtohigh":
 			result.sort((o1, o2) -> o1.getProductId().compareTo(o2.getProductId()));
@@ -264,7 +254,7 @@ public class ProductController implements Serializable{
 		
 		for (String s : title) {
 			for (String str : terms) {
-				if (s.trim().equals(str.trim())) {
+				if (s.trim().toLowerCase().equals(str.trim().toLowerCase())) {
 					return true;
 				}
 			}
@@ -273,7 +263,7 @@ public class ProductController implements Serializable{
 		String[] pTerms = p.getTags().split(",");
 		for (String str : pTerms) {
 			for (String s : terms) {
-				if (s.trim().equals(str.trim())) {
+				if (s.trim().toLowerCase().equals(str.trim().toLowerCase())) {
 					//Tag has matched add to list
 					return true;
 				}
