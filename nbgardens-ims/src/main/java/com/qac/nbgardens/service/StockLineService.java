@@ -17,9 +17,9 @@ public class StockLineService
 	private StockLineManager stockLineManager;
 
 	
-	public List<StockLine> findAll() 
+	public List<StockLine> findAll(Integer selectID) 
 	{
-		return stockLineManager.findAll();
+		return stockLineManager.findAll(selectID);
 	}
 
 

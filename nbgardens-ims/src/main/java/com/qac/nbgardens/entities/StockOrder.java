@@ -50,14 +50,20 @@ public class StockOrder {
 	@Column (name = "Stock_Received_Date")
 	private Date stockRecievedDate;
 
-	
-	
 	private List<StockLine> stockLines;
+	
+	private static int idCounter = 1;
 	
 	public StockOrder(){};
 	
 	
 	public StockOrder(Integer supplierId, Date stockOrderDate, Date stockRecievedDate) {
+		if (this.stockOrderId == null) {
+			this.stockOrderId = idCounter;
+			idCounter++;
+		}
+		
+		
 		this.supplierId = supplierId;
 		this.stockOrderDate = stockOrderDate;
 		this.stockRecievedDate = stockRecievedDate;
