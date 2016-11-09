@@ -33,7 +33,7 @@ public class AddProductService {
 			c = Category.GNOMEACCESSORY;
 			break;
 		case "GARDENFOUNTIAN":
-			c = Category.GARDENFOUNTIAN;
+			c = Category.GARDENFOUNTAIN;
 			break;
 		}
 		Integer nStock = Integer.parseInt(stock);

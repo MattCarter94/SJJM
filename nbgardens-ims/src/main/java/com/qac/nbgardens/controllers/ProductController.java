@@ -95,9 +95,9 @@ public class ProductController implements Serializable{
 		String category = "";
 		String active = "";
 		for(String property : listParameters) {
-			if(property.contains("details:j_idt23"))
+			if(property.contains("details:j_idt38"))
 				category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
-			if(property.contains("details:j_idt26"))
+			if(property.contains("details:j_idt41"))
 				active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
 		}
 		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
@@ -164,7 +164,7 @@ public class ProductController implements Serializable{
 		List<String> listParameters = new ArrayList<>();
 		FacesContext.getCurrentInstance().getExternalContext().getRequestParameterNames().forEachRemaining(k->{
 			listParameters.add(k);
-			//System.out.println("PARAMETER: " + k);
+			System.out.println("PARAMETER: " + k);
 		});
 		
 		//Apply filter variables
@@ -199,9 +199,9 @@ public class ProductController implements Serializable{
 		//convert category string to enum
 
 		for (Product p : idrange) {
-			System.out.println("Object p = " + p.getCategory().toString());
-			System.out.println(typeFilter.toUpperCase());
-			System.out.println();
+			//System.out.println("Object p = " + p.getCategory().toString());
+			//System.out.println(typeFilter.toUpperCase());
+			//System.out.println();
 			
 			switch (typeFilter) {
 			case "any":
@@ -209,11 +209,10 @@ public class ProductController implements Serializable{
 				break;
 			case "gnome":
 				if (p.getCategory().toString().equals(typeFilter.toUpperCase())) {
-					
 					cat.add(p);
 				}
 				break;
-			case "gnomeaccesories":
+			case "gnomeaccessory":
 				if (p.getCategory().toString().equals(typeFilter.toUpperCase())) {
 					cat.add(p);
 				}
@@ -226,22 +225,62 @@ public class ProductController implements Serializable{
 			}
 		}
 		
+		if (searchTerms == null || searchTerms == "") {
+			//System.out.println("skipped as no search terms present, itemsize: " + cat.size());
+			result = cat;
+		} else {
+			
+			
+			for (Product p : cat) {
+				//System.out.println(p.getTitle());
+				if (matchSearchTerms(p)) {
+					result.add(p);
+				}
+			}
+		}
+				
+		
 		//Sorting
 		switch (priceFilter) {
 		case "any":
 			break;
 		case "hightolow":
-			cat.sort((o1, o2) -> o1.getProductId().compareTo(o2.getProductId()));
+			result.sort((o1, o2) -> o1.getProductId().compareTo(o2.getProductId()));
 			Collections.reverse(cat);
 			//Collections.sort(cat, Collections.reverseOrder());
 			break;
 		case "lowtohigh":
-			cat.sort((o1, o2) -> o1.getProductId().compareTo(o2.getProductId()));
+			result.sort((o1, o2) -> o1.getProductId().compareTo(o2.getProductId()));
 			break;
 		}
-		return cat;
+		return result;
 	}
 	
+	
+	public Boolean matchSearchTerms(Product p) {
+		String[] terms = searchTerms.split(",");
+		String[] title = p.getTitle().split(" ");
+		
+		
+		for (String s : title) {
+			for (String str : terms) {
+				if (s.trim().equals(str.trim())) {
+					return true;
+				}
+			}
+		}
+		
+		String[] pTerms = p.getTags().split(",");
+		for (String str : pTerms) {
+			for (String s : terms) {
+				if (s.trim().equals(str.trim())) {
+					//Tag has matched add to list
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	
 	public ArrayList<Product> getProducts() {
 		if(products == null) {

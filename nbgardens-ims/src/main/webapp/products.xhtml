@@ -50,7 +50,7 @@
 			                <h:selectOneMenu value="#{products.typeFilter}">
 			                	<f:selectItem itemValue="any" itemLabel="Any"/>
 			                	<f:selectItem itemValue="gnome" itemLabel="Gnome"/>
-			                	<f:selectItem itemValue="gnomeaccesories" itemLabel="Gnome Accessories"/>
+			                	<f:selectItem itemValue="gnomeaccessory" itemLabel="Gnome Accessories"/>
 			                	<f:selectItem itemValue="gardenfountain" itemLabel="Garden Fountain"/>
 			                </h:selectOneMenu>
 			            </div>
@@ -62,7 +62,6 @@
 		        </div>
 		        
 		        
-		     
 		        <div class="product-list">
 		        	<h:outputText escape="false" value="No Products Found" rendered="#{products.filterResults().size() == 0 }" />
 	           		<ui:repeat var="product" value="#{products.filterResults()}">
