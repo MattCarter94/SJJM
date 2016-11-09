@@ -56,9 +56,8 @@
 			            </div>
 			            <input id="tagsSearch" type="text" name="filter_search" value="#{products.searchTerms}"/>
 			            <br/>
-			            <h:commandButton value="Search" class="searchButton" type="submit" action="products">
-			            	
-			            </h:commandButton>
+			            <h:commandButton value="Search" class="searchButton" type="submit" action="products"/>
+			            <h:commandButton value="Reset" class="resetButton" type="submit" action="#{products.reset()}"/>
 		            </h:form>
 		        </div>
 		        
