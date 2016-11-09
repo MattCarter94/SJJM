@@ -199,23 +199,27 @@ public class ProductController implements Serializable{
 		//convert category string to enum
 
 		for (Product p : idrange) {
+			System.out.println("Object p = " + p.getCategory().toString());
+			System.out.println(typeFilter.toUpperCase());
+			System.out.println();
+			
 			switch (typeFilter) {
 			case "any":
 				cat.add(p);
 				break;
 			case "gnome":
-				if (p.getCategory().toString() == typeFilter.toUpperCase()) {
-					System.out.println("GNOME ADDED");
+				if (p.getCategory().toString().equals(typeFilter.toUpperCase())) {
+					
 					cat.add(p);
 				}
 				break;
 			case "gnomeaccesories":
-				if (p.getCategory().toString() == typeFilter.toUpperCase()) {
+				if (p.getCategory().toString().equals(typeFilter.toUpperCase())) {
 					cat.add(p);
 				}
 				break;
 			case "gardenfountain":
-				if (p.getCategory().toString() == typeFilter.toUpperCase()) {
+				if (p.getCategory().toString().equals(typeFilter.toUpperCase())) {
 					cat.add(p);
 				}
 				break;
