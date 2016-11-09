@@ -141,14 +141,14 @@ public class CustomerOrder {
 		}
 	}
 	
-	public BigDecimal getTotalCost(){
-		BigDecimal total = new BigDecimal(0);
-		BigDecimal x = new BigDecimal(0);
+	public double getTotalCost(){
+		double total = 0;
+		double x = 0;
 		for(int i=0; i<=orderLines.size()-1; i++){
-			x = x.add(orderLines.get(i).getPrice()); //.multiply(new BigDecimal(orderLines.get(i).getQuantity()
-			System.out.println("X is " + x);
-			total = total.add(x);
-			x = new BigDecimal(0);
+			x = x + orderLines.get(i).getPrice(); //.multiply(new BigDecimal(orderLines.get(i).getQuantity()
+//			System.out.println("X is " + x);
+			total = total + x;
+			x = 0;
 		}
 		return total;
 	}
