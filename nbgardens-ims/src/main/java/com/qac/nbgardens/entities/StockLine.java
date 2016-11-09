@@ -1,6 +1,8 @@
 package com.qac.nbgardens.entities;
 
 
+import java.text.DecimalFormat;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +31,7 @@ public class StockLine {
 	@Column (name = "Price", length = 255)
 	private double price;
 	
+	DecimalFormat df = new DecimalFormat("#.##"); 
 	
 	private Product product;
 	
@@ -38,7 +41,7 @@ public class StockLine {
 		this.stockOrderID = stockOrderID;
 		this.productId = productId;
 		this.quantity = quantity;
-		this.price = product.getPrice() * quantity;
+		this.price = Double.valueOf(df.format(product.getPrice() * quantity));
 		this.product = product;
 	}
 
