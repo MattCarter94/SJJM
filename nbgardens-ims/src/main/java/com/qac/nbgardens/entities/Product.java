@@ -10,6 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+
 import com.qac.nbgardens.entities.enums.Category;
 import com.qac.nbgardens.entities.enums.ProductStatus;
 

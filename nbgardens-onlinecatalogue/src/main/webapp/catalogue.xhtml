@@ -2,6 +2,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
 	template="templates/clivetemplate.xhtml">
 
 	<ui:define name="tabtitle">Catalogue</ui:define>
@@ -52,44 +53,33 @@
 						</button>
 					</div>
 				</div>
-
-
-				<hr />
 				
-				<form action="">
-					<input type="checkbox" name="gnome" value="seasonal"
-						class="gnome-size" /> Small Gnomes<br /> <input type="checkbox"
-						name="gnome" value="" class="gnome-size" /> Medium Gnomes<br /> <input
-						type="checkbox" name="gnome" value="Large gnomes"
-						class="gnome-size" /> Large Gnomes<br />
-				</form>
 				<hr />
 				<p>Price range:</p>
 
-				<form id="priceform">
-					<select id="price-from" class="form-control">
-						<option value="£500">£500</option>
-						<option value="1000">£1,000</option>
-						<option value="2000">£2,000</option>
-						<option value="3000">£3,000</option>
-						<option value="4000">£4,000</option>
-						<option value="5000">£5,000</option>
-						<option value="10000">£10,000</option>
-						<option value="20000">£20,000</option>
-					</select>
-					<p id="to">To</p>
-					<select id="price-to" class="form-control">
+				<h:form id="priceform">
 
-						<option value="500">£500</option>
-						<option value="1000">£1,000</option>
-						<option value="2000">£2,000</option>
-						<option value="3000">£3,000</option>
-						<option value="4000">£4,000</option>
-						<option value="5000">£5,000</option>
-						<option value="10000">£10,000</option>
-						<option value="20000">£20,000</option>
-					</select>
-				</form>
+					
+					<p>priceLow: #{prodbean.priceLow}</p>
+					
+					<h:selectOneMenu value="#{prodbean.priceLow}">
+						<f:selectItem itemValue="10" itemLabel="10" />
+						<f:selectItem itemValue="20" itemLabel="20" />
+						<f:selectItem itemValue="30" itemLabel="30" />
+					</h:selectOneMenu>
+					
+					<p>priceHigh: #{prodbean.priceHigh}</p>
+					
+					<h:selectOneMenu value="#{prodbean.priceHigh}">
+						<f:selectItem itemValue="40" itemLabel="40" />
+						<f:selectItem itemValue="50" itemLabel="50" />
+						<f:selectItem itemValue="60" itemLabel="60" />
+					</h:selectOneMenu>
+					
+					<h:commandButton action="catalogue" value="Submit" />
+					
+					
+				</h:form>
 				<hr style="clear: both;" />
 
 			</div>
@@ -141,8 +131,6 @@
 			<div class="col-md-1"></div>
 
 		</div>
-
-
 
 
 
