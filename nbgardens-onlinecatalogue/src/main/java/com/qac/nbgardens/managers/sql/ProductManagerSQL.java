@@ -101,7 +101,13 @@ public class ProductManagerSQL implements ProductManager{
 	}
 
 	@Override
-	public ArrayList<Product> findAll(double low, double high, Category category) {
+	public ArrayList<Product> findAll(double low, double high, Category category, String search) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Product> findAll(String search) {
 		// TODO Auto-generated method stub
 		return null;
 	}
