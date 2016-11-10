@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.Product;
+import com.qac.nbgardens.entities.enums.Category;
 import com.qac.nbgardens.managers.ProductManager;
 
 @Stateless
@@ -19,9 +20,9 @@ public class ProductService {
 		return productManager.findAll();
 	}
 	
-	public ArrayList<Product> findAll(double low, double high) {
+	public ArrayList<Product> findAll(double low, double high, Category category) {
 //		System.out.println("service findAll");
-		return productManager.findAll(low, high);
+		return productManager.findAll(low, high, category);
 	}
 
 	public Product findProductById(Integer id) {

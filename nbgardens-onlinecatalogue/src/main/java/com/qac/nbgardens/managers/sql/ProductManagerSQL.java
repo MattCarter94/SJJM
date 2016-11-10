@@ -12,6 +12,7 @@ import javax.persistence.TypedQuery;
 import javax.validation.ValidationException;
 
 import com.qac.nbgardens.entities.Product;
+import com.qac.nbgardens.entities.enums.Category;
 import com.qac.nbgardens.managers.PersistanceManager;
 import com.qac.nbgardens.managers.ProductManager;
 
@@ -100,8 +101,9 @@ public class ProductManagerSQL implements ProductManager{
 	}
 
 	@Override
-	public ArrayList<Product> findAll(double low, double high) {
+	public ArrayList<Product> findAll(double low, double high, Category category) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

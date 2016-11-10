@@ -78,19 +78,32 @@
 					
 					<span>High 
 					<h:selectOneMenu class="high" value="#{products.priceHigh}">
-						<f:selectItem itemValue="0" itemLabel="0" />
-						<f:selectItem itemValue="10" itemLabel="10" />
-						<f:selectItem itemValue="20" itemLabel="20" />
-						<f:selectItem itemValue="30" itemLabel="30" />
-						<f:selectItem itemValue="40" itemLabel="40" />
-						<f:selectItem itemValue="50" itemLabel="50" />
-						<f:selectItem itemValue="60" itemLabel="60" />
-						<f:selectItem itemValue="70" itemLabel="70" />
-						<f:selectItem itemValue="80" itemLabel="80" />
-						<f:selectItem itemValue="90" itemLabel="90" />
-						<f:selectItem itemValue="100" itemLabel="100" />
 						<f:selectItem itemValue="#{products.range.get(products.range.size()-1)}" itemLabel="#{products.range.get(products.range.size()-1)}" />
+						<f:selectItem itemValue="100" itemLabel="100" />
+						<f:selectItem itemValue="90" itemLabel="90" />
+						<f:selectItem itemValue="80" itemLabel="80" />
+						<f:selectItem itemValue="70" itemLabel="70" />
+						<f:selectItem itemValue="60" itemLabel="60" />
+						<f:selectItem itemValue="50" itemLabel="50" />
+						<f:selectItem itemValue="40" itemLabel="40" />
+						<f:selectItem itemValue="30" itemLabel="30" />
+						<f:selectItem itemValue="20" itemLabel="20" />
+						<f:selectItem itemValue="10" itemLabel="10" />
+						<f:selectItem itemValue="0" itemLabel="0" />						
 					</h:selectOneMenu></span>
+					
+					<br/>
+					
+					<hr />
+					<p>Categories:</p>
+					
+					<h:selectOneMenu class="category" value="#{products.category}">
+						<f:selectItem itemValue="#{products.categories.get(3)}" itemLabel="All" />
+						<f:selectItem itemValue="#{products.categories.get(0)}" itemLabel="Gnomes" />
+						<f:selectItem itemValue="#{products.categories.get(1)}" itemLabel="Gnome Accessories" />
+						<f:selectItem itemValue="#{products.categories.get(2)}" itemLabel="Garden Fountains" />
+					</h:selectOneMenu>
+					
 					
 					<br/><br/>
 					<h:commandButton action="catalogue" value="Submit" />
@@ -115,7 +128,7 @@
 									<ui:repeat var="product" value="#{products.getProducts()}">
 										<div class="browse-image">
 											<p class="price">£#{product.price}</p>
-											<img src="img/#{product.image}" width="200px" class="thumb" />
+											<img src="img/#{product.image}" width="200px" height="210px" class="thumb" />
 											<div class="prodButton">
 												<figcaption>#{product.title}</figcaption>
 												<h:button value="More Info" outcome="product.xhtml"
