@@ -21,7 +21,7 @@ public class StockLineManagerOffline implements StockLineManager
 	private InitialData initialData;
 
 	@Override
-	public List<StockLine> findAll(Integer selectID) 
+	public List<StockLine> findAllCertain(Integer selectID) 
 	{
 		List<StockLine> sl = new ArrayList<StockLine>();
 		

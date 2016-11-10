@@ -20,82 +20,19 @@ import com.qac.nbgardens.util.Pagination;
 
 @Named("stockorders")
 @SessionScoped
-public class StockOrderController implements Serializable{ // Need to changeeeeeeeee everything.
+public class StockOrderController implements Serializable{ 
 	@Inject
 	private StockOrderService stockOrderService;
-	private ArrayList<StockOrder> stockOrders = null;
-	private Pagination pagination;
-		
+	private ArrayList<StockOrder> stockOrders = null;		
 
 	public ArrayList<StockOrder> getStockOrders() 
 	{
+
 		if(stockOrders == null)
-			stockOrders = getPagination().createArrayList();
+		{
+			stockOrders = new ArrayList<StockOrder>(stockOrderService.findAll());
+		}
 		return stockOrders;
 	}
-		
-	public void stockOrderTest()
-	{	 
-		 System.out.println("Step 1");
-		 System.out.println("Step 2");
-		 System.out.println("Step 3");
-		 System.out.println("Step 4");
-		 
-		// System.out.println(customerID +" <-Customer ID || Order Id-> " + orderID);
 
-		// stockOrderService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
-
-	}
-
-	private Pagination getPagination() 
-	{
-		if(pagination==null)
-			pagination = new Pagination(20) {
-				
-				@Override
-				public ArrayList createArrayList() {
-					try {
-						return new ArrayList<StockOrder>(stockOrderService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
-					} catch (Exception e) {
-						return new ArrayList<StockOrder>(stockOrderService.findAll().subList(getPageFirstItem(), getItemsCount()));
-					}
-				}
-
-				@Override
-				public int getItemsCount() {
-					return stockOrderService.findAll().size();
-				}
-			};
-		return pagination;
-	}
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

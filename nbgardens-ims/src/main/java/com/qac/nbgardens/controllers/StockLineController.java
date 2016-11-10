@@ -20,69 +20,26 @@ public class StockLineController implements Serializable
 	private StockLineService stockLineService;
 	private ArrayList<StockLine> stockLines = null;
 	private Pagination pagination;
-		
-
-	public ArrayList<StockLine> getStockLines() // run this and choose number to get it going
+	
+	
+	public ArrayList<StockLine> getStockLines(Integer selectID) 
 	{
-		if(stockLines == null)
-			stockLines = getPagination(1).createArrayList();
+		stockLines = new ArrayList<StockLine>(stockLineService.findAllCertain(selectID));
 		return stockLines;
 	}
+	
+	public Double getStockLinesPrice(Integer selectID) 
+	{	
 		
-	public void StockLineTest()
-	{	 
-		 System.out.println("Step 1");
-		 System.out.println("Step 2");
-		 System.out.println("Step 3");
-		 System.out.println("Step 4");
-		 
-		// System.out.println(customerID +" <-Customer ID || Order Id-> " + orderID);
-		// stockOrderService.displayProductTitleFromSpecificCustomerOrder(customerID, orderID);
+			double totalStockOrderPrice = 0;
+		
+		stockLines = new ArrayList<StockLine>(stockLineService.findAllCertain(selectID));
+		
+		for (Integer i = 0; i < stockLines.size(); i++ )
+		{
+			totalStockOrderPrice = totalStockOrderPrice + stockLines.get(i).getPrice();
+		}
+		
+		return totalStockOrderPrice;
 	}
-
-	private Pagination getPagination(Integer selectID) 
-	{
-		if(pagination==null)
-			pagination = new Pagination(20) {
-				
-				@Override
-				public ArrayList createArrayList() {
-					try 
-					{
-						return new ArrayList<StockLine>(stockLineService.findAll(selectID).subList(getPageFirstItem(), getPageLastItem() + getPageSize()));
-						
-					} 
-					catch (Exception e) 
-					{
-						return new ArrayList<StockLine>(stockLineService.findAll(selectID).subList(getPageFirstItem(), getItemsCount()));
-					}
-				}
-
-				@Override
-				public int getItemsCount() {
-					return stockLineService.findAll(selectID).size();
-				}
-			};
-		return pagination;
-}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
