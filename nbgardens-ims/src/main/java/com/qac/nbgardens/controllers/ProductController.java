@@ -2,6 +2,7 @@ package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -28,11 +29,11 @@ public class ProductController implements Serializable{
 	private ArrayList<Product> products = null;
 	private Pagination pagination;
 	
-	private String searchTerms;
-	private Integer lowcap;
-	private Integer highcap;
-	private String priceFilter;
-	private String typeFilter;
+	private String searchTerms = "";
+	private Integer lowcap = 0;
+	private Integer highcap = 9999;
+	private String priceFilter = "any";
+	private String typeFilter = "any";
 	
 	
 	
@@ -56,14 +57,22 @@ public class ProductController implements Serializable{
 		return highcap;
 	}
 	public void setHighcap(Integer s) {
-		highcap = s;
+		try {
+			highcap = s;
+		}catch (Exception e){
+			highcap = 9999;
+		}
 	}
 	
 	public Integer getLowcap() {
 		return lowcap;
 	}
 	public void setLowcap(Integer s) {
-		lowcap = s;
+		try {
+			lowcap = s;
+		}catch (Exception e){
+			lowcap = 0;
+		}
 	}
 	
 	public String getSearchTerms() {
@@ -86,9 +95,9 @@ public class ProductController implements Serializable{
 		String category = "";
 		String active = "";
 		for(String property : listParameters) {
-			if(property.contains("details:j_idt23"))
+			if(property.contains("details:j_idt38"))
 				category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
-			if(property.contains("details:j_idt26"))
+			if(property.contains("details:j_idt41"))
 				active = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
 		}
 		String title = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_title");
@@ -98,10 +107,17 @@ public class ProductController implements Serializable{
 		String image = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_image");
 		String tags = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_tags");
 		String stock = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("product_stock");
-		//System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap());
-		
 		System.out.println(String.format("Product Updated- ID: %s | Title: %s | Price: £%s | Description: %s | Category: %s | Image: %s | Tags: %s | Stock: %s | Active: %s |", id, title, price, description, category.toString(), image, tags, stock, active.toString()));
 		productService.updateProduct(id, title, price, description, category, image, tags, stock, active);
+	}
+	
+	public String reset() {
+		lowcap = 0;
+		highcap = 9999;
+		priceFilter = "any";
+		typeFilter = "any";
+		searchTerms = "";
+		return "products";
 	}
 	
 	
@@ -146,7 +162,7 @@ public class ProductController implements Serializable{
 		List<String> listParameters = new ArrayList<>();
 		FacesContext.getCurrentInstance().getExternalContext().getRequestParameterNames().forEachRemaining(k->{
 			listParameters.add(k);
-			System.out.println("PARAMETER: " + k);
+			//System.out.println("PARAMETER: " + k);
 		});
 		
 		//Apply filter variables
@@ -155,23 +171,106 @@ public class ProductController implements Serializable{
 				lowcap = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property));
 			if(property.contains("filter:j_idt18"))
 				highcap = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property));
+			if(property.contains("filter:j_idt20"))
+				priceFilter = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
 			if(property.contains("filter:j_idt25"))
+				typeFilter = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
+			if(property.contains("filter_search"))
 				searchTerms = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(property);
 		}
-		
 		if (lowcap==null) lowcap=0;
 		if (highcap==null) highcap=9999;
-		
-		
+
 		//Limit by id range
+		ArrayList<Product> idrange = new ArrayList<Product>();
 		for (Product p : initial) {
 			if (p.getProductId() > lowcap -1 && p.getProductId() <= highcap) {
-				result.add(p);
+				idrange.add(p);
 			}
+		}
+		
+		ArrayList<Product> cat = new ArrayList<Product>();
+		//convert category string to enum
+
+		for (Product p : idrange) {
+			
+			switch (typeFilter) {
+			case "any":
+				cat.add(p);
+				break;
+			case "gnome":
+				if (p.getCategory().toString().equals(typeFilter.toUpperCase())) {
+					cat.add(p);
+				}
+				break;
+			case "gnomeaccessory":
+				if (p.getCategory().toString().equals(typeFilter.toUpperCase())) {
+					cat.add(p);
+				}
+				break;
+			case "gardenfountain":
+				if (p.getCategory().toString().equals(typeFilter.toUpperCase())) {
+					cat.add(p);
+				}
+				break;
+			}
+		}
+		System.out.println(searchTerms);
+		if (searchTerms == null || searchTerms.isEmpty()) {
+			System.out.println("skipped as no search terms present, itemsize: " + cat.size());
+			result = cat;
+		} else {
+			
+			
+			for (Product p : cat) {
+				//System.out.println(p.getTitle());
+				if (matchSearchTerms(p)) {
+					result.add(p);
+				}
+			}
+		}
+				
+		
+		//Sorting
+		switch (priceFilter) {
+		case "any":
+			break;
+		case "hightolow":
+			result.sort((o1, o2) -> o1.getProductId().compareTo(o2.getProductId()));
+			Collections.reverse(cat);
+			break;
+		case "lowtohigh":
+			result.sort((o1, o2) -> o1.getProductId().compareTo(o2.getProductId()));
+			break;
 		}
 		return result;
 	}
 	
+	
+	public Boolean matchSearchTerms(Product p) {
+		String[] terms = searchTerms.split(",");
+		String[] title = p.getTitle().split(" ");
+		
+		
+		for (String s : title) {
+			for (String str : terms) {
+				if (s.trim().toLowerCase().equals(str.trim().toLowerCase())) {
+					return true;
+				}
+			}
+		}
+		
+		String[] pTerms = p.getTags().split(",");
+		for (String str : pTerms) {
+			for (String s : terms) {
+				if (s.trim().toLowerCase().equals(str.trim().toLowerCase())) {
+					//Tag has matched add to list
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	
 	public ArrayList<Product> getProducts() {
 		if(products == null) {

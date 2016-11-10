@@ -32,8 +32,8 @@ public class ProductService {
 		case "GNOMEACCESSORY":
 			productManager.findProductById(id).setCategory(Category.GNOMEACCESSORY);
 			break;
-		case "GARDENFOUNTIAN":
-			productManager.findProductById(id).setCategory(Category.GARDENFOUNTIAN);
+		case "GARDENFOUNTAIN":
+			productManager.findProductById(id).setCategory(Category.GARDENFOUNTAIN);
 			break;
 		}
 		

@@ -30,9 +30,10 @@ public class Customer {
 	
 	
 	@Id //PK
-	@Column (name = "Email", length = 255)  
+	@Column (name = "Email", length = 255, unique = true)  
 	//@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private String customerEmail;
+	
 	
 	
 	@Column (name = "First_Name", length = 255)

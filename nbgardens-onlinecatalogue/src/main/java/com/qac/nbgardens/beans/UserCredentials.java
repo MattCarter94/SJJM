@@ -31,7 +31,7 @@ public class UserCredentials implements Serializable {
 	
 	
 	public boolean itemInWishlist(Integer productID){
-		WishlistProduct wlp = user.getWishlist();
+		WishlistProduct wlp = user.getWishlistProduct();
 		for(int i=0; i>wlp.getProducts().size(); i++){
 			if(wlp.getProducts().get(i).getProductID() == productID){
 				return true;

@@ -40,7 +40,7 @@ public class CustomerManagerSQL implements CustomerManager
 		em.getTransaction().begin();
 		for (Customer cu : c)
 		{
-			em.persist(c);
+			em.persist(cu);
 		}
 			
 		em.getTransaction().commit();
@@ -91,7 +91,6 @@ public class CustomerManagerSQL implements CustomerManager
 		EntityManager em = pm.CreateEntityManager();
 		em.remove(c);
 		pm.CloseEntityManager(em);
-
 	}
 
 	@Override
