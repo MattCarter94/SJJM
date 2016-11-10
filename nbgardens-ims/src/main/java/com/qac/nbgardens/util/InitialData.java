@@ -1,10 +1,9 @@
 package com.qac.nbgardens.util;
 
-<<<<<<< HEAD
+
 import java.math.BigDecimal;
 import java.text.DateFormat;
-=======
->>>>>>> c718085e7a1c91b350491cdabc0ff934fe1bac30
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
