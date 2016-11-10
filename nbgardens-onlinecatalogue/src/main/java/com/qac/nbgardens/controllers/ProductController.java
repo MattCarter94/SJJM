@@ -1,6 +1,7 @@
 package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
@@ -20,11 +21,47 @@ import com.qac.nbgardens.util.Pagination;
 public class ProductController implements Serializable{
 	@Inject
 	private ProductService productService;
-	private DataModel<Product> products = null;
+	private ArrayList<Product> products = null;
 	private Pagination pagination;
 	private int selected;
 	private Product product;
+	private double priceLow = 0;;
+	private double priceHigh = 320;
+	private List<Double> range = null;
+	private List<Double> lowRange;
+	private List<Double> highRange;
 	
+	
+	
+	
+	public List<Double> getRange() {
+		return productService.priceRange();
+	}
+
+	public void setRange(List<Double> range) {
+		this.range = range;
+	}
+
+	public double getPriceLow() {
+		return priceLow;
+	}
+
+	public void setPriceLow(double priceLow) {
+		this.priceLow = priceLow;
+	}
+
+	public double getPriceHigh() {
+		return priceHigh;
+	}
+
+	public void setPriceHigh(double priceHigh) {
+		this.priceHigh = priceHigh;
+	}
+
+	public void setProducts(ArrayList<Product> products) {
+		this.products = products;
+	}
+
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
@@ -41,29 +78,50 @@ public class ProductController implements Serializable{
 		products = null;
 	}
 
-	public DataModel<Product> getProducts() {
-		if(products == null)
-			products = getPagination().createDataModel();
+	public ArrayList<Product> getProducts() {
+		System.out.println("get products");
+//		if(products == null)
+			products = productService.findAll(priceLow, priceHigh);//getPagination().niceDataModel();//getPagination().createDataModel();
+		System.out.println(products.size());
 		return products;
 	}
+	
 
 	public Pagination getPagination() {
 		if(pagination==null)
-			pagination = new Pagination(5) {
+			pagination = new Pagination(4) {
 				
 				@Override
 				public DataModel<Product> createDataModel() {
 					try {
-						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+//						products = new ListDataModel<Product>(productService.findAll(priceLow, priceHigh).subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+						return new ListDataModel<Product>(productService.findAll(priceLow, priceHigh).subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
-						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(), getItemsCount()));
+//						products = new ListDataModel<Product>(productService.findAll(priceLow, priceHigh).subList(getPageFirstItem(), getItemsCount()));
+						return new ListDataModel<Product>(productService.findAll(priceLow, priceHigh).subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 
 				@Override
 				public int getItemsCount() {
-					return productService.findAll().size();
+					System.out.println("Item Count " + productService.findAll(priceLow, priceHigh).size());
+					return productService.findAll(priceLow, priceHigh).size();
 				}
+
+				@Override
+				public DataModel<Product> createDataModel(double low, double high) {
+					try {
+						return new ListDataModel<Product>(productService.findAll(priceLow, priceHigh).subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+					} catch (Exception e) {
+						return new ListDataModel<Product>(productService.findAll(priceLow, priceHigh).subList(getPageFirstItem(), getItemsCount()));
+					}
+				}
+				
+				@Override
+				public DataModel<Product> niceDataModel() {
+					return new ListDataModel<Product>(productService.findAll(priceLow, priceHigh));
+				}
+				
 			};
 		return pagination;
 	}
@@ -77,25 +135,25 @@ public class ProductController implements Serializable{
 	
 	
 	
-	public DataModel<Product> getDataModel() {
-		  if (products == null)
-		    products = getPagination().createDataModel();
-		  return products;
-		}
+//	public List<Product> getDataModel() {
+//		  if (products == null)
+//		    products = getPagination().createDataModel();
+//		  return products;
+//		}
 
-	private void updateCurrentItem() {
-		  int count = productService.findAll().size();
-		  if (selected >= count) {
-		    selected = count-1;
-		    if (pagination.getPageFirstItem() >= count)
-		      pagination.previousPage();
-		  } if (selected >= 0)
-		    try {
-		      setProduct(productService.findAll().subList(selected, selected + 1).get(0));
-		    } catch(Exception e) {
-		      setProduct(productService.findAll().subList(selected, count).get(0));
-		   }
-		}
+//	private void updateCurrentItem() {
+//		  int count = productService.findAll().size();
+//		  if (selected >= count) {
+//		    selected = count-1;
+//		    if (pagination.getPageFirstItem() >= count)
+//		      pagination.previousPage();
+//		  } if (selected >= 0)
+//		    try {
+//		      setProduct(productService.findAll().subList(selected, selected + 1).get(0));
+//		    } catch(Exception e) {
+//		      setProduct(productService.findAll().subList(selected, count).get(0));
+//		   }
+//		}
 
 	public String view(Integer id) {
 		  product = productService.findProductById(id);

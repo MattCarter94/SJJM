@@ -13,6 +13,8 @@ public abstract class Pagination {
 	}
 
 	abstract public DataModel createDataModel();
+	abstract public DataModel createDataModel(double low, double high);
+	abstract public DataModel niceDataModel();
 	abstract public int getItemsCount();
 	
 	public int getPageFirstItem() {

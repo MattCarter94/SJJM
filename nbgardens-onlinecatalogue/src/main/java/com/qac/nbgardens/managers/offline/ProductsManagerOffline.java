@@ -62,4 +62,8 @@ public class ProductsManagerOffline implements ProductManager{
 	public List<Product> findAll() {
 		return initialData.getProducts();
 	}
+	@Override
+	public ArrayList<Product> findAll(double low, double high) {
+		return initialData.getProducts(low, high);
+	}
 }

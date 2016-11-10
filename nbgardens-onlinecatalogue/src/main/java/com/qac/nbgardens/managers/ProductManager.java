@@ -15,4 +15,5 @@ public interface ProductManager {
 	public void updateProduct (Product p);
 	public void removeProduct (Product p);
 	public List<Product> findAll();
+	public ArrayList<Product> findAll(double low, double high);
 }
