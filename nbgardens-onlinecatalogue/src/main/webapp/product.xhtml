@@ -32,7 +32,8 @@
                 </div>
 
                 <div class="prodPrice">
-                    <h3><b>Only £#{products.findProductById(prodbean.id).price}</b></h3>
+<!--                     <h3><b>Only £#{products.findProductById(prodbean.id).price}</b></h3> -->
+					<h3><b>Only <h:outputText value="#{products.findProductById(prodbean.id).price}" styleClass="price"><f:convertNumber type="currency" /></h:outputText></b></h3>
                     <div class="buttons">
 	                    <h:form>
 	                    	<span><h:button value="Back" outcome="catalogue.xhtml" styleClass="back"></h:button>

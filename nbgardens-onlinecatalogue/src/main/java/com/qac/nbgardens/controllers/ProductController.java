@@ -1,6 +1,7 @@
 package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +38,7 @@ public class ProductController implements Serializable{
 	private List<Double> lowRange;
 	private List<Double> highRange;
 	
-	
+	private DecimalFormat df = new DecimalFormat("#.00"); 
 	
 	
 	

@@ -1,5 +1,6 @@
 package com.qac.nbgardens.util;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,6 +34,7 @@ public class InitialData {
 	private List<OrderLine> orderLines = new ArrayList<OrderLine>();
 	private List<Address> addresses = new ArrayList<Address>();
 	
+	DecimalFormat df = new DecimalFormat("#.00"); 
 	
 	@PostConstruct
 	public void SetupData() {

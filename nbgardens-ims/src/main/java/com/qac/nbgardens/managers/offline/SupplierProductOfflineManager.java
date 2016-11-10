@@ -37,33 +37,9 @@ public class SupplierProductOfflineManager implements SupplierProductManager {
 			for (Integer i = 0; i < productListSet.size(); i++)
 			{
 				if (productListSet.get(i).getSupplierID() == supplierID)
-					supplierProducts.add(productListSet.get(0));
+					supplierProducts.add(productListSet.get(i));
 			}	
 		}
 		return supplierProducts;
 	}
 }
-
-
-/*@Override
-public List<StockLine> findAllCertain(Integer selectID) 
-{
-	List<StockLine> sl = new ArrayList<StockLine>();
-	
-	for (Integer j = 0; j < initialData.getSuppliers().size(); j++)
-	{
-		for (StockOrder so : initialData.getSuppliers().get(j).getStockOrders()) 
-		{
-			for (int i = 0; i < so.getStockLines().size(); i++) 
-			{	
-				if (so.getStockLines().get(i).getStockOrderID() == selectID)
-					sl.add(so.getStockLines().get(i));
-			}
-		}
-	}
-	return sl;
-}*/
-
-
-	
-

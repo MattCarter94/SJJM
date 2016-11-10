@@ -24,10 +24,14 @@ public class Supplier {
 	private List<StockOrder> stockOrders;
 	private List<SupplierProduct> supplierProducts;
 	
-	
+	private static int idCounter = 1;
 	
 	public Supplier(String supplierName) {
-		super();
+		
+		if (this.supplierId == null) {
+			this.supplierId = idCounter;
+			idCounter++;
+		}
 		this.supplierName = supplierName;
 		this.stockOrders = new ArrayList<StockOrder>();
 		this.supplierProducts = new ArrayList<SupplierProduct>();

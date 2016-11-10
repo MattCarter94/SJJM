@@ -47,17 +47,17 @@
 				<p>Search Catalogue:</p>
 				<h:form id="priceform">
 					<div class="input-group add-on">
+					<span>
 						<h:inputText type="text" value="#{products.search}" a:placeholder="Search Product Name"/>
-						<div class="input-group-btn">
+<!-- 						<div class="input-group-btn"> -->
 							
-							<h:commandButton class="btn btn-default" action="catalogue" value="Search" >
-								<i class="glyphicon glyphicon-search"></i>
-							</h:commandButton>
+							<h:commandButton class="btn btn-default" action="catalogue" image="img/search1.png"/>
 <!-- 							<button class="btn btn-default" type="submit" -->
 <!-- 								onsubmit="searchProducts(search-term.value)"> -->
 <!-- 								<i class="glyphicon glyphicon-search"></i> -->
 <!-- 							</button> -->
-						</div>
+<!-- 						</div> -->
+						</span>
 					</div>
 				
 				
@@ -133,7 +133,8 @@
 								<div class="productGrid">
 									<ui:repeat var="product" value="#{products.getProducts()}">
 										<div class="browse-image">
-											<p class="price">£#{product.price}</p>
+											<h:outputText value="#{product.price}" styleClass="price"><f:convertNumber type="currency" /></h:outputText>
+<!-- 											<p class="price">£#{product.price}</p> -->
 											<img src="img/#{product.image}" width="200px" height="210px" class="thumb" />
 											<div class="prodButton">
 												<figcaption>#{product.title}</figcaption>

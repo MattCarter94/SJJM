@@ -34,11 +34,17 @@ public class ProductController implements Serializable{
 	private Integer highcap = 9999;
 	private String priceFilter = "any";
 	private String typeFilter = "any";
+	private Integer graphSearch;
 	
 	
 	
 	
-	
+	public Integer getGraphSearch() {
+		return graphSearch;
+	}
+	public void setGraphSearch(Integer graphSearch) {
+		this.graphSearch = graphSearch;
+	}
 	public String getTypeFilter() {
 		return typeFilter;
 	}
@@ -323,5 +329,11 @@ public class ProductController implements Serializable{
 			};
 		return pagination;
 	}
+	
+	public Product findProductById(Integer id){
+		return productService.findProductById(id);
+	}
+	
+	
 }
 

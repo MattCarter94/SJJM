@@ -15,66 +15,51 @@
    <body>
    		<ui:composition template="templates/template.xhtml">
 			<ui:define name="content">
-       		<link rel="stylesheet" href="css/StockOrderStyle.css"/>
         	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 			<link rel="stylesheet" href="css/Previousstockorders.css"/>
 			<script  type="text/javascript" src="js/previousstockorders.js"></script>
+		    <link rel="stylesheet" href="css/StockOrderStyle.css"/>
 		    
 		    <br></br>
 			<div class ="container"> 
-		    	<h1>New Stock Order</h1>
+		    	<h1>Create A New Stock Order</h1>
 		    </div>
 			<br></br>
 			<br></br>
 			<br></br>
+			
 								
 			<div class ="container">  
+			  <h3>Select A Supplier:</h3> <br></br>
 			  <ui:repeat var="supplier" value="#{suppliers.suppliers}">
-				<button class="accordion"><h4>Suppliers: #{supplier.supplierName}</h4></button>
-					<div class="panel">
-				
-				
-				
-						<ui:repeat var="supplierProducts" value="#{supplierproducts.getSuppliersProducts(1)}">
+			  <hr></hr>
+				<button class="accordion"><h4>Supplier: #{supplier.supplierName}</h4></button>
+					<div class="panel" id="panel">
+						<h3>#{supplier.supplierName} Products:</h3><br></br>  									
+						<ui:repeat var="supplierProducts" value="#{supplierproducts.getSuppliersProducts(supplier.supplierId)}">
 							<button class="accordion">Supplier Product: #{supplierProducts.getProduct().getTitle()}</button>
 								<div class="panel">					
-									test	
+									<h3> #{supplierProducts.getProduct().getTitle()} Pricing Plan:</h3>
+									<div class="row">
+										<hr></hr>
+									    <div class="col-md-4">
+									    	<button class="buttonAni"><span>Order 1 for £#{supplierProducts.getPriceFor_1_Unit()}</span></button>
+									    </div>
+									    <div class="col-md-4">
+									    	<button class="buttonAni"><span>Order 10 for £#{supplierProducts.getPriceFor_10_Unit()}</span></button>	
+									    </div>
+									    <div class="col-md-4">
+									    	<button class="buttonAni"><span>Order 100 for £#{supplierProducts.getPriceFor_100_Unit()}</span></button>
+									    </div>
+  									</div>
+  									<hr></hr>	  												
 								</div>
-				 		</ui:repeat>
-				
-				
-				
-				
-				
+				 		</ui:repeat>	
 					</div>
 				 </ui:repeat>
+				 <hr></hr>
 			</div> 
-			
-			
-			
-			<!--   		<table>
-							<tr>                             
-				                <th>Product ID</th>
-				                <th>Product Name</th>
-				                <th>Category</th>
-				                <th>Quantity</th>
-				                <th>Unit Price</th>
-				                <th>Total Price</th>
-				            </tr>	        	
-			        	    <h4>Order Lines</h4>   	
-					        <ui:repeat var="stockLine" value="#{stockline.getStockLines(1)}">
-				                <tr>
-				                    <td>#{stockLine.productId}</td>
-				                    <td>#{stockLine.product.getTitle()}</td>
-				                    <td>#{stockLine.product.getCategory().toString()}</td>
-				                    <td>#{stockLine.quantity}</td>
-				                    <td>£#{stockLine.product.getPrice()}</td> 
-				                    <td>£#{stockLine.price}</td>
-				                </tr>
-			               	</ui:repeat>                                   
-			            </table> -->
-	
-      
+			    
  </ui:define>
         </ui:composition>
     </body>
