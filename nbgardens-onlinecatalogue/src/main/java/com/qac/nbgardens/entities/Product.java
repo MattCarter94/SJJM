@@ -1,6 +1,7 @@
 package com.qac.nbgardens.entities;
 
 
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -29,6 +30,8 @@ import com.qac.nbgardens.entities.enums.ProductStatus;
 @Entity
 @Table (name = "Product")
 public class Product {
+	
+	private DecimalFormat df = new DecimalFormat("#.00"); 
 	
 	@Id //ID is for PK
 	@Column (name = "Product_ID")  
@@ -142,4 +145,18 @@ public class Product {
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public ProductStatus getState() {
+		return state;
+	}
+	public void setState(ProductStatus state) {
+		this.state = state;
+	}
+	
+	
 }

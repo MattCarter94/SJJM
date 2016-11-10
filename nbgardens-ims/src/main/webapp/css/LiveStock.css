@@ -1,0 +1,19 @@
+#j_idt14 > table{
+
+	position:relative !important;
+}
+.jqplot-table-legend{
+	float:right;
+	
+}
+
+.searchButton{
+	background-color:white;
+	width:100px;
+	height:50px;
+	border-radius: 5px;
+	box-shadow: none;
+}
+.searchButton:hover{
+	background-color:#e6e6e6;
+}

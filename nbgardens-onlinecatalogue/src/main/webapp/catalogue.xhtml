@@ -3,6 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	template="templates/clivetemplate.xhtml">
 
 	<ui:define name="tabtitle">Catalogue</ui:define>
@@ -44,21 +45,26 @@
 			<div class="col-sm-1"></div>
 			<div class="col-sm-2" id="sidebar">
 				<p>Search Catalogue:</p>
-				<div class="input-group add-on">
-					<input class="form-control" placeholder="Search" name="srch-term"
-						id="search-term" type="text" />
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit"
-							onsubmit="searchProducts(search-term.value)">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
+				<h:form id="priceform">
+					<div class="input-group add-on">
+					<span>
+						<h:inputText type="text" value="#{products.search}" a:placeholder="Search Product Name"/>
+<!-- 						<div class="input-group-btn"> -->
+							
+							<h:commandButton class="btn btn-default" action="catalogue" image="img/search1.png"/>
+<!-- 							<button class="btn btn-default" type="submit" -->
+<!-- 								onsubmit="searchProducts(search-term.value)"> -->
+<!-- 								<i class="glyphicon glyphicon-search"></i> -->
+<!-- 							</button> -->
+<!-- 						</div> -->
+						</span>
 					</div>
-				</div>
+				
 				
 				<hr />
 				<p>Price range £:</p>
 
-				<h:form id="priceform">
+				
 
 					<span>Low 
 					<h:selectOneMenu class="low" value="#{products.priceLow}">
@@ -78,19 +84,32 @@
 					
 					<span>High 
 					<h:selectOneMenu class="high" value="#{products.priceHigh}">
-						<f:selectItem itemValue="0" itemLabel="0" />
-						<f:selectItem itemValue="10" itemLabel="10" />
-						<f:selectItem itemValue="20" itemLabel="20" />
-						<f:selectItem itemValue="30" itemLabel="30" />
-						<f:selectItem itemValue="40" itemLabel="40" />
-						<f:selectItem itemValue="50" itemLabel="50" />
-						<f:selectItem itemValue="60" itemLabel="60" />
-						<f:selectItem itemValue="70" itemLabel="70" />
-						<f:selectItem itemValue="80" itemLabel="80" />
-						<f:selectItem itemValue="90" itemLabel="90" />
-						<f:selectItem itemValue="100" itemLabel="100" />
 						<f:selectItem itemValue="#{products.range.get(products.range.size()-1)}" itemLabel="#{products.range.get(products.range.size()-1)}" />
+						<f:selectItem itemValue="100" itemLabel="100" />
+						<f:selectItem itemValue="90" itemLabel="90" />
+						<f:selectItem itemValue="80" itemLabel="80" />
+						<f:selectItem itemValue="70" itemLabel="70" />
+						<f:selectItem itemValue="60" itemLabel="60" />
+						<f:selectItem itemValue="50" itemLabel="50" />
+						<f:selectItem itemValue="40" itemLabel="40" />
+						<f:selectItem itemValue="30" itemLabel="30" />
+						<f:selectItem itemValue="20" itemLabel="20" />
+						<f:selectItem itemValue="10" itemLabel="10" />
+						<f:selectItem itemValue="0" itemLabel="0" />						
 					</h:selectOneMenu></span>
+					
+					<br/>
+					
+					<hr />
+					<p>Categories:</p>
+					
+					<h:selectOneMenu class="category" value="#{products.category}">
+						<f:selectItem itemValue="#{products.categories.get(3)}" itemLabel="All" />
+						<f:selectItem itemValue="#{products.categories.get(0)}" itemLabel="Gnomes" />
+						<f:selectItem itemValue="#{products.categories.get(1)}" itemLabel="Gnome Accessories" />
+						<f:selectItem itemValue="#{products.categories.get(2)}" itemLabel="Garden Fountains" />
+					</h:selectOneMenu>
+					
 					
 					<br/><br/>
 					<h:commandButton action="catalogue" value="Submit" />
@@ -114,8 +133,9 @@
 								<div class="productGrid">
 									<ui:repeat var="product" value="#{products.getProducts()}">
 										<div class="browse-image">
-											<p class="price">£#{product.price}</p>
-											<img src="img/#{product.image}" width="200px" class="thumb" />
+											<h:outputText value="#{product.price}" styleClass="price"><f:convertNumber type="currency" /></h:outputText>
+<!-- 											<p class="price">£#{product.price}</p> -->
+											<img src="img/#{product.image}" width="200px" height="210px" class="thumb" />
 											<div class="prodButton">
 												<figcaption>#{product.title}</figcaption>
 												<h:button value="More Info" outcome="product.xhtml"

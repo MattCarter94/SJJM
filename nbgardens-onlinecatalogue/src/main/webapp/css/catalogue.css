@@ -1,6 +1,6 @@
 
 .browse-image{
-	height:300px;
+	height:320px;
 }
 
 .mainContainer{
@@ -8,7 +8,10 @@
 	padding-bottom: 20px;
 }
 
-
+.btn-default{
+	width: 35px;
+	padding: 0px;
+}
 
 html,body{
     height:100%;
@@ -413,11 +416,16 @@ input#srch-term.form-control{
     transform: rotate(0deg);
     transition: 0.2s;
 }
+
+.browse-image img{
+	margin-top: 0px;
+}
+
 .price{     
 	text-align:center;
 	font-size:24px;
 	font-family: 'Maven Pro', sans-serif;
-
+	padding-bottom: 20px;
 }
 figcaption{
 	text-align: center;

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+   xmlns:p="http://primefaces.org/ui">
+
+
+
+<!-- HTML -->
+<h:head>
+	<meta charset="ISO-8859-1"/>
+    <title>NB Gardens: Sales Representations</title>
+    <meta charset="utf-8"/>
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+</h:head>  
+<h:body>
+	<ui:composition template="templates/template.xhtml">
+		<ui:define name="content">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/LiveStock.css"/>	 	    
+		<link rel="stylesheet" href="css/LiveStockDropdownFilterStyle.css"/>   
+		<h:form>
+			<div class="container">
+		        <div id="SearchDiv" class ="Search">
+		            <input value="#{products.searchTerms}" type="text" name="filter_search" id="tagsearch" placeholder="Enter the product ID"/>
+		            <h:commandButton value="Search" class="searchButton" type="submit" action="LiveStockTest"/>
+		        </div>
+		    </div>
+		    
+		</h:form>
+		
+	<h:outputText value="#{chartView.errorMsg}" />		 	    
+	<p:chart type="line" model="#{chartView.lineModel1}" style="height:300px;"/>	
+	
+		
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

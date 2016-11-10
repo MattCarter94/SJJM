@@ -8,6 +8,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.Product;
+import com.qac.nbgardens.entities.enums.Category;
 import com.qac.nbgardens.managers.ProductManager;
 import com.qac.nbgardens.util.InitialData;
 
@@ -63,7 +64,11 @@ public class ProductsManagerOffline implements ProductManager{
 		return initialData.getProducts();
 	}
 	@Override
-	public ArrayList<Product> findAll(double low, double high) {
-		return initialData.getProducts(low, high);
+	public ArrayList<Product> findAll(double low, double high, Category category, String search) {
+		return initialData.getProducts(low, high, category, search);
+	}
+	@Override
+	public ArrayList<Product> findAll(String search) {
+		return initialData.getProducts(search);
 	}
 }

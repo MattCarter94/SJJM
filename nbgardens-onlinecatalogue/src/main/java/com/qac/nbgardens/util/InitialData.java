@@ -1,5 +1,6 @@
 package com.qac.nbgardens.util;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,6 +34,7 @@ public class InitialData {
 	private List<OrderLine> orderLines = new ArrayList<OrderLine>();
 	private List<Address> addresses = new ArrayList<Address>();
 	
+	DecimalFormat df = new DecimalFormat("#.00"); 
 	
 	@PostConstruct
 	public void SetupData() {
@@ -60,6 +62,14 @@ public class InitialData {
 		addProduct(new Product(108, "Doctor Clive", 29.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(109, "Clive Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 
+		addProduct(new Product(110, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(111, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(112, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		
+		addProduct(new Product(113, "Garden Fountain", 69.99, "A fountain and stuff", Category.GARDENFOUNTIAN, "fountain1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(114, "Garden Fountain", 69.99, "A fountain and stuff", Category.GARDENFOUNTIAN, "fountain1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(115, "Garden Fountain", 69.99, "A fountain and stuff", Category.GARDENFOUNTIAN, "fountain1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		
 		
 		//Add Customer Order
 		addCustomerOrder(new CustomerOrder(getCustomer(0), OrderStatus.BASKET));
@@ -147,22 +157,69 @@ public class InitialData {
 		return (ArrayList<Product>) products;
 	}
 	
-	public ArrayList<Product> getProducts(double low, double high) {
+	public ArrayList<Product> getProducts(double low, double high, Category category, String search) {
 		ArrayList<Product> filtered = new ArrayList<Product>();
+		
+		if(search==""){
+			if(category == Category.ALL){
+				for(int i=0; i<=products.size()-1; i++){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high){
+						filtered.add(products.get(i));
+					}
+				}
+			}
+			
+			else{
+				for(int i=0; i<=products.size()-1; i++){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getCategory() == category){
+						filtered.add(products.get(i));
+					}
+				}
+			}
+		}
+		
+		if(search!=""){
+			if(category == Category.ALL){
+				for(int i=0; i<=products.size()-1; i++){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getTitle().toLowerCase().contains(search.toLowerCase())){
+						filtered.add(products.get(i));
+					}
+				}
+			}
+			
+			else{
+				for(int i=0; i<=products.size()-1; i++){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getCategory() == category && products.get(i).getTitle().toLowerCase().contains(search.toLowerCase())){
+						filtered.add(products.get(i));
+					}
+				}
+			}
+		}
+		
+		
+		return filtered;
+	}
+	
+	public ArrayList<Product> getProducts(String search) {
+		ArrayList<Product> filtered = new ArrayList<Product>();
+		
 		for(int i=0; i<=products.size()-1; i++){
-			if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high){
+			if(products.get(i).getTitle().toLowerCase().contains(search.toLowerCase())){
 				filtered.add(products.get(i));
 			}
 		}
+
 		return filtered;
 	}
 
 	public List<Customer> getUsers() {
 		return users;
 	}
+	
 	public void addUser(Customer u) {
 	 	users.add(u);
 	}
+	
 	public String returnLastUser(){
 		Integer userSize = users.size();
 		return users.get(userSize - 1).getFirstName();
