@@ -25,10 +25,10 @@ public class SupplierProductsController implements Serializable{
 	public ArrayList<SupplierProduct> getSuppliersProducts(Integer supplierID) 
 	{
 
-		if(supplierProducts == null)
-		{
+		System.out.println("Passed in Value is: " + supplierID);
+		
 			supplierProducts = new ArrayList<SupplierProduct>(supplierProductService.findAll(supplierID));
-		}
+		
 		return supplierProducts;
 	}
 
