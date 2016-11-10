@@ -20,9 +20,13 @@ public class ProductService {
 		return productManager.findAll();
 	}
 	
-	public ArrayList<Product> findAll(double low, double high, Category category) {
+	public ArrayList<Product> findAll(String search) {
+		return productManager.findAll(search);
+	}
+	
+	public ArrayList<Product> findAll(double low, double high, Category category, String search) {
 //		System.out.println("service findAll");
-		return productManager.findAll(low, high, category);
+		return productManager.findAll(low, high, category, search);
 	}
 
 	public Product findProductById(Integer id) {

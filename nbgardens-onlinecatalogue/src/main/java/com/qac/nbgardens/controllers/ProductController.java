@@ -32,6 +32,7 @@ public class ProductController implements Serializable{
 	private List<Double> range = null;
 	private Category category = Category.ALL;
 	private List<Category> categories = Arrays.asList(Category.GNOME, Category.GNOMEACCESSORY, Category.GARDENFOUNTIAN, Category.ALL);
+	private String search = "";
 	
 	private List<Double> lowRange;
 	private List<Double> highRange;
@@ -39,6 +40,15 @@ public class ProductController implements Serializable{
 	
 	
 	
+	
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
 	public List<Category> getCategories() {
 		return categories;
 	}
@@ -98,11 +108,16 @@ public class ProductController implements Serializable{
 	public void recreateModel() {
 		products = null;
 	}
+	
+	public ArrayList<Product> getProductsSearch(){
+		products = productService.findAll(search);//getPagination().niceDataModel();//getPagination().createDataModel();
+		return products;
+	}
 
 	public ArrayList<Product> getProducts() {
 //		System.out.println("get products");
 //		if(products == null)
-			products = productService.findAll(priceLow, priceHigh, category);//getPagination().niceDataModel();//getPagination().createDataModel();
+		products = productService.findAll(priceLow, priceHigh, category, search);//getPagination().niceDataModel();//getPagination().createDataModel();
 //		System.out.println(products.size());
 		return products;
 	}

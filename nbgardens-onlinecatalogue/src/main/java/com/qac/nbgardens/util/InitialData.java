@@ -60,7 +60,7 @@ public class InitialData {
 		addProduct(new Product(108, "Doctor Clive", 29.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(109, "Clive Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 
-		addProduct(new Product(110, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeaac2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(110, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(111, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(112, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		
@@ -155,33 +155,69 @@ public class InitialData {
 		return (ArrayList<Product>) products;
 	}
 	
-	public ArrayList<Product> getProducts(double low, double high, Category category) {
+	public ArrayList<Product> getProducts(double low, double high, Category category, String search) {
 		ArrayList<Product> filtered = new ArrayList<Product>();
 		
-		if(category == Category.ALL){
-			for(int i=0; i<=products.size()-1; i++){
-				if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high){
-					filtered.add(products.get(i));
+		if(search==""){
+			if(category == Category.ALL){
+				for(int i=0; i<=products.size()-1; i++){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high){
+						filtered.add(products.get(i));
+					}
+				}
+			}
+			
+			else{
+				for(int i=0; i<=products.size()-1; i++){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getCategory() == category){
+						filtered.add(products.get(i));
+					}
 				}
 			}
 		}
 		
-		else{
-			for(int i=0; i<=products.size()-1; i++){
-				if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getCategory() == category){
-					filtered.add(products.get(i));
+		if(search!=""){
+			if(category == Category.ALL){
+				for(int i=0; i<=products.size()-1; i++){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getTitle().toLowerCase().contains(search.toLowerCase())){
+						filtered.add(products.get(i));
+					}
+				}
+			}
+			
+			else{
+				for(int i=0; i<=products.size()-1; i++){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getCategory() == category && products.get(i).getTitle().toLowerCase().contains(search.toLowerCase())){
+						filtered.add(products.get(i));
+					}
 				}
 			}
 		}
+		
+		
+		return filtered;
+	}
+	
+	public ArrayList<Product> getProducts(String search) {
+		ArrayList<Product> filtered = new ArrayList<Product>();
+		
+		for(int i=0; i<=products.size()-1; i++){
+			if(products.get(i).getTitle().toLowerCase().contains(search.toLowerCase())){
+				filtered.add(products.get(i));
+			}
+		}
+
 		return filtered;
 	}
 
 	public List<Customer> getUsers() {
 		return users;
 	}
+	
 	public void addUser(Customer u) {
 	 	users.add(u);
 	}
+	
 	public String returnLastUser(){
 		Integer userSize = users.size();
 		return users.get(userSize - 1).getFirstName();

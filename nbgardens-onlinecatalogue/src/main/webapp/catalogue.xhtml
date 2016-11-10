@@ -3,6 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	template="templates/clivetemplate.xhtml">
 
 	<ui:define name="tabtitle">Catalogue</ui:define>
@@ -44,21 +45,26 @@
 			<div class="col-sm-1"></div>
 			<div class="col-sm-2" id="sidebar">
 				<p>Search Catalogue:</p>
-				<div class="input-group add-on">
-					<input class="form-control" placeholder="Search" name="srch-term"
-						id="search-term" type="text" />
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit"
-							onsubmit="searchProducts(search-term.value)">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
+				<h:form id="priceform">
+					<div class="input-group add-on">
+						<h:inputText type="text" value="#{products.search}" a:placeholder="Search Product Name"/>
+						<div class="input-group-btn">
+							
+							<h:commandButton class="btn btn-default" action="catalogue" value="Search" >
+								<i class="glyphicon glyphicon-search"></i>
+							</h:commandButton>
+<!-- 							<button class="btn btn-default" type="submit" -->
+<!-- 								onsubmit="searchProducts(search-term.value)"> -->
+<!-- 								<i class="glyphicon glyphicon-search"></i> -->
+<!-- 							</button> -->
+						</div>
 					</div>
-				</div>
+				
 				
 				<hr />
 				<p>Price range £:</p>
 
-				<h:form id="priceform">
+				
 
 					<span>Low 
 					<h:selectOneMenu class="low" value="#{products.priceLow}">
