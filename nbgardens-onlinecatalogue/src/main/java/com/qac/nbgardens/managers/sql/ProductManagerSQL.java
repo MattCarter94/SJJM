@@ -98,4 +98,10 @@ public class ProductManagerSQL implements ProductManager{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public ArrayList<Product> findAll(double low, double high) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

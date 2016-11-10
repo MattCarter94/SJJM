@@ -1,6 +1,5 @@
 package com.qac.nbgardens.util;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +23,7 @@ import com.qac.nbgardens.entities.enums.ProductStatus;
 @Startup
 @Singleton
 public class InitialData {
-	private List<Product> products = new ArrayList<Product>();
+	private ArrayList<Product> products = new ArrayList<Product>();
 	//private List<Wishlist> wishlists = new ArrayList<Wishlist>();
 	//private List<StockOrder> stockOrders = new ArrayList<StockOrder>();
 	private List<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
@@ -56,7 +55,7 @@ public class InitialData {
 		addProduct(new Product(104, "Wizard Clive", 59.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(105, "Doctor Clive", 69.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(106, "Wizard Clive", 79.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(101, "Swinging Gnomes", 300.99, "its a gnome", Category.GNOME, "gnome_swing.jpg", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(101, "Swinging Gnomes", 300, "its a gnome", Category.GNOME, "gnome_swing.jpg", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(107, "Lumber Clive", 89.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(108, "Doctor Clive", 29.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(109, "Clive Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
@@ -117,7 +116,7 @@ public class InitialData {
 		this.orderLines = orderLines;
 	}
 
-	public void setProducts(List<Product> products) {
+	public void setProducts(ArrayList<Product> products) {
 		this.products = products;
 	}
 
@@ -145,8 +144,17 @@ public class InitialData {
 	}
 
 	public ArrayList<Product> getProducts() {
-		
 		return (ArrayList<Product>) products;
+	}
+	
+	public ArrayList<Product> getProducts(double low, double high) {
+		ArrayList<Product> filtered = new ArrayList<Product>();
+		for(int i=0; i<=products.size()-1; i++){
+			if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high){
+				filtered.add(products.get(i));
+			}
+		}
+		return filtered;
 	}
 
 	public List<Customer> getUsers() {
