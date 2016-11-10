@@ -56,11 +56,11 @@
 				</div>
 				
 				<hr />
-				<p>Price range:</p>
+				<p>Price range £:</p>
 
 				<h:form id="priceform">
 
-					<p>Low</p>
+					<span>Low 
 					<h:selectOneMenu class="low" value="#{products.priceLow}">
 						<f:selectItem itemValue="0" itemLabel="0" />
 						<f:selectItem itemValue="10" itemLabel="10" />
@@ -74,9 +74,9 @@
 						<f:selectItem itemValue="90" itemLabel="90" />
 						<f:selectItem itemValue="100" itemLabel="100" />
 						<f:selectItem itemValue="#{products.range.get(products.range.size()-1)}" itemLabel="#{products.range.get(products.range.size()-1)}" />
-					</h:selectOneMenu>
+					</h:selectOneMenu></span>
 					
-					<p>High</p>
+					<span>High 
 					<h:selectOneMenu class="high" value="#{products.priceHigh}">
 						<f:selectItem itemValue="0" itemLabel="0" />
 						<f:selectItem itemValue="10" itemLabel="10" />
@@ -90,7 +90,7 @@
 						<f:selectItem itemValue="90" itemLabel="90" />
 						<f:selectItem itemValue="100" itemLabel="100" />
 						<f:selectItem itemValue="#{products.range.get(products.range.size()-1)}" itemLabel="#{products.range.get(products.range.size()-1)}" />
-					</h:selectOneMenu>
+					</h:selectOneMenu></span>
 					
 					<br/><br/>
 					<h:commandButton action="catalogue" value="Submit" />

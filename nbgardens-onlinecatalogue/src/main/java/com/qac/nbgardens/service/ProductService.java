@@ -20,7 +20,7 @@ public class ProductService {
 	}
 	
 	public ArrayList<Product> findAll(double low, double high) {
-		System.out.println("service findAll");
+//		System.out.println("service findAll");
 		return productManager.findAll(low, high);
 	}
 

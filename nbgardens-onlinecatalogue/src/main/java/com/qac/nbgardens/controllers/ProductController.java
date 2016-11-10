@@ -79,10 +79,10 @@ public class ProductController implements Serializable{
 	}
 
 	public ArrayList<Product> getProducts() {
-		System.out.println("get products");
+//		System.out.println("get products");
 //		if(products == null)
 			products = productService.findAll(priceLow, priceHigh);//getPagination().niceDataModel();//getPagination().createDataModel();
-		System.out.println(products.size());
+//		System.out.println(products.size());
 		return products;
 	}
 	
