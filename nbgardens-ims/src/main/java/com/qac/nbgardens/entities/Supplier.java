@@ -68,7 +68,7 @@ public class Supplier {
 	}
 	
 	public void addSupplierProducts(SupplierProduct sp) {
-		
+		supplierProducts.add(sp);
 	}
 
 }

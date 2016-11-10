@@ -8,7 +8,6 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import com.qac.nbgardens.entities.Customer;
 import com.qac.nbgardens.entities.StockOrder;
 import com.qac.nbgardens.entities.Supplier;
 import com.qac.nbgardens.managers.StockOrderManager;
