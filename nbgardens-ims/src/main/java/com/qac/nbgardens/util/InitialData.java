@@ -1,15 +1,21 @@
 package com.qac.nbgardens.util;
 
+
+import java.math.BigDecimal;
+import java.text.DateFormat;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
+import com.mysql.jdbc.DatabaseMetaDataUsingInfoSchema;
 import com.qac.nbgardens.entities.Address;
 import com.qac.nbgardens.entities.CardDetails;
 import com.qac.nbgardens.entities.Customer;
@@ -142,10 +148,10 @@ public class InitialData {
 					so2 = new StockOrder(),  
 					so3 = new StockOrder();			                               
 		try
-		{
-			 so1 = new StockOrder(s1.getSupplierId(), sdf.parse("01-11-2016"), sdf.parse("03-11-2016"));
-			 so2 = new StockOrder(s1.getSupplierId(), sdf.parse("03-11-20016"),sdf.parse("05-11-2016"));
-			 so3 = new StockOrder(s1.getSupplierId(), sdf.parse("05-11-20016"), sdf.parse("07-11-2016"));
+		{	
+			 so1 = new StockOrder(s1.getSupplierId(), sdf.parse("05-9-2016"), sdf.parse("03-11-2016"));
+			 so2 = new StockOrder(s1.getSupplierId(), sdf.parse("10-10-2016"),sdf.parse("05-11-2016"));
+			 so3 = new StockOrder(s1.getSupplierId(), sdf.parse("15-11-2015"), sdf.parse("07-11-2016"));
 		} 
 		catch (ParseException e) 
 		{
@@ -170,8 +176,6 @@ public class InitialData {
 		so2.addStockLine(sl3);
 		so3.addStockLine(sl4);
 		so3.addStockLine(sl5);
-		
-		
 		
 		
 		//Adding elements

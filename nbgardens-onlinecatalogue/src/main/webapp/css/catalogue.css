@@ -1,9 +1,12 @@
 
 .browse-image{
-	height:300px;
+	height:320px;
 }
 
-
+.mainContainer{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 
 
 

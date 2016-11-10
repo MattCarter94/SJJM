@@ -17,35 +17,9 @@ public class StockLineService
 	private StockLineManager stockLineManager;
 
 	
-	public List<StockLine> findAll(Integer selectID) 
+	public List<StockLine> findAllCertain(Integer selectID) 
 	{
-		return stockLineManager.findAll(selectID);
+		return stockLineManager.findAllCertain(selectID);
 	}
-
-
-	public void displayProductTitleFromSpecificCustomerOrder(Integer customerID, Integer orderID) 
-	{
-		// TODO Auto-generated method stub
-		// This code is here for testing reference. - It basically lets you see any part of a stock order. 
-		//	stockOrderManager.getStockOrderDate()
-		// The amount of orders customer 0 has
-		//System.out.println(customerManager.getCustomers().get(0).getCustomerOrders().size());
-		
-}
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

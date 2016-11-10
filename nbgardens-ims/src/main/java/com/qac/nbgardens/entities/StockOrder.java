@@ -1,8 +1,11 @@
 package com.qac.nbgardens.entities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +18,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.qac.nbgardens.util.DateUtil;
 
 
 @NamedQueries ({
@@ -53,17 +58,16 @@ public class StockOrder {
 	private List<StockLine> stockLines;
 	
 	private static int idCounter = 1;
+
 	
+			
 	public StockOrder(){};
-	
 	
 	public StockOrder(Integer supplierId, Date stockOrderDate, Date stockRecievedDate) {
 		if (this.stockOrderId == null) {
 			this.stockOrderId = idCounter;
 			idCounter++;
 		}
-		
-		
 		this.supplierId = supplierId;
 		this.stockOrderDate = stockOrderDate;
 		this.stockRecievedDate = stockRecievedDate;

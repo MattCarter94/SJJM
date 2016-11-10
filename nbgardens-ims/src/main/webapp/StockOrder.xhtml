@@ -6,121 +6,75 @@
    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
    xmlns:h="http://java.sun.com/jsf/html">
 
-    <h:head>
-        <meta charset="utf-8"/>
-        <title>IMS New Stock Orders</title>
-        <meta name="description" content="Search for stock and create a new stock order"/>
-        
-    </h:head>
+   <h:head>
+       <meta charset="utf-8"/>
+       <title>IMS New Stock Orders</title>
+       <meta name="description" content="Search for stock and create a new stock order"/>  
+   </h:head>
 
-    
-    <body>
-    	<ui:composition template="templates/template.xhtml">
+   <body>
+   		<ui:composition template="templates/template.xhtml">
 			<ui:define name="content">
-        		<link rel="stylesheet" href="css/StockOrderStyle.css"/>
-
-        
-        <br/><br/>
-        <div class="supplier">
-            <div class="text">
-                <p>Supplier</p>
-            </div>
-            <div class="selections">
-            	
-                <select class="supplierSelect">
-                    <option>Gnomes R Us</option>
-                    <option>Go Hard or Go Gnome</option>
-                    <option>Gnomes are Cool</option>
-                </select>
-               
-                <span class="add">
-                    <button>+</button>
-                </span>
-            </div>
-            
-        </div>
-        
-        <div class="searchContainer">
-            <div class="tableContainer">
-                <div class="orderTable">
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Subtotal</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Clive Gnome</td>
-                            <td>£10</td>
-                            <td>300</td>
-                            <td>£3000</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Clive Gnome</td>
-                            <td>£10</td>
-                            <td>300</td>
-                            <td>£3000</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Clive Gnome</td>
-                            <td>£10</td>
-                            <td>300</td>
-                            <td>£3000</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Clive Gnome</td>
-                            <td>£10</td>
-                            <td>300</td>
-                            <td>£3000</td>
-                        </tr>
-                    </table>
-                </div>
-
-
-                <div class="genButton">
-                	<button>Generate Stock Order</button>
-                </div>
-            </div>
-            
-            <div class="search">
-                <div class="searchBox">
-                    <div class="searchBoxImg">
-<!--                         <img src="../img/search.png" height="20px"/> -->
-                        <h:graphicImage value="img/search.png" height="20px"/>
-                    </div>
-                    <input class="searchInput" type="text" placeholder="Search"/>
-                </div>
-                
-                <div class="fields">
-                    <div class="idInput">
-                        <p>ID</p><span><input id="id" type="text" placeholder="ID"/></span>
-                    </div>
-                    
-                    <div class="nameInput">
-                        <p>Product Name</p><span><input id="name" type="text" placeholder="Name"/></span>
-                    </div>
-                    
-                    <div class="priceInput">
-                        <p>Price</p><span><input id="price" type="text" placeholder="Price"/></span>
-                    </div>
-                    
-                    <div class="quantityInput">
-                        <p>Quantity</p><span><input id="quantity" type="text" placeholder="Quantity"/></span>
-                    </div>
-                    
-                    <div class="addButton">
-                        <button>Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+       		<link rel="stylesheet" href="css/StockOrderStyle.css"/>
+        	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+			<link rel="stylesheet" href="css/Previousstockorders.css"/>
+			<script  type="text/javascript" src="js/previousstockorders.js"></script>
+		    
+		    <br></br>
+			<div class ="container"> 
+		    	<h1>New Stock Order</h1>
+		    </div>
+			<br></br>
+			<br></br>
+			<br></br>
+								
+			<div class ="container">  
+			  <ui:repeat var="supplier" value="#{suppliers.suppliers}">
+				<button class="accordion"><h4>Suppliers: #{supplier.supplierName}</h4></button>
+					<div class="panel">
+				
+				
+				
+						<ui:repeat var="supplierProducts" value="#{supplierproducts.getSuppliersProducts(1)}">
+							<button class="accordion">Supplier Product: #{supplierProducts.getProduct().getTitle()}</button>
+								<div class="panel">					
+									test	
+								</div>
+				 		</ui:repeat>
+				
+				
+				
+				
+				
+					</div>
+				 </ui:repeat>
+			</div> 
+			
+			
+			
+			<!--   		<table>
+							<tr>                             
+				                <th>Product ID</th>
+				                <th>Product Name</th>
+				                <th>Category</th>
+				                <th>Quantity</th>
+				                <th>Unit Price</th>
+				                <th>Total Price</th>
+				            </tr>	        	
+			        	    <h4>Order Lines</h4>   	
+					        <ui:repeat var="stockLine" value="#{stockline.getStockLines(1)}">
+				                <tr>
+				                    <td>#{stockLine.productId}</td>
+				                    <td>#{stockLine.product.getTitle()}</td>
+				                    <td>#{stockLine.product.getCategory().toString()}</td>
+				                    <td>#{stockLine.quantity}</td>
+				                    <td>£#{stockLine.product.getPrice()}</td> 
+				                    <td>£#{stockLine.price}</td>
+				                </tr>
+			               	</ui:repeat>                                   
+			            </table> -->
+	
+      
  </ui:define>
         </ui:composition>
     </body>

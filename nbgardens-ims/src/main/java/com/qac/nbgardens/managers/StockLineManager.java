@@ -6,7 +6,7 @@ import com.qac.nbgardens.entities.StockLine;
 
 public interface StockLineManager 
 {
-	public List<StockLine> findAll(Integer selectID);
+	public List<StockLine> findAllCertain(Integer selectID);
 	
 }
 

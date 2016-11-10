@@ -67,4 +67,8 @@ public class BasketController {
 		this.deleteId = deleteId;
 	}
 	
+	public int basketQuantity(){
+		return userCredentials.getBasket().getQuantity();
+	}
+	
 }

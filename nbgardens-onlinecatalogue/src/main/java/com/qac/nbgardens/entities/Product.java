@@ -142,4 +142,18 @@ public class Product {
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public ProductStatus getState() {
+		return state;
+	}
+	public void setState(ProductStatus state) {
+		this.state = state;
+	}
+	
+	
 }

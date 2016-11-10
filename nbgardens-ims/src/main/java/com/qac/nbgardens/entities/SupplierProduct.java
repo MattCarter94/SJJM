@@ -101,7 +101,4 @@ public class SupplierProduct {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-
-	
-	
 }
