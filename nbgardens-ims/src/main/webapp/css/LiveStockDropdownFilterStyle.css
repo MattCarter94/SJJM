@@ -30,12 +30,12 @@ FilterBox {
 input[type=text] {
     width: 25%;
 	min-width: 300px;
+	max-width:90%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('searchicon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
@@ -51,4 +51,13 @@ input[type=text] {
 
 input[type=text]:focus {
     width: 100%;
+    border-color: rgba(244, 81, 30, 0.6);
+    box-shadow: rgba(244, 81, 30, 0.6);
+    outline: rgba(244, 81, 30, 0.6);
+}
+
+.searchButton:focus{
+	 border-color: rgba(244, 81, 30, 0.6);
+     box-shadow: rgba(244, 81, 30, 0.6);
+     outline: rgba(244, 81, 30, 0.6);
 }

@@ -9,28 +9,50 @@
       
       <title>NB Gardens IMS App</title>
       
-      <link rel="stylesheet" href="css/imsstyling.css"/>
-      <script src="js/jquery-3.1.1.min.js"></script> 
+		<link rel="stylesheet" href="css/indexStyle.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+      <h:outputScript library="primefaces" name="jquery/jquery.js" />
     </h:head>
  
     <body>
       <ui:debug/>
-      <div class="heading">
-        <h:button value="Home" outcome="index.xhtml" styleClass="but"></h:button>
-      	<h:button value="New Stock Order" outcome="StockOrder.xhtml" styleClass="but"></h:button>
-      	<h:button value="Previous Stock Order" outcome="PreviousStockOrder.xhtml" styleClass="but"></h:button>
-      	<h:button value="Products" outcome="products.xhtml" styleClass="but"></h:button>
-      	<h:button value="Live Stock Report" outcome="Live Stock Report.xhtml" styleClass="but"></h:button>
-      </div>
+      
+      <div class="container-fluid">
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+        	<h:form>
+	            <ul class="nav navbar-nav">
+	                <li><a href="index.xhtml">Home</a></li>
+	                <li><a href="StockOrder.xhtml">New Stock Order</a></li>
+	                <li><a href="PreviousStockOrder.xhtml">Stock Order History</a></li>
+	                <li><a href="LiveStockTest.xhtml">Live Stock Report</a></li>
+	                <li><a href="products.xhtml">Product Manager</a></li>
+	            </ul>
+            </h:form>
+            
+           
+        </div>
+    </div>
+ 
+</nav>
+</div>
+ <script src="js/activeWindow.js"></script>
+      
+      
  
       <div class="content">
         <ui:insert name="content"/>
       </div>
       <br></br><br></br>
-      <div class="footer">
-      	<p>NB Gardens and SJJM 2016</p>
-      </div>
-      
+     
     </body>
 </html>
 
