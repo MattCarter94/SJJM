@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+
+@Entity
+@Table (name = "Supplier")
 public class Supplier {
 
 	@Id //ID is for PK
@@ -16,16 +21,17 @@ public class Supplier {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer supplierId;
 	
-	@Column (name = "Supplier Name", nullable = false)
+	@Column (name = "Name", nullable = false)
 	@NotNull
 	private String supplierName;
 	
 	
-	private List<StockOrder> stockOrders;
-	private List<SupplierProduct> supplierProducts;
+	//private List<StockOrder> stockOrders;
+	//private List<SupplierProduct> supplierProducts;
 	
 	private static int idCounter = 1;
 	
+	public Supplier(){}
 	public Supplier(String supplierName) {
 		
 		if (this.supplierId == null) {
@@ -33,8 +39,8 @@ public class Supplier {
 			idCounter++;
 		}
 		this.supplierName = supplierName;
-		this.stockOrders = new ArrayList<StockOrder>();
-		this.supplierProducts = new ArrayList<SupplierProduct>();
+		//this.stockOrders = new ArrayList<StockOrder>();
+		//this.supplierProducts = new ArrayList<SupplierProduct>();
 	}
 
 
@@ -51,28 +57,28 @@ public class Supplier {
 		this.supplierName = supplierName;
 	}
 
-	public List<StockOrder> getStockOrders() {
-		return stockOrders;
-	}
-
-	public void setStockOrders(List<StockOrder> stockOrders) {
-		this.stockOrders = stockOrders;
-	}
-	
-	public void addStockOrder(StockOrder so) {
-		stockOrders.add(so);
-	}
-
-	public List<SupplierProduct> getSupplierProducts() {
-		return supplierProducts;
-	}
-
-	public void setSupplierProducts(List<SupplierProduct> supplierProducts) {
-		this.supplierProducts = supplierProducts;
-	}
-	
-	public void addSupplierProducts(SupplierProduct sp) {
-		supplierProducts.add(sp);
-	}
+//	public List<StockOrder> getStockOrders() {
+//		return stockOrders;
+//	}
+//
+//	public void setStockOrders(List<StockOrder> stockOrders) {
+//		this.stockOrders = stockOrders;
+//	}
+//	
+//	public void addStockOrder(StockOrder so) {
+//		stockOrders.add(so);
+//	}
+//
+//	public List<SupplierProduct> getSupplierProducts() {
+//		return supplierProducts;
+//	}
+//
+//	public void setSupplierProducts(List<SupplierProduct> supplierProducts) {
+//		this.supplierProducts = supplierProducts;
+//	}
+//	
+//	public void addSupplierProducts(SupplierProduct sp) {
+//		supplierProducts.add(sp);
+//	}
 
 }

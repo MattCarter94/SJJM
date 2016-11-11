@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
+
 import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.enums.OrderStatus;
 import com.qac.nbgardens.managers.CustomerOrderManager;
+import com.qac.nbgardens.util.InitialData;
 import com.qac.nbgardens.entities.Customer;
 
 @Default
@@ -15,13 +18,14 @@ import com.qac.nbgardens.entities.Customer;
 public class CustomerOrderManagerOffline implements CustomerOrderManager {
 	
 	
-	private Customer customer;
+	@Inject
+	private InitialData initialData;
 	
 	@Override
 	public Date returnOrderDate(Integer customerOrderID){
 		int count = 0;
 		Date orderDate;
-		List<CustomerOrder> co = customer.getCustomerOrders();
+		List<CustomerOrder> co = initialData.getCustomerOrders();
 		for(int i=0; i < co.size(); i++){
 			if(co.get(i).getCustomerOrderId().equals(customerOrderID)){
 				orderDate = co.get(i).getOrderDate();
@@ -40,7 +44,7 @@ public class CustomerOrderManagerOffline implements CustomerOrderManager {
 	public OrderStatus findOrderStatus(Integer customerOrderID){
 		int count = 0;
 		OrderStatus orderStatus;
-		List<CustomerOrder> co = customer.getCustomerOrders();
+		List<CustomerOrder> co = initialData.getCustomerOrders();
 		for(int i=0; i<co.size(); i++){
 			if(co.get(i).getCustomerOrderId().equals(customerOrderID)){
 				orderStatus = co.get(i).getStatus();

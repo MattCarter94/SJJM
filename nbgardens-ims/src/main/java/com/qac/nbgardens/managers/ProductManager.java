@@ -10,6 +10,7 @@ public interface ProductManager {
 	public void persistProducts(List<Product> p);
 	
 	public Product findProductById(Integer id);
+	@Deprecated
 	public ArrayList<Product> getProducts();
 	
 	public void addProduct (Product p);

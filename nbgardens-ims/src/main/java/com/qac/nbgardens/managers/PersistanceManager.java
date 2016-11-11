@@ -16,6 +16,7 @@ public class PersistanceManager {
 			EntityManager em = emf.createEntityManager();
 			return em;
 		} catch (PersistenceException pe) {
+			pe.printStackTrace();
 			return null;
 		}
 	}

@@ -1,53 +1,47 @@
 package com.qac.nbgardens.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table (name = "Customer_Card")
 public class CustomerCard {
 	
 	
 	@Id //PK
 	@OneToOne
-	@Column (name = "Card_No", length = 255)  
+	@Column (name = "Card_Number", length = 255)  
 	//@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private String cardNo;
+	private CardDetails card;
 	
 	@Id //PK
 	@OneToOne
 	@Column (name = "Email", length = 255)  
 	//@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private String customerEmail;
+	private Customer customer;
 	
 
-	private CardDetails card;
-
 	
-	
-	public CustomerCard(String cardNo, String customerEmail, CardDetails card) {
-		this.cardNo = cardNo;
-		this.customerEmail = customerEmail;
+	public CustomerCard(){}
+	public CustomerCard(Customer customer, CardDetails card) {
+		this.customer = customer;
 		this.card = card;
 	}
 
 
 	// GETTERS & SETTERS
-	public String getCardNo() {
-		return cardNo;
+
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setCardNo(String cardNo) {
-		this.cardNo = cardNo;
-	}
-
-	public String getCustomerEmail() {
-		return customerEmail;
-	}
-
-	public void setCustomerEmail(String customerEmail) {
-		this.customerEmail = customerEmail;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public CardDetails getCard() {

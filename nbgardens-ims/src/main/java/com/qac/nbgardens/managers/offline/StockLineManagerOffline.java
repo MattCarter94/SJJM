@@ -25,17 +25,12 @@ public class StockLineManagerOffline implements StockLineManager
 	{
 		List<StockLine> sl = new ArrayList<StockLine>();
 		
-		for (Integer j = 0; j < initialData.getSuppliers().size(); j++)
+		for (StockLine line : initialData.getStockLines()) 
 		{
-			for (StockOrder so : initialData.getSuppliers().get(j).getStockOrders()) 
-			{
-				for (int i = 0; i < so.getStockLines().size(); i++) 
-				{	
-					if (so.getStockLines().get(i).getStockOrderID() == selectID)
-						sl.add(so.getStockLines().get(i));
-				}
-			}
+			if (line.getStockOrder().getStockOrderId() == selectID)
+				sl.add(line);
 		}
+
 		return sl;
 	}
 

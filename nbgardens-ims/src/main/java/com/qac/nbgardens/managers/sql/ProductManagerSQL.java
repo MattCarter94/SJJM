@@ -95,7 +95,11 @@ public class ProductManagerSQL implements ProductManager{
 
 	@Override
 	public List<Product> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager entityManager = pm.CreateEntityManager();
+		System.out.println("Opened conection:" + entityManager.toString() + " is open? " + entityManager.isOpen());
+		List<Product> products = entityManager.createQuery("select * from product", Product.class).getResultList();
+		System.out.println("Found" + products.size() + " products");
+		pm.CloseEntityManager(entityManager);
+		return products;
 	}
 }

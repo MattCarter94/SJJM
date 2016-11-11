@@ -24,12 +24,7 @@ public class StockOrderOfflineManager implements StockOrderManager {
 	public Date getStockOrderDate(Integer stockOrderID){
 		int count = 0;
 		Date stockOrderDate;
-		List<StockOrder> so = new ArrayList<StockOrder>();
-		for (Supplier s : initialData.getSuppliers()) {
-			for (int i = 0; i < s.getStockOrders().size(); i++) {
-				so.add(s.getStockOrders().get(i));
-			}
-		}
+		List<StockOrder> so = initialData.getStockOrders();
 		
 		for(int i=0; i<so.size(); i++){
 			if(so.get(i).getStockOrderId().equals(stockOrderID)){
@@ -50,12 +45,7 @@ public class StockOrderOfflineManager implements StockOrderManager {
 	public Date getstockRecievedDate(Integer stockOrderID){
 		int count = 0;
 		Date recievedDate;
-		List<StockOrder> so = new ArrayList<StockOrder>();
-		for (Supplier s : initialData.getSuppliers()) {
-			for (int i = 0; i < s.getStockOrders().size(); i++) {
-				so.add(s.getStockOrders().get(i));
-			}
-		}
+		List<StockOrder> so = initialData.getStockOrders();
 		for(int i=0; i<so.size(); i++){
 			if(so.get(i).getStockOrderId().equals(stockOrderID)){
 				recievedDate = so.get(i).getStockRecievedDate();
@@ -71,14 +61,7 @@ public class StockOrderOfflineManager implements StockOrderManager {
 	
 	@Override
 	public List<StockOrder> findAll() {
-		List<StockOrder> so = new ArrayList<StockOrder>();
-		for (Supplier s : initialData.getSuppliers()) 
-		{
-			for (int i = 0; i < s.getStockOrders().size(); i++) 
-			{
-				so.add(s.getStockOrders().get(i));
-			}
-		}
+		List<StockOrder> so = initialData.getStockOrders();
 		return so;
 	}
 	

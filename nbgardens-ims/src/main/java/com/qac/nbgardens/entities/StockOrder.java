@@ -16,25 +16,26 @@ import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 
 
 
-@NamedQueries ({
-	//Update existing stock
-	@NamedQuery (
-		name = "updateProductById",
-		query = "INSERT INTO Product p where p.productID = :productID"
-	),
-	//Add new product
-	@NamedQuery (
-		name = "addProductById",
-		query = "INSERT INTO Product p VALUES p.title = :title, p.price = :price, p.descrpition = :description, p.category = :category, "
-				+ "p.image = :image, p.tags = :tags, p.stock = :stock, p.active = :active"
-	)
-})
+//@NamedQueries ({
+//	//Update existing stock
+//	@NamedQuery (
+//		name = "updateProductById",
+//		query = "INSERT INTO Product p where p.productID = :productID"
+//	),
+//	//Add new product
+//	@NamedQuery (
+//		name = "addProductById",
+//		query = "INSERT INTO Product p VALUES p.title = :title, p.price = :price, p.descrpition = :description, p.category = :category, "
+//				+ "p.image = :image, p.tags = :tags, p.stock = :stock, p.active = :active"
+//	)
+//})
 
 @Entity
 @Table (name = "Stock_Order")
@@ -44,10 +45,10 @@ public class StockOrder {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer stockOrderId;
 	
-	@OneToMany //For FK.
+	@OneToOne //For FK.
 	@JoinColumn(name="Supplier_ID", nullable = false)
 	@NotNull
-	private Integer supplierId;
+	private Supplier supplier;
 	
 	@Column (name = "Stock_Order_Date")
 	private Date stockOrderDate;
@@ -55,7 +56,7 @@ public class StockOrder {
 	@Column (name = "Stock_Received_Date")
 	private Date stockRecievedDate;
 
-	private List<StockLine> stockLines;
+	//private List<StockLine> stockLines;
 	
 	private static int idCounter = 1;
 
@@ -63,15 +64,15 @@ public class StockOrder {
 			
 	public StockOrder(){};
 	
-	public StockOrder(Integer supplierId, Date stockOrderDate, Date stockRecievedDate) {
+	public StockOrder(Supplier supplier, Date stockOrderDate, Date stockRecievedDate) {
 		if (this.stockOrderId == null) {
 			this.stockOrderId = idCounter;
 			idCounter++;
 		}
-		this.supplierId = supplierId;
+		this.supplier = supplier;
 		this.stockOrderDate = stockOrderDate;
 		this.stockRecievedDate = stockRecievedDate;
-		this.stockLines = new ArrayList<StockLine>();
+		//this.stockLines = new ArrayList<StockLine>();
 	}
 	
 	
@@ -84,12 +85,12 @@ public class StockOrder {
 		this.stockOrderId = stockOrderId;
 	}
 
-	public Integer getSupplierId() {
-		return supplierId;
+	public Supplier getSupplier() {
+		return supplier;
 	}
 
-	public void setSupplierId(Integer supplierId) {
-		this.supplierId = supplierId;
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
 	}
 
 	public Date getStockOrderDate() {
@@ -108,20 +109,18 @@ public class StockOrder {
 		this.stockRecievedDate = stockRecievedDate;
 	}
 
-	public List<StockLine> getStockLines() {
-		return stockLines;
-	}
+//	public List<StockLine> getStockLines() {
+//		return stockLines;
+//	}
+//
+//	public void setStockLines(List<StockLine> stockLines) {
+//		this.stockLines = stockLines;
+//	}
+//	
+//	public void addStockLine(StockLine sl) {
+//		stockLines.add(sl);
+//	}
 
-	public void setStockLines(List<StockLine> stockLines) {
-		this.stockLines = stockLines;
-	}
-	
-	public void addStockLine(StockLine sl) {
-		stockLines.add(sl);
-	}
-
-	// GETTERS and SETTERS
-	
 	
 
 }

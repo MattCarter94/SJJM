@@ -2,24 +2,28 @@ package com.qac.nbgardens.entities;
 
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+@Entity
+@Table (name = "Order_Line")
 public class OrderLine {
 	
 	@Id //ID is for PK
 	@OneToMany //For FK.
 	@Column (name = "Customer_Order_ID")  
-	private Integer customerOrderID;
+	private CustomerOrder customerOrder;
 
 	@Id //ID is for PK
 	@OneToMany //For FK.
-	@JoinColumn (name = "Product_ID")  
-	private Integer productId;
+	@JoinColumn (name = "Product_Product_ID")  
+	private Product product;
 
 
 	@Column (name = "Quantity", nullable = false)
@@ -31,13 +35,12 @@ public class OrderLine {
 	private double price;
 	
 	
-	private Product product;
+	
 	private final float markup = 1.2f;
 	
-	
-	public OrderLine(Integer customerOrderID, Integer productId, Integer quantity, Product product) {
-		this.customerOrderID = customerOrderID;
-		this.productId = productId;
+	public OrderLine(){}
+	public OrderLine(CustomerOrder customerOrder, Integer quantity, Product product) {
+		this.customerOrder = customerOrder;
 		this.quantity = quantity;
 		this.price = (product.getPrice() * quantity) * markup;
 		this.product = product;
@@ -45,20 +48,12 @@ public class OrderLine {
 
 	
 	
-	public Integer getCustomerOrderID() {
-		return customerOrderID;
+	public CustomerOrder getCustomerOrder() {
+		return customerOrder;
 	}
 
-	public void setCustomerOrderID(Integer customerOrderID) {
-		this.customerOrderID = customerOrderID;
-	}
-
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public void setCustomerOrder(CustomerOrder customerOrder) {
+		this.customerOrder = customerOrder;
 	}
 
 	public Integer getQuantity() {

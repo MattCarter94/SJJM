@@ -2,50 +2,54 @@ package com.qac.nbgardens.entities;
 
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+@Entity
+@Table (name = "Supplier_Product")
 public class SupplierProduct {
 
 	
 	@Id //ID is for PK
 	@OneToOne
-	@Column (name = "Supplier_ID")  
+	@Column (name = "Supplier_Supplier_ID")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer supplierID;
+	private Supplier supplier;
 	
 	@Id // Id is for PK
 	@OneToMany //For FK.
-	@JoinColumn(name="Product_ID", nullable = false)
+	@JoinColumn(name="Product_Product_ID", nullable = false)
 	@NotNull
-	private Integer productId;
+	private Product product;
 	
-	@Column (name = "PriceForOneUnit", nullable = false)
+	@Column (name = "Price_1_Unit", nullable = false)
 	@NotNull
 	private double priceFor_1_Unit;
 	
-	@Column (name = "PriceForTenUnits", nullable = false)
+	@Column (name = "Price_10_Unit", nullable = false)
 	@NotNull
 	private double priceFor_10_Unit;
 	
-	@Column (name = "PriceForHundredUnits", nullable = false)
+	@Column (name = "Price_100_Unit", nullable = false)
 	@NotNull
 	private double priceFor_100_Unit;
 	
 	
-	private Product product;
-
 	
 
-	public SupplierProduct(Integer supplierID, Integer productId, double priceFor_1_Unit,
+	
+	public SupplierProduct(){}
+	public SupplierProduct(Supplier supplier, double priceFor_1_Unit,
 			double priceFor_10_Unit, double priceFor_100_Unit, Product product) {
-		this.supplierID = supplierID;
-		this.productId = productId;
+		this.supplier = supplier;
 		this.priceFor_1_Unit = priceFor_1_Unit;
 		this.priceFor_10_Unit = priceFor_10_Unit;
 		this.priceFor_100_Unit = priceFor_100_Unit;
@@ -54,20 +58,12 @@ public class SupplierProduct {
 
 
 
-	public Integer getSupplierID() {
-		return supplierID;
+	public Supplier getSupplier() {
+		return supplier;
 	}
 
-	public void setSupplierID(Integer supplierID) {
-		this.supplierID = supplierID;
-	}
-
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
 	}
 
 	public double getPriceFor_1_Unit() {

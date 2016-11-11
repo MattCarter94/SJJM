@@ -27,19 +27,7 @@ public class SupplierProductOfflineManager implements SupplierProductManager {
 	@Override
 	public List<SupplierProduct> findAll(Integer supplierID) 
 	{
-		List<SupplierProduct> supplierProducts = new ArrayList<SupplierProduct>();
-		
-		for (Supplier supplier : initialData.getSuppliers()) 
-		{
-			List<SupplierProduct> productListSet = new ArrayList<SupplierProduct>();	
-			productListSet = supplier.getSupplierProducts();
-			
-			for (Integer i = 0; i < productListSet.size(); i++)
-			{
-				if (productListSet.get(i).getSupplierID() == supplierID)
-					supplierProducts.add(productListSet.get(i));
-			}	
-		}
+		List<SupplierProduct> supplierProducts = initialData.getSupplierProducts();
 		return supplierProducts;
 	}
 }

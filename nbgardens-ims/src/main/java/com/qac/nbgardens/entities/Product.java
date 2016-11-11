@@ -14,13 +14,13 @@ import javax.validation.constraints.NotNull;
 import com.qac.nbgardens.entities.enums.Category;
 import com.qac.nbgardens.entities.enums.ProductStatus;
 
-
-@NamedQueries ({
-	@NamedQuery (
-		name = "Product.FIND_PRODUCT_BY_ID",
-		query = "SELECT * FROM Product p where p.productID = :productID"
-	)
-})
+//
+//@NamedQueries ({
+//	@NamedQuery (
+//		name = "Product.FIND_PRODUCT_BY_ID",
+//		query = "SELECT * FROM product where p.productID = :productID"
+//	)
+//})
 
 
 //SQL table definition
@@ -73,6 +73,7 @@ public class Product {
 	private static int idCounter = 1000;
 	
 	//Constructor
+	public Product(){}
 	public Product(String title, double price, String description, Category category, String image, String tags,
 			Integer stock, ProductStatus state) {
 		if (this.productId == null) {

@@ -4,26 +4,30 @@ package com.qac.nbgardens.entities;
 import java.text.DecimalFormat;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+@Entity
+@Table (name = "Stock_Line")
 public class StockLine {
 	
 	@Id //ID is for PK
 	@OneToOne
 	@Column (name = "Stock_Order_ID")  
-	private Integer stockOrderID;
+	private StockOrder stockOrder;
 	
 	@Id // Id is for PK
 	@OneToOne //For FK.
-	@JoinColumn(name="Product_ID", nullable = false)
+	@JoinColumn(name="Product_Product_ID", nullable = false)
 	@NotNull
-	private Integer productId;
+	private Product product;
 	
 	@Column (name = "Quantity", length = 255)
 	private Integer quantity;
@@ -33,13 +37,12 @@ public class StockLine {
 	
 	DecimalFormat df = new DecimalFormat("#.##"); 
 	
-	private Product product;
+	
 	
 	public StockLine(){};
 	
-	public StockLine(Integer stockOrderID, Integer productId, Integer quantity, Product product) {
-		this.stockOrderID = stockOrderID;
-		this.productId = productId;
+	public StockLine(StockOrder stockOrder, Integer quantity, Product product) {
+		this.stockOrder = stockOrder;
 		this.quantity = quantity;
 		this.price = Double.valueOf(df.format(product.getPrice() * quantity));
 		this.product = product;
@@ -47,21 +50,14 @@ public class StockLine {
 
 
 
-	public Integer getStockOrderID() {
-		return stockOrderID;
+	public StockOrder getStockOrder() {
+		return stockOrder;
 	}
 
-	public void setStockOrderID(Integer stockOrderID) {
-		this.stockOrderID = stockOrderID;
+	public void setStockOrderID(StockOrder stockOrder) {
+		this.stockOrder = stockOrder;
 	}
 
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
 
 	public Integer getQuantity() {
 		return quantity;

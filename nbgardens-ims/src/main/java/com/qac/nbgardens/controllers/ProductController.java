@@ -161,9 +161,9 @@ public class ProductController implements Serializable{
 		products = null;
 	}
 
-	public ArrayList<Product> filterResults() {
-		ArrayList<Product> initial = getProducts();
-		ArrayList<Product> result = new ArrayList<Product>();
+	public List<Product> filterResults() {
+		List<Product> initial = getProducts();
+		List<Product> result = new ArrayList<Product>();
 		
 		List<String> listParameters = new ArrayList<>();
 		FacesContext.getCurrentInstance().getExternalContext().getRequestParameterNames().forEachRemaining(k->{
@@ -188,14 +188,16 @@ public class ProductController implements Serializable{
 		if (highcap==null) highcap=9999;
 
 		//Limit by id range
-		ArrayList<Product> idrange = new ArrayList<Product>();
-		for (Product p : initial) {
-			if (p.getProductId() > lowcap -1 && p.getProductId() <= highcap) {
-				idrange.add(p);
+		List<Product> idrange = new ArrayList<Product>();
+		if(initial !=null) {
+			for (Product p : initial) {
+				if (p.getProductId() > lowcap -1 && p.getProductId() <= highcap) {
+					idrange.add(p);
+				}
 			}
 		}
 		
-		ArrayList<Product> cat = new ArrayList<Product>();
+		List<Product> cat = new ArrayList<Product>();
 		//convert category string to enum
 
 		for (Product p : idrange) {
@@ -278,9 +280,9 @@ public class ProductController implements Serializable{
 		return false;
 	}
 	
-	public ArrayList<Product> getProducts() {
+	public List<Product> getProducts() {
 		if(products == null) {
-			return new ArrayList<Product>(productService.findAll());
+			return productService.findAll();
 		}
 			//products = getPagination().createArrayList();
 		

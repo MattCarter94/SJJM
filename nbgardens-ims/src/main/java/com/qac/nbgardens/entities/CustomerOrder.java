@@ -19,12 +19,12 @@ import javax.validation.constraints.NotNull;
 
 import com.qac.nbgardens.entities.enums.OrderStatus;
 
-@NamedQueries ({
-	@NamedQuery (
-		name = "findOrderStatus",
-		query = "SELECT * FROM CustomerOrder co where co. = :"
-	)
-})
+//@NamedQueries ({
+//	@NamedQuery (
+//		name = "findOrderStatus",
+//		query = "SELECT * FROM CustomerOrder co where co. = :"
+//	)
+//})
 
 //SQL table definition
 @Entity
@@ -39,60 +39,49 @@ public class CustomerOrder {
 	@OneToOne //For FK.
 	@JoinColumn(name="Email", nullable = false)
 	@NotNull
-	private String email;
+	private Customer customer;
 	
-	@OneToMany //For FK.
-	@JoinColumn(name="AddressID", nullable = false)
+	@OneToOne //For FK.
+	@JoinColumn(name="Address_ID", nullable = false)
 	@NotNull
-	private Integer addressId;
+	private Address	address;
 	
 	
 	@Column (name = "Order_Date", nullable = false)
 	@NotNull
 	private Date orderDate;
 	
-	@Column (name = "Order_Status", nullable = false, length = 255)
+	@Column (name = "Status", nullable = false, length = 255)
 	@NotNull
 	private OrderStatus status;
 	//End of table definition
 	
-	private List<OrderLine> orderLines;
-	private Address	address;
+	//private List<OrderLine> orderLines;
+	
 	
 	
 	// Constructors
-	public CustomerOrder(String email, Integer addressId, Date orderDate, OrderStatus status, Address address) {
+	public CustomerOrder(){}
+	public CustomerOrder(Customer customer, Date orderDate, OrderStatus status, Address address) {
 
-		this.email = email;
-		this.addressId = addressId;
+		this.customer = customer;
 		this.orderDate = orderDate;
 		this.status = status;
-		this.orderLines = new ArrayList<OrderLine>();
+		//this.orderLines = new ArrayList<OrderLine>();
 		this.address = address;
 	}
 
 
 	
 	//GETTERS AND SETTERS
-	public String getEmail() {
-		return email;
+	public Customer getCustomer() {
+		return customer;
 	}
 
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
-
-
-	public Integer getAddressId() {
-		return addressId;
-	}
-
-
-	public void setAddressId(Integer addressId) {
-		this.addressId = addressId;
-	}
-
 
 	public Date getOrderDate() {
 		return orderDate;
@@ -114,18 +103,18 @@ public class CustomerOrder {
 	}
 
 
-	public List<OrderLine> getOrderLines() {
-		return orderLines;
-	}
-
-
-	public void setOrderLines(List<OrderLine> orderLines) {
-		this.orderLines = orderLines;
-	}
-	
-	public void addOrderLine(OrderLine o) {
-		orderLines.add(o);
-	}
+//	public List<OrderLine> getOrderLines() {
+//		return orderLines;
+//	}
+//
+//
+//	public void setOrderLines(List<OrderLine> orderLines) {
+//		this.orderLines = orderLines;
+//	}
+//	
+//	public void addOrderLine(OrderLine o) {
+//		orderLines.add(o);
+//	}
 
 
 	public Address getAddress() {

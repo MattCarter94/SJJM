@@ -1,10 +1,14 @@
 package com.qac.nbgardens.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table (name = "Address")
 public class Address {
 
 	@Id //ID is for PK
@@ -29,6 +33,7 @@ public class Address {
 
 	
 	// Constructors
+	public Address() {}
 	public Address(String address1, String address2, String town, String county, String postcode) {
 		this.address1 = address1;
 		this.address2 = address2;
