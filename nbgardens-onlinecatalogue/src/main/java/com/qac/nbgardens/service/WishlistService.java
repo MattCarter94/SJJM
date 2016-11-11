@@ -51,12 +51,8 @@ public class WishlistService {
 	public boolean containsItem(String email, Integer productId) {
 		boolean x = false;
 		List<Product> wishlist = userManager.getUserByEmail(email).getWishlistProduct().getProducts();
-		System.out.println("service wishlist contains " + wishlist.size() + " items");
 		for(int i=0; i<=wishlist.size()-1; i++){
-			System.out.println("entered loop - incr: " + i);
-			System.out.println("wishlist id " + wishlist.get(i).getProductID() + " vs product id " + productId);
 			if(wishlist.get(i).getProductID().equals(productId)){
-				System.out.println("entered if statement");
 				x = true;
 				return x;
 			}
