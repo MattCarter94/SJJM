@@ -1,3 +1,12 @@
+  body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+    body, html 
+    {
+        height: 100%;
+        color: #777;
+        line-height: 1.8;
+        font-size: 14px;
+    }
+
 #regFormStep1, #regFormStep2, #regFormStep3{
 	display: block;
 	margin-top: 20px;

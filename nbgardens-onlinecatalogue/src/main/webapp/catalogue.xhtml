@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
 
 		<link rel="stylesheet" type="text/css" href="css/catalogue.css" />
+		<link rel="stylesheet" href="css/indexStyle.css"/>
 
 <div class="container-fluid mainContainer">
 
@@ -70,8 +71,6 @@
 					</h:selectOneMenu></span>
 					</div>
 					
-					<br/>
-					
 					<hr />
 					<p>Categories:</p>
 					
@@ -81,7 +80,15 @@
 						<f:selectItem itemValue="#{products.categories.get(1)}" itemLabel="Gnome Accessories" />
 						<f:selectItem itemValue="#{products.categories.get(2)}" itemLabel="Garden Fountains" />
 					</h:selectOneMenu>
+					<hr/>
 					
+					<p>Sort by Price:</p>
+					
+					<h:selectOneMenu class="sort" value="#{products.sort}">
+						<f:selectItem itemValue="0" itemLabel="No Sort" />
+						<f:selectItem itemValue="1" itemLabel="Low to High" />
+						<f:selectItem itemValue="2" itemLabel="High to Low" />
+					</h:selectOneMenu>
 					
 					<br/><br/>
 					<h:commandButton class="btn" action="catalogue" value="Submit" />

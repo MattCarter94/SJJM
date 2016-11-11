@@ -50,7 +50,7 @@
 									    	<button class="buttonAni"><span>Order 1 for £#{supplierProducts.getPriceFor_1_Unit()}</span></button>
 									    </div>
 									    <div class="col-md-4">
-									    	<button class="buttonAni"><span>Order 10 for £#{supplierProducts.getPriceFor_10_Unit()}</span></button>	
+									    	<button class="buttonAni" onclick="#{supplier.CreateOrder())}"><span>Order 10 for £#{supplierProducts.getPriceFor_10_Unit()}</span></button>	
 									    </div>
 									    <div class="col-md-4">
 									    	<button class="buttonAni"><span>Order 100 for £#{supplierProducts.getPriceFor_100_Unit()}</span></button>
@@ -66,9 +66,43 @@
 			</div> 
 			
 			<div class ="container">  
-				<button class="accordion"><h2>Finish an Incomplete Stock Order</h2></button>
-				  <div class="panel" id="panel">			
+				<button class="accordion"><h2>Finish a Incomplete Stock Order</h2> </button>
+				  <div class="panel" id="panel">
+				  			
+		
 					
+					<h3>Incomplete Orders</h3>
+		  			<ui:repeat var="stockorder" value="#{incompletestockorders.getIncompleteOrders()}">
+						<hr></hr>
+						<button class="accordion"><h2>Stock Order: #{stockorder.stockOrderId}</h2><h3>Current Total: £#{stockline.getStockLinesPrice(stockorder.stockOrderId)}</h3></button>
+							<div class="panel">
+			  					<div class="orderTable">
+			        				<table>
+										<tr>                             
+				                			<th>Product ID</th>
+							                <th>Product Name</th>
+							                <th>Category</th>
+							                <th>Quantity</th>
+							                <th>Unit Price</th>
+							                <th>Total Price</th>
+				            			</tr>	        	
+			        	    			<h4>Order Lines</h4>   	
+								        <ui:repeat var="stockLine" value="#{stockline.getStockLines(stockorder.stockOrderId)}">
+							                <tr>
+							                    <td>#{stockLine.productId}</td>
+							                    <td>#{stockLine.product.getTitle()}</td>
+							                    <td>#{stockLine.product.getCategory().toString()}</td>
+							                    <td>#{stockLine.quantity}</td>
+							                    <td>£#{stockLine.product.getPrice()}</td> 
+							                    <td>£#{stockLine.price}</td>
+							                </tr>
+							                <hr></hr>  
+						               	</ui:repeat>                             
+			            			</table>
+			         			</div>  
+			         			<button>Complete Order</button>      
+							</div>
+			 	</ui:repeat>	
 				</div>
 			</div>
 			    
