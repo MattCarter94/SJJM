@@ -35,7 +35,7 @@
 						<ui:repeat var="product" value="#{currentUser.user.getWishlistProduct().getProducts()}">
 							<tr>
 								<td>#{product.title}</td>
-								<td>£#{product.getPrice()}</td>
+								<td><h:outputText value="#{product.price}" styleClass="price"><f:convertNumber type="currency" /></h:outputText></td>
 								<td><h:commandButton value="Delete" action="#{wishlist.removeFromWishlist()}" styleClass="deleteButton">
 										<f:setPropertyActionListener target="#{wishlist.deleteId}" value="#{product.productID}" />
 									</h:commandButton>

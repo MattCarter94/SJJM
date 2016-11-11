@@ -52,15 +52,15 @@ public class InitialData {
 
 		//Add products
 		addProduct(new Product(100, "Glorious Clive", 20.00, "its a gnome", Category.GNOME, "clive.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(102, "Lumber Clive", 90, "its a gnome", Category.GNOME, "gnome2.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(103, "Doctor Clive", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(104, "Wizard Clive", 59.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(105, "Doctor Clive", 69.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(106, "Wizard Clive", 79.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(102, "Lumber Gnome", 90, "its a gnome", Category.GNOME, "gnome2.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(103, "Doctor Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(104, "Wizard Gnome", 59.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(105, "Sailor Gnome", 69.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome7.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(106, "Professor Gnome", 79.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome8.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(101, "Swinging Gnomes", 300, "its a gnome", Category.GNOME, "gnome_swing.jpg", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(107, "Lumber Clive", 89.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(108, "Doctor Clive", 29.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(109, "Clive Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "clive.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(107, "Ram Gnome", 89.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome10.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(108, "Old Guy Gnome", 29.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome9.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(109, "Creepy Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome4.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 
 		addProduct(new Product(110, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
 		addProduct(new Product(111, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));

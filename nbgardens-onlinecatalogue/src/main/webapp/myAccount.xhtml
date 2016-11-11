@@ -67,7 +67,7 @@
 											#{order.getQuantity()}
 										</td>
 										<td>
-											£#{order.getTotalCost()}
+											<h:outputText value="#{order.getTotalCost()}" styleClass="price"><f:convertNumber type="currency" /></h:outputText>
 										</td>
 										<td>
 											#{order.getStatus()}
