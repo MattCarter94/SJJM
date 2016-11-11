@@ -228,3 +228,8 @@ hr {
     background-image: linear-gradient(to right, #ccc, #b3b3b3, #ccc);
 
 }
+.product:hover{
+	transition:0.1s;
+	background-color: #f7f7f7;
+	border-radius:5px;
+}

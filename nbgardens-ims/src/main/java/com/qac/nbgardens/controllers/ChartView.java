@@ -46,7 +46,7 @@ public class ChartView implements Serializable {
         lineModel1 = initLinearModel();
         Integer userEnteredId = 1000;
         try{
-        	userEnteredId = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("filter_search"));
+        	userEnteredId = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("search"));
         	if(userEnteredId < productController.getProducts().get(0).getProductId() || userEnteredId > productController.getProducts().get(productController.getProducts().size() - 1).getProductId()){
         		System.out.println("Out of range value");
         		errorMsg = "No products with this ID found.";
