@@ -10,12 +10,15 @@ import javax.inject.Inject;
 
 import com.qac.nbgardens.entities.StockOrder;
 import com.qac.nbgardens.entities.Supplier;
+import com.qac.nbgardens.managers.IncompleteStockOrdersManager;
 import com.qac.nbgardens.managers.StockOrderManager;
 import com.qac.nbgardens.util.InitialData;
 
+
 @Default
 @Stateless
-public class StockOrderOfflineManager implements StockOrderManager {
+public class IncompleteStockOrderOfflineManager implements IncompleteStockOrdersManager
+{
 	
 	@Inject
 	private InitialData initialData;
@@ -69,21 +72,18 @@ public class StockOrderOfflineManager implements StockOrderManager {
 		return null;
 	}
 	
-	@Override
-	public List<StockOrder> findAllComplete() {
+	public List<StockOrder> findAllInComplete() {
 		List<StockOrder> so = new ArrayList<StockOrder>();
 		for (Supplier s : initialData.getSuppliers()) 
 		{
 			for (int i = 0; i < s.getStockOrders().size(); i++) 
-			{
-					System.out.println("Complete Orders");
-					if (s.getStockOrders().get(i).getisOrderComplete() == true)
+			{				
+					System.out.println("Incomplete Orders");
+					if (s.getStockOrders().get(i).getisOrderComplete() == false)
 						so.add(s.getStockOrders().get(i));
-
+				
 			}
 		}
 		return so;
 	}
 }
-	
-

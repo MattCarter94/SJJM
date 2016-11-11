@@ -149,19 +149,16 @@ public class InitialData {
 					so3 = new StockOrder();			                               
 		try
 		{	
-			 so1 = new StockOrder(s1.getSupplierId(), sdf.parse("05-9-2016"), sdf.parse("03-11-2016"));
-			 so2 = new StockOrder(s1.getSupplierId(), sdf.parse("10-10-2016"),sdf.parse("05-11-2016"));
-			 so3 = new StockOrder(s1.getSupplierId(), sdf.parse("15-11-2015"), sdf.parse("07-11-2016"));
+			 so1 = new StockOrder(s1.getSupplierId(), sdf.parse("05-9-2016"), sdf.parse("03-11-2016"), true);
+			 so2 = new StockOrder(s2.getSupplierId(), sdf.parse("10-10-2016"),sdf.parse("05-11-2016"), true);
+			 so3 = new StockOrder(s3.getSupplierId(), null, null, false);
 		} 
 		catch (ParseException e) 
 		{
 			e.printStackTrace();
 		}
 		
-		
-		s1.addStockOrder(so1);
-		s2.addStockOrder(so2);
-		s3.addStockOrder(so3);
+	
 		
 		//Add stocklines for stock orders
 		StockLine sl1 = new StockLine(so1.getStockOrderId(), p1.getProductId(), 50, p1);
@@ -177,6 +174,10 @@ public class InitialData {
 		so3.addStockLine(sl4);
 		so3.addStockLine(sl5);
 		
+		
+		s1.addStockOrder(so1);
+		s2.addStockOrder(so2);
+		s3.addStockOrder(so3);	
 		
 		//Adding elements
 		//Add Customers

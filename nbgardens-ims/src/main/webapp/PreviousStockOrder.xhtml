@@ -30,7 +30,7 @@
 		<br></br>
       
         <div class ="container">  
-		  <ui:repeat var="stockorder" value="#{stockorders.stockOrders}">
+		  <ui:repeat var="stockorder" value="#{stockorders.getStockOrders()}">
 			<button class="accordion"><h2>Stock Order: #{stockorder.stockOrderId}</h2><h3>Total: £#{stockline.getStockLinesPrice(stockorder.stockOrderId)}</h3><hr></hr>Order Date: #{stockorder.stockOrderDate.getDate()}/#{stockorder.stockOrderDate.getMonth() + 1}/#{stockorder.stockOrderDate.getYear() - 100} <br></br> Date Received: #{stockorder.stockRecievedDate.getDate()}/#{stockorder.stockRecievedDate.getMonth() + 1}/#{stockorder.stockRecievedDate.getYear() - 100} </button>
 				<div class="panel">
 			  		<div class="orderTable">

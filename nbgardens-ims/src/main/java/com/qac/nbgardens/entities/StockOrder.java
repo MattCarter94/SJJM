@@ -19,6 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.qac.nbgardens.entities.enums.ProductStatus;
+
 
 
 
@@ -54,8 +56,13 @@ public class StockOrder {
 	
 	@Column (name = "Stock_Received_Date")
 	private Date stockRecievedDate;
+	
+	@Column (name = "Is_Order_Complete")
+	private Boolean isOrderComplete;
 
 	private List<StockLine> stockLines;
+	
+	
 	
 	private static int idCounter = 1;
 
@@ -63,7 +70,7 @@ public class StockOrder {
 			
 	public StockOrder(){};
 	
-	public StockOrder(Integer supplierId, Date stockOrderDate, Date stockRecievedDate) {
+	public StockOrder(Integer supplierId, Date stockOrderDate, Date stockRecievedDate, Boolean isTheOrderComplete) {
 		if (this.stockOrderId == null) {
 			this.stockOrderId = idCounter;
 			idCounter++;
@@ -72,10 +79,20 @@ public class StockOrder {
 		this.stockOrderDate = stockOrderDate;
 		this.stockRecievedDate = stockRecievedDate;
 		this.stockLines = new ArrayList<StockLine>();
+		this.isOrderComplete = isTheOrderComplete;
 	}
 	
 	
 
+	public Boolean getisOrderComplete() {
+		return isOrderComplete;
+	}
+
+	public void setStockOrderId(Boolean isOrderComplete) {
+		this.isOrderComplete = isOrderComplete;
+	}
+	
+	
 	public Integer getStockOrderId() {
 		return stockOrderId;
 	}

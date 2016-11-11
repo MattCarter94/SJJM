@@ -19,7 +19,9 @@ public class StockOrderService
 	@Inject
 	private StockOrderManager stockOrderManager;
 	
-	public List<StockOrder> findAll() {
-		return stockOrderManager.findAll();
+	public List<StockOrder> findAllComplete() 
+	{
+		return stockOrderManager.findAllComplete();
 	}
+	
 }

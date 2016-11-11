@@ -15,6 +15,7 @@ import com.qac.nbgardens.entities.CustomerOrder;
 import com.qac.nbgardens.entities.StockOrder;
 import com.qac.nbgardens.service.CustomerService;
 import com.qac.nbgardens.service.StockOrderService;
+import com.qac.nbgardens.util.InitialData;
 import com.qac.nbgardens.util.Pagination;
 
 
@@ -27,12 +28,12 @@ public class StockOrderController implements Serializable{
 
 	public ArrayList<StockOrder> getStockOrders() 
 	{
-
 		if(stockOrders == null)
 		{
-			stockOrders = new ArrayList<StockOrder>(stockOrderService.findAll());
+			stockOrders = new ArrayList<StockOrder>(stockOrderService.findAllComplete());
 		}
+		
+
 		return stockOrders;
 	}
-
 }
