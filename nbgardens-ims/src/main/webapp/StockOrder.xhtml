@@ -24,7 +24,7 @@
 		    
 		    <br></br>
 			<div class ="container"> 
-		    	<h1>Create A New Stock Order</h1>
+		    	<h1>Stock Orders</h1>
 		    </div>
 			<br></br>
 			<br></br>
@@ -32,7 +32,9 @@
 			
 								
 			<div class ="container">  
-			  <h3>Select A Supplier:</h3> <br></br>
+			  <button class="accordion"><h2>Create a new Stock Order</h2></button>
+			  <div class="panel" id="panel">			
+			  <h3>Select a Supplier:</h3>
 			  <ui:repeat var="supplier" value="#{suppliers.suppliers}">
 			  <hr></hr>
 				<button class="accordion"><h4>Supplier: #{supplier.supplierName}</h4></button>
@@ -59,8 +61,16 @@
 				 		</ui:repeat>	
 					</div>
 				 </ui:repeat>
+				</div> 
 				 <hr></hr>
 			</div> 
+			
+			<div class ="container">  
+				<button class="accordion"><h2>Finish an Incomplete Stock Order</h2></button>
+				  <div class="panel" id="panel">			
+					
+				</div>
+			</div>
 			    
  </ui:define>
         </ui:composition>

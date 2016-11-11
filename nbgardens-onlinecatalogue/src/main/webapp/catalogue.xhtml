@@ -17,29 +17,7 @@
 
 		<link rel="stylesheet" type="text/css" href="css/catalogue.css" />
 
-<div class="mainContainer">
-
-<!-- 		<div class="row"> -->
-			
-<!-- 			<div class="col-sm-2"></div> -->
-			
-<!-- 			<div class="col-xs-12 col-sm-8" id=""> -->
-<!-- 				<br /> -->
-<!-- 				<form class="navbar-form" role="search" id="searchbar"> -->
-<!-- 					<div class="input-group add-on"> -->
-<!-- 						<input class="form-control" placeholder="Search" name="srch-term" -->
-<!-- 							id="srch-term" type="text" /> -->
-<!-- 						<div class="input-group-btn"> -->
-<!-- 							<button class="btn btn-default" type="submit"> -->
-<!-- 								<i class="glyphicon glyphicon-search"></i> -->
-<!-- 							</button> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</form> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-sm-2"></div> -->
-<!-- 		</div> -->
-
+<div class="container-fluid mainContainer">
 
 		<div class="row">
 			<div class="col-sm-1"></div>
@@ -48,55 +26,49 @@
 				<h:form id="priceform">
 					<div class="input-group add-on">
 					<span>
-						<h:inputText type="text" value="#{products.search}" a:placeholder="Search Product Name"/>
-<!-- 						<div class="input-group-btn"> -->
+						<h:inputText id="searchInput" type="text" value="#{products.search}" a:placeholder="Search Product Name" style="width:160px; height:30px;"/>
 							
 							<h:commandButton class="btn btn-default" action="catalogue" image="img/search1.png"/>
-<!-- 							<button class="btn btn-default" type="submit" -->
-<!-- 								onsubmit="searchProducts(search-term.value)"> -->
-<!-- 								<i class="glyphicon glyphicon-search"></i> -->
-<!-- 							</button> -->
-<!-- 						</div> -->
+
 						</span>
 					</div>
-				
-				
-				<hr />
-				<p>Price range £:</p>
 
-				
+				<hr/>
+				<p>Price range:</p>
 
 					<span>Low 
 					<h:selectOneMenu class="low" value="#{products.priceLow}">
-						<f:selectItem itemValue="0" itemLabel="0" />
-						<f:selectItem itemValue="10" itemLabel="10" />
-						<f:selectItem itemValue="20" itemLabel="20" />
-						<f:selectItem itemValue="30" itemLabel="30" />
-						<f:selectItem itemValue="40" itemLabel="40" />
-						<f:selectItem itemValue="50" itemLabel="50" />
-						<f:selectItem itemValue="60" itemLabel="60" />
-						<f:selectItem itemValue="70" itemLabel="70" />
-						<f:selectItem itemValue="80" itemLabel="80" />
-						<f:selectItem itemValue="90" itemLabel="90" />
-						<f:selectItem itemValue="100" itemLabel="100" />
-						<f:selectItem itemValue="#{products.range.get(products.range.size()-1)}" itemLabel="#{products.range.get(products.range.size()-1)}" />
+						<f:selectItem itemValue="0" itemLabel="£0" />
+						<f:selectItem itemValue="10" itemLabel="£10" />
+						<f:selectItem itemValue="20" itemLabel="£20" />
+						<f:selectItem itemValue="30" itemLabel="£30" />
+						<f:selectItem itemValue="40" itemLabel="£40" />
+						<f:selectItem itemValue="50" itemLabel="£50" />
+						<f:selectItem itemValue="60" itemLabel="£60" />
+						<f:selectItem itemValue="70" itemLabel="£70" />
+						<f:selectItem itemValue="80" itemLabel="£80" />
+						<f:selectItem itemValue="90" itemLabel="£90" />
+						<f:selectItem itemValue="100" itemLabel="£100" />
+						<f:selectItem itemValue="#{products.range.get(products.range.size()-1)}" itemLabel="£#{products.range.get(products.range.size()-1)}" />
 					</h:selectOneMenu></span>
 					
+					<div class="resize">
 					<span>High 
 					<h:selectOneMenu class="high" value="#{products.priceHigh}">
-						<f:selectItem itemValue="#{products.range.get(products.range.size()-1)}" itemLabel="#{products.range.get(products.range.size()-1)}" />
-						<f:selectItem itemValue="100" itemLabel="100" />
-						<f:selectItem itemValue="90" itemLabel="90" />
-						<f:selectItem itemValue="80" itemLabel="80" />
-						<f:selectItem itemValue="70" itemLabel="70" />
-						<f:selectItem itemValue="60" itemLabel="60" />
-						<f:selectItem itemValue="50" itemLabel="50" />
-						<f:selectItem itemValue="40" itemLabel="40" />
-						<f:selectItem itemValue="30" itemLabel="30" />
-						<f:selectItem itemValue="20" itemLabel="20" />
-						<f:selectItem itemValue="10" itemLabel="10" />
-						<f:selectItem itemValue="0" itemLabel="0" />						
+						<f:selectItem itemValue="#{products.range.get(products.range.size()-1)}" itemLabel="£#{products.range.get(products.range.size()-1)}" />
+						<f:selectItem itemValue="100" itemLabel="£100" />
+						<f:selectItem itemValue="90" itemLabel="£90" />
+						<f:selectItem itemValue="80" itemLabel="£80" />
+						<f:selectItem itemValue="70" itemLabel="£70" />
+						<f:selectItem itemValue="60" itemLabel="£60" />
+						<f:selectItem itemValue="50" itemLabel="£50" />
+						<f:selectItem itemValue="40" itemLabel="£40" />
+						<f:selectItem itemValue="30" itemLabel="£30" />
+						<f:selectItem itemValue="20" itemLabel="£20" />
+						<f:selectItem itemValue="10" itemLabel="£10" />
+						<f:selectItem itemValue="0" itemLabel="£0" />						
 					</h:selectOneMenu></span>
+					</div>
 					
 					<br/>
 					
@@ -112,7 +84,7 @@
 					
 					
 					<br/><br/>
-					<h:commandButton action="catalogue" value="Submit" />
+					<h:commandButton class="btn" action="catalogue" value="Submit" />
 					
 					
 				</h:form>
@@ -166,9 +138,6 @@
 
 
 </div>
-
-
-
 	</ui:define>
 </ui:composition>
 
