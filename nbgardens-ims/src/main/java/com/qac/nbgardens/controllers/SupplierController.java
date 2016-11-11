@@ -49,14 +49,20 @@ public class SupplierController implements Serializable{
 			if (listOfSuppliers.get(i).getSupplierId() == SupplierId)
 			{	
 				listofSuppliersStockOrders = (ArrayList<StockOrder>) listOfSuppliers.get(i).getStockOrders();
-				
-				for (Integer j = 0; j < listofSuppliersStockOrders.size(); j++ )
+				if ( listofSuppliersStockOrders.size() > 0)
 				{
-					if (listofSuppliersStockOrders.get(j).getStockOrderId() == StockOrderId)
+					for (Integer j = 0; j < listofSuppliersStockOrders.size(); j++ )
 					{
-						listofSuppliersStockOrders.get(j).addStockLine(new StockLine(StockOrderId, ProductId, Quantity, inData.getProducts().get(ProductId - 999)));
+						if (listofSuppliersStockOrders.get(j).getStockOrderId() == StockOrderId)
+						{
+							listofSuppliersStockOrders.get(j).addStockLine(new StockLine(StockOrderId, ProductId, Quantity, inData.getProducts().get(ProductId - 999)));
+						}
+						
 					}
-					
+				}
+				else
+				{
+				listOfSuppliers.get(i).addStockOrder(new StockOrder(supplierId, stockOrderDate, stockRecievedDate, isTheOrderComplete));
 				}
 				
 				
