@@ -1,6 +1,6 @@
 .product-list {
-    width: 65%;
-    margin: 0 10px 10px 0px;
+    width: 90%;
+    margin: 0 10px 10px 30px;
     padding: 0px;
     float: left;
 }
@@ -9,13 +9,13 @@
     float: left;
     height: 50px;
     width: 100%;
-    padding 12px;
+    padding: 12px;
 }
 
 .horizontal .stock-track {
     position: relative;
-    height 25px;
-    width 100%;
+    height: 25px;
+    width: 100%;
     background: #3F3F3F;
     -moz-border-radius:17px;
 	-webkit-border-radius:17px;
@@ -24,10 +24,7 @@
 }
 
 .stock-track p {
-    position: absolute;
-    right: 0;
-    top: -18px;
-    height: 25px;
+	color:black;
     text-align: right;
     padding-right: 10px;
     
@@ -36,30 +33,31 @@
 
 .horizontal .stock-fill {
     position: relative;
-    background: #415989;
+    background: #f4511e;
     height: 25px;
     width: 50%;
     color: #FEFEFE;
     text-align: center;
     font-size: 12px;
     line-height: 25px;
-    -moz-border-radius:17px;
-	-webkit-border-radius:17px;
-	border-radius:17px;
+    -moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	margin-top:12px;
 }
 
 .orderStockButton {
     float: right;
+    margin-top:-10px;
 }
 
 .idNumber {
-    border-top: 2px solid #000000;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #000000;
-    border-radius: 17px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
     margin-right: 40px;
     padding: 7px;
     font-weight: 700;
+    margin-bottom:5px;
     
 }
 
@@ -85,23 +83,23 @@
 
 .product-list {
 	min-width: 450px;
+	width:100%;
 }
 div.accordion {
     cursor: pointer;
     transition: height 0.6s;
 }
 div.panel {
-    background-color: #3F3F3F;
+    background-color: #f7f7f7;
     color: white;
     display: none;
-    //border-bottom-left-radius: 17px;
-    //border-bottom-right-radius: 17px;
-    border-radius: 17px;
+    border-radius: 5px;
     padding: 10px;
+    margin-top:-10px;
     
 }
 div.panel h3 {
-    color: white;
+    color: black;
 }
 
 div.panel.show {
@@ -111,79 +109,94 @@ div.panel.show {
 
 .detail {
     padding-bottom:10px;
-    line-height: 60px;
 }
 .detail h4{
-    color: white;
+    color: black;
     display: inline-block;
     width: 30%;
-    right:0;
-}
-.detail input {
-    width: 65%;
+} 
+.detail select, 
+.detail input,
+#tagsSearch,
+.typeOrder select,
+.priceOrder select{
+    width: 100%;
     display: inline-block;
+    padding-left:5px;
+    color:black;
+    height:30px;
+    border-radius: 5px;
+    border: 1px solid #b3b3b3;
 }
-.detail textarea {
-    width: 65%;
+.detail select{
+	padding-left:2px;
+}
+.detail textarea{
+	width: 100%;
+	height:100px;
     display: inline-block;
+    color:black;
+    padding-left:5px;
+    resize: none;
+    border-radius: 5px;
 }
-.detail select {
-    width: 65%;
-    display: inline-block;
+.detail select:focus,
+.detail input:focus,
+.detail textarea:focus,
+#tagsSearch:focus,
+.typeOrder select:focus,
+.priceOrder select:focus,
+.idRange input:focus{
+	transition:0.3s;
+	border-color: rgba(244, 81, 30, 0.6);
+    box-shadow: rgba(244, 81, 30, 0.6);
+    outline: rgba(244, 81, 30, 0.6);
 }
-
 
 .filter-block {
-    background-color: #3F3F3F;
+    background-color: #f7f7f7;
+    box-shadow: 2px 4px 2px #ccc;
     float: right;
     border-radius: 17px;
-    width: 30%;
-    color: white;
+    width: 100%;
+    color: black;
     padding: 10px;
-    border: 5px double #2e466e;
+    border: 1px solid cccccc;
     min-width: 280px;
+    margin-top:-50px;
 }
 
 .filter-block h2 {
-    color: white;
+    color: black;
+    margin-top:0px;
+}
+h4{
+font-weight:300;
 }
 .priceOrder {
     margin-bottom: 20px;
 }
-.priceOrder h4 {
+.priceOrder h4,
+.typeOrder h4,
+.idRange h4 {
     display: inline-block;
     width: 40%;
-    color: white;
-}
-.priceOrder select {
-    width: 55%;
+    color: black;
+    margin-top:-5px;
 }
 .typeOrder {
     margin-bottom: 20px;
 }
-.typeOrder h4 {
-    display: inline-block;
-    width: 40%;
-    color: white;
-}
-.typeOrder select {
-    width: 55%;
-}
-
-.idRange h4 {
-    display: inline-block;
-    width: 40%;
-    color: white;
-    margin-bottom: 25px;
-}
 
 .idRange input {
 	width: 20%;
-}
-
-#tagsSearch {
-	margin-bottom: 30px;
-	width: 90%;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+     border:1px solid #b3b3b3;
+     padding-left:5px;
+     margin-top:-5px;
 }
 
 .searchButton {
@@ -203,4 +216,15 @@ div.panel.show {
 .price {
     padding-left: 40px;
     font-style: italic;
+}
+.btn-success{
+	margin-right:15px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #b3b3b3;
+    background-image: linear-gradient(to right, #ccc, #b3b3b3, #ccc);
+
 }

@@ -51,24 +51,24 @@ public class InitialData {
 
 
 		//Add products
-		addProduct(new Product(100, "Glorious Clive", 20.00, "its a gnome", Category.GNOME, "clive.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(102, "Lumber Gnome", 90, "its a gnome", Category.GNOME, "gnome2.png", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(103, "Doctor Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(104, "Wizard Gnome", 59.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(105, "Sailor Gnome", 69.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome7.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(106, "Professor Gnome", 79.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome8.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(101, "Swinging Gnomes", 300, "its a gnome", Category.GNOME, "gnome_swing.jpg", "tag1, tag2, tag3", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(107, "Ram Gnome", 89.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome10.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(108, "Old Guy Gnome", 29.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome9.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(109, "Creepy Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome4.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(100, "Glorious Clive", 20.00, "its a gnome", Category.GNOME, "clive.png", "clive, almighty, god", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(102, "Lumber Gnome", 90, "its a gnome", Category.GNOME, "gnome2.png", "wood, axe, red", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(103, "Doctor Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome3.png", "medical, white, hospital", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(104, "Wizard Gnome", 59.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome1.png", "wise, stick, wizard", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(105, "Sailor Gnome", 69.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome7.png", "water, navy, white, military", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(106, "Professor Gnome", 79.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome8.png", "scientist, experiment, science, lab, mad", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(101, "Swinging Gnomes", 300, "its a gnome", Category.GNOME, "gnome_swing.jpg", "swing, couple, fun", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(107, "Ram Gnome", 89.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome10.png", "mythical, horn, goat", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(108, "Old Guy Gnome", 29.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome9.png", "fishing, cool, old", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(109, "Creepy Gnome", 49.99, "Place this awesome gnome in your garden and you too can praise the almight clive day and night!", Category.GNOME, "gnome4.png", "pipe, lamp, creep", 5000, ProductStatus.ACTIVE, new Date()));
 
-		addProduct(new Product(110, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(111, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(112, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(110, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "hat, red, accessory", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(111, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "hat, red, accessory", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(112, "Gnome Hat", 10, "A fancy hat", Category.GNOMEACCESSORY, "gnomeacc2.png", "hat, red, accessory", 5000, ProductStatus.ACTIVE, new Date()));
 		
-		addProduct(new Product(113, "Garden Fountain", 69.99, "A fountain and stuff", Category.GARDENFOUNTIAN, "fountain1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(114, "Garden Fountain", 69.99, "A fountain and stuff", Category.GARDENFOUNTIAN, "fountain1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
-		addProduct(new Product(115, "Garden Fountain", 69.99, "A fountain and stuff", Category.GARDENFOUNTIAN, "fountain1.png", "clive, lord, praise", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(113, "Garden Fountain", 69.99, "A fountain and stuff", Category.GARDENFOUNTIAN, "fountain1.png", "water, fountain, garden", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(114, "Garden Fountain", 69.99, "A fountain and stuff", Category.GARDENFOUNTIAN, "fountain1.png", "water, fountain, garden", 5000, ProductStatus.ACTIVE, new Date()));
+		addProduct(new Product(115, "Garden Fountain", 69.99, "A fountain and stuff", Category.GARDENFOUNTIAN, "fountain1.png", "water, fountain, garden", 5000, ProductStatus.ACTIVE, new Date()));
 		
 		
 		//Add Customer Order
@@ -181,7 +181,7 @@ public class InitialData {
 		if(search!=""){
 			if(category == Category.ALL){
 				for(int i=0; i<=products.size()-1; i++){
-					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getTitle().toLowerCase().contains(search.toLowerCase())){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && (products.get(i).getTitle().toLowerCase().contains(search.toLowerCase()) || products.get(i).getTags().toLowerCase().contains(search.toLowerCase()))){
 						filtered.add(products.get(i));
 					}
 				}
@@ -189,13 +189,12 @@ public class InitialData {
 			
 			else{
 				for(int i=0; i<=products.size()-1; i++){
-					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getCategory() == category && products.get(i).getTitle().toLowerCase().contains(search.toLowerCase())){
+					if(products.get(i).getPrice() >= low && products.get(i).getPrice() <= high && products.get(i).getCategory() == category && (products.get(i).getTitle().toLowerCase().contains(search.toLowerCase()) || products.get(i).getTags().toLowerCase().contains(search.toLowerCase()))){
 						filtered.add(products.get(i));
 					}
 				}
 			}
 		}
-		
 		
 		return filtered;
 	}

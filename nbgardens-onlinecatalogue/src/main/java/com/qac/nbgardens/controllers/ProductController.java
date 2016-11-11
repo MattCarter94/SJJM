@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
@@ -34,6 +35,7 @@ public class ProductController implements Serializable{
 	private Category category = Category.ALL;
 	private List<Category> categories = Arrays.asList(Category.GNOME, Category.GNOMEACCESSORY, Category.GARDENFOUNTIAN, Category.ALL);
 	private String search = "";
+	private int sort = 0;
 	
 	private List<Double> lowRange;
 	private List<Double> highRange;
@@ -42,6 +44,15 @@ public class ProductController implements Serializable{
 	
 	
 	
+	
+	public int getSort() {
+		return sort;
+	}
+
+	public void setSort(int sort) {
+		this.sort = sort;
+	}
+
 	public String getSearch() {
 		return search;
 	}
@@ -120,6 +131,20 @@ public class ProductController implements Serializable{
 //		if(products == null)
 		products = productService.findAll(priceLow, priceHigh, category, search);//getPagination().niceDataModel();//getPagination().createDataModel();
 //		System.out.println(products.size());
+		
+		// if sorting
+		if(sort==0){
+			return products;
+		}
+		
+		if(sort==1){
+			Collections.sort(products, (o1, o2) -> (int) (o1.getPrice() - o2.getPrice()));
+		}
+		
+		if(sort==2){
+			Collections.sort(products, (o1, o2) -> (int) (o2.getPrice() - o1.getPrice()));
+		}
+		
 		return products;
 	}
 	
