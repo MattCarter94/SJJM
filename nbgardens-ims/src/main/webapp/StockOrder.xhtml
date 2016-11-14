@@ -1,115 +1,133 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="templates/template.xhtml">
+	<ui:define name="content">
 
-<html
-   xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-   xmlns:h="http://java.sun.com/jsf/html">
+		<meta charset="utf-8" />
+		<title>IMS New Stock Orders</title>
+		<meta name="description"
+			content="Search for stock and create a new stock order" />
+		<h:outputScript library="primefaces" name="jquery/jquery.js" />
 
-   <h:head>
-       <meta charset="utf-8"/>
-       <title>IMS New Stock Orders</title>
-       <meta name="description" content="Search for stock and create a new stock order"/>  
-<!--        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script> -->
-			<h:outputScript library="primefaces" name="jquery/jquery.js" />															`
-   </h:head>
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/Previousstockorders.css" />
+		<script type="text/javascript" src="js/previousstockorders.js"></script>
+		<link rel="stylesheet" href="css/StockOrderStyle.css" />
 
-   <body>
-   		<ui:composition template="templates/template.xhtml">
-			<ui:define name="content">
-        	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-			<link rel="stylesheet" href="css/Previousstockorders.css"/>
-			<script  type="text/javascript" src="js/previousstockorders.js"></script>
-		    <link rel="stylesheet" href="css/StockOrderStyle.css"/>
-		    
-		    <br></br>
-			<div class ="container"> 
-		    	<h1>Stock Orders</h1>
-		    </div>
-			<br></br>
-			<br></br>
-			<br></br>
-			
-								
-			<div class ="container">  
-			  <button class="accordion"><h2>Create a new Stock Order</h2></button>
-			  <div class="panel" id="panel">			
-			  <h3>Select a Supplier:</h3>
-			  <ui:repeat var="supplier" value="#{suppliers.suppliers}">
-			  <hr></hr>
-				<button class="accordion"><h4>Supplier: #{supplier.supplierName}</h4></button>
+		<br></br>
+		<div class="container">
+			<h1>Stock Orders</h1>
+		</div>
+		<br></br>
+		<br></br>
+		<br></br>
+
+
+		<div class="container">
+			<button class="accordion">
+				<h2>Create a new Stock Order</h2>
+			</button>
+			<div class="panel" id="panel">
+				<h3>Select a Supplier:</h3>
+				<ui:repeat var="supplier" value="#{suppliers.suppliers}">
+					<hr></hr>
+					<button class="accordion">
+						<h4>Supplier: #{supplier.supplierName}</h4>
+					</button>
 					<div class="panel" id="panel">
-						<h3>#{supplier.supplierName} Products:</h3><br></br>  									
-						<ui:repeat var="supplierProducts" value="#{supplierproducts.getSuppliersProducts(supplier.supplierId)}">
-							<button class="accordion">Supplier Product: #{supplierProducts.getProduct().getTitle()}</button>
-								<div class="panel">					
-									<h3> #{supplierProducts.getProduct().getTitle()} Pricing Plan:</h3>
-									<div class="row">
-										<hr></hr>
-									    <div class="col-md-4">
-									    	<button class="buttonAni"><span>Order 1 for £#{supplierProducts.getPriceFor_1_Unit()}</span></button>
-									    </div>
-									    <div class="col-md-4">
-									    	<button class="buttonAni" onclick="#{supplier.CreateOrder())}"><span>Order 10 for £#{supplierProducts.getPriceFor_10_Unit()}</span></button>	
-									    </div>
-									    <div class="col-md-4">
-									    	<button class="buttonAni"><span>Order 100 for £#{supplierProducts.getPriceFor_100_Unit()}</span></button>
-									    </div>
-  									</div>
-  									<hr></hr>	  												
-								</div>
-				 		</ui:repeat>	
-					</div>
-				 </ui:repeat>
-				</div> 
-				 <hr></hr>
-			</div> 
-			
-			<div class ="container">  
-				<button class="accordion"><h2>Finish a Incomplete Stock Order</h2> </button>
-				  <div class="panel" id="panel">
-				  			
-		
-					
-					<h3>Incomplete Orders</h3>
-		  			<ui:repeat var="stockorder" value="#{incompletestockorders.getIncompleteOrders()}">
-						<hr></hr>
-						<button class="accordion"><h2>Stock Order: #{stockorder.stockOrderId}</h2><h3>Current Total: £#{stockline.getStockLinesPrice(stockorder.stockOrderId)}</h3></button>
+						<h3>#{supplier.supplierName} Products:</h3>
+						<br></br>
+						<ui:repeat var="supplierProducts"
+							value="#{supplierproducts.getSuppliersProducts(supplier.supplierId)}">
+							<button class="accordion">Supplier Product:
+								#{supplierProducts.getProduct().getTitle()}</button>
 							<div class="panel">
-			  					<div class="orderTable">
-			        				<table>
-										<tr>                             
-				                			<th>Product ID</th>
-							                <th>Product Name</th>
-							                <th>Category</th>
-							                <th>Quantity</th>
-							                <th>Unit Price</th>
-							                <th>Total Price</th>
-				            			</tr>	        	
-			        	    			<h4>Order Lines</h4>   	
-								        <ui:repeat var="stockLine" value="#{stockline.getStockLines(stockorder.stockOrderId)}">
-							                <tr>
-							                    <td>#{stockLine.productId}</td>
-							                    <td>#{stockLine.product.getTitle()}</td>
-							                    <td>#{stockLine.product.getCategory().toString()}</td>
-							                    <td>#{stockLine.quantity}</td>
-							                    <td>£#{stockLine.product.getPrice()}</td> 
-							                    <td>£#{stockLine.price}</td>
-							                </tr>
-							                <hr></hr>  
-						               	</ui:repeat>                             
-			            			</table>
-			         			</div>  
-			         			<button>Complete Order</button>      
+								<h3>#{supplierProducts.getProduct().getTitle()} Pricing
+									Plan:</h3>
+								<div class="row">
+									<hr></hr>
+									<div class="col-md-4">
+										<button class="buttonAni">
+											<span>Order 1 for
+												£#{supplierProducts.getPriceFor_1_Unit()}</span>
+										</button>
+									</div>
+									<div class="col-md-4">
+										<button class="buttonAni" onclick="#{supplier.CreateOrder())}">
+											<span>Order 10 for
+												£#{supplierProducts.getPriceFor_10_Unit()}</span>
+										</button>
+									</div>
+									<div class="col-md-4">
+										<button class="buttonAni">
+											<span>Order 100 for
+												£#{supplierProducts.getPriceFor_100_Unit()}</span>
+										</button>
+									</div>
+								</div>
+								<hr></hr>
 							</div>
-			 	</ui:repeat>	
-				</div>
+						</ui:repeat>
+					</div>
+				</ui:repeat>
 			</div>
-			    
- </ui:define>
-        </ui:composition>
-    </body>
+			<hr></hr>
+		</div>
+
+		<div class="container">
+			<button class="accordion">
+				<h2>Finish a Incomplete Stock Order</h2>
+			</button>
+			<div class="panel" id="panel">
 
 
 
-</html>
+				<h3>Incomplete Orders</h3>
+				<ui:repeat var="stockorder"
+					value="#{incompletestockorders.getIncompleteOrders()}">
+					<hr></hr>
+					<button class="accordion">
+						<h2>Stock Order: #{stockorder.stockOrderId}</h2>
+						<h3>Current Total:
+							£#{stockline.getStockLinesPrice(stockorder.stockOrderId)}</h3>
+					</button>
+					<div class="panel">
+						<div class="orderTable">
+							<table>
+								<tr>
+									<th>Product ID</th>
+									<th>Product Name</th>
+									<th>Category</th>
+									<th>Quantity</th>
+									<th>Unit Price</th>
+									<th>Total Price</th>
+								</tr>
+								<h4>Order Lines</h4>
+								<ui:repeat var="stockLine"
+									value="#{stockline.getStockLines(stockorder.stockOrderId)}">
+									<tr>
+										<td>#{stockLine.productId}</td>
+										<td>#{stockLine.product.getTitle()}</td>
+										<td>#{stockLine.product.getCategory().toString()}</td>
+										<td>#{stockLine.quantity}</td>
+										<td>£#{stockLine.product.getPrice()}</td>
+										<td>£#{stockLine.price}</td>
+									</tr>
+									<hr></hr>
+								</ui:repeat>
+							</table>
+						</div>
+						<button>Complete Order</button>
+					</div>
+				</ui:repeat>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+
+
+

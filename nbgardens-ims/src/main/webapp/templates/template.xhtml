@@ -1,58 +1,61 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
+
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
-    <h:head>
-      
-      <title>NB Gardens IMS App</title>
-      
-		<link rel="stylesheet" href="css/indexStyle.css"/>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-      <h:outputScript library="primefaces" name="jquery/jquery.js" />
-    </h:head>
- 
-    <body>
-      <ui:debug/>
-      
-      <div class="container-fluid">
-<nav class="navbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span> 
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-        	<h:form>
-	            <ul class="nav navbar-nav">
-	                <li><a href="index.xhtml">Home</a></li>
-	                <li><a href="StockOrder.xhtml">New Stock Order</a></li>
-	                <li><a href="PreviousStockOrder.xhtml">Stock Order History</a></li>
-	                <li><a href="LiveStockTest.xhtml">Live Stock Report</a></li>
-	                <li><a href="products.xhtml">Product Manager</a></li>
-	            </ul>
-            </h:form>
-            
-           
-        </div>
-    </div>
- 
-</nav>
-</div>
- <script src="js/activeWindow.js"></script>
-      
-      
- 
-      <div class="content">
-        <ui:insert name="content"/>
-      </div>
-      <br></br><br></br>
-     
-    </body>
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+	<title>NB Gardens IMS App</title>
+
+	<link rel="stylesheet" href="css/indexStyle.css" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+</h:head>
+
+<body>
+	<ui:debug />
+
+	<div class="container-fluid">
+		<nav class="navbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<h:form>
+					<ul class="nav navbar-nav">
+						<li><a href="index.xhtml">Home</a></li>
+						<li><a href="StockOrder.xhtml">New Stock Order</a></li>
+						<li><a href="PreviousStockOrder.xhtml">Stock Order
+								History</a></li>
+						<li><a href="LiveStockTest.xhtml">Live Stock Report</a></li>
+						<li><a href="products.xhtml">Product Manager</a></li>
+					</ul>
+				</h:form>
+
+
+			</div>
+		</div>
+
+		</nav>
+	</div>
+	<script src="js/activeWindow.js"></script>
+
+
+
+	<div class="content">
+		<ui:insert name="content" />
+	</div>
+	<br></br>
+	<br></br>
+
+</body>
 </html>
 

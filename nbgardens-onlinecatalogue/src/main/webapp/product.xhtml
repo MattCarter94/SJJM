@@ -1,81 +1,102 @@
-<ui:composition 
-     	xmlns="https://www.w3.org/1999/xhtml"
-		xmlns:f="http://java.sun.com/jsf/core"
-		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-     	template="templates/clivetemplate.xhtml">
-     	
-     	<ui:define name="tabtitle">Product</ui:define>
-     	<ui:define name="main-content">
-     		<meta charset="utf-8"/>
-	        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-	        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-	        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"/>
-		    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"/>
-	        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	        
-	        <link rel="stylesheet" type="text/css" href="css/catalogue.css"/>
-	        <link rel="stylesheet" type="text/css" href="css/individProduct.css"/>
-     	
-     		<f:metadata>
-     			<f:viewParam name="id" value="#{prodbean.id}" />
-     		</f:metadata>
-     	
-     	
-     		<div class="prodContainer">
-            <div class="imgContainer">
-                <div class="prodImg">
-                    <img src="img/#{products.findProductById(prodbean.id).image}" width="250px"/>
-                </div>
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="templates/clivetemplate.xhtml">
 
-                <div class="prodPrice">
-<!--                     <h3><b>Only £#{products.findProductById(prodbean.id).price}</b></h3> -->
-					<h3><b>Only <h:outputText value="#{products.findProductById(prodbean.id).price}" styleClass="price"><f:convertNumber type="currency" /></h:outputText></b></h3>
-                    <div class="buttons">
-	                    <h:form>
-	                    	<span><h:button value="Back" outcome="catalogue.xhtml" styleClass="back"></h:button>
-	                    		<h:inputText class="quantity" value="#{basketController.quantity}" a:placeholder="1" rendered="#{currentUser.isLoggedIn()}" onkeypress="if(event.which &lt; 48 || event.which &gt; 57 ) if(event.which != 8) return false;"/>
-	                    		<h:commandButton value="Add to Cart" action="#{basketController.addToBasket(products.findProductById(prodbean.id))}" styleClass="addCart" rendered="#{currentUser.isLoggedIn()}"></h:commandButton></span>
-	<!--                     	<h:button value="Add to Cart" outcome="#{basketBean.addToBasket(products.findProductById(prodbean.id))}" styleClass="addCart"></h:button></span> -->
-	<!--                     	<h:outputText value="#{basketBean.basketProducts.size()}" /> -->
+	<ui:define name="tabtitle">Product</ui:define>
+	<ui:define name="main-content">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet"
+			href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script
+			src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/catalogue.css" />
+		<link rel="stylesheet" type="text/css" href="css/individProduct.css" />
+
+		<f:metadata>
+			<f:viewParam name="id" value="#{prodbean.id}" />
+		</f:metadata>
+
+
+		<div class="prodContainer">
+			<div class="imgContainer">
+				<div class="prodImg">
+					<img src="img/#{products.findProductById(prodbean.id).image}"
+						width="250px" />
+				</div>
+
+				<div class="prodPrice">
+					<!--                     <h3><b>Only £#{products.findProductById(prodbean.id).price}</b></h3> -->
+					<h3>
+						<b>Only <h:outputText
+								value="#{products.findProductById(prodbean.id).price}"
+								styleClass="price">
+								<f:convertNumber type="currency" />
+							</h:outputText></b>
+					</h3>
+					<div class="buttons">
+						<h:form>
+							<span><h:button value="Back" outcome="catalogue.xhtml"
+									styleClass="back"></h:button> <h:inputText class="quantity"
+									value="#{basketController.quantity}" a:placeholder="1"
+									rendered="#{currentUser.isLoggedIn()}"
+									onkeypress="if(event.which &lt; 48 || event.which &gt; 57 ) if(event.which != 8) return false;" />
+								<h:commandButton value="Add to Cart"
+									action="#{basketController.addToBasket(products.findProductById(prodbean.id))}"
+									styleClass="addCart" rendered="#{currentUser.isLoggedIn()}"></h:commandButton></span>
+							<!--                     	<h:button value="Add to Cart" outcome="#{basketBean.addToBasket(products.findProductById(prodbean.id))}" styleClass="addCart"></h:button></span> -->
+							<!--                     	<h:outputText value="#{basketBean.basketProducts.size()}" /> -->
 						</h:form>
 						<h:form class="wishlist">
-						
-						<h:panelGroup rendered="#{currentUser.isLoggedIn()}">
-							<h:panelGroup rendered="#{wishlist.containsItem(prodbean.id) == false}">
-								<h:commandLink action="#{wishlist.addToWishlist(products.findProductById(prodbean.id))}"><span class="glyphicon glyphicon-star-empty"></span> Wishlist</h:commandLink>
+
+							<h:panelGroup rendered="#{currentUser.isLoggedIn()}">
+								<h:panelGroup
+									rendered="#{wishlist.containsItem(prodbean.id) == false}">
+									<h:commandLink
+										action="#{wishlist.addToWishlist(products.findProductById(prodbean.id))}">
+										<span class="glyphicon glyphicon-star-empty"></span> Wishlist</h:commandLink>
+								</h:panelGroup>
+								<h:panelGroup
+									rendered="#{wishlist.containsItem(prodbean.id) == true}">
+									<h:commandLink>
+										<span class="glyphicon glyphicon-star"></span> Wishlist</h:commandLink>
+								</h:panelGroup>
 							</h:panelGroup>
-							<h:panelGroup rendered="#{wishlist.containsItem(prodbean.id) == true}">
-								<h:commandLink ><span class="glyphicon glyphicon-star"></span> Wishlist</h:commandLink>
-							</h:panelGroup>	
-						</h:panelGroup>					
 						</h:form>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="textContainer">
-                <div class="prodTitle">
+					</div>
+				</div>
+			</div>
 
-                    <h2><b>#{products.findProductById(prodbean.id).title}</b></h2>
-                </div>
+			<div class="textContainer">
+				<div class="prodTitle">
 
-                <div class="prodDescription">
-                    <p>
-                        #{products.findProductById(prodbean.id).description}
-                    </p>
-                </div>
-            </div>
-            
-        </div>
-     	
-     	
-     	
-     	
-     	
-     	
-     	</ui:define>
-     	</ui:composition>
+					<h2>
+						<b>#{products.findProductById(prodbean.id).title}</b>
+					</h2>
+				</div>
+
+				<div class="prodDescription">
+					<p>#{products.findProductById(prodbean.id).description}</p>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>

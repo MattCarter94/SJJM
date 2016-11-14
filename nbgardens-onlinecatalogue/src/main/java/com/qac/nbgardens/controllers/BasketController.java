@@ -18,7 +18,7 @@ public class BasketController {
 	private UserCredentials userCredentials;
 
 	
-	private int quantity;
+	private int quantity = 1;
 	private Integer deleteId;
 
 

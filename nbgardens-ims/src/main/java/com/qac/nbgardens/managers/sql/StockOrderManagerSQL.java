@@ -41,14 +41,20 @@ public class StockOrderManagerSQL implements StockOrderManager{
 		return null;
 	}
 
+//	@Override
+//	public List<StockOrder> findAll() {
+//		EntityManager em = pm.CreateEntityManager();
+//		em.getTransaction().begin();
+//		em.persist(em);
+//		em.getTransaction().commit();
+//		pm.CloseEntityManager(em);
+//		
+//		return null;
+//	}
+
 	@Override
-	public List<StockOrder> findAll() {
-		EntityManager em = pm.CreateEntityManager();
-		em.getTransaction().begin();
-		em.persist(em);
-		em.getTransaction().commit();
-		pm.CloseEntityManager(em);
-		
+	public List<StockOrder> findAllComplete() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -3,6 +3,7 @@ package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -62,7 +63,9 @@ public class SupplierController implements Serializable{
 				}
 				else
 				{
-				listOfSuppliers.get(i).addStockOrder(new StockOrder(supplierId, stockOrderDate, stockRecievedDate, isTheOrderComplete));
+				Boolean isTheOrderComplete;
+				Date stockRecievedDate;
+				listOfSuppliers.get(i).addStockOrder(new StockOrder());
 				}
 				
 				
