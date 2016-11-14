@@ -31,25 +31,40 @@ h1{
 	background-color: #10bcab;
 	height: 300px;
 }
+#row1-1:hover{
+	background-color: #f4511e;
+}
 
 #row1-2{
 	background-color: #1072bc;
 	height: 300px;
+}
+#row1-2:hover{
+	background-color: #f4511e;
 }
 
 #row1-3{
 	background-color: #29b2a4;
 	height: 300px;
 }
+#row1-3:hover{
+	background-color: #f4511e;
+}
 
 #row2-1{
 	background-color: #1c74a0;
 	height: 300px;
 }
+#row2-1:hover{
+	background-color: #f4511e;
+}
 
 #row2-2{
 	background-color: #41838e;
 	height: 300px;
+}
+#row2-2:hover{
+	background-color: #f4511e;
 }
 
 
