@@ -151,7 +151,7 @@ public class InitialData {
 		{	
 			 so1 = new StockOrder(s1, sdf.parse("05-9-2016"), sdf.parse("03-11-2016"), true);
 			 so2 = new StockOrder(s2, sdf.parse("10-10-2016"),sdf.parse("05-11-2016"), true);
-			 so3 = new StockOrder(s3, null, null, false);
+			 so3 = new StockOrder(s3, sdf.parse("03-11-2016"), null, false);
 		} 
 		catch (ParseException e) 
 		{
@@ -253,6 +253,16 @@ public class InitialData {
 	
 	public List<CustomerOrder> getCustomerOrders(){
 		return customerOrders;
+	}
+
+	public void updateStockOrder(StockOrder so) {
+		for(int i=0; i<stockOrders.size(); i++){
+			if(stockOrders.get(i).getStockOrderId() == so.getStockOrderId()){
+				stockOrders.remove(i);
+				stockOrders.add(so);
+			}
+		}
+		
 	}
 
 }

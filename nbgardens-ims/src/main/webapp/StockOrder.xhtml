@@ -1,6 +1,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
 	template="templates/template.xhtml">
 	<ui:define name="content">
 
@@ -26,9 +27,9 @@
 
 
 		<div class="container">
-			<button class="accordion">
+			<h:button class="accordion">
 				<h2>Create a new Stock Order</h2>
-			</button>
+			</h:button>
 			<div class="panel" id="panel">
 				<h3>Select a Supplier:</h3>
 				<ui:repeat var="supplier" value="#{suppliers.suppliers}">
@@ -75,13 +76,17 @@
 
 		<div class="container">
 			<button class="accordion">
-				<h2>Finish a Incomplete Stock Order</h2>
+				<h2>Finish an Incomplete Stock Order</h2>
 			</button>
+			
+			
+
+				
 			<div class="panel" id="panel">
-
-
+				
 
 				<h3>Incomplete Orders</h3>
+				<h:outputText class="noProducts" escape="false" value="No Stock Orders to be complete" rendered="#{incompletestockorders.getIncompleteOrders().size() == 0}" />
 				<ui:repeat var="stockorder"
 					value="#{incompletestockorders.getIncompleteOrders()}">
 					<hr></hr>
@@ -116,10 +121,19 @@
 								</ui:repeat>
 							</table>
 						</div>
-						<button>Complete Order</button>
+<!-- 						#{stockorder.isOrderComplete} -->
+<!-- 						#{stockorder.stockOrderId} -->
+<!-- 						#{stockorders.test} -->
+						<h:form>
+						<h:commandButton value="Complete Order" action="#{stockorders.setComplete(stockorder.stockOrderId)}">
+						</h:commandButton>
+						</h:form>
 					</div>
 				</ui:repeat>
+ 				
 			</div>
+			
+
 		</div>
 
 	</ui:define>

@@ -2,6 +2,7 @@
 package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import javax.enterprise.context.SessionScoped;
@@ -24,7 +25,10 @@ import com.qac.nbgardens.util.Pagination;
 public class StockOrderController implements Serializable{ 
 	@Inject
 	private StockOrderService stockOrderService;
-	private ArrayList<StockOrder> stockOrders = null;		
+	private ArrayList<StockOrder> stockOrders = null;	
+	
+	private Integer completeId = 0;
+	private Integer test = 0;
 
 	public ArrayList<StockOrder> getStockOrders() 
 	{
@@ -32,8 +36,39 @@ public class StockOrderController implements Serializable{
 		{
 			stockOrders = new ArrayList<StockOrder>(stockOrderService.findAllComplete());
 		}
-		
-
 		return stockOrders;
 	}
+	
+	public void setComplete(Integer stockOrderId) throws ParseException{
+		System.out.println("controller");
+//		Integer stockOrderId = completeId;
+		System.out.println(stockOrderId);
+		stockOrderService.setComplete(stockOrderId);
+	}
+
+	public Integer getCompleteId() {
+		return completeId;
+	}
+
+	public void setCompleteId(Integer completeId) {
+		this.completeId = completeId;
+	}
+
+	public void setStockOrders(ArrayList<StockOrder> stockOrders) {
+		this.stockOrders = stockOrders;
+	}
+	
+	public void testButton(){
+		this.test = 1;
+	}
+
+	public Integer getTest() {
+		return test;
+	}
+
+	public void setTest(Integer test) {
+		this.test = test;
+	}
+	
+	
 }
