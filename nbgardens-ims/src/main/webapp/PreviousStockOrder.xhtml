@@ -46,7 +46,7 @@
 				                <th>Total Price</th>
 				            </tr>	        	
 			        	    <h4>Order Lines</h4>   	
-					        <ui:repeat var="stockLine" value="#{stockline.getStockLines(stockorder.stockOrderId)}">
+					        <ui:repeat var="stockLine" value="#{stockorder.stockLines}">
 				                <tr>
 				                    <td>#{stockLine.product.productId}</td>
 				                    <td>#{stockLine.product.getTitle()}</td>

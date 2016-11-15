@@ -40,7 +40,7 @@
 						<h3>#{supplier.supplierName} Products:</h3>
 						<br></br>
 						<ui:repeat var="supplierProducts"
-							value="#{supplierproducts.getSuppliersProducts(supplier.supplierId)}">
+							value="#{supplier.supplierProducts}">
 							<button class="accordion">Supplier Product:
 								#{supplierProducts.getProduct().getTitle()}</button>
 							<div class="panel">

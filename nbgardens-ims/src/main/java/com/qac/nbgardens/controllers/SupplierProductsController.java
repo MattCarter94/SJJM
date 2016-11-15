@@ -3,6 +3,7 @@ package com.qac.nbgardens.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -32,4 +33,8 @@ public class SupplierProductsController implements Serializable{
 		return supplierProducts;
 	}
 
+	
+	
+	
+	
 }

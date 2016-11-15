@@ -131,10 +131,10 @@ public class InitialData {
 
 		
 		//Add supplier products
-		SupplierProduct sp1 = new SupplierProduct(s1.getSupplierId(), p1, 10d, 80d, 700d);
-		SupplierProduct sp2 = new SupplierProduct(s1.getSupplierId(), p2, 20d, 90d, 800d);
-		SupplierProduct sp3 = new SupplierProduct(s2.getSupplierId(), p3, 30d, 100d, 900d);
-		SupplierProduct sp4 = new SupplierProduct(s3.getSupplierId(), p4, 40d, 110d, 1000d);
+		SupplierProduct sp1 = new SupplierProduct(s1, p1, 10d, 80d, 700d);
+		SupplierProduct sp2 = new SupplierProduct(s1, p2, 20d, 90d, 800d);
+		SupplierProduct sp3 = new SupplierProduct(s2, p3, 30d, 100d, 900d);
+		SupplierProduct sp4 = new SupplierProduct(s3, p4, 40d, 110d, 1000d);
 		
 		
 		s1.addSupplierProducts(sp1);

@@ -21,11 +21,12 @@ public class SupplierProduct {
 	@OneToOne
 	@Column (name = "Supplier_ID")  
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer supplierID;
+	private Integer supplierProductID;
 	
-	@Id // Id is for PK
+	@Column (name = "Supplier")
+	private Supplier supplier;
+	
 	@OneToMany //For FK.
-	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
 	private Product product;
 	
@@ -43,9 +44,9 @@ public class SupplierProduct {
 
 	
 	//Constructor
-	public SupplierProduct(Integer supplierID, Product product, double priceFor_1_Unit,
+	public SupplierProduct(Supplier supplier, Product product, double priceFor_1_Unit,
 			double priceFor_10_Unit, double priceFor_100_Unit) {
-		this.supplierID = supplierID;
+		this.supplier = supplier;
 		this.product = product;
 		this.priceFor_1_Unit = priceFor_1_Unit;
 		this.priceFor_10_Unit = priceFor_10_Unit;
@@ -56,12 +57,12 @@ public class SupplierProduct {
 
 	//Getters and Setters
 	
-	public Integer getSupplierID() {
-		return supplierID;
+	public Integer getSupplierProductID() {
+		return supplierProductID;
 	}
 
-	public void setSupplierID(Integer supplierID) {
-		this.supplierID = supplierID;
+	public void setSupplierProductID(Integer supplierID) {
+		this.supplierProductID = supplierID;
 	}
 
 	public double getPriceFor_1_Unit() {
@@ -94,5 +95,13 @@ public class SupplierProduct {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
 	}
 }

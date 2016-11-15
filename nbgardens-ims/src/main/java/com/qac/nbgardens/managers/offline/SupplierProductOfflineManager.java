@@ -36,7 +36,7 @@ public class SupplierProductOfflineManager implements SupplierProductManager {
 			
 			for (Integer i = 0; i < productListSet.size(); i++)
 			{
-				if (productListSet.get(i).getSupplierID() == supplierID)
+				if (productListSet.get(i).getSupplier().getSupplierId() == supplierID)
 					supplierProducts.add(productListSet.get(i));
 			}	
 		}
