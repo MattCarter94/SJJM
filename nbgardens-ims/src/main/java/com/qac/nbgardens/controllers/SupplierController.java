@@ -14,6 +14,7 @@ import javax.inject.Named;
 import com.qac.nbgardens.entities.StockLine;
 import com.qac.nbgardens.entities.StockOrder;
 import com.qac.nbgardens.entities.Supplier;
+import com.qac.nbgardens.service.StockOrderService;
 import com.qac.nbgardens.service.SupplierService;
 import com.qac.nbgardens.util.InitialData;
 
@@ -23,6 +24,9 @@ import com.qac.nbgardens.util.InitialData;
 public class SupplierController implements Serializable{ 
 	@Inject
 	private SupplierService supplierOrderService;
+	@Inject
+	private StockOrderService stockOrderService;
+	
 	private ArrayList<Supplier> suppliers = null;	
 	private InitialData inData = new InitialData();
 	
@@ -56,7 +60,7 @@ public class SupplierController implements Serializable{
 					{
 						if (listofSuppliersStockOrders.get(j).getStockOrderId() == StockOrderId)
 						{
-							listofSuppliersStockOrders.get(j).addStockLine(new StockLine(StockOrderId, ProductId, Quantity, inData.getProducts().get(ProductId - 999)));
+							listofSuppliersStockOrders.get(j).addStockLine(new StockLine(stockOrderService.findStockOrderById(StockOrderId), inData.getProducts().get(ProductId - 999), Quantity));
 						}
 						
 					}

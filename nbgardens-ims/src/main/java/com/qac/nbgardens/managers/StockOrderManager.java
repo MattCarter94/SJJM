@@ -10,5 +10,6 @@ public interface StockOrderManager {
 	public Date getStockOrderDate(Integer stockOrderID);
 	public Date getstockRecievedDate(Integer stockOrderID);
 	public List<StockOrder> findAllComplete();
+	public StockOrder findById(Integer stockId);
 	
 }

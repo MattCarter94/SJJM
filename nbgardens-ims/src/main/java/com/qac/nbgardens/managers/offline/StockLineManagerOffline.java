@@ -31,7 +31,7 @@ public class StockLineManagerOffline implements StockLineManager
 			{
 				for (int i = 0; i < so.getStockLines().size(); i++) 
 				{	
-					if (so.getStockLines().get(i).getStockOrderID() == selectID)
+					if (so.getStockLines().get(i).getStockOrder().getStockOrderId() == selectID)
 						sl.add(so.getStockLines().get(i));
 				}
 			}

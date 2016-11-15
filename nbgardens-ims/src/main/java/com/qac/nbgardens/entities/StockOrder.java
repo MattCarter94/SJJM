@@ -1,27 +1,19 @@
 package com.qac.nbgardens.entities;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
-import com.qac.nbgardens.entities.enums.ProductStatus;
-
-
 
 
 @NamedQueries ({
@@ -47,9 +39,8 @@ public class StockOrder {
 	private Integer stockOrderId;
 	
 	@OneToMany //For FK.
-	@JoinColumn(name="Supplier_ID", nullable = false)
 	@NotNull
-	private Integer supplierId;
+	private Supplier supplier;
 	
 	@Column (name = "Stock_Order_Date")
 	private Date stockOrderDate;
@@ -60,8 +51,8 @@ public class StockOrder {
 	@Column (name = "Is_Order_Complete")
 	private Boolean isOrderComplete;
 
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="supplier")
 	private List<StockLine> stockLines;
-	
 	
 	
 	private static int idCounter = 1;
@@ -70,12 +61,12 @@ public class StockOrder {
 			
 	public StockOrder(){};
 	
-	public StockOrder(Integer supplierId, Date stockOrderDate, Date stockRecievedDate, Boolean isTheOrderComplete) {
+	public StockOrder(Supplier supplier, Date stockOrderDate, Date stockRecievedDate, Boolean isTheOrderComplete) {
 		if (this.stockOrderId == null) {
 			this.stockOrderId = idCounter;
 			idCounter++;
 		}
-		this.supplierId = supplierId;
+		this.supplier = supplier;
 		this.stockOrderDate = stockOrderDate;
 		this.stockRecievedDate = stockRecievedDate;
 		this.stockLines = new ArrayList<StockLine>();
@@ -83,6 +74,24 @@ public class StockOrder {
 	}
 	
 	
+	
+	//Getter and Setters
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
+	public Boolean getIsOrderComplete() {
+		return isOrderComplete;
+	}
+
+	public void setIsOrderComplete(Boolean isOrderComplete) {
+		this.isOrderComplete = isOrderComplete;
+	}
 
 	public Boolean getisOrderComplete() {
 		return isOrderComplete;
@@ -92,21 +101,12 @@ public class StockOrder {
 		this.isOrderComplete = isOrderComplete;
 	}
 	
-	
 	public Integer getStockOrderId() {
 		return stockOrderId;
 	}
 
 	public void setStockOrderId(Integer stockOrderId) {
 		this.stockOrderId = stockOrderId;
-	}
-
-	public Integer getSupplierId() {
-		return supplierId;
-	}
-
-	public void setSupplierId(Integer supplierId) {
-		this.supplierId = supplierId;
 	}
 
 	public Date getStockOrderDate() {

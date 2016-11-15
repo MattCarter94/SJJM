@@ -84,6 +84,20 @@ public class StockOrderOfflineManager implements StockOrderManager {
 		}
 		return so;
 	}
+
+
+
+	@Override
+	public StockOrder findById(Integer stockId) {
+		List<StockOrder> stockOrders = initialData.getStockOrders();
+		StockOrder so = null;
+		for(int i=0; i < stockOrders.size(); i++){
+			if(stockOrders.get(i).getStockOrderId() == stockId){
+				return stockOrders.get(i);
+			}
+		}
+		return null;
+	}
 }
 	
 

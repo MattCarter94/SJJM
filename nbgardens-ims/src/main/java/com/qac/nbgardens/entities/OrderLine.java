@@ -11,54 +11,53 @@ import javax.validation.constraints.NotNull;
 
 public class OrderLine {
 	
-	@Id //ID is for PK
-	@OneToMany //For FK.
-	@Column (name = "Customer_Order_ID")  
-	private Integer customerOrderID;
+	@Id
+	@OneToMany // Many order lines can be linked to one customer order
+	@JoinColumn
+	private CustomerOrder customerOrder;
 
-	@Id //ID is for PK
-	@OneToMany //For FK.
-	@JoinColumn (name = "Product_ID")  
-	private Integer productId;
-
-
+	@Column (name = "Product", nullable = false)
+	@NotNull
+	private Product product;
+	
+	@OneToMany
 	@Column (name = "Quantity", nullable = false)
 	@NotNull
-	private Integer quantity;
+	private int quantity; // The quantity of that specific product
 	
 	@Column (name = "Price", nullable = false)
 	@NotNull
 	private double price;
-	
-	
-	private Product product;
+
 	private final float markup = 1.2f;
 	
 	
-	public OrderLine(Integer customerOrderID, Integer productId, Integer quantity, Product product) {
-		this.customerOrderID = customerOrderID;
-		this.productId = productId;
-		this.quantity = quantity;
-		this.price = (product.getPrice() * quantity) * markup;
+	public OrderLine(CustomerOrder customerOrder, Product product, int quantity) {
+		this.customerOrder = customerOrder;
 		this.product = product;
+		this.quantity = quantity;
+		this.price = product.getPrice()*quantity;
+//		this.price = (product.getPrice() * quantity) * markup;
 	}
 
 	
 	
-	public Integer getCustomerOrderID() {
-		return customerOrderID;
+	//Getter and Setters
+
+	public CustomerOrder getCustomerOrder() {
+		return customerOrder;
 	}
 
-	public void setCustomerOrderID(Integer customerOrderID) {
-		this.customerOrderID = customerOrderID;
+	public void setCustomerOrder(CustomerOrder customerOrder) {
+		this.customerOrder = customerOrder;
 	}
 
-	public Integer getProductId() {
-		return productId;
+	public float getMarkup() {
+		return markup;
 	}
 
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public Integer getQuantity() {

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -37,15 +37,8 @@ public class CustomerOrder {
 	private Integer customerOrderId;
 	
 	@OneToOne //For FK.
-	@JoinColumn(name="Email", nullable = false)
 	@NotNull
-	private String email;
-	
-	@OneToMany //For FK.
-	@JoinColumn(name="AddressID", nullable = false)
-	@NotNull
-	private Integer addressId;
-	
+	private Customer customer;
 	
 	@Column (name = "Order_Date", nullable = false)
 	@NotNull
@@ -56,68 +49,43 @@ public class CustomerOrder {
 	private OrderStatus status;
 	//End of table definition
 	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="customer") //TODO Get Explanation
 	private List<OrderLine> orderLines;
-	private Address	address;
 	
 	
 	// Constructors
-	public CustomerOrder(String email, Integer addressId, Date orderDate, OrderStatus status, Address address) {
-
-		this.email = email;
-		this.addressId = addressId;
+	public CustomerOrder() {}
+	
+	public CustomerOrder(Customer customer, Date orderDate, OrderStatus status) {
+		this.customer = customer;
 		this.orderDate = orderDate;
 		this.status = status;
 		this.orderLines = new ArrayList<OrderLine>();
-		this.address = address;
 	}
 
 
 	
 	//GETTERS AND SETTERS
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	public Integer getAddressId() {
-		return addressId;
-	}
-
-
-	public void setAddressId(Integer addressId) {
-		this.addressId = addressId;
-	}
-
 
 	public Date getOrderDate() {
 		return orderDate;
 	}
 
-
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
-
 
 	public OrderStatus getStatus() {
 		return status;
 	}
 
-
 	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
 
-
 	public List<OrderLine> getOrderLines() {
 		return orderLines;
 	}
-
 
 	public void setOrderLines(List<OrderLine> orderLines) {
 		this.orderLines = orderLines;
@@ -127,23 +95,20 @@ public class CustomerOrder {
 		orderLines.add(o);
 	}
 
-
-	public Address getAddress() {
-		return address;
-	}
-
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-
 	public Integer getCustomerOrderId() {
 		return customerOrderId;
 	}
-	
 
-	
-	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public void setCustomerOrderId(Integer customerOrderId) {
+		this.customerOrderId = customerOrderId;
+	}
 	
 }

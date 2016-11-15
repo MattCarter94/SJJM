@@ -58,4 +58,10 @@ public class StockOrderManagerSQL implements StockOrderManager{
 		return null;
 	}
 
+	@Override
+	public StockOrder findById(Integer stockId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

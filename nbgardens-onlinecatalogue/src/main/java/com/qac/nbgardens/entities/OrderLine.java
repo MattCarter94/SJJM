@@ -1,7 +1,5 @@
 package com.qac.nbgardens.entities;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;

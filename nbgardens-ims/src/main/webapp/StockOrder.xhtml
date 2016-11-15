@@ -105,7 +105,7 @@
 								<ui:repeat var="stockLine"
 									value="#{stockline.getStockLines(stockorder.stockOrderId)}">
 									<tr>
-										<td>#{stockLine.productId}</td>
+										<td>#{stockLine.product.productId}</td>
 										<td>#{stockLine.product.getTitle()}</td>
 										<td>#{stockLine.product.getCategory().toString()}</td>
 										<td>#{stockLine.quantity}</td>

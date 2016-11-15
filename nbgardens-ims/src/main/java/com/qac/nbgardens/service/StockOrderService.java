@@ -24,4 +24,9 @@ public class StockOrderService
 		return stockOrderManager.findAllComplete();
 	}
 	
+	public StockOrder findStockOrderById(Integer stockId){
+		return stockOrderManager.findById(stockId);
+	}
+	
+	
 }

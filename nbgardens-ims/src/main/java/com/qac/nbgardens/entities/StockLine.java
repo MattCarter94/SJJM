@@ -17,50 +17,43 @@ public class StockLine {
 	@Id //ID is for PK
 	@OneToOne
 	@Column (name = "Stock_Order_ID")  
-	private Integer stockOrderID;
+	private StockOrder stockOrder;
 	
-	@Id // Id is for PK
 	@OneToOne //For FK.
-	@JoinColumn(name="Product_ID", nullable = false)
 	@NotNull
-	private Integer productId;
+	private Product product;
 	
 	@Column (name = "Quantity", length = 255)
-	private Integer quantity;
+	private int quantity;
 	
 	@Column (name = "Price", length = 255)
 	private double price;
 	
 	DecimalFormat df = new DecimalFormat("#.##"); 
 	
-	private Product product;
-	
 	public StockLine(){};
 	
-	public StockLine(Integer stockOrderID, Integer productId, Integer quantity, Product product) {
-		this.stockOrderID = stockOrderID;
-		this.productId = productId;
+	public StockLine(StockOrder stockOrder, Product product, int quantity) {
+		this.stockOrder = stockOrder;
+		this.product = product;
 		this.quantity = quantity;
 		this.price = Double.valueOf(df.format(product.getPrice() * quantity));
-		this.product = product;
 	}
 
 
 
-	public Integer getStockOrderID() {
-		return stockOrderID;
+	// Getters and Setters
+
+	public StockOrder getStockOrder() {
+		return stockOrder;
 	}
 
-	public void setStockOrderID(Integer stockOrderID) {
-		this.stockOrderID = stockOrderID;
+	public void setStockOrder(StockOrder stockOrder) {
+		this.stockOrder = stockOrder;
 	}
 
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public Integer getQuantity() {

@@ -1,19 +1,12 @@
 package com.qac.nbgardens.entities;
 
 
-import java.util.ArrayList;
-
-import java.util.List;
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.Id;
-
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-
 import javax.persistence.Table;
 
 
@@ -34,8 +27,6 @@ public class Customer {
 	//@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private String customerEmail;
 	
-	
-	
 	@Column (name = "First_Name", length = 255)
 	private String firstName;
 	
@@ -51,28 +42,31 @@ public class Customer {
 	@Column (name = "Password", length = 255)
 	private String password;
 
-
+	@Column (name = "Card")  
+	private CardDetails card;
 	
-	private List<WishlistProduct> customerWishlistProducts;
-	private List<CustomerCard> customerCards;
-	private List<CustomerAddress> customerAddresses;
-	private List<CustomerOrder> customerOrders;
+	@Column (name = "Address")
+	private Address address;
+	
+	@Column (name = "Wishlist")
+	private WishlistProduct wishlistProduct;
 	
 	//End of variables
 	
+	
+	
 	//Constructors
 	public Customer(String customerEmail, String firstName, String surname,
-			 String phoneNumber, String password) {
+			 String phoneNumber, String password, Address address) {
 		this.customerEmail = customerEmail;
 		this.firstName = firstName;
 		this.surname = surname;
 		this.credit = 10000;
 		this.phoneNumber = phoneNumber;
 		this.password = password;
-		this.customerWishlistProducts = new ArrayList<WishlistProduct>();
-		this.customerCards = new ArrayList<CustomerCard>();
-		this.customerAddresses = new ArrayList<CustomerAddress>();
-		this.customerOrders = new ArrayList<CustomerOrder>();
+		this.wishlistProduct = new WishlistProduct();
+		this.card = new CardDetails();
+		this.address = address;
 	}
 	
 	
@@ -125,48 +119,28 @@ public class Customer {
 		this.password = password;
 	}
 
-	public List<WishlistProduct> getCustomerWishlistProducts() {
-		return customerWishlistProducts;
+	public CardDetails getCard() {
+		return card;
 	}
 
-	public void setCustomerWishlistProducts(List<WishlistProduct> customerWishlistProducts) {
-		this.customerWishlistProducts = customerWishlistProducts;
-	}
-	
-	public void addCustomerWishlistProduct(WishlistProduct w) {
-		this.customerWishlistProducts.add(w);
+	public void setCard(CardDetails card) {
+		this.card = card;
 	}
 
-	public List<CustomerCard> getCustomerCards() {
-		return customerCards;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setCustomerCards(List<CustomerCard> customerCards) {
-		this.customerCards = customerCards;
-	}
-	
-	public void addCustomerCard(CustomerCard c) {
-		this.customerCards.add(c);
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
-	public List<CustomerAddress> getCustomerAddresses() {
-		return customerAddresses;
+	public WishlistProduct getWishlistProduct() {
+		return wishlistProduct;
 	}
 
-	public void setCustomerAddresses(List<CustomerAddress> customerAddresses) {
-		this.customerAddresses = customerAddresses;
-	}
-	
-	public void addCustomerAddress(CustomerAddress c) {
-		this.customerAddresses.add(c);
-	}
-
-	public List<CustomerOrder> getCustomerOrders() {
-		return customerOrders;
-	}
-
-	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
-		this.customerOrders = customerOrders;
+	public void setWishlistProduct(WishlistProduct wishlistProduct) {
+		this.wishlistProduct = wishlistProduct;
 	}
 	
 }

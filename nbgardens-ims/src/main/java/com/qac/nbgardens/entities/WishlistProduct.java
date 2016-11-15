@@ -1,67 +1,57 @@
 package com.qac.nbgardens.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+
+@Entity
+@Table (name = "Wishlist_Product")
 public class WishlistProduct {
 
-	@Id //PK
-	@OneToOne
-	@Column (name = "Email", length = 255)  
-	private String email;
+	@Id //ID is for PK
+	@Column (name = "WishList_Product_ID")  
+	@GeneratedValue (strategy = GenerationType.IDENTITY)	
+	private Integer wpID;
 	
-	@Id //PK
-	@OneToOne
-	@Column (name = "Product", length = 255)  
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer productId;
+	@OneToOne //For FK.
+	@JoinColumn(name="Product_ID", nullable = false)
+	@NotNull
+	private List<Product> products;
 	
 	
-	private Product product;
-
 	
 	//Constructor
-	public WishlistProduct(String email, Integer productId, Product product) {
-		super();
-		this.email = email;
-		this.productId = productId;
-		this.product = product;
+	public WishlistProduct(){
+		this.products = new ArrayList<>();
 	}
 
 
-	
 	//GETTERS & SETTERS
-	public String getEmail() {
-		return email;
+
+	public Integer getWpID() {
+		return wpID;
 	}
 
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setWpID(Integer wpID) {
+		this.wpID = wpID;
 	}
 
-
-	public Integer getProductId() {
-		return productId;
+	public List<Product> getProducts() {
+		return products;
 	}
 
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
-
-
-	public Product getProduct() {
-		return product;
-	}
-
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-	
+		
 }
